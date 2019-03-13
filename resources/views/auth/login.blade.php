@@ -17,7 +17,7 @@
                             <label for="username" class="col-md-4 col-form-label text-md-right" style="font-size: 17px;">ชื่อผู้ใช้</label>
 
                             <div class="col-md-6">
-                                <input id="username" type="text" class="form-control{{ $errors->has('username') ? ' is-invalid' : '' }}" name="username" value="{{ old('username') }}" placeholder="Username" >
+                                <input id="username" onkeypress="checkUsername(event)" type="text" class="form-control{{ $errors->has('username') ? ' is-invalid' : '' }}" name="username" value="{{ old('username') }}" placeholder="Username" >
 
                                 @if ($errors->has('username'))
                                     <span class="invalid-feedback" role="alert">
@@ -31,7 +31,7 @@
                             <label for="password" class="col-md-4 col-form-label text-md-right" style="font-size: 17px;">รหัสผ่าน</label>
 
                             <div class="col-md-6">
-                                <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" placeholder="Password" >
+                                <input id="password" onkeypress="checkUsername(event)" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" placeholder="Password" >
 
                                 @if ($errors->has('password'))
                                     <span class="invalid-feedback" role="alert">
@@ -44,7 +44,7 @@
                         <div class="form-group row">
                             <div class="col-md-6 offset-md-4">
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
+                                    <input class="form-check-input" type="checkbox" name="remember" id="remember"  {{ old('remember') ? 'checked' : '' }}>
 
                                     <label class="form-check-label" style="font-size: 14.5px;" for="remember">
                                         จำรหัสผ่าน
@@ -72,3 +72,32 @@
     </div>
 </div>
 @endsection
+@push('script')
+<script>
+
+    function checkUsername(event) {
+        var x = event.which || event.keyCode;
+        console.log(x)
+
+        if (x >= 0 && x <=47)
+        {
+            event.preventDefault();
+            return  false;
+
+        }else if (x >= 58 && x <= 64){
+            event.preventDefault();
+            return  false;
+
+        }else if (x >= 91 && x <= 96){
+            event.preventDefault();
+            return  false;
+
+        }else if (x >122){
+            event.preventDefault();
+            return  false;
+
+        }
+    }
+
+</script>
+@endpush

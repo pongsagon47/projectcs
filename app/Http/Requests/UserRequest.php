@@ -25,10 +25,9 @@ class UserRequest extends FormRequest
     public function rules()
     {
 
-       $id = request()->route('id');
+        $id = ($this->user()->id);
         return [
-            'username' => 'required|string|max:40|unique:users,username,'. $id,
-            'password' => 'required|string|min:8|max:20|confirmed',
+            'username' => 'required|string|max:40|unique:users,username,'. $this->user()->id,
             'shop_name' => 'required|string|max:255',
             'first_name' => 'required|string|max:255',
             'last_name' => 'required|string|max:255',
@@ -36,9 +35,10 @@ class UserRequest extends FormRequest
             'id_card' => ['required', new UniqeIdCrad($id)],
             'address' => 'required|string|max:255',
             'phone_number' => 'required|string|max:255',
-            'roles_type_id' => 'required',
+            'role_type_id' => 'required',
             'gender' => 'nullable|string|max:255',
         ];
+
     }
     public function messages()
     {
@@ -48,15 +48,15 @@ class UserRequest extends FormRequest
             'username.unique' => 'ชื่อผู้ใช้ถูกใช้ไปแล้ว',
             'password.required' => 'คุณจำเป็นต้องกรอกข้อมูลรหัสผ่าน',
             'password.confirmed' => 'การยืนยันรหัสผ่านไม่ตรงกัน',
-            'password.min' => 'กรุณากรอกรหัสผ่านไม่เกิน 8-20 ตัว',
-            'password.max' => 'กรุณากรอกรหัสผ่านไม่เกิน 8-20 ตัว',
+            'password.min' => 'กรุณากรอกรหัสผ่านไม่เกิน 6-20 ตัว',
+            'password.max' => 'กรุณากรอกรหัสผ่านไม่เกิน 6-20 ตัว',
             'shop_name.required' => 'คุณจำเป็นต้องกรอกข้อมูลชื่อร้าน',
             'first_name.required' => 'คุณจำเป็นต้องกรอกข้อมูลชื่อ',
             'last_name.required' => 'คุณจำเป็นต้องกรอกข้อมูลนามสกุล',
             'nickname.required' => 'คุณจำเป็นต้องกรอกข้อมูลชื่อเล่น',
             'id_card.required' => 'คุณจำเป็นต้องกรอกข้อมูลชื่อ',
             'gender.required' => 'คุณจำเป็นต้องกรอกข้อมูลเพศ',
-            'roles_type_id' => 'คุณจำเป็นต้องกรอกข้อมูลประเภทลูกค้า',
+            'role_type_id' => 'คุณจำเป็นต้องกรอกข้อมูลประเภทลูกค้า',
             'phone_number.required' => 'คุณจำเป็นต้องกรอกข้อมูลหมายเลขโทรศัพท์',
             'address.required' => 'คุณจำเป็นต้องกรอกข้อมูลที่อยู่',
         ];

@@ -79,11 +79,12 @@ class UserController extends Controller
      */
     public function update(UserRequest $request, $id)
     {
-        $user = User::find($id);
+
         $data = $request->all();
         $data['id_card'] = str_replace(" ", "", "$request->id_card");
         $data['phone_number'] = str_replace("-", "", "$request->phone_number");
-
+//
+        $user = User::find($id);
         $user->username = $data['username'];
         $user->password = Hash::make($data['password']);
         $user->shop_name = $data['shop_name'];
@@ -91,29 +92,25 @@ class UserController extends Controller
         $user->last_name = $data['last_name'];
         $user->nickname = $data['nickname'];
         $user->id_card = $data['id_card'];
-        $editUser = [
-            'username' => $data['username'],
-            'password' => Hash::make($data['password']),
-            'shop_name' => $data['shop_name'],
-            'first_name' => $data['first_name'],
-            'last_name' => $data['last_name'],
-            'nickname' => $data['nickname'],
-            'id_card' => $data['id_card'],
-            'phone_number' => $data['phone_number'],
-            'address' => $data['address'],
-            'roles_type_id' => $data['roles_type_id'],
-            'status' => '0',
-        ];
+        $user->phone_number = $data['phone_number'];
+        $user->address = $data['address'];
+        $user->role_type_id = $data['role_type_id'];
+        $user->status = '0';
+
 
         if (empty($data['gender'])) {
-            $editUser += ['gender' => null];
+            $user->gender = null;
         }else {
-            $editUser += ['gender' => $data['gender']];
+            $user->gender = $data['gender'];;
+        }
+        if (!empty($request->password)) {
+            $newPassword = Hash::make($data['password']);
+            $user->password  = $newPassword;
         }
 
-        $user->update($editUser);
+        $user->update();
 
-        return redirect()->route('users.edit')->with('success','สร้าง User สำเร็จ');
+        return redirect()->back()->withSuccess('แก้ไข User สำเร็จ');
 
 
     }

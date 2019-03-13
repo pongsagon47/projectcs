@@ -145,7 +145,7 @@ return [
     */
 
     'attributes' => [
-        'roles_type_id' => 'ประเภทลูกค้า',
+        'role_type_id' => 'ประเภทลูกค้า',
         'nickname' => 'ชื่อเล่น',
         'id_card' => 'เลขบัตรประชาชน',
         'roles_position_id' => 'ตำแหน่ง',

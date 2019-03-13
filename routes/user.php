@@ -21,5 +21,5 @@ Route::group([
     'namespace' => 'BackendUser'
 ],function () {
     Route::get('{id}/edit','UserController@edit')->name('edit');
-    Route::post('{id}/update','UserController@update')->name('update');
+    Route::put('{id}/update','UserController@update')->name('update');
 });

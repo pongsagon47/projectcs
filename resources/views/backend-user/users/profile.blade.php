@@ -5,9 +5,12 @@
     <div class="container">
         <div class="row ">
             <div class="col-md-12">
-                <form method="POST" action="{{ route('users.update',auth()->user()->id) }}" style="padding: 2rem">
+                <form method="POST" action="{{route('users.update',auth()->user()->id)}}" style="padding: 2rem">
                     @csrf
 
+                    {{--@if($errors->any())--}}
+                        {{--@dd($errors->all())--}}
+                    {{--@endif--}}
                     @if(\Session('success'))
                         <div class="alert alert-success">
                             <p>{{\Session::get('success')}}</p>
@@ -67,17 +70,17 @@
                         </div>
 
                         <div class="form-group col-md-4">
-                            <label for="roles_type_id" class=" col-form-label text-md-right">ประเภทลูกค้า</label>
-                            <select id="roles_type_id"
-                                    class="form-control{{ $errors->has('roles_type_id') ? ' is-invalid' : '' }}"
-                                    name="roles_type_id" required>
+                            <label for="role_type_id" class=" col-form-label text-md-right">ประเภทลูกค้า</label>
+                            <select id="role_type_id"
+                                    class="form-control{{ $errors->has('role_type_id') ? ' is-invalid' : '' }}"
+                                    name="role_type_id" required>
                                 <option selected disabled>เลือก...</option>
-                                <option {{ ('2' == $data->roles_type_id) ? 'selected' : '' }} value="2">ร้านเฟรนไชน์</option>
-                                <option {{ ('3' == $data->roles_type_id) ? 'selected' : '' }} value="3">ร้านที่รับไปขาย</option>
+                                <option {{ ('2' == $data->role_type_id) ? 'selected' : '' }} value="2">ร้านเฟรนไชน์</option>
+                                <option {{ ('3' == $data->role_type_id) ? 'selected' : '' }} value="3">ร้านที่รับไปขาย</option>
                             </select>
-                            @if ($errors->has('roles_type_id'))
+                            @if ($errors->has('role_type_id'))
                                 <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('roles_type_id') }}</strong>
+                                        <strong>{{ $errors->first('role_type_id') }}</strong>
                                     </span>
                             @endif
                         </div>
@@ -238,9 +241,9 @@
 
                             <button type="submit" class="btn btn-success" style="font-size: 16px;">บันทึก</button>
 
-
                         </div>
                     </div>
+                    {{method_field('PUT')}}
                 </form>
             </div>
         </div>

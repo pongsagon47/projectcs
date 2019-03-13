@@ -17,11 +17,11 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Athiti:300|K2D:100|Mitr:200" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Athiti:300|K2D:100|Mitr:200" rel="stylesheet" type="text/css">
 
     <!-- Css -->
-    <link href="{{asset('css/bootstrap.min.css')}}" rel="stylesheet" >
-    <link href="{{asset('css/custom.css')}}" rel="stylesheet" >
+    <link href="{{asset('css/bootstrap.min.css')}}" rel="stylesheet" type="text/css">
+    <link href="{{asset('css/custom.css')}}" rel="stylesheet" type="text/css">
 
 </head>
 <body>
