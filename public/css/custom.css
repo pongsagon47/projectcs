@@ -1,0 +1,136 @@
+
+html {
+    background-color: #fff;
+    font-family: 'Nunito','Mitr', sans-serif;
+    font-weight: 200;
+    height: 100vh;
+    margin: 0;
+}
+body {
+    background-color: #fff;
+    font-family: 'Nunito' , 'Mitr' , sans-serif;
+    font-weight: 200;
+    height: 100vh;
+    margin: 0;
+}
+
+.welcome{
+    padding: 5rem;
+}
+
+.footer {
+    padding:5rem
+}
+
+.footer-backgroud {
+    background-color: #ffe6aa !important;
+}
+
+.footer-social {
+    padding:3rem
+}
+
+.form-control:focus {
+    color: #495057;
+    background-color: #fff;
+    border-color: #d1ffbb;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(152, 255, 140, 0.79);
+}
+
+.full-height {
+    height: 30vh;
+}
+
+.flex-center {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
+.position-ref {
+    position: relative;
+}
+
+.top-right {
+    position: absolute;
+    right: 10px;
+    top: 18px;
+}
+
+.content {
+    text-align: center;
+}
+
+.title {
+    font-size: 50px;
+}
+
+.linkslog  {
+
+    color: #636b6f;
+    padding: 0 20px;
+    font-size: 17px;
+    font-weight: 500;
+    letter-spacing: .1rem;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+.linkslog:hover  {
+    color: #d06815;
+    font-size: 18px;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.links  {
+
+    color: #636b6f;
+    padding: 0 20px;
+    font-size: 19px;
+    font-weight: 500;
+    letter-spacing: .1rem;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+.links:hover  {
+    color: #ffde23;
+    font-size: 20px;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.nav-link {
+    display: block;
+    padding: 0.5rem 1rem;
+    font-size: 15.5px;
+    font-weight: 600;
+}
+
+.navbar-light .navbar-nav .nav-link:hover, .navbar-light .navbar-nav .nav-link:focus {
+    color: rgba(0, 48, 2, 0.98);
+    font-size: 16px;
+}
+
+.image {
+    height: 42px;
+    width: 42px
+}
+
+.font-home {
+    font-size: 17px;
+    font-weight: 600;
+    color: #075410;
+}
+
+.font-home:hover {
+    font-size: 18px;
+    font-weight: 600;
+    color: #075410;
+}
+
+.m-b-md {
+    border-color: #50ff3d;
+}
