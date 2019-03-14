@@ -79,8 +79,12 @@
         var x = event.which || event.keyCode;
         console.log(x)
 
-        if (x >= 0 && x <=47)
+        if (x >= 0 && x <=12)
         {
+            event.preventDefault();
+            return  false;
+
+        }else if (x >= 14 && x <= 47){
             event.preventDefault();
             return  false;
 

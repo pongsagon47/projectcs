@@ -14,6 +14,6 @@ return [
     */
 
     'failed' => 'ชื่อผู้ใช้ หรือ รหัสผ่าน ไม่ถูกต้อง',
-    'throttle' => 'Too many login attempts. Please try again in :seconds seconds.',
+    'throttle' => 'มีการพยายามลงชื่อเข้าใช้มากเกินไป โปรดลองอีกครั้งใน :seconds วินาที',
 
 ];

@@ -17,7 +17,7 @@
                                 <label for="username" class="col-md-4 col-form-label text-md-right" style="font-size: 17px;">ชื่อผู้ใช้</label>
 
                                 <div class="col-md-6">
-                                    <input id="username" type="text" class="form-control{{ $errors->has('username') ? ' is-invalid' : '' }}" name="username" value="{{ old('username') }}" required autofocus>
+                                    <input id="username" onkeypress="checkUsername(event)" type="text" class="form-control{{ $errors->has('username') ? ' is-invalid' : '' }}" name="username" value="{{ old('username') }}" required autofocus>
 
                                     @if ($errors->has('username'))
                                         <span class="invalid-feedback" role="alert">
@@ -31,7 +31,7 @@
                                 <label for="password" class="col-md-4 col-form-label text-md-right" style="font-size: 17px;">รหัสผ่าน</label>
 
                                 <div class="col-md-6">
-                                    <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
+                                    <input id="password" onkeypress="checkUsername(event)" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
 
                                     @if ($errors->has('password'))
                                         <span class="invalid-feedback" role="alert">
@@ -74,3 +74,36 @@
         </div>
     </div>
 @endsection
+@push('script')
+<script>
+
+    function checkUsername(event) {
+        var x = event.which || event.keyCode;
+        console.log(x)
+
+        if (x >= 0 && x <=12)
+        {
+            event.preventDefault();
+            return  false;
+
+        }else if (x >= 14 && x <= 47){
+            event.preventDefault();
+            return  false;
+
+        }else if (x >= 58 && x <= 64){
+            event.preventDefault();
+            return  false;
+
+        }else if (x >= 91 && x <= 96){
+            event.preventDefault();
+            return  false;
+
+        }else if (x >122){
+            event.preventDefault();
+            return  false;
+
+        }
+    }
+
+</script>
+@endpush

@@ -44,4 +44,9 @@ class LoginController extends Controller
         $this->middleware('guest')->except('logout');
     }
 
+    public function decayMinutes()
+    {
+        return property_exists($this, 'decayMinutes') ? $this->decayMinutes : 2;
+    }
+
 }

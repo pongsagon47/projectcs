@@ -1,5 +1,5 @@
 @extends('layouts.employee')
-
+@section('title', 'Employee Register')
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
@@ -179,27 +179,27 @@
                                 </div>
                                 <div class="form-group col-md-4">
 
-                                    <label for="roles_position_id" class=" col-form-label text-md-right">ตำแหน่ง</label>
+                                    <label for="role_position_id" class=" col-form-label text-md-right">ตำแหน่ง</label>
 
-                                    <select id="roles_position_id" class="form-control{{ $errors->has('roles_position_id') ? ' is-invalid' : '' }}" name="roles_position_id">
+                                    <select id="role_position_id" class="form-control{{ $errors->has('role_position_id') ? ' is-invalid' : '' }}" name="role_position_id">
                                         <option selected disabled>เลือก...</option>
                                         <option value="2">พนักงานแผนกออเดอร์</option >
                                         <option value="3">หัวหน้าแผนกผลิด</option >
                                         <option value="4">พนักงานแผนกส่งของ</option >
                                     </select>
 
-                                    @if ($errors->has('roles_position_id'))
+                                    @if ($errors->has('role_position_id'))
                                         <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('roles_position_id') }}</strong>
+                                        <strong>{{ $errors->first('role_position_id') }}</strong>
                                     </span>
                                     @endif
                                 </div>
 
                                 <div class="form-group col-md-4">
 
-                                    <label for="roles_kind_room_id" class=" col-form-label text-md-right">ประเภทห้องผลิตขนม</label>
+                                    <label for="role_production_id" class=" col-form-label text-md-right">ประเภทห้องผลิตขนม</label>
 
-                                    <select id="roles_kind_room_id" class="form-control" name="roles_kind_room_id" disabled>
+                                    <select id="role_production_id" class="form-control" name="role_production_id" disabled>
                                         <option selected disabled>เลือก...</option>
                                         <option value="1">ห้องขนมไทย</option >
                                         <option value="2">ห้องขนมโรล</option >
@@ -211,11 +211,10 @@
 
                             <div class="form-group row mb-0" style="margin-top: 30px; margin-left: 30px" >
                                 <div class="col-md-6 offset-md-4 col-sm-6">
-                                    <button type="submit" class="btn btn-success" style="font-size: 16px;">
-                                        ลงทะเบียน
-                                    </button>
+
 
                                     <a class="btn btn-danger" href="{{route('login.employee')}}" style="margin-left: 5px">กลับไปหน้าล็อกอิน</a>
+
                                 </div>
                             </div>
                         </form>

@@ -1,5 +1,5 @@
 @extends('backend-user.layouts.main_dashboard')
-@section('title', 'Homepage')
+@section('title', 'User Profile')
 @section('content')
     <!-- Begin Page Content -->
     <div class="container">
@@ -237,7 +237,7 @@
 
                     <div class="form-group row mb-0" style="margin-top: 30px; margin-left: 30px">
                         <div class="col-md-6 offset-md-4">
-                            <a class="btn btn-danger" href="{{url('/')}}" style="margin-left: 5px">กลับไปหน้าหลัก</a>
+                            <a class="btn btn-danger" href="{{route('home')}}" style="margin-left: 5px">กลับไปหน้าหลัก</a>
 
                             <button type="submit" class="btn btn-success" style="font-size: 16px;">บันทึก</button>
 

@@ -23,7 +23,7 @@ class Employee extends Authenticatable
         'gender',
         'address',
         'phone_number',
-        'roles_position_id',
+        'role_position_id',
         'nickname',
         'id_card',
     ];
@@ -37,8 +37,12 @@ class Employee extends Authenticatable
         'password', 'remember_token',
     ];
 
-    public function role_employee()
+    public function roleEmployee()
     {
-        return $this->belongsTo(Role_employee::class);
+        return $this->belongsTo(RoleEmployee::class);
+    }
+    public function roleProduct()
+    {
+        return $this->belongsTo(RoleProduction::class);
     }
 }

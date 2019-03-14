@@ -25,7 +25,7 @@ class CreateEmployeesTable extends Migration
             $table->string('phone_number');
             $table->string('address');
             $table->integer('role_position_id');
-            $table->integer('role_production')->nullable();
+            $table->integer('role_production_id')->nullable();
             $table->rememberToken();
             $table->timestamps();
             $table->softDeletes();
