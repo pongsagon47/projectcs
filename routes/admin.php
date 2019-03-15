@@ -14,10 +14,42 @@ Route::post('logout/employee', 'Employee\LoginController@logout')->name('logout.
 Route::get('/employee/home', 'EmployeeCotroller@index')->name('employee.home');
 
 Route::group([
-    'prefix' => 'emp',
-    'as' => 'emp.',
+    'prefix' => 'employee',
+    'middleware' => 'auth:employee',
     'namespace' => 'BackendEmp'
 ],function (){
-    Route::get('edit','EmpController@edit')->name('edit');
-    Route::put('update','EmpController@update')->name('update');
+
+    Route::group([
+        'prefix' => 'homepage',
+        'as' => 'homepage.',
+    ],function (){
+        Route::get('/', 'HomeController@index')->name('index');
+    });
+
+    Route::group([
+        'prefix' => 'emp',
+        'as' => 'emp.',
+    ],function (){
+        Route::get('edit','EmpController@edit')->name('edit');
+        Route::put('update','EmpController@update')->name('update');
+    });
+
+    Route::group([
+        'prefix' => 'show',
+        'as' => 'user.',
+        'namespace' => 'CrudUser',
+    ],function (){
+        Route::get('user','UserController@index')->name('index');
+
+    });
+
+    Route::group([
+        'prefix' => 'show',
+        'as' => 'employee.',
+        'namespace' => 'CrudUser',
+    ],function (){
+        Route::get('employee','EmployeeController@index')->name('index');
+    });
+
+
 });

@@ -15,7 +15,7 @@ class RegisterController extends Controller
 {
     use RegistersUsers;
 
-    protected $redirectTo = 'employee/home';
+    protected $redirectTo = 'employee/homepage';
 
     public function __construct()
     {
