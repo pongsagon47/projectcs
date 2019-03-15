@@ -25,11 +25,13 @@ class EmpRequest extends FormRequest
     public function rules()
     {
 
+
         $id = ($this->user()->id);
 
-        return [
+        $password = $this->request->all();
+
+        $rules = [
             'username' => 'required|string|max:255|unique:employees,username,'.$this->user()->id,
-            'password' => 'required|string|min:6|max:20|confirmed',
             'first_name' => 'required|string|max:255',
             'last_name' => 'required|string|max:255',
             'id_card' => ['required',new Empidcard($id)],
@@ -37,8 +39,14 @@ class EmpRequest extends FormRequest
             'gender' => 'nullable|string|max:255',
             'phone_number' => 'required|string|max:255',
             'address' => 'required|string|max:255',
-            'role_position_id' => 'required',
+            'role_employee_id' => 'required',
         ];
+
+        if (!empty($password['password'])) {
+            $rules += ['password' => 'required|string|min:6|confirmed',];
+        };
+
+        return $rules;
     }
 
     public function messages()

@@ -18,6 +18,6 @@ Route::group([
     'as' => 'emp.',
     'namespace' => 'BackendEmp'
 ],function (){
-    Route::get('{id}/edit','EmpController@edit')->name('edit');
-    Route::put('{id}/update','EmpController@update')->name('update');
+    Route::get('edit','EmpController@edit')->name('edit');
+    Route::put('update','EmpController@update')->name('update');
 });

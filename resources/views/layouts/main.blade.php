@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html>
+<html class="html">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -26,7 +26,7 @@
 
 </head>
 
-<body>
+<body class="body">
 <div class="flex-center position-ref full-height">
     @if (Route::has('login'))
         <div class="top-right link-login">

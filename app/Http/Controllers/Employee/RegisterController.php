@@ -52,7 +52,7 @@ class RegisterController extends Controller
     {
         return Validator::make($data, [
             'username' => ['required', 'string' , 'max:255', 'unique:employees'],
-            'password' => ['required', 'string', 'min:8','max:20', 'confirmed'],
+            'password' => ['required', 'string', 'min:6','max:20', 'confirmed'],
             'first_name' => ['required', 'string', 'max:255'],
             'last_name' => ['required', 'string', 'max:255'],
             'id_card' => ['required', 'string', 'max:255', 'unique:employees'],
@@ -60,13 +60,13 @@ class RegisterController extends Controller
             'gender' => 'nullable|string|max:255',
             'phone_number' => ['required', 'string', 'max:255'],
             'address' => ['required', 'string', 'max:255'],
-            'role_position_id' => ['required'],
+            'role_employee_id' => ['required'],
         ],[
             'username.required' => 'คุณจำเป็นต้องกรอกข้อมูลชื่อผู้ใช้',
             'password.required' => 'คุณจำเป็นต้องกรอกข้อมูลรหัสผ่าน',
             'password.confirmed' => 'การยืนยันรหัสผ่านไม่ตรงกัน',
-            'password.min' => 'กรุณากรอกรหัสผ่านไม่เกิน 8-20 ตัว',
-            'password.max' => 'กรุณากรอกรหัสผ่านไม่เกิน 8-20 ตัว',
+            'password.min' => 'กรุณากรอกรหัสผ่านไม่เกิน 6-20 ตัว',
+            'password.max' => 'กรุณากรอกรหัสผ่านไม่เกิน 6-20 ตัว',
             'frist_name.required' => 'คุณจำเป็นต้องกรอกข้อมูลชื่อ',
             'last_name.required' => 'คุณจำเป็นต้องกรอกข้อมูลนามสกุล',
             'gender.required' => 'คุณจำเป็นต้องกรอกข้อมูลเพศ',
@@ -87,7 +87,7 @@ class RegisterController extends Controller
             'id_card' => $data['id_card'],
             'phone_number' => $data['phone_number'],
             'address' => $data['address'],
-            'role_position_id' => $data['role_position_id'],
+            'role_employee_id' => $data['role_employee_id'],
         ];
 
         if (empty($data['gender'])) {

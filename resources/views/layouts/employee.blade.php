@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="th" class="html">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -24,7 +24,7 @@
     <link href="{{asset('css/custom.css')}}" rel="stylesheet" type="text/css">
 
 </head>
-<body>
+<body class="body">
 <div id="app">
     <nav class="navbar navbar-expand-md navbar-light " style="background-color: #ccfd99;">
         <div class="container">

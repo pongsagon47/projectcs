@@ -179,9 +179,9 @@
                                 </div>
                                 <div class="form-group col-md-4">
 
-                                    <label for="role_position_id" class=" col-form-label text-md-right">ตำแหน่ง</label>
+                                    <label for="role_employee_id" class=" col-form-label text-md-right">ตำแหน่ง</label>
 
-                                    <select id="role_position_id" class="form-control{{ $errors->has('role_position_id') ? ' is-invalid' : '' }}" name="role_position_id">
+                                    <select id="role_employee_id" class="form-control{{ $errors->has('role_employee_id') ? ' is-invalid' : '' }}" name="role_employee_id">
                                         <option selected disabled>เลือก...</option>
                                         <option value="2">พนักงานแผนกออเดอร์</option >
                                         <option value="3">หัวหน้าแผนกผลิด</option >
@@ -194,29 +194,15 @@
                                     </span>
                                     @endif
                                 </div>
-
-                                <div class="form-group col-md-4">
-
-                                    <label for="role_production_id" class=" col-form-label text-md-right">ประเภทห้องผลิตขนม</label>
-
-                                    <select id="role_production_id" class="form-control" name="role_production_id" disabled>
-                                        <option selected disabled>เลือก...</option>
-                                        <option value="1">ห้องขนมไทย</option >
-                                        <option value="2">ห้องขนมโรล</option >
-                                        <option value="3">ห้องขนมเค้ก</option >
-                                        <option value="4">ห้องขนมคุกกี้</option >
-                                    </select>
-                                </div>
+                            </div>
+                            <div style="margin-top: 40px";>
+                                <input type="submit" value="Register Account" class="btn btn-primary  btn-block">
+                            </div>
+                            <hr>
+                            <div class="text-center">
+                                <a  href="{{route('login.employee')}}" style="font-size: 16px">กลับไปหน้าล็อกอิน</a>
                             </div>
 
-                            <div class="form-group row mb-0" style="margin-top: 30px; margin-left: 30px" >
-                                <div class="col-md-6 offset-md-4 col-sm-6">
-
-
-                                    <a class="btn btn-danger" href="{{route('login.employee')}}" style="margin-left: 5px">กลับไปหน้าล็อกอิน</a>
-
-                                </div>
-                            </div>
                         </form>
                     </div>
                 </div>

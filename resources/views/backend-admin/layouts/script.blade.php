@@ -20,5 +20,8 @@
 <script src="{{ asset('js/jquery.counterup.min.js') }}" defer></script>
 <script src="{{ asset('js/jquery.waypoints.min.js') }}" defer></script>
 
+{{--Cleave.js--}}
+<script src="{{ asset('cleave.js/dist/cleave.min.js') }}"></script>
+<script src="{{ asset('cleave.js/dist/addons/cleave-phone.th.js') }}"></script>
 
 

@@ -64,8 +64,9 @@ class EmpController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit()
     {
+        $id = auth()->user()->id;
         $data = Employee::find($id);
         return view('backend-admin.employees.profile',compact('data'));
     }
@@ -77,22 +78,22 @@ class EmpController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(EmpRequest $request, $id)
+    public function update(EmpRequest $request)
     {
         $data = $request->all();
         $data['id_card'] = str_replace(" ", "", "$request->id_card");
         $data['phone_number'] = str_replace("-", "", "$request->phone_number");
 
+        $id = auth()->user()->id;
         $user = Employee::find($id);
         $user->username = $data['username'];
-        $user->password = Hash::make($data['password']);
         $user->first_name = $data['first_name'];
         $user->last_name = $data['last_name'];
         $user->nickname = $data['nickname'];
         $user->id_card = $data['id_card'];
         $user->phone_number = $data['phone_number'];
         $user->address = $data['address'];
-        $user->role_position_id = $data['role_position_id'];
+        $user->role_employee_id = $data['role_employee_id'];
 
         if (empty($data['gender'])) {
             $user->gender = null;

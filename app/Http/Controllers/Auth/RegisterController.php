@@ -44,6 +44,7 @@ class RegisterController extends Controller
 
     public function register(Request $request)
     {
+
         $data = $request->all();
         $data['id_card'] = str_replace(" ", "", "$request->id_card");
         $data['phone_number'] = str_replace("-", "", "$request->phone_number");
@@ -77,7 +78,7 @@ class RegisterController extends Controller
             'id_card' => ['required', 'string', 'max:255', 'unique:users'],
             'address' => ['required', 'string', 'max:255'],
             'phone_number' => ['required', 'string', 'max:255'],
-            'role_type_id' => ['required'],
+            'role_id' => ['required'],
             'gender' => 'nullable|string|max:255',
 
         ],[
@@ -94,7 +95,7 @@ class RegisterController extends Controller
             'id_card.required' => 'คุณจำเป็นต้องกรอกข้อมูลชื่อ',
             'id_card.unique' => 'เลขบัตรประชาชนถูกใช้ไปแล้ว',
             'gender.required' => 'คุณจำเป็นต้องกรอกข้อมูลเพศ',
-            'role_type_id' => 'คุณจำเป็นต้องกรอกข้อมูลประเภทลูกค้า',
+            'role_id' => 'คุณจำเป็นต้องกรอกข้อมูลประเภทลูกค้า',
             'phone_number.required' => 'คุณจำเป็นต้องกรอกข้อมูลหมายเลขโทรศัพท์',
             'address.required' => 'คุณจำเป็นต้องกรอกข้อมูลที่อยู่',
 
@@ -119,7 +120,7 @@ class RegisterController extends Controller
             'id_card' => $data['id_card'],
             'phone_number' => $data['phone_number'],
             'address' => $data['address'],
-            'role_type_id' => $data['role_type_id'],
+            'role_id' => $data['role_id'],
             'status' => '0',
         ];
 

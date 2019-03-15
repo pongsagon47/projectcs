@@ -26,7 +26,10 @@ class UserRequest extends FormRequest
     {
 
         $id = ($this->user()->id);
-        return [
+
+        $password = $this->request->all();
+
+        $rules = [
             'username' => 'required|string|max:40|unique:users,username,'. $this->user()->id,
             'shop_name' => 'required|string|max:255',
             'first_name' => 'required|string|max:255',
@@ -35,9 +38,15 @@ class UserRequest extends FormRequest
             'id_card' => ['required', new UniqeIdCrad($id)],
             'address' => 'required|string|max:255',
             'phone_number' => 'required|string|max:255',
-            'role_type_id' => 'required',
+            'role_id' => 'required',
             'gender' => 'nullable|string|max:255',
         ];
+
+        if (!empty($password['password'])) {
+            $rules += ['password' => 'required|string|min:6|confirmed',];
+        };
+
+        return $rules;
 
     }
     public function messages()

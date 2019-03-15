@@ -5,12 +5,10 @@
     <div class="container">
         <div class="row ">
             <div class="col-md-12">
-                <form method="POST" action="{{route('users.update',auth()->user()->id)}}" style="padding: 2rem">
+
+                <form method="POST" action="{{route('users.update')}}" style="padding: 2rem">
                     @csrf
 
-                    {{--@if($errors->any())--}}
-                        {{--@dd($errors->all())--}}
-                    {{--@endif--}}
                     @if(\Session('success'))
                         <div class="alert alert-success">
                             <p>{{\Session::get('success')}}</p>
@@ -70,17 +68,17 @@
                         </div>
 
                         <div class="form-group col-md-4">
-                            <label for="role_type_id" class=" col-form-label text-md-right">ประเภทลูกค้า</label>
-                            <select id="role_type_id"
+                            <label for="role_id" class=" col-form-label text-md-right">ประเภทลูกค้า</label>
+                            <select id="role_id"
                                     class="form-control{{ $errors->has('role_type_id') ? ' is-invalid' : '' }}"
-                                    name="role_type_id" required>
+                                    name="role_id" required>
                                 <option selected disabled>เลือก...</option>
-                                <option {{ ('2' == $data->role_type_id) ? 'selected' : '' }} value="2">ร้านเฟรนไชน์</option>
-                                <option {{ ('3' == $data->role_type_id) ? 'selected' : '' }} value="3">ร้านที่รับไปขาย</option>
+                                <option {{ ('2' == $data->role_id) ? 'selected' : '' }} value="2">ร้านเฟรนไชน์</option>
+                                <option {{ ('3' == $data->role_id) ? 'selected' : '' }} value="3">ร้านที่รับไปขาย</option>
                             </select>
-                            @if ($errors->has('role_type_id'))
+                            @if ($errors->has('role_id'))
                                 <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('role_type_id') }}</strong>
+                                        <strong>{{ $errors->first('role_id') }}</strong>
                                     </span>
                             @endif
                         </div>
@@ -235,14 +233,14 @@
                         </div>
                     </div>
 
-                    <div class="form-group row mb-0" style="margin-top: 30px; margin-left: 30px">
-                        <div class="col-md-6 offset-md-4">
-                            <a class="btn btn-danger" href="{{route('home')}}" style="margin-left: 5px">กลับไปหน้าหลัก</a>
+                    <input type="submit" value="บันทึก" class="btn btn-primary btn-user btn-block">
 
-                            <button type="submit" class="btn btn-success" style="font-size: 16px;">บันทึก</button>
-
-                        </div>
+                    <hr>
+                    <div class="text-center">
+                        <a style="font-size: 15px" href="{{route('login')}}">Back to dashboard</a>
                     </div>
+
+
                     {{method_field('PUT')}}
                 </form>
             </div>

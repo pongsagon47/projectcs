@@ -64,8 +64,9 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit()
     {
+       $id = auth()->user()->id;
         $data = User::find($id);
         return view('backend-user.users.profile', compact('data'));
     }
@@ -77,8 +78,9 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(UserRequest $request, $id)
+    public function update(UserRequest $request)
     {
+        $id = auth()->user()->id;
 
         $data = $request->all();
         $data['id_card'] = str_replace(" ", "", "$request->id_card");
@@ -86,7 +88,6 @@ class UserController extends Controller
 //
         $user = User::find($id);
         $user->username = $data['username'];
-        $user->password = Hash::make($data['password']);
         $user->shop_name = $data['shop_name'];
         $user->first_name = $data['first_name'];
         $user->last_name = $data['last_name'];
@@ -94,7 +95,7 @@ class UserController extends Controller
         $user->id_card = $data['id_card'];
         $user->phone_number = $data['phone_number'];
         $user->address = $data['address'];
-        $user->role_type_id = $data['role_type_id'];
+        $user->role_id = $data['role_id'];
         $user->status = '0';
 
 

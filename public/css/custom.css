@@ -1,12 +1,12 @@
 
-html {
+.html {
     background-color: #fff;
     font-family: 'Nunito','Mitr', sans-serif;
     font-weight: 200;
     height: 100vh;
     margin: 0;
 }
-body {
+.body {
     background-color: #fff;
     font-family: 'Nunito' , 'Mitr' , sans-serif;
     font-weight: 200;

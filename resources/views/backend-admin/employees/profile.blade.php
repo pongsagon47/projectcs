@@ -5,7 +5,7 @@
         <div class="row justify-content-center">
             <div class="col-md-12">
 
-                <form method="POST" action="{{ route('emp.update',auth()->user()->id) }}" style="padding: 1.3rem">
+                <form method="POST" action="{{ route('emp.update') }}" style="padding: 1.3rem">
                     @csrf
 
                     @if(\Session('success'))
@@ -198,49 +198,37 @@
                         </div>
                         <div class="form-group col-md-4">
 
-                            <label for="role_position_id" class=" col-form-label text-md-right">ตำแหน่ง</label>
+                            <label for="role_employee_id" class=" col-form-label text-md-right">ตำแหน่ง</label>
 
-                            <select id="role_position_id"
-                                    class="form-control{{ $errors->has('role_position_id') ? ' is-invalid' : '' }}"
-                                    name="role_position_id">
+                            <select id="role_employee_id"
+                                    class="form-control{{ $errors->has('role_employee_id') ? ' is-invalid' : '' }}"
+                                    name="role_employee_id">
                                 <option selected disabled>เลือก...</option>
-                                <option  {{ ('2' == $data->role_position_id) ? 'selected' : '' }} value="2">พนักงานแผนกออเดอร์</option>
-                                <option  {{ ('3' == $data->role_position_id) ? 'selected' : '' }} value="3">หัวหน้าแผนกผลิด</option>
-                                <option  {{ ('4' == $data->role_position_id) ? 'selected' : '' }} value="4">พนักงานแผนกส่งของ</option>
+                                <option  {{ ('2' == $data->role_employee_id) ? 'selected' : '' }} value="2">พนักงานแผนกออเดอร์</option>
+                                <option  {{ ('3' == $data->role_employee_id) ? 'selected' : '' }} value="3">หัวหน้าห้องขนมไทย</option>
+                                <option  {{ ('4' == $data->role_employee_id) ? 'selected' : '' }} value="4">หัวหน้าห้องขนมโรล</option>
+                                <option  {{ ('5' == $data->role_employee_id) ? 'selected' : '' }} value="5">หัวหน้าห้องขนมเค้ก</option>
+                                <option  {{ ('6' == $data->role_employee_id) ? 'selected' : '' }} value="6">หหัวหน้าห้องขนมคุกกี้</option>
+                                <option  {{ ('7' == $data->role_employee_id) ? 'selected' : '' }} value="7">พนักงานแผนกส่งของ</option>
                             </select>
 
-                            @if ($errors->has('role_position_id'))
+                            @if ($errors->has('role_employee_id'))
                                 <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('role_position_id') }}</strong>
+                                        <strong>{{ $errors->first('role_employee_id') }}</strong>
                                     </span>
                             @endif
                         </div>
 
-                        <div class="form-group col-md-4">
-
-                            <label for="role_production_id"
-                                   class=" col-form-label text-md-right">ประเภทห้องผลิตขนม</label>
-
-                            <select id="role_production_id" class="form-control" name="role_production_id" disabled>
-                                <option selected disabled>เลือก...</option>
-                                <option value="1">ห้องขนมไทย</option>
-                                <option value="2">ห้องขนมโรล</option>
-                                <option value="3">ห้องขนมเค้ก</option>
-                                <option value="4">ห้องขนมคุกกี้</option>
-                            </select>
-                        </div>
                     </div>
 
-                    <div class="form-group row mb-0" style="margin-top: 30px; margin-left: 30px">
-                        <div class="col-md-6 offset-md-4 col-sm-6">
-
-                            <a class="btn btn-danger" href="{{route('employee.home')}}" style="margin-left: 5px">กลับไปหน้าล็อกอิน</a>
-
-                            <button type="submit" class="btn btn-success" style="font-size: 16px;">
-                                ลงทะเบียน
-                            </button>
-                        </div>
+                    <div style="margin-top: 40px";>
+                        <input type="submit" value="บันทึก" class="btn btn-primary  btn-block">
                     </div>
+                    <hr>
+                    <div class="text-center">
+                        <a  href="{{route('employee.home')}}" style="font-size: 15px">Back to dashboard</a>
+                    </div>
+
                     {{method_field('PUT')}}
                 </form>
             </div>
