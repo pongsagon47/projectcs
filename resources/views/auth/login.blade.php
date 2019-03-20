@@ -62,6 +62,12 @@
                                         &nbsp; &nbsp;
                                         <a style="font-size: 15px;" href="{{route('register')}}">สมัครสมาชิก</a>
                                     </div>
+                                    <hr>
+                                    <div class="text-center">
+                                        <a class="btn btn-link" href="{{ route('password.request') }}" style="font-size: 14px;">
+                                            {{ __('Forgot Your Password?') }}
+                                        </a>
+                                    </div>
                             </div>
                         </div>
                     </div>
@@ -128,11 +134,7 @@
                                 {{--<input type="submit" value="ล็อกอิน" class="btn btn-success">--}}
 
 
-                                {{--@if (Route::has('password.request'))--}}
-                                    {{--<a class="btn btn-link" href="{{ route('password.request') }}">--}}
-                                        {{--{{ __('Forgot Your Password?') }}--}}
-                                    {{--</a>--}}
-                                {{--@endif--}}
+
                             {{--</div>--}}
                         {{--</div>--}}
                     {{--</form>--}}

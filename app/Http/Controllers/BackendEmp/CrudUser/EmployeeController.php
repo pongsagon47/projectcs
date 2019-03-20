@@ -10,7 +10,7 @@ class EmployeeController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth:employee');
+//        $this->middleware('auth:employee');
     }
 
     /**

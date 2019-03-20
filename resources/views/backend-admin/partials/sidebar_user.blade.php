@@ -18,7 +18,7 @@
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Dashboard</span></a>
     </li>
-@if(auth()->user()->role_employee_id)
+@if(auth()->user()->role_employee_id == 1)
     <!-- Divider -->
     <hr class="sidebar-divider">
 

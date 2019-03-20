@@ -15,7 +15,7 @@ Route::get('/employee/home', 'EmployeeCotroller@index')->name('employee.home');
 
 Route::group([
     'prefix' => 'employee',
-    'middleware' => 'auth:employee',
+    'middleware' => 'employee:employee',
     'namespace' => 'BackendEmp'
 ],function (){
 
