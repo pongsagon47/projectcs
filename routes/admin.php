@@ -20,13 +20,6 @@ Route::group([
 ],function (){
 
     Route::group([
-        'prefix' => 'homepage',
-        'as' => 'homepage.',
-    ],function (){
-        Route::get('/', 'HomeController@index')->name('index');
-    });
-
-    Route::group([
         'prefix' => 'emp',
         'as' => 'emp.',
     ],function (){

@@ -13,12 +13,12 @@
     <hr class="sidebar-divider my-0">
 
     <!-- Nav Item - Dashboard -->
-    <li class="nav-item active">
-        <a class="nav-link" href="index.html">
+    <li class="nav-item {{ Route::currentRouteName() === 'employee.home'  ? 'active' : null }}">
+        <a class="nav-link" href="{{route('employee.home')}}">
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Dashboard</span></a>
     </li>
-
+@if(auth()->user()->role_employee_id)
     <!-- Divider -->
     <hr class="sidebar-divider">
 
@@ -29,22 +29,23 @@
 
 
     <!-- Nav Item - Utilities Collapse Menu -->
-    <li class="nav-item" >
+    <li class="nav-item {{ Route::currentRouteName() === 'user.index'|| Route::currentRouteName() === 'employee.index' ? 'active' : null }}" >
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
             <i class="fas fa-fw fa-wrench"></i>
             <span>ข้อมูลผู้ใช้</span>
         </a>
-        <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+        <div id="collapseUtilities" class="collapse {{ Route::currentRouteName() === 'user.index'|| Route::currentRouteName() === 'employee.index' ? 'show' : null }}" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">ข้อมูลผู้ใช้</h6>
-                <a class="collapse-item" href="{{route('user.index')}}">ข้อมูลลูกค้า</a>
-                <a class="collapse-item" href="{{route('employee.index')}}">ข้อมูลพนักงาน</a>
+                <a class="collapse-item {{ Route::currentRouteName() === 'user.index' ? 'active' : null }}" href="{{route('user.index')}}">ข้อมูลลูกค้า</a>
+                <a class="collapse-item {{ Route::currentRouteName() === 'employee.index' ? 'active' : null }}" href="{{route('employee.index')}}">ข้อมูลพนักงาน</a>
             </div>
         </div>
     </li>
 
     <!-- Divider -->
     <hr class="sidebar-divider d-none d-md-block">
+@endif
 
     <!-- Sidebar Toggler (Sidebar) -->
     <div class="text-center d-none d-md-inline">
