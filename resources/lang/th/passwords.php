@@ -13,10 +13,10 @@ return [
     |
     */
 
-    'password' => 'Passwords must be at least six characters and match the confirmation.',
-    'reset' => 'Your password has been reset!',
-    'sent' => 'We have e-mailed your password reset link!',
-    'token' => 'This password reset token is invalid.',
-    'user' => "We can't find a user with that e-mail address.",
+    'password' => 'รหัสผ่านต้องมีอย่างน้อยหกตัวและตรงกับการยืนยัน',
+    'reset' => 'รหัสผ่านของคุณถูกรีเซ็ต!',
+    'sent' => 'เราได้ส่งลิงค์รีเซ็ตรหัสผ่านของคุณทางอีเมล์',
+    'token' => 'โทเค็นรีเซ็ตรหัสผ่านนี้ไม่ถูกต้อง',
+    'user' => "เราไม่พบผู้ใช้ด้วยที่อยู่อีเมลนั้น",
 
 ];
