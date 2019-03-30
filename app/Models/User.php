@@ -21,6 +21,7 @@ class User extends Authenticatable
          'username',
          'password',
          'shop_name',
+         'email',
          'first_name',
          'last_name',
          'nickname',
@@ -40,4 +41,9 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    protected $casts = [
+        'email_verified_at' => 'datetime',
+    ];
+
 }

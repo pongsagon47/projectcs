@@ -95,6 +95,24 @@
                                     </div>
 
                                     <div class="form-group">
+                                        <label for="email" class=" col-form-label text-md-right" style="font-size: 16.8px;" >ที่อยู่</label>
+
+                                        <div>
+                                            <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" >
+
+                                            <small id="passwordHelpBlock" class="form-text text-muted">
+                                                <span style="color:red">*</span> กรุณากรอกอีเมล์ให้ถูกต้อง
+                                            </small>
+
+                                            @if ($errors->has('email'))
+                                                <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $errors->first('email') }}</strong>
+                                        </span>
+                                            @endif
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
                                         <label for="gender" class=" col-form-label text-md-right" style="font-size: 16.8px;" >เพศ</label>
 
                                         <div>
