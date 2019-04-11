@@ -102,6 +102,27 @@
                     </div>
 
                     <div class="form-group">
+                        <label for="email" class=" col-form-label text-md-right"
+                               style="font-size: 16.8px;">G-mail่</label>
+
+                        <div>
+                            <input id="email" type="text"
+                                   class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email"
+                                   value="{{ array_get($data,'email') }}">
+
+                            <small id="passwordHelpBlock" class="form-text text-muted">
+                                <span style="color:red">*</span> กรุณากรอกที่อยู่ให้ถูกต้อง
+                            </small>
+
+                            @if ($errors->has('email'))
+                                <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $errors->first('email') }}</strong>
+                                        </span>
+                            @endif
+                        </div>
+                    </div>
+
+                    <div class="form-group">
                         <label for="gender" class=" col-form-label text-md-right" style="font-size: 16.8px;">เพศ</label>
 
                         <div>

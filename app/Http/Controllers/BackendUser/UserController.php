@@ -89,6 +89,7 @@ class UserController extends Controller
         $user = User::find($id);
         $user->username = $data['username'];
         $user->shop_name = $data['shop_name'];
+        $user->email = $data['email'];
         $user->first_name = $data['first_name'];
         $user->last_name = $data['last_name'];
         $user->nickname = $data['nickname'];

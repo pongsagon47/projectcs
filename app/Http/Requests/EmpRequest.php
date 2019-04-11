@@ -34,6 +34,7 @@ class EmpRequest extends FormRequest
             'username' => 'required|string|max:255|unique:employees,username,'.$this->user()->id,
             'first_name' => 'required|string|max:255',
             'last_name' => 'required|string|max:255',
+            'email' => 'required|string|max:255|unique:employees,email,'.$this->user()->id,
             'id_card' => ['required',new Empidcard($id)],
             'nickname' => 'required|string|max:255',
             'gender' => 'nullable|string|max:255',

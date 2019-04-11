@@ -32,6 +32,7 @@ class UserRequest extends FormRequest
         $rules = [
             'username' => 'required|string|max:40|unique:users,username,'. $this->user()->id,
             'shop_name' => 'required|string|max:255',
+            'email' => 'required|string|max:255|unique:users,email,'. $this->user()->id,
             'first_name' => 'required|string|max:255',
             'last_name' => 'required|string|max:255',
             'nickname' => 'required|string|max:255',
