@@ -17,7 +17,7 @@
                                 <label for="username" class="col-md-4 col-form-label text-md-right" style="font-size: 17px;">ชื่อผู้ใช้</label>
 
                                 <div class="col-md-6">
-                                    <input id="username" onkeypress="checkUsername(event)" type="text" class="form-control{{ $errors->has('username') ? ' is-invalid' : '' }}" name="username" value="{{ old('username') }}" required autofocus>
+                                    <input id="username" onkeypress="checkUsername(event)" type="text" class="form-control{{ $errors->has('username') ? ' is-invalid' : '' }}" name="username" value="{{ old('username') }}" >
 
                                     @if ($errors->has('username'))
                                         <span class="invalid-feedback" role="alert">
@@ -31,7 +31,7 @@
                                 <label for="password" class="col-md-4 col-form-label text-md-right" style="font-size: 17px;">รหัสผ่าน</label>
 
                                 <div class="col-md-6">
-                                    <input id="password" onkeypress="checkUsername(event)" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
+                                    <input id="password" onkeypress="checkUsername(event)" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" >
 
                                     @if ($errors->has('password'))
                                         <span class="invalid-feedback" role="alert">
@@ -57,12 +57,10 @@
                                 <div class="col-md-8 offset-md-4">
                                     <input type="submit" value="ล็อกอิน" class="btn btn-success">
 
+                                    <a class="btn btn-link" href="{{ route('emp.password.request') }}">
+                                    {{ __('Forgot Your Password?') }}
+                                    </a>
 
-                                    {{--@if (Route::has('password.request'))--}}
-                                    {{--<a class="btn btn-link" href="{{ route('password.request') }}">--}}
-                                    {{--{{ __('Forgot Your Password?') }}--}}
-                                    {{--</a>--}}
-                                    {{--@endif--}}
                                 </div>
                             </div>
                         </form>

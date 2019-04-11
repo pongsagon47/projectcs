@@ -95,7 +95,7 @@
                                     </div>
 
                                     <div class="form-group">
-                                        <label for="email" class=" col-form-label text-md-right" style="font-size: 16.8px;" >ที่อยู่</label>
+                                        <label for="email" class=" col-form-label text-md-right" style="font-size: 16.8px;" >G-mail</label>
 
                                         <div>
                                             <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" >

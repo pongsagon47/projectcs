@@ -1,8 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+namespace App\Http\Controllers\Employee;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Password;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Foundation\Auth\ResetsPasswords;
 
 class ResetPasswordController extends Controller
@@ -25,7 +28,7 @@ class ResetPasswordController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = 'employee/home';
 
     /**
      * Create a new controller instance.
@@ -35,6 +38,23 @@ class ResetPasswordController extends Controller
     public function __construct()
     {
         $this->middleware('guest:employee');
+    }
+
+    public function showResetForm(Request $request, $token = null)
+    {
+        return view('employee.passwords.reset')->with(
+            ['token' => $token, 'email' => $request->email]
+        );
+    }
+
+    public function broker()
+    {
+        return Password::broker('employees');
+    }
+
+    protected function guard()
+    {
+        return Auth::guard('employee');
     }
 
 

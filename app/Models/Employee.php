@@ -2,6 +2,8 @@
 
 namespace App\Models;
 
+use App\Notifications\AdminResetPasswordNotification;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -19,6 +21,7 @@ class Employee extends Authenticatable
     protected $fillable = [
         'username',
         'password',
+        'email',
         'first_name',
         'last_name',
         'gender',
@@ -38,9 +41,18 @@ class Employee extends Authenticatable
         'password', 'remember_token',
     ];
 
+    protected $casts = [
+        'email_verified_at' => 'datetime',
+    ];
+
     public function role_employee()
     {
         return $this->belongsTo(RoleEmployee::class);
+    }
+
+    public function sendPasswordResetNotification($token)
+    {
+        $this->notify(new AdminResetPasswordNotification($token));
     }
 
 }

@@ -11,6 +11,11 @@ Route::get('login/employee', 'Employee\LoginController@showLoginForm')->name('lo
 Route::post('login/employee', 'Employee\LoginController@login');
 Route::post('logout/employee', 'Employee\LoginController@logout')->name('logout.employee');
 
+Route::get('employee/password/reset', 'Employee\ForgotPasswordController@showLinkRequestForm')->name('emp.password.request');
+Route::post('employee/password/email', 'Employee\ForgotPasswordController@sendResetLinkEmail')->name('emp.password.email');
+Route::get('employee/password/reset/{token}', 'Employee\ResetPasswordController@showResetForm')->name('emp.password.reset');
+Route::post('employee/password/reset', 'Employee\ResetPasswordController@reset')->name('emp.password.update');
+
 Route::get('/employee/home', 'EmployeeCotroller@index')->name('employee.home');
 
 Route::group([

@@ -1,11 +1,11 @@
-@extends('layouts.login')
+@extends('layouts.employee')
 
 @section('content')
 
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8" style="margin-top: 60px;">
-            <div class="card o-hidden border-0 shadow-lg my-5">
+        <div class="col-md-8">
+            <div class="card">
                 <div class="card-header">{{ __('Reset Password') }}</div>
 
                 <div class="card-body">
@@ -15,7 +15,7 @@
                         </div>
                     @endif
 
-                    <form method="POST" action="{{ route('password.email') }}">
+                    <form method="POST" action="{{ route('emp.password.email') }}">
                         @csrf
 
                         <div class="form-group row">
@@ -44,9 +44,9 @@
 
                         <div class="text-center " style="margin-top: 40px;">
                             <hr>
-                            <a style="font-size: 15px;"  href="{{route('login')}}">กลับหน้าล็อกอิน</a>
+                            <a style="font-size: 15px;"  href="{{route('login.employee')}}">กลับหน้าล็อกอิน</a>
                             &nbsp; &nbsp;
-                            <a style="font-size: 15px;" href="{{route('register')}}">สมัครสมาชิก</a>
+                            <a style="font-size: 15px;" href="{{route('register.employee')}}">สมัครสมาชิก</a>
                         </div>
 
                 </div>

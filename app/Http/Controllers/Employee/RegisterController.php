@@ -15,7 +15,7 @@ class RegisterController extends Controller
 {
     use RegistersUsers;
 
-    protected $redirectTo = 'employee/homepage';
+    protected $redirectTo = 'employee/home';
 
     public function __construct()
     {
@@ -53,6 +53,7 @@ class RegisterController extends Controller
         return Validator::make($data, [
             'username' => ['required', 'string' , 'max:255', 'unique:employees'],
             'password' => ['required', 'string', 'min:6','max:20', 'confirmed'],
+            'email' => ['required', 'string' , 'max:255', 'unique:employees'],
             'first_name' => ['required', 'string', 'max:255'],
             'last_name' => ['required', 'string', 'max:255'],
             'id_card' => ['required', 'string', 'max:255', 'unique:employees'],
@@ -81,6 +82,7 @@ class RegisterController extends Controller
         $create = [
             'username' => $data['username'],
             'password' => Hash::make($data['password']),
+            'email' => $data['email'],
             'first_name' => $data['first_name'],
             'last_name' => $data['last_name'],
             'nickname' => $data['nickname'],
@@ -98,15 +100,5 @@ class RegisterController extends Controller
 
         return Employee::create($create);
 
-//        return Employee::create([
-//            'username' => $data['username'],
-//            'password' => Hash::make($data['password']),
-//            'frist_name' => $data['frist_name'],
-//            'last_name' => $data['last_name'],
-//            'gender' => $data['gender'],
-//            'phone_number' => $data['phone_number'],
-//            'address' => $data['address'],
-//            'roles_position_id' => $data['roles_position_id'],
-//        ]);
     }
 }
