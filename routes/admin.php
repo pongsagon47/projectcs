@@ -28,8 +28,8 @@ Route::group([
         'prefix' => 'emp',
         'as' => 'emp.',
     ],function (){
-        Route::get('edit','EmpController@edit')->name('edit');
-        Route::put('update','EmpController@update')->name('update');
+        Route::get('edit','ProfileEmpController@edit')->name('edit');
+        Route::put('update','ProfileEmpController@update')->name('update');
     });
 
     Route::group([
@@ -47,6 +47,7 @@ Route::group([
         'namespace' => 'CrudUser',
     ],function (){
         Route::get('employee','EmployeeController@index')->name('index');
+        Route::get('{id}/employee/detail','EmployeeController@show')->name('detail');
     });
 
 

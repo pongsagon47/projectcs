@@ -42,23 +42,6 @@ class RegisterController extends Controller
         $this->middleware('guest');
     }
 
-    public function register(Request $request)
-    {
-
-        $data = $request->all();
-        $data['id_card'] = str_replace(" ", "", "$request->id_card");
-        $data['phone_number'] = str_replace("-", "", "$request->phone_number");
-
-        $this->validator($data)->validate();
-
-        event(new Registered($user = $this->create($data)));
-
-        $this->guard()->login($user);
-
-        return $this->registered($request, $user)
-            ?: redirect($this->redirectPath());
-    }
-
     /**
      * Get a validator for an incoming registration request.
      *

@@ -15,7 +15,6 @@
 <script src="{{asset('sb-admin2/js/demo/chart-area-demo.js')}}"></script>
 <script src="{{asset('sb-admin2/js/demo/chart-pie-demo.js')}}"></script>
 
-
 <!-- Counter-Up-->
 <script src="{{ asset('js/jquery.counterup.min.js') }}" defer></script>
 <script src="{{ asset('js/jquery.waypoints.min.js') }}" defer></script>

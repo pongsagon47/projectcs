@@ -32,6 +32,8 @@ class Employee extends Authenticatable
         'id_card',
     ];
 
+    protected $dates = ['deleted_at'];
+
     /**
      * The attributes that should be hidden for arrays.
      *

@@ -1,13 +1,16 @@
 <?php
 
-namespace App\Http\Controllers\BackendEmp\CrudUser;
+namespace App\Http\Controllers\BackendEmp;
 
+use App\Http\Requests\EmpRequest;
 use App\Models\Employee;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Hash;
 
-class EmployeeController extends Controller
+class ProfileEmpController extends Controller
 {
+
     public function __construct()
     {
 //        $this->middleware('auth:employee');
@@ -20,10 +23,7 @@ class EmployeeController extends Controller
      */
     public function index()
     {
-        $data = Employee::where('id', '!=', 1)
-            ->orderBy('created_at','desc')
-            ->get();
-        return view ('backend-admin.employees.index',compact('data'));
+        //
     }
 
     /**
@@ -55,8 +55,7 @@ class EmployeeController extends Controller
      */
     public function show($id)
     {
-        $data = Employee::find($id);
-        return view('backend-admin.employees.detail',compact('data'));
+        //
     }
 
     /**
@@ -65,9 +64,11 @@ class EmployeeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit()
     {
-        //
+        $id = auth()->user()->id;
+        $data = Employee::find($id);
+        return view('backend-admin.employees.profile',compact('data'));
     }
 
     /**
@@ -77,9 +78,35 @@ class EmployeeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(EmpRequest $request)
     {
-        //
+        $data = $request->all();
+
+        $id = auth()->user()->id;
+        $user = Employee::find($id);
+        $user->username = $data['username'];
+        $user->first_name = $data['first_name'];
+        $user->last_name = $data['last_name'];
+        $user->email = $data['email'];
+        $user->nickname = $data['nickname'];
+        $user->id_card = $data['id_card'];
+        $user->phone_number = $data['phone_number'];
+        $user->address = $data['address'];
+        $user->role_employee_id = $data['role_employee_id'];
+
+        if (empty($data['gender'])) {
+            $user->gender = null;
+        }else {
+            $user->gender = $data['gender'];;
+        }
+        if (!empty($request->password)) {
+            $newPassword = Hash::make($data['password']);
+            $user->password  = $newPassword;
+        }
+
+        $user->update();
+
+        return redirect()->back()->withSuccess('แก้ไข Employee สำเร็จ');
     }
 
     /**
