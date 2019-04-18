@@ -38,6 +38,7 @@ Route::group([
         'namespace' => 'CrudUser',
     ],function (){
         Route::get('user','UserController@index')->name('index');
+        Route::get('{id}/user/detail','UserController@show')->name('detail');
 
     });
 

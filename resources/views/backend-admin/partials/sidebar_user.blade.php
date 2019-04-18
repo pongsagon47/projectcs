@@ -29,15 +29,15 @@
 
 
     <!-- Nav Item - Utilities Collapse Menu -->
-    <li class="nav-item {{ Route::currentRouteName() === 'user.index'|| Route::currentRouteName() === 'employee.index'|| Route::currentRouteName() === 'employee.detail' ? 'active' : null }}" >
+    <li class="nav-item {{ Route::currentRouteName() === 'user.index'|| Route::currentRouteName() === 'employee.index'|| Route::currentRouteName() === 'employee.detail'|| Route::currentRouteName() === 'user.detail' ? 'active' : null }}" >
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
             <i class="fas fa-fw fa-wrench"></i>
             <span>ข้อมูลผู้ใช้</span>
         </a>
-        <div id="collapseUtilities" class="collapse {{ Route::currentRouteName() === 'user.index'|| Route::currentRouteName() === 'employee.index'|| Route::currentRouteName() === 'employee.detail' ? 'show' : null }}" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+        <div id="collapseUtilities" class="collapse {{ Route::currentRouteName() === 'user.index'|| Route::currentRouteName() === 'employee.index'|| Route::currentRouteName() === 'employee.detail'|| Route::currentRouteName() === 'user.detail' ? 'show' : null }}" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">ข้อมูลผู้ใช้</h6>
-                <a class="collapse-item {{ Route::currentRouteName() === 'user.index' ? 'active' : null }}" href="{{route('user.index')}}">ข้อมูลลูกค้า</a>
+                <a class="collapse-item {{ Route::currentRouteName() === 'user.index'|| Route::currentRouteName() === 'user.detail' ? 'active' : null }}" href="{{route('user.index')}}">ข้อมูลลูกค้า</a>
                 <a class="collapse-item {{ Route::currentRouteName() === 'employee.index'|| Route::currentRouteName() === 'employee.detail' ? 'active' : null }}" href="{{route('employee.index')}}">ข้อมูลพนักงาน</a>
             </div>
         </div>

@@ -16,7 +16,7 @@
             <div class="card-body">
                 <div class="table-responsive">
                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                        <thead style="font-size: 15px; color: #fffdfd; background-color: rgba(255,155,17,0.76)">
+                        <thead style="font-size: 15px; color: #fffdfd; background-color: rgba(67,184,255,0.76)">
                         <tr>
                             <th>ID</th>
                             <th>Name</th>
@@ -37,7 +37,7 @@
                                 <td width="190">
                                     <form method="post" >
                                         @csrf
-                                        <a href="#" class="btn btn-info btn-circle" title="Detail Record">
+                                        <a href="{{route('user.detail',[$value->id])}}" class="btn btn-info btn-circle" title="Detail Record">
                                             <i class="fas fa-eye"></i>
                                         </a>
 
