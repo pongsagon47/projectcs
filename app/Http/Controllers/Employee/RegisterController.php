@@ -52,6 +52,7 @@ class RegisterController extends Controller
             'password.confirmed' => 'การยืนยันรหัสผ่านไม่ตรงกัน',
             'password.min' => 'กรุณากรอกรหัสผ่านไม่เกิน 6-20 ตัว',
             'password.max' => 'กรุณากรอกรหัสผ่านไม่เกิน 6-20 ตัว',
+            'email.unique' => 'อีเมล์นี้ถูกใช้งานไปแล้ว',
             'frist_name.required' => 'คุณจำเป็นต้องกรอกข้อมูลชื่อ',
             'last_name.required' => 'คุณจำเป็นต้องกรอกข้อมูลนามสกุล',
             'gender.required' => 'คุณจำเป็นต้องกรอกข้อมูลเพศ',

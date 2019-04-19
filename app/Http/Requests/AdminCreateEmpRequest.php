@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class EmpRequest extends FormRequest
+class AdminCreateEmpRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -23,39 +23,33 @@ class EmpRequest extends FormRequest
      */
     public function rules()
     {
-        $password = $this->request->all();
-
-        $rules = [
-            'username' => 'required|string|max:255|unique:employees,username,'.$this->user()->id,
-            'first_name' => 'required|string|max:255',
-            'last_name' => 'required|string|max:255',
-            'email' => 'required|string|max:255|unique:employees,email,'.$this->user()->id,
-            'id_card' => 'required|unique:employees,id_card,'.$this->user()->id,
-            'nickname' => 'required|string|max:255',
+        return [
+            'username' => ['required', 'string' , 'max:255', 'unique:employees'],
+            'password' => ['required', 'string', 'min:6','max:20', 'confirmed'],
+            'email' => ['required', 'string' , 'max:255', 'unique:employees'],
+            'first_name' => ['required', 'string', 'max:255'],
+            'last_name' => ['required', 'string', 'max:255'],
+            'id_card' => ['required', 'string', 'max:255', 'unique:employees'],
+            'nickname' => ['required', 'string', 'max:255'],
             'gender' => 'nullable|string|max:255',
-            'phone_number' => 'required|string|max:255',
-            'address' => 'required|string|max:255',
-            'role_employee_id' => 'required',
+            'phone_number' => ['required', 'string', 'max:255'],
+            'address' => ['required', 'string', 'max:255'],
+            'role_employee_id' => ['required'],
         ];
-
-        if (!empty($password['password'])) {
-            $rules += ['password' => 'required|string|min:6|confirmed',];
-        };
-
-        return $rules;
     }
 
     public function messages()
     {
         return [
             'username.required' => 'คุณจำเป็นต้องกรอกข้อมูลชื่อผู้ใช้',
+            'username.unique' => 'ชื่อผู้ใช้นี้ถูกใช้งานไปแล้ว',
             'password.required' => 'คุณจำเป็นต้องกรอกข้อมูลรหัสผ่าน',
             'password.confirmed' => 'การยืนยันรหัสผ่านไม่ตรงกัน',
             'password.min' => 'กรุณากรอกรหัสผ่านไม่เกิน 6-20 ตัว',
             'password.max' => 'กรุณากรอกรหัสผ่านไม่เกิน 6-20 ตัว',
-            'frist_name.required' => 'คุณจำเป็นต้องกรอกข้อมูลชื่อ',
+            'email.unique' => 'อีเมล์นี้ถูกใช้งานไปแล้ว',
+            'first_name.required' => 'คุณจำเป็นต้องกรอกข้อมูลชื่อ',
             'last_name.required' => 'คุณจำเป็นต้องกรอกข้อมูลนามสกุล',
-            'gender.required' => 'คุณจำเป็นต้องกรอกข้อมูลเพศ',
             'phone_number.required' => 'คุณจำเป็นต้องกรอกข้อมูลหมายเลขโทรศัพท์',
             'address.required' => 'คุณจำเป็นต้องกรอกข้อมูลที่อยู่',
         ];

@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class EmpRequest extends FormRequest
+class AdminEditEmpRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -26,11 +26,11 @@ class EmpRequest extends FormRequest
         $password = $this->request->all();
 
         $rules = [
-            'username' => 'required|string|max:255|unique:employees,username,'.$this->user()->id,
+            'username' => 'required|string|max:255|unique:employees,username,'.$this->route('id'),
             'first_name' => 'required|string|max:255',
             'last_name' => 'required|string|max:255',
-            'email' => 'required|string|max:255|unique:employees,email,'.$this->user()->id,
-            'id_card' => 'required|unique:employees,id_card,'.$this->user()->id,
+            'email' => 'required|string|max:255|unique:employees,email,'.$this->route('id'),
+            'id_card' => 'required|unique:employees,id_card,'.$this->route('id'),
             'nickname' => 'required|string|max:255',
             'gender' => 'nullable|string|max:255',
             'phone_number' => 'required|string|max:255',

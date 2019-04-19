@@ -1,5 +1,5 @@
 @extends('layouts.login')
-
+@section('title','User Register')
 @section('content')
 
     <div class="container">
@@ -121,7 +121,7 @@
                                                 <label class="form-check-label" for="male">ชาย</label>
                                             </div>
                                             <div class="form-check form-check-inline" >
-                                                <input class="form-check-input " type="radio" name="gender" id="female" value="หญฺิง" >
+                                                <input class="form-check-input " type="radio" name="gender" id="female" value="หญิง" >
                                                 <label class="form-check-label " for="female">หญิง</label>
                                             </div>
                                         </div>

@@ -1,43 +1,44 @@
-@extends('layouts.employee')
-@section('title', 'Employee Register')
+@extends('backend-admin.layouts.main_dashboard')
+@section('title', 'Admin Create Employee')
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-12">
                 <div class="card">
-                    <div class="card-header" style="background-color: #d9fdb7; font-size: 19.5px;">ลงทะเบียน</div>
+                    <div class="card-header text-center"  style="font-size: 18px;background: rgb(100,223,46);color: aliceblue;">เพิ่มข้อมูลพนักงาน</div>
 
                     <div class="card-body">
-                        <form method="POST" action="{{ route('register.employee') }}" style="padding: 1.3rem">
+
+                        <form method="POST" action="{{ route('employee.store') }}" style="padding: 1.3rem">
                             @csrf
 
                             <div class="form-row">
-                                    <div class="form-group col-md-6">
-                                        <label for="first_name"  style="font-size: 16.8px;" >ชื่อ</label>
+                                <div class="form-group col-md-6">
+                                    <label for="first_name"  style="font-size: 16.8px;" >ชื่อ</label>
 
-                                        <div >
-                                            <input id="first_name" type="text" class="form-control{{ $errors->has('first_name') ? ' is-invalid' : '' }}" name="first_name" value="{{ old('first_name') }}" >
+                                    <div >
+                                        <input id="first_name" type="text" class="form-control{{ $errors->has('first_name') ? ' is-invalid' : '' }}" name="first_name" value="{{ old('first_name') }}" >
 
-                                            @if ($errors->has('first_name'))
-                                                <span class="invalid-feedback" role="alert">
+                                        @if ($errors->has('first_name'))
+                                            <span class="invalid-feedback" role="alert">
                                         <strong>{{ $errors->first('first_name') }}</strong>
                                     </span>
-                                            @endif
-                                        </div>
+                                        @endif
                                     </div>
-                                    <div class="form-group col-md-6">
-                                        <label for="last_name" style="font-size: 16.8px;" >นามสกุล </label>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="last_name" style="font-size: 16.8px;" >นามสกุล </label>
 
-                                        <div >
-                                            <input id="last_name" type="text" class="form-control{{ $errors->has('last_name') ? ' is-invalid' : '' }}" name="last_name" value="{{ old('last_name') }}" >
+                                    <div >
+                                        <input id="last_name" type="text" class="form-control{{ $errors->has('last_name') ? ' is-invalid' : '' }}" name="last_name" value="{{ old('last_name') }}" >
 
-                                            @if ($errors->has('last_name'))
-                                                <span class="invalid-feedback" role="alert">
+                                        @if ($errors->has('last_name'))
+                                            <span class="invalid-feedback" role="alert">
                                         <strong>{{ $errors->first('last_name') }}</strong>
                                     </span>
-                                            @endif
-                                        </div>
+                                        @endif
                                     </div>
+                                </div>
                             </div>
 
                             <div class="form-group">
@@ -167,7 +168,7 @@
                                         <span style="color:red">*</span> กรุณากรอกที่อยู่ให้ถูกต้อง
                                     </small>
 
-                                @if ($errors->has('address'))
+                                    @if ($errors->has('address'))
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $errors->first('address') }}</strong>
                                         </span>
@@ -217,48 +218,50 @@
                             </div>
 
                         </form>
+
                     </div>
                 </div>
+
             </div>
         </div>
     </div>
 @endsection
 @push('script')
-<script>
+    <script>
 
-    function checkUsername(event) {
-        var x = event.which || event.keyCode;
-        console.log(x)
+        function checkUsername(event) {
+            var x = event.which || event.keyCode;
+            console.log(x)
 
-        if (x >= 0 && x <=47)
-        {
-            event.preventDefault();
-            return  false;
+            if (x >= 0 && x <=47)
+            {
+                event.preventDefault();
+                return  false;
 
-        }else if (x >= 58 && x <= 64){
-            event.preventDefault();
-            return  false;
+            }else if (x >= 58 && x <= 64){
+                event.preventDefault();
+                return  false;
 
-        }else if (x >= 91 && x <= 96){
-            event.preventDefault();
-            return  false;
+            }else if (x >= 91 && x <= 96){
+                event.preventDefault();
+                return  false;
 
-        }else if (x >122){
-            event.preventDefault();
-            return  false;
+            }else if (x >122){
+                event.preventDefault();
+                return  false;
 
+            }
         }
-    }
 
-    var cleave = new Cleave('#phone_number', {
-        phone: true,
-        delimiter: '-',
-        phoneRegionCode: 'TH',
-    });
+        var cleave = new Cleave('#phone_number', {
+            phone: true,
+            delimiter: '-',
+            phoneRegionCode: 'TH',
+        });
 
-    new Cleave('#id_card', {
-        blocks: [1, 4, 5, 2, 1],
-        numericOnly: true,
-    });
-</script>
+        new Cleave('#id_card', {
+            blocks: [1, 4, 5, 2, 1],
+            numericOnly: true,
+        });
+    </script>
 @endpush

@@ -79,7 +79,7 @@
                             </div>
                             <div class="form-check form-check-inline">
                                 <input class="form-check-input{{ $errors->has('last_name') ? ' is-invalid' : '' }}"
-                                       type="radio" name="gender" id="female" {{ ('หญิง' == $data->gender) ? 'checked' : '' }} value="หญฺิง">
+                                       type="radio" name="gender" id="female" {{ ('หญิง' == $data->gender) ? 'checked' : '' }} value="หญิง">
                                 <label class="form-check-label" for="female">หญิง</label>
                             </div>
                         </div>
@@ -217,6 +217,7 @@
                                 @endif
                             </div>
                         </div>
+
                         <div class="form-group col-md-4">
 
                             @if(auth()->user()->role_employee_id == 1)
@@ -230,7 +231,7 @@
 
                                 <select id="role_employee_id"
                                         class="form-control{{ $errors->has('role_employee_id') ? ' is-invalid' : '' }}"
-                                        name="role_employee_id">
+                                        name="role_employee_id" style="margin-top: 4px">
                                     <option selected disabled>เลือก...</option>
                                     <option  {{ ('2' == $data->role_employee_id) ? 'selected' : '' }} value="2">พนักงานแผนกออเดอร์</option>
                                     <option  {{ ('3' == $data->role_employee_id) ? 'selected' : '' }} value="3">หัวหน้าห้องขนมไทย</option>

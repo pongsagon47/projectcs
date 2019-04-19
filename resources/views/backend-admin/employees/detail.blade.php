@@ -9,68 +9,68 @@
                 <div class="card-header" style="text-align: center; font-size: 19px">
                     ข้อมูลพนักงาน
                 </div>
+
                 <div class="card-body">
 
-                    <div class="form-group row">
+                    <div class="row justify-content-center">
+                        <div class="col-md-11">
 
-                        <label>ชื่อผู้ใช้: {{$data->username}}</label>
+                            <div class="form-group row">
 
-                    </div>
+                                <div class="col-md-12">
 
-                    <div class="form-group row">
+                                    <label><strong>ชื่อผู้ใช้:</strong> {{$data->username}}</label>
 
-                        <div class="col-md-4">
+                                </div>
 
-                            <label>ชื่อ: {{$data->first_name}}</label>
+                                <div class="col-md-3">
+                                    <label><strong>ชื่อ:</strong> {{$data->first_name}}</label>
+                                </div>
+
+                                <div class="col-md-4">
+
+                                    <label><strong>นามสกุล:</strong> {{$data->last_name}}</label>
+                                </div>
+
+                                <div class="col-md-5 ">
+
+                                    <label><strong>ชื่อเล่น: </strong> {{$data->nickname}}</label>
+                                </div>
+
+                                <div class="col-md-3">
+
+                                    <label><strong>ตำแหน่ง: </strong> {{$data->role_employee->name}}</label>
+                                </div>
+
+                                <div class="col-md-4">
+
+                                    <label><strong>เพศ: </strong> {{ null == $data->gender ?"ไม่ระบุเพศ": $data->gender }} </label>
+                                </div>
+
+                                <div class="col-md-5">
+
+                                    <label><strong>เลขบัตรประจำตัวประชาชน: </strong> {{$data->id_card}}</label>
+                                </div>
+
+                                <div class="col-md-12">
+
+                                    <label><strong>G-mail: </strong> {{$data->email}}</label>
+
+                                </div>
+
+                                <div class="col-md-12">
+
+                                    <label><strong>เบอร์โทรศัพท์: </strong> {{$data->phone_number}}</label>
+
+                                </div>
+
+                                <div class="col-md-12">
+
+                                    <label><strong>ที่อยู่: </strong> {{$data->address}}</label>
+
+                                </div>
+                            </div>
                         </div>
-
-                        <div class="col-md-4">
-
-                            <label>นามสกุล: {{$data->last_name}}</label>
-                        </div>
-
-                        <div class="col-md-4">
-
-                            <label>นามสกุล: {{$data->nickname}}</label>
-                        </div>
-
-                    </div>
-
-                    <div class="form-group row">
-
-                        <div class="col-md-3">
-
-                            <label>ตำแหน่ง: {{$data->role_employee->name}}</label>
-                        </div>
-
-                        <div class="col-md-4">
-
-                            <label>เพศ: {{$data->gender}}</label>
-                        </div>
-
-                        <div class="col-md-5">
-
-                            <label>เลขบัตรประจำตัวประชาชน: {{$data->id_card}}</label>
-                        </div>
-
-                    </div>
-
-                    <div class="form-group row">
-
-                        <label>G-mail: {{$data->email}}</label>
-
-                    </div>
-
-                    <div class="form-group row">
-
-                        <label>เบอร์โทรศัพท์: {{$data->phone_number}}</label>
-
-                    </div>
-
-                    <div class="form-group row">
-
-                        <label>ที่อยู่: {{$data->address}}</label>
-
                     </div>
 
                 </div>

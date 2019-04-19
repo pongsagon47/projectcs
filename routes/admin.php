@@ -38,7 +38,12 @@ Route::group([
         'namespace' => 'CrudUser',
     ],function (){
         Route::get('user','UserController@index')->name('index');
+        Route::get('user/create','UserController@create')->name('create');
+        Route::post('user/store','UserController@store')->name('store');
         Route::get('{id}/user/detail','UserController@show')->name('detail');
+        Route::get('{id}/user/edit','UserController@edit')->name('edit');
+        Route::put('{id}/user/update','UserController@update')->name('update');
+        Route::delete('{id}/user/delete','UserController@destroy')->name('delete');
 
     });
 
@@ -48,7 +53,12 @@ Route::group([
         'namespace' => 'CrudUser',
     ],function (){
         Route::get('employee','EmployeeController@index')->name('index');
+        Route::get('employee/create','EmployeeController@create')->name('create');
+        Route::post('employee/store','EmployeeController@store')->name('store');
         Route::get('{id}/employee/detail','EmployeeController@show')->name('detail');
+        Route::get('{id}/employee/edit','EmployeeController@edit')->name('edit');
+        Route::put('{id}/employee/update','EmployeeController@update')->name('update');
+        Route::delete('{id}/employee/delete','EmployeeController@destroy')->name('delete');
     });
 
 

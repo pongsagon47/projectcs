@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers\BackendEmp\CrudUser;
 
+use App\Http\Requests\AdminCreateEmpRequest;
+use App\Http\Requests\AdminEditEmpRequest;
 use App\Models\Employee;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Hash;
 
 class EmployeeController extends Controller
 {
@@ -21,7 +24,6 @@ class EmployeeController extends Controller
     public function index()
     {
         $data = Employee::where('id', '!=', 1)
-            ->orderBy('created_at','desc')
             ->get();
         return view ('backend-admin.employees.index',compact('data'));
     }
@@ -33,7 +35,7 @@ class EmployeeController extends Controller
      */
     public function create()
     {
-        //
+        return view('backend-admin.employees.create');
     }
 
     /**
@@ -42,9 +44,25 @@ class EmployeeController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(AdminCreateEmpRequest $request)
     {
-        //
+        $employee = new Employee();
+
+        $employee->username = $request->username;
+        $employee->password = $request->password;
+        $employee->email = $request->email;
+        $employee->first_name = $request->first_name;
+        $employee->last_name = $request->last_name;
+        $employee->nickname = $request->nickname;
+        $employee->id_card = $request->id_card;
+        $employee->phone_number = $request->phone_number;
+        $employee->address = $request->address;
+        $employee->role_employee_id = $request->role_employee_id;
+        $employee->gender = $request->gender;
+
+        $employee->save();
+
+        return redirect()->route('employee.index')->with('success','เพิ่มข้อมูลพนักงานเรียบร้อย');
     }
 
     /**
@@ -67,7 +85,9 @@ class EmployeeController extends Controller
      */
     public function edit($id)
     {
-        //
+//        dd($id);
+        $data = Employee::find($id);
+        return view('backend-admin.employees.edit',compact('data'));
     }
 
     /**
@@ -77,9 +97,34 @@ class EmployeeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(AdminEditEmpRequest $request, $id)
     {
-        //
+        $data = $request->all();
+
+        $user = Employee::find($id);
+        $user->username = $data['username'];
+        $user->first_name = $data['first_name'];
+        $user->last_name = $data['last_name'];
+        $user->email = $data['email'];
+        $user->nickname = $data['nickname'];
+        $user->id_card = $data['id_card'];
+        $user->phone_number = $data['phone_number'];
+        $user->address = $data['address'];
+        $user->role_employee_id = $data['role_employee_id'];
+
+        if (empty($data['gender'])) {
+            $user->gender = null;
+        }else {
+            $user->gender = $data['gender'];;
+        }
+        if (!empty($request->password)) {
+            $newPassword = Hash::make($data['password']);
+            $user->password  = $newPassword;
+        }
+
+        $user->update();
+
+        return redirect()->route('employee.index')->withSuccess('แก้ไข Employee สำเร็จ');
     }
 
     /**
@@ -90,6 +135,11 @@ class EmployeeController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $employee = Employee::find($id);
+
+        $employee->forceDelete();
+
+        return redirect()->route('employee.index')->with('deleted','ลบ Employee เรียบร้อย');
+
     }
 }

@@ -4,14 +4,40 @@
     <div class="container-fluid">
 
         <!-- Page Heading -->
-        <h1 class="h3 mb-2 text-gray-800">Employee list</h1>
+        {{--<h1 class="h3 mb-2 text-gray-800">Employee list</h1>--}}
 
-        <br>
+        <div class="d-sm-flex align-items-center justify-content-between mb-4">
+            <h1 class="h3 mb-0 text-gray-800">Employee list</h1>
+            <a href="{{route('employee.create')}}" class="btn btn-primary" style="margin-right: 40px">
+                    <span class="icon text-white-50">
+                      <i class="fas fa-plus"></i>
+                    </span>
+                <span class="text">Create Employee</span>
+            </a>
+        </div>
+
+        @if(\Session('success'))
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                {{\Session::get('success')}}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        @endif
+
+        @if(\Session('deleted'))
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                {{\Session::get('deleted')}}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        @endif
 
         <!-- DataTales Example -->
         <div class="card shadow mb-4">
             <div class="card-header py-3">
-                <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
+                <h6 class="m-0 font-weight-bold text-primary">DataTables</h6>
             </div>
             <div class="card-body">
                 <div class="table-responsive">
@@ -31,17 +57,17 @@
                         <tr>
                             <td>{{ $value->id }}</td>
                             <td>{{ $value->first_name." ".$value->last_name }}</td>
-                            <td width="80">{{ $value->gender }}</td>
+                            <td width="80">{{ null == $value->gender ?'ไม่มีการระบุเพศ' : $value->gender}} </td>
                             <td>{{ $value->email }}</td>
                             <td width="170">{{ $value->phone_number }}</td>
                             <td width="190">
-                                <form method="post" >
+                                <form class="delete_form" method="post" action="{{route('employee.delete',[$value->id])}}">
                                     @csrf
                                     <a href="{{route('employee.detail',[$value->id])}}" class="btn btn-info btn-circle" title="Detail Record">
                                         <i class="fas fa-eye"></i>
                                     </a>
 
-                                    <a href="#" class="btn btn-warning btn-circle" title="Edit Record">
+                                    <a href="{{route('employee.edit',[$value->id])}}" class="btn btn-warning btn-circle" title="Edit Record">
                                         <i class="fas fa-edit"></i>
                                     </a>
 
@@ -61,3 +87,17 @@
 
     </div>
 @endsection
+@push('script')
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('.delete_form').on('submit',function () {
+                if(confirm("Are you sure?")){
+                    return true;
+                }
+                else {
+                    return false;
+                }
+            })
+        })
+    </script>
+@endpush

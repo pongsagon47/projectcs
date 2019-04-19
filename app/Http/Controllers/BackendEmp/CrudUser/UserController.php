@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers\BackendEmp\CrudUser;
 
+use App\Http\Requests\AdminEditUserRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -19,7 +21,9 @@ class UserController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index(){
-        $data = User::query()->get();
+        $data = User::query()
+            ->where('status','=','1')
+            ->get();
         return view ('backend-admin.users.index',compact('data'));
     }
 
@@ -30,7 +34,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+        return view('backend-admin.users.create');
     }
 
     /**
@@ -39,9 +43,34 @@ class UserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(AdminEditUserRequest $request)
     {
-        //
+        $data = $request->all();
+
+        $create = [
+            'username' => $data['username'],
+            'password' => Hash::make($data['password']),
+            'email' => $data['email'],
+            'shop_name' => $data['shop_name'],
+            'first_name' => $data['first_name'],
+            'last_name' => $data['last_name'],
+            'nickname' => $data['nickname'],
+            'id_card' => $data['id_card'],
+            'phone_number' => $data['phone_number'],
+            'address' => $data['address'],
+            'role_id' => $data['role_id'],
+            'status' => '1',
+        ];
+
+        if (empty($data['gender'])) {
+            $create += ['gender' => null];
+        }else {
+            $create += ['gender' => $data['gender']];
+        }
+
+        User::create($create);
+
+        return redirect()->route('user.index')->with('success','เพิ่มข้อมูลลูกค้าเรียบร้อย');
     }
 
     /**
@@ -64,7 +93,8 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        //
+        $data = User::find($id);
+        return view('backend-admin.users.edit',compact('data'));
     }
 
     /**
@@ -74,9 +104,38 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(AdminEditUserRequest $request, $id)
     {
-        //
+
+        $data = $request->all();
+
+        $user = User::find($id);
+        $user->username = $data['username'];
+        $user->shop_name = $data['shop_name'];
+        $user->email = $data['email'];
+        $user->first_name = $data['first_name'];
+        $user->last_name = $data['last_name'];
+        $user->nickname = $data['nickname'];
+        $user->id_card = $data['id_card'];
+        $user->phone_number = $data['phone_number'];
+        $user->address = $data['address'];
+        $user->role_id = $data['role_id'];
+        $user->status = isset($data['status']) ? 1 : 0;
+
+
+        if (empty($data['gender'])) {
+            $user->gender = null;
+        }else {
+            $user->gender = $data['gender'];;
+        }
+        if (!empty($request->password)) {
+            $newPassword = Hash::make($data['password']);
+            $user->password  = $newPassword;
+        }
+
+        $user->update();
+
+        return redirect()->route('user.index')->withSuccess('แก้ไข User สำเร็จ');
     }
 
     /**
@@ -87,6 +146,10 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $user = User::find($id);
+
+        $user->forceDelete();
+
+        return redirect()->route('user.index')->with('deleted','ลบ User เรียบร้อย');
     }
 }

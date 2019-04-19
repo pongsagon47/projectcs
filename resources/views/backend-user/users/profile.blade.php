@@ -131,7 +131,7 @@
                                 <label class="form-check-label" for="male">ชาย</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input " type="radio" name="gender" id="female" {{ ('หญิง' == $data->gender) ? 'checked' : '' }} value="หญฺิง">
+                                <input class="form-check-input " type="radio" name="gender" id="female" {{ ('หญิง' == $data->gender) ? 'checked' : '' }} value="หญิง">
                                 <label class="form-check-label " for="female">หญิง</label>
                             </div>
                         </div>

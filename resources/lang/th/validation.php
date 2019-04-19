@@ -111,7 +111,7 @@ return [
     'starts_with' => 'The :attribute must start with one of the following: :values',
     'string' => 'The :attribute must be a string.',
     'timezone' => 'The :attribute must be a valid zone.',
-    'unique' => 'The :attribute has already been taken.',
+    'unique' => ':attributeถูกใช้งานไปแล้ว.',
     'uploaded' => 'The :attribute failed to upload.',
     'url' => 'The :attribute format is invalid.',
     'uuid' => 'The :attribute must be a valid UUID.',
@@ -145,7 +145,7 @@ return [
     */
 
     'attributes' => [
-        'role_type_id' => 'ประเภทลูกค้า',
+        'role_id' => 'ประเภทลูกค้า',
         'nickname' => 'ชื่อเล่น',
         'id_card' => 'เลขบัตรประชาชน',
         'roles_position_id' => 'ตำแหน่ง',
