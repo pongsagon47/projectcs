@@ -27,6 +27,7 @@ class User extends Authenticatable
          'nickname',
          'id_card',
          'gender',
+         'image',
          'address',
          'phone_number',
          'role_id',

@@ -14,7 +14,7 @@
                                 <h1 class="h4 text-gray-900 mb-4">Create an Account!</h1>
                             </div>
 
-                                <form class="user"  method="POST" action="{{route('register')}}">
+                                <form class="user"  method="POST" action="{{route('register')}}" enctype="multipart/form-data">
 
                                     @csrf
 
@@ -214,6 +214,31 @@
                                     </div>
 
                                     <div class="form-group">
+                                        <label >รูปโปรไฟล์</label>
+                                        <div class="form-group">
+                                            <div id="divShowImg">
+                                                <img id="previewProduct" style="width: 160px; height: 160px" src="https://via.placeholder.com/180x120.png?text=No%20Image">
+                                            </div>
+
+                                            @if ($errors->has('image'))
+                                                <span style="color: rgba(226,20,17,0.77);font-size: 13px">
+                                            <strong>{{ $errors->first('image') }}</strong>
+                                        </span>
+                                            @endif
+
+                                        </div>
+                                        <input type="file" accept="image/jpeg, image/png"  onchange="readProduct(this);" id="fileProduct"
+                                               name="image">
+                                        <p class="help-block">
+                                            ไฟล์ภาพต้องเป็นนามสกุล jpeg,png เท่านั้น <br>
+                                            ขนาดไฟล์ไม่เกิน 1 MB <br>
+                                        </p>
+
+                                    </div>
+
+
+
+                                    <div class="form-group">
                                         <label for="address" class=" col-form-label text-md-right" style="font-size: 16.8px;" >ที่อยู่</label>
 
                                         <div>
@@ -228,6 +253,8 @@
                                             <strong>{{ $errors->first('address') }}</strong>
                                         </span>
                                             @endif
+
+
                                         </div>
                                     </div>
 
@@ -248,6 +275,16 @@
 @endsection
 @push('script')
     <script>
+
+        function readProduct(input) {
+            if (input.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    $('#previewProduct').attr('src', e.target.result);
+                };
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
 
         function checkUsername(event) {
             var x = event.which || event.keyCode;

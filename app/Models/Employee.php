@@ -25,6 +25,7 @@ class Employee extends Authenticatable
         'first_name',
         'last_name',
         'gender',
+        'image',
         'address',
         'phone_number',
         'role_employee_id',

@@ -7,6 +7,7 @@ use App\Models\Employee;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Storage;
 
 class ProfileEmpController extends Controller
 {
@@ -53,9 +54,11 @@ class ProfileEmpController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show()
     {
-        //
+        $id = auth()->user()->id;
+        $data = Employee::find($id);
+        return view('backend-admin.employees.profile',compact('data'));
     }
 
     /**
@@ -68,7 +71,7 @@ class ProfileEmpController extends Controller
     {
         $id = auth()->user()->id;
         $data = Employee::find($id);
-        return view('backend-admin.employees.profile',compact('data'));
+        return view('backend-admin.employees.profile-edit',compact('data'));
     }
 
     /**
@@ -93,6 +96,11 @@ class ProfileEmpController extends Controller
         $user->phone_number = $data['phone_number'];
         $user->address = $data['address'];
         $user->role_employee_id = $data['role_employee_id'];
+
+        if (isset($data['image'])){
+            Storage::delete('public/'.$user->image);
+            $user->image = ($data['image'])->store('uploads','public');
+        }
 
         if (empty($data['gender'])) {
             $user->gender = null;

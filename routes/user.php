@@ -20,6 +20,7 @@ Route::group([
     'as' => 'users.',
     'namespace' => 'BackendUser'
 ],function () {
+    Route::get('show','ProfileUserController@show')->name('show');
     Route::get('edit','ProfileUserController@edit')->name('edit');
     Route::put('update','ProfileUserController@update')->name('update');
 });

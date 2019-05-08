@@ -42,6 +42,10 @@ class EmpRequest extends FormRequest
             $rules += ['password' => 'required|string|min:6|confirmed',];
         };
 
+        if (!empty($data['image'])) {
+            $rules += ['image' => ['required', 'file', 'image', 'max:5000'],];
+        };
+
         return $rules;
     }
 

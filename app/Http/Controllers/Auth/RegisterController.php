@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Models\User;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -52,12 +53,13 @@ class RegisterController extends Controller
     {
 
         return Validator::make($data, [
-            'username' => ['required', 'string' , 'max:40', 'unique:users','regex:/^[A-Za-z][A-Za-z0-9]*$/i'],
+            'username' => ['required', 'string' , 'max:40', 'unique:users'],
             'password' => ['required', 'string', 'min:6','max:20', 'confirmed'],
             'email' => ['required', 'string' , 'max:40', 'unique:users'],
             'shop_name' => ['required', 'string', 'max:255'],
             'first_name' => ['required', 'string', 'max:255'],
             'last_name' => ['required', 'string', 'max:255'],
+            'image' => ['required', 'file', 'image', 'max:5000'],
             'nickname' => ['required', 'string', 'max:255'],
             'id_card' => ['required', 'string', 'max:255', 'unique:users'],
             'address' => ['required', 'string', 'max:255'],
@@ -78,7 +80,7 @@ class RegisterController extends Controller
             'nickname.required' => 'คุณจำเป็นต้องกรอกข้อมูลชื่อเล่น',
             'id_card.required' => 'คุณจำเป็นต้องกรอกข้อมูลชื่อ',
             'id_card.unique' => 'เลขบัตรประชาชนถูกใช้ไปแล้ว',
-            'gender.required' => 'คุณจำเป็นต้องกรอกข้อมูลเพศ',
+            'image.required' => 'คุณจำเป็นใส่รูปโปรไฟล์',
             'role_id' => 'คุณจำเป็นต้องกรอกข้อมูลประเภทลูกค้า',
             'phone_number.required' => 'คุณจำเป็นต้องกรอกข้อมูลหมายเลขโทรศัพท์',
             'address.required' => 'คุณจำเป็นต้องกรอกข้อมูลที่อยู่',
@@ -103,6 +105,7 @@ class RegisterController extends Controller
             'last_name' => $data['last_name'],
             'nickname' => $data['nickname'],
             'id_card' => $data['id_card'],
+            'image' => $data['image']->store('uploads','public'),
             'phone_number' => $data['phone_number'],
             'address' => $data['address'],
             'role_id' => $data['role_id'],

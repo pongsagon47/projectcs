@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Storage;
 
 class ProfileUserController extends Controller
 {
@@ -53,9 +54,11 @@ class ProfileUserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show()
     {
-
+        $id = auth()->user()->id;
+        $data = User::find($id);
+        return view('backend-user.users.profile', compact('data'));
     }
 
     /**
@@ -68,7 +71,7 @@ class ProfileUserController extends Controller
     {
        $id = auth()->user()->id;
         $data = User::find($id);
-        return view('backend-user.users.profile', compact('data'));
+        return view('backend-user.users.profile-edit', compact('data'));
     }
 
     /**
@@ -85,6 +88,7 @@ class ProfileUserController extends Controller
         $data = $request->all();
 
         $user = User::find($id);
+
         $user->username = $data['username'];
         $user->shop_name = $data['shop_name'];
         $user->email = $data['email'];
@@ -97,6 +101,10 @@ class ProfileUserController extends Controller
         $user->role_id = $data['role_id'];
         $user->status = '0';
 
+        if (isset($data['image'])){
+            Storage::delete('public/'.$user->image);
+            $user->image = ($data['image'])->store('uploads','public');
+        }
 
         if (empty($data['gender'])) {
             $user->gender = null;

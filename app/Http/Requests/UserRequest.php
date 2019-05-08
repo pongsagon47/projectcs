@@ -24,9 +24,7 @@ class UserRequest extends FormRequest
     public function rules()
     {
 
-        $id = ($this->user()->id);
-
-        $password = $this->request->all();
+        $data = $this->request->all();
 
         $rules = [
             'username' => 'required|string|max:40|unique:users,username,'. $this->user()->id,
@@ -42,8 +40,12 @@ class UserRequest extends FormRequest
             'gender' => 'nullable|string|max:255',
         ];
 
-        if (!empty($password['password'])) {
+        if (!empty($data['password'])) {
             $rules += ['password' => 'required|string|min:6|confirmed',];
+        };
+
+        if (!empty($data['image'])) {
+            $rules += ['image' => ['required', 'file', 'image', 'max:5000'],];
         };
 
         return $rules;
@@ -68,6 +70,7 @@ class UserRequest extends FormRequest
             'role_type_id' => 'คุณจำเป็นต้องกรอกข้อมูลประเภทลูกค้า',
             'phone_number.required' => 'คุณจำเป็นต้องกรอกข้อมูลหมายเลขโทรศัพท์',
             'address.required' => 'คุณจำเป็นต้องกรอกข้อมูลที่อยู่',
+            'image.required' => 'คุณจำเป็นใส่รูปโปรไฟล์',
         ];
     }
 }

@@ -28,6 +28,7 @@ Route::group([
         'prefix' => 'emp',
         'as' => 'emp.',
     ],function (){
+        Route::get('show','ProfileEmpController@show')->name('show');
         Route::get('edit','ProfileEmpController@edit')->name('edit');
         Route::put('update','ProfileEmpController@update')->name('update');
     });

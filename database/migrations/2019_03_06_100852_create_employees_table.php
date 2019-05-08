@@ -23,6 +23,7 @@ class CreateEmployeesTable extends Migration
             $table->string('last_name');
             $table->string('nickname');
             $table->string('id_card');
+            $table->string('image');
             $table->string('gender')->nullable();
             $table->string('phone_number');
             $table->string('address');
