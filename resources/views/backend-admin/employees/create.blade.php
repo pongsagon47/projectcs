@@ -9,7 +9,7 @@
 
                     <div class="card-body">
 
-                        <form method="POST" action="{{ route('employee.store') }}" style="padding: 1.3rem">
+                        <form method="POST" action="{{ route('employee.store') }}" enctype="multipart/form-data" style="padding: 1.3rem">
                             @csrf
 
                             <div class="form-row">
@@ -72,6 +72,29 @@
                                         <label class="form-check-label" for="female">หญิง</label>
                                     </div>
                                 </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label >รูปโปรไฟล์</label>
+                                <div class="form-group">
+                                    <div id="divShowImg">
+                                        <img class="rounded-circle" id="previewProduct" style="width: 160px; height: 160px" src="https://via.placeholder.com/180x120.png?text=No%20Image">
+                                    </div>
+
+                                    @if ($errors->has('image'))
+                                        <span style="color: rgba(226,20,17,0.77);font-size: 13px">
+                                            <strong>{{ $errors->first('image') }}</strong>
+                                        </span>
+                                    @endif
+
+                                </div>
+                                <input type="file" accept="image/jpeg, image/png"  onchange="readProduct(this);" id="fileProduct"
+                                       name="image">
+                                <p class="help-block py-2" style="font-size: 14px;">
+                                    ไฟล์ภาพต้องเป็นนามสกุล jpeg,png เท่านั้น <br>
+                                    ขนาดไฟล์ไม่เกิน 1 MB <br>
+                                </p>
+
                             </div>
 
                             <div class="form-row">
@@ -195,7 +218,7 @@
 
                                     <label for="role_employee_id" class=" col-form-label text-md-right">ตำแหน่ง</label>
 
-                                    <select id="role_employee_id" class="form-control{{ $errors->has('role_employee_id') ? ' is-invalid' : '' }}" name="role_employee_id" style="margin-top: 4px">
+                                    <select id="role_employee_id" class="form-control{{ $errors->has('role_employee_id') ? ' is-invalid' : '' }}" name="role_employee_id" style="margin-top: 0.5px">
                                         <option selected disabled>เลือก...</option>
                                         <option value="2">พนักงานแผนกออเดอร์</option >
                                         <option value="3">หัวหน้าแผนกผลิด</option >
@@ -214,7 +237,7 @@
                             </div>
                             <hr>
                             <div class="text-center">
-                                <a  href="{{route('login.employee')}}" style="font-size: 16px">กลับไปหน้าล็อกอิน</a>
+                                <a  href="{{route('employee.index')}}" style="font-size: 15px">Back to Employee list</a>
                             </div>
 
                         </form>
@@ -228,6 +251,16 @@
 @endsection
 @push('script')
     <script>
+
+        function readProduct(input) {
+            if (input.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    $('#previewProduct').attr('src', e.target.result);
+                };
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
 
         function checkUsername(event) {
             var x = event.which || event.keyCode;

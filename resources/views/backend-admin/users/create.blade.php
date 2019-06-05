@@ -11,7 +11,7 @@
 
                     <div class="card-body">
 
-                        <form class="user"  method="POST" action="{{route('user.store')}}">
+                        <form class="user"  method="POST" action="{{route('user.store')}}" enctype="multipart/form-data">
 
                             @csrf
 
@@ -211,6 +211,29 @@
                             </div>
 
                             <div class="form-group">
+                                <label >รูปโปรไฟล์</label>
+                                <div class="form-group">
+                                    <div id="divShowImg">
+                                        <img class="rounded-circle" id="previewProduct" style="width: 160px; height: 160px" src="https://via.placeholder.com/180x120.png?text=No%20Image">
+                                    </div>
+
+                                    @if ($errors->has('image'))
+                                        <span style="color: rgba(226,20,17,0.77);font-size: 12px">
+                                            <strong>{{ $errors->first('image') }}</strong>
+                                        </span>
+                                    @endif
+
+                                </div>
+                                <input type="file" accept="image/jpeg, image/png"  onchange="readProduct(this);" id="fileProduct"
+                                       name="image">
+                                <p class="help-block">
+                                    ไฟล์ภาพต้องเป็นนามสกุล jpeg,png เท่านั้น <br>
+                                    ขนาดไฟล์ไม่เกิน 1 MB <br>
+                                </p>
+
+                            </div>
+
+                            <div class="form-group">
                                 <label for="address" class=" col-form-label text-md-right" style="font-size: 16.8px;" >ที่อยู่</label>
 
                                 <div>
@@ -228,7 +251,12 @@
                                 </div>
                             </div>
 
-                            <input type="submit" value="Register Account" class="btn btn-primary btn-user btn-block">
+                            <input type="submit" value="Create Account" class="btn btn-primary btn-user btn-block">
+
+                            <hr>
+                            <div class="text-center">
+                                <a style="font-size: 15px" href="{{route('user.index')}}">Back to User list</a>
+                            </div>
 
                         </form>
 
@@ -240,6 +268,16 @@
 @endsection
 @push('script')
     <script>
+
+        function readProduct(input) {
+            if (input.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    $('#previewProduct').attr('src', e.target.result);
+                };
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
 
         function checkUsername(event) {
             var x = event.which || event.keyCode;

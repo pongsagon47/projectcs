@@ -77,7 +77,7 @@
                                 <label >รูปโปรไฟล์</label>
                                 <div class="form-group">
                                     <div id="divShowImg">
-                                        <img id="previewProduct" style="width: 160px; height: 160px" src="https://via.placeholder.com/180x120.png?text=No%20Image">
+                                        <img class="rounded-circle" id="previewProduct" style="width: 160px; height: 160px" src="https://via.placeholder.com/180x120.png?text=No%20Image">
                                     </div>
 
                                     @if ($errors->has('image'))

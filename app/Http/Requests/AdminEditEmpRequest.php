@@ -42,6 +42,10 @@ class AdminEditEmpRequest extends FormRequest
             $rules += ['password' => 'required|string|min:6|confirmed',];
         };
 
+        if (!empty($data['image'])) {
+            $rules += ['image' => ['required', 'file', 'image', 'max:5000'],];
+        };
+
         return $rules;
     }
 
@@ -51,6 +55,7 @@ class AdminEditEmpRequest extends FormRequest
             'username.required' => 'คุณจำเป็นต้องกรอกข้อมูลชื่อผู้ใช้',
             'password.required' => 'คุณจำเป็นต้องกรอกข้อมูลรหัสผ่าน',
             'password.confirmed' => 'การยืนยันรหัสผ่านไม่ตรงกัน',
+            'image.required' => 'คุณจำเป็นใส่รูปโปรไฟล์',
             'password.min' => 'กรุณากรอกรหัสผ่านไม่เกิน 6-20 ตัว',
             'password.max' => 'กรุณากรอกรหัสผ่านไม่เกิน 6-20 ตัว',
             'frist_name.required' => 'คุณจำเป็นต้องกรอกข้อมูลชื่อ',

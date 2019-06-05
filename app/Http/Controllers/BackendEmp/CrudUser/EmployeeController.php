@@ -8,6 +8,7 @@ use App\Models\Employee;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Storage;
 
 class EmployeeController extends Controller
 {
@@ -46,6 +47,7 @@ class EmployeeController extends Controller
      */
     public function store(AdminCreateEmpRequest $request)
     {
+
         $employee = new Employee();
 
         $employee->username = $request->username;
@@ -55,6 +57,7 @@ class EmployeeController extends Controller
         $employee->last_name = $request->last_name;
         $employee->nickname = $request->nickname;
         $employee->id_card = $request->id_card;
+        $employee->image = $request->image->store('uploads','public');
         $employee->phone_number = $request->phone_number;
         $employee->address = $request->address;
         $employee->role_employee_id = $request->role_employee_id;
@@ -120,6 +123,10 @@ class EmployeeController extends Controller
         if (!empty($request->password)) {
             $newPassword = Hash::make($data['password']);
             $user->password  = $newPassword;
+        }
+        if (isset($data['image'])){
+            Storage::delete('public/'.$user->image);
+            $user->image = ($data['image'])->store('uploads','public');
         }
 
         $user->update();

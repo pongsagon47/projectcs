@@ -44,6 +44,10 @@ class AdminEditUserRequest extends FormRequest
             $rules += ['password' => 'required|string|min:6|confirmed',];
         };
 
+        if (!empty($data['image'])) {
+            $rules += ['image' => ['required', 'file', 'image', 'max:5000'],];
+        };
+
         return $rules;
 
     }
@@ -58,6 +62,7 @@ class AdminEditUserRequest extends FormRequest
             'password.min' => 'กรุณากรอกรหัสผ่านไม่เกิน 6-20 ตัว',
             'password.max' => 'กรุณากรอกรหัสผ่านไม่เกิน 6-20 ตัว',
             'shop_name.required' => 'คุณจำเป็นต้องกรอกข้อมูลชื่อร้าน',
+            'image.required' => 'คุณจำเป็นใส่รูปโปรไฟล์',
             'first_name.required' => 'คุณจำเป็นต้องกรอกข้อมูลชื่อ',
             'last_name.required' => 'คุณจำเป็นต้องกรอกข้อมูลนามสกุล',
             'nickname.required' => 'คุณจำเป็นต้องกรอกข้อมูลชื่อเล่น',

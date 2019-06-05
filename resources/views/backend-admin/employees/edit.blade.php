@@ -9,7 +9,7 @@
 
                     <div class="card-body">
 
-                        <form method="POST" action="{{ route('employee.update',[array_get($data,'id')]) }}" style="padding: 1.3rem">
+                        <form method="POST" action="{{ route('employee.update',[array_get($data,'id')]) }}" enctype="multipart/form-data" style="padding: 1.3rem">
                             @csrf
 
 
@@ -72,16 +72,45 @@
 
                                 <div>
                                     <div class="form-check form-check-inline" style="margin-left: 18px">
-                                        <input class="form-check-input{{ $errors->has('last_name') ? ' is-invalid' : '' }}"
+                                        <input class="form-check-input"
                                                type="radio" name="gender" id="male" {{ ('ชาย' == $data->gender) ? 'checked' : '' }} value="ชาย">
                                         <label class="form-check-label" for="male">ชาย</label>
                                     </div>
                                     <div class="form-check form-check-inline">
-                                        <input class="form-check-input{{ $errors->has('last_name') ? ' is-invalid' : '' }}"
+                                        <input class="form-check-input"
                                                type="radio" name="gender" id="female" {{ ('หญิง' == $data->gender) ? 'checked' : '' }} value="หญิง">
                                         <label class="form-check-label" for="female">หญิง</label>
                                     </div>
                                 </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label>รูปโปร์ไฟล์</label>
+                                <div class="form-group">
+                                    <div id="divShowImg">
+                                        <a id="linkProduct"
+                                           href="{{ ($data->image == 'NULL') ? '' : asset('storage/'.$data->image) }}"
+                                           target="blank">
+                                            <img class="rounded-circle" id="previewProduct" style="width: 160px;height: 160px"
+                                                 src="{{ ($data->image == 'NULL') ? 'https://via.placeholder.com/180x120.png?text=No%20Image'
+                                     : asset('storage/'.$data->image) }}">
+                                        </a>
+                                        <div style="margin-left: 8rem"><input class="btn btn-sm btn-warning " type="button" value="Clear" onclick="clearProduct()"></div>
+
+                                        @if ($errors->has('image'))
+                                            <span style="color: rgba(226,20,17,0.77);font-size: 13px">
+                                            <strong>{{ $errors->first('image') }}</strong>
+                                        </span>
+                                        @endif
+
+                                    </div>
+                                </div>
+                                <input  type="file" accept="image/jpeg, image/png" onchange="readProduct(this);" id="fileProduct"
+                                        name="image">
+                                <p class="help-block" style="font-size: 14px">
+                                    ไฟล์ภาพต้องเป็นนามสกุล jpeg,png เท่านั้น <br>
+                                    ขนาดไฟล์ไม่เกิน 1 MB <br>
+                                </p>
                             </div>
 
                             <div class="form-row">
@@ -222,7 +251,7 @@
 
                                     <select id="role_employee_id"
                                             class="form-control{{ $errors->has('role_employee_id') ? ' is-invalid' : '' }}"
-                                            name="role_employee_id" style="margin-top: 4px">
+                                            name="role_employee_id" style="margin-top: 0.5px">
                                         <option selected disabled>เลือก...</option>
                                         <option  {{ ('2' == $data->role_employee_id) ? 'selected' : '' }} value="2">พนักงานแผนกออเดอร์</option>
                                         <option  {{ ('3' == $data->role_employee_id) ? 'selected' : '' }} value="3">หัวหน้าห้องขนมไทย</option>
@@ -260,6 +289,30 @@
 @endsection
 @push('script')
     <script>
+
+        function readProduct(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    $('#falseinput').attr('src', e.target.result);
+                    $('#previewProduct').attr('src', e.target.result);
+                };
+                reader.readAsDataURL(input.files[0]);
+                $('#linkProduct').removeAttr('href');
+            }
+        }
+
+        function clearProduct() {
+            var image = '{{ $data->image }}';
+            if (image == 'NULL') {
+                $('#previewProduct').attr('src', "https://via.placeholder.com/180x120.png?text=No%20Image");
+            }
+            else {
+                $('#previewProduct').attr('src', "{{ asset('storage/'.$data->image) }}");
+                $('#linkProduct').attr('href', "{{ asset('storage/'.$data->image) }}");
+            }
+            $('#fileProduct').val(null);
+        }
 
         function checkUsername(event) {
             var x = event.which || event.keyCode;

@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers\BackendEmp\CrudUser;
 
+use App\Http\Requests\AdminCreateUserRequest;
 use App\Http\Requests\AdminEditUserRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Storage;
 
 class UserController extends Controller
 {
@@ -43,7 +45,7 @@ class UserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(AdminEditUserRequest $request)
+    public function store(AdminCreateUserRequest $request)
     {
         $data = $request->all();
 
@@ -56,6 +58,7 @@ class UserController extends Controller
             'last_name' => $data['last_name'],
             'nickname' => $data['nickname'],
             'id_card' => $data['id_card'],
+            'image' => $data['image']->store('uploads','public'),
             'phone_number' => $data['phone_number'],
             'address' => $data['address'],
             'role_id' => $data['role_id'],
@@ -122,6 +125,10 @@ class UserController extends Controller
         $user->role_id = $data['role_id'];
         $user->status = isset($data['status']) ? 1 : 0;
 
+        if (isset($data['image'])){
+            Storage::delete('public/'.$user->image);
+            $user->image = ($data['image'])->store('uploads','public');
+        }
 
         if (empty($data['gender'])) {
             $user->gender = null;
