@@ -6,7 +6,7 @@
             <div class="col-md-9">
 
                 <div class="card">
-                    <div class="card-header" style="text-align: center; font-size: 19px">
+                    <div class="card-header" style="text-align: center; font-size: 19px;background: rgb(100,223,46);color: aliceblue;">
                         ข้อมูลลูกค้า
                     </div>
                     <div class="card-body">

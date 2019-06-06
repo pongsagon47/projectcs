@@ -220,9 +220,9 @@
 
                                     <select id="role_employee_id" class="form-control{{ $errors->has('role_employee_id') ? ' is-invalid' : '' }}" name="role_employee_id" style="margin-top: 0.5px">
                                         <option selected disabled>เลือก...</option>
-                                        <option value="2">พนักงานแผนกออเดอร์</option >
-                                        <option value="3">หัวหน้าแผนกผลิด</option >
-                                        <option value="4">พนักงานแผนกส่งของ</option >
+                                        @foreach( $role_employees as $role_employee)
+                                            <option value="{{ $role_employee->id }}">{{ $role_employee->name }}</option>
+                                        @endforeach
                                     </select>
 
                                     @if ($errors->has('role_position_id'))

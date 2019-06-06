@@ -4,6 +4,7 @@ namespace App\Http\Controllers\BackendEmp;
 
 use App\Http\Requests\EmpRequest;
 use App\Models\Employee;
+use App\Models\RoleEmployee;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
@@ -70,8 +71,10 @@ class ProfileEmpController extends Controller
     public function edit()
     {
         $id = auth()->user()->id;
+        $role_employees = RoleEmployee::where('id','!=',1)
+            ->get();
         $data = Employee::find($id);
-        return view('backend-admin.employees.profile-edit',compact('data'));
+        return view('backend-admin.employees.profile-edit',compact('data','role_employees'));
     }
 
     /**

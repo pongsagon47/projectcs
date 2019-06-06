@@ -5,6 +5,7 @@ namespace App\Http\Controllers\BackendEmp\CrudUser;
 use App\Http\Requests\AdminCreateEmpRequest;
 use App\Http\Requests\AdminEditEmpRequest;
 use App\Models\Employee;
+use App\Models\RoleEmployee;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
@@ -36,7 +37,8 @@ class EmployeeController extends Controller
      */
     public function create()
     {
-        return view('backend-admin.employees.create');
+        $role_employees = RoleEmployee::where('id','!=',1)->get();
+        return view('backend-admin.employees.create',compact('role_employees'));
     }
 
     /**
@@ -51,7 +53,7 @@ class EmployeeController extends Controller
         $employee = new Employee();
 
         $employee->username = $request->username;
-        $employee->password = $request->password;
+        $employee->password = Hash::make($request->password);
         $employee->email = $request->email;
         $employee->first_name = $request->first_name;
         $employee->last_name = $request->last_name;
@@ -89,8 +91,9 @@ class EmployeeController extends Controller
     public function edit($id)
     {
 //        dd($id);
+        $role_employees = RoleEmployee::where('id','!=',1)->get();
         $data = Employee::find($id);
-        return view('backend-admin.employees.edit',compact('data'));
+        return view('backend-admin.employees.edit',compact('data','role_employees'));
     }
 
     /**

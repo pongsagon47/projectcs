@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Employee;
 
 use App\Models\Employee;
+use App\Models\RoleEmployee;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
@@ -24,7 +25,9 @@ class RegisterController extends Controller
 
     public function showRegistrationForm()
     {
-        return view('employee.register');
+        $role_employees = RoleEmployee::where('id', '!=', 1)
+            ->get();
+        return view('employee.register',compact('role_employees'));
     }
 
     protected function guard()

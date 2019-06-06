@@ -4,26 +4,17 @@
     <list default="true" id="5c6a2d6e-3646-4e35-8ae8-587ec4080105" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/BackendEmp/CrudUser/EmployeeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/BackendEmp/CrudUser/EmployeeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/BackendEmp/CrudUser/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/BackendEmp/CrudUser/UserController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Requests/AdminCreateEmpRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/AdminCreateEmpRequest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Requests/AdminCreateUserRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/AdminCreateUserRequest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Requests/AdminEditEmpRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/AdminEditEmpRequest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Requests/AdminEditUserRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/AdminEditUserRequest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/custom.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/custom.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/auth/register.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/register.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/BackendEmp/ProfileEmpController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/BackendEmp/ProfileEmpController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Employee/RegisterController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Employee/RegisterController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/backend-admin/employees/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend-admin/employees/create.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/backend-admin/employees/detail.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend-admin/employees/detail.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/backend-admin/employees/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend-admin/employees/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/backend-admin/employees/profile-edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend-admin/employees/profile-edit.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/backend-admin/employees/profile.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend-admin/employees/profile.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/backend-admin/layouts/main_dashboard.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend-admin/layouts/main_dashboard.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/backend-admin/partials/footer_user.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend-admin/partials/footer_user.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/backend-admin/partials/sidebar_user.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend-admin/partials/sidebar_user.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/backend-admin/users/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend-admin/users/create.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/backend-admin/users/detail.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend-admin/users/detail.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/backend-admin/users/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend-admin/users/edit.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/backend-user/layouts/main_dashboard.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend-user/layouts/main_dashboard.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/backend-user/users/profile-edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend-user/users/profile-edit.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/backend-user/users/profile.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend-user/users/profile.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/employee/register.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/employee/register.blade.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -54,23 +45,26 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/resources/views/backend-admin/employees/detail.blade.php">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Employee/RegisterController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="493">
-              <caret line="107" column="10" selection-start-line="107" selection-start-column="10" selection-end-line="107" selection-end-column="10" />
+            <state relative-caret-position="-612">
+              <caret column="5" lean-forward="true" selection-start-column="5" selection-end-column="5" />
               <folding>
-                <element signature="e#3996#4021#0#HTML" expanded="true" />
+                <element signature="e#49#73#0#PHP" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/routes/admin.php">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/BackendEmp/CrudUser/UserController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="408">
-              <caret line="24" column="14" lean-forward="true" selection-start-line="24" selection-start-column="14" selection-end-line="24" selection-end-column="14" />
+            <state relative-caret-position="1567">
+              <caret line="127" column="7" selection-start-line="127" selection-start-column="7" selection-end-line="130" selection-end-column="9" />
+              <folding>
+                <element signature="e#60#105#0#PHP" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -120,7 +114,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/Notifications/AdminResetPasswordNotification.php" />
         <option value="$PROJECT_DIR$/.env" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/BackendEmp/EmpController.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/BackendUser/UserController.php" />
@@ -139,7 +132,6 @@
         <option value="$PROJECT_DIR$/app/Http/Requests/UserRequest.php" />
         <option value="$PROJECT_DIR$/database/migrations/2019_03_06_100852_create_employees_table.php" />
         <option value="$PROJECT_DIR$/app/Models/Employee.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/Employee/RegisterController.php" />
         <option value="$PROJECT_DIR$/app/Http/Requests/EmpRequest.php" />
         <option value="$PROJECT_DIR$/routes/user.php" />
         <option value="$PROJECT_DIR$/resources/views/backend-user/partials/navbar_user.blade.php" />
@@ -147,30 +139,32 @@
         <option value="$PROJECT_DIR$/resources/views/backend-user/partials/sidebar_user.blade.php" />
         <option value="$PROJECT_DIR$/routes/admin.php" />
         <option value="$PROJECT_DIR$/resources/views/backend-admin/partials/navbar_user.blade.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/BackendEmp/ProfileEmpController.php" />
-        <option value="$PROJECT_DIR$/resources/views/backend-admin/employees/profile-edit.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/employee/register.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/backend-admin/layouts/main_dashboard.blade.php" />
         <option value="$PROJECT_DIR$/public/css/custom.css" />
         <option value="$PROJECT_DIR$/resources/views/backend-user/layouts/main_dashboard.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/backend-user/users/profile.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/backend-admin/users/detail.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Requests/AdminCreateUserRequest.php" />
         <option value="$PROJECT_DIR$/app/Http/Requests/AdminEditUserRequest.php" />
-        <option value="$PROJECT_DIR$/resources/views/backend-admin/users/edit.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/backend-admin/users/create.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/backend-admin/partials/sidebar_user.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/auth/register.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/backend-user/users/profile-edit.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Requests/AdminCreateEmpRequest.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/BackendEmp/CrudUser/UserController.php" />
-        <option value="$PROJECT_DIR$/resources/views/backend-admin/employees/create.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Requests/AdminEditEmpRequest.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/BackendEmp/CrudUser/EmployeeController.php" />
-        <option value="$PROJECT_DIR$/resources/views/backend-admin/employees/edit.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/backend-admin/partials/footer_user.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/backend-admin/employees/profile.blade.php" />
+        <option value="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" />
+        <option value="$PROJECT_DIR$/resources/views/backend-user/users/profile-edit.blade.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/Employee/RegisterController.php" />
+        <option value="$PROJECT_DIR$/resources/views/employee/register.blade.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/BackendEmp/ProfileEmpController.php" />
+        <option value="$PROJECT_DIR$/resources/views/backend-admin/employees/profile-edit.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/backend-admin/employees/create.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/backend-admin/employees/detail.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/backend-admin/users/detail.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/backend-admin/employees/edit.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/backend-admin/users/edit.blade.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/BackendEmp/CrudUser/EmployeeController.php" />
       </list>
     </option>
   </component>
@@ -307,6 +301,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -354,7 +349,30 @@
               <item name="kidthuang" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="Http" type="462c0819:PsiDirectoryNode" />
-              <item name="Requests" type="462c0819:PsiDirectoryNode" />
+              <item name="Controllers" type="462c0819:PsiDirectoryNode" />
+              <item name="Employee" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="kidthuang" type="b2602c69:ProjectViewProjectNode" />
+              <item name="kidthuang" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="Models" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="kidthuang" type="b2602c69:ProjectViewProjectNode" />
+              <item name="kidthuang" type="462c0819:PsiDirectoryNode" />
+              <item name="database" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="kidthuang" type="b2602c69:ProjectViewProjectNode" />
+              <item name="kidthuang" type="462c0819:PsiDirectoryNode" />
+              <item name="database" type="462c0819:PsiDirectoryNode" />
+              <item name="seeds" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="kidthuang" type="b2602c69:ProjectViewProjectNode" />
+              <item name="kidthuang" type="462c0819:PsiDirectoryNode" />
+              <item name="public" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="kidthuang" type="b2602c69:ProjectViewProjectNode" />
@@ -387,15 +405,22 @@
               <item name="kidthuang" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="backend-admin" type="462c0819:PsiDirectoryNode" />
-              <item name="partials" type="462c0819:PsiDirectoryNode" />
+              <item name="backend-user" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="kidthuang" type="b2602c69:ProjectViewProjectNode" />
               <item name="kidthuang" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="layouts" type="462c0819:PsiDirectoryNode" />
+              <item name="backend-user" type="462c0819:PsiDirectoryNode" />
+              <item name="users" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="kidthuang" type="b2602c69:ProjectViewProjectNode" />
+              <item name="kidthuang" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="employee" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="kidthuang" type="b2602c69:ProjectViewProjectNode" />
@@ -406,7 +431,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -511,12 +535,13 @@
       <workItem from="1556855698369" duration="5414000" />
       <workItem from="1557299496771" duration="13475000" />
       <workItem from="1557475174103" duration="3104000" />
-      <workItem from="1559723376765" duration="1819000" />
+      <workItem from="1559723376765" duration="2885000" />
+      <workItem from="1559801083562" duration="7387000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="314547000" />
+    <option name="totallyTimeSpent" value="323000000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -529,9 +554,8 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1552" height="840" extended-state="0" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22319035" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.22654155" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -543,7 +567,7 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.3295583" />
-      <window_info anchor="bottom" id="Terminal" order="8" weight="0.32768363" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="8" visible="true" weight="0.32768363" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" weight="0.32956153" />
       <window_info anchor="bottom" id="Docker" order="10" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="11" />
@@ -577,33 +601,6 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/database/migrations/2019_03_06_100852_create_employees_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="241">
-          <caret line="25" column="36" selection-start-line="25" selection-start-column="36" selection-end-line="25" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Models/Employee.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="27" column="16" selection-start-line="27" selection-start-column="16" selection-end-line="27" selection-end-column="16" />
-          <folding>
-            <element signature="e#30#83#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/storage/.gitignore">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Employee/RegisterController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="76" column="65" selection-start-line="76" selection-start-column="65" selection-end-line="76" selection-end-column="65" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/storage/app/public/uploads/ytaXDtobYtZ51PVnmrm34uUQm6wMB1v8O4N7GgFW.jpeg" />
     <entry file="file://$PROJECT_DIR$/storage/app/public/uploads/6UBY5jQsvQjAoWegMVCFSVQMgHmMLeC3nNqnggmb.jpeg" />
     <entry file="file://$PROJECT_DIR$/app/Http/Requests/UserRequest.php">
@@ -712,16 +709,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/backend-admin/users/detail.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="84" column="34" selection-start-line="84" selection-start-column="34" selection-end-line="84" selection-end-column="34" />
-          <folding>
-            <element signature="e#3781#3806#0#HTML" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/backend-user/users/profile.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
@@ -753,26 +740,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/BackendEmp/ProfileEmpController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="71">
-          <caret line="92" column="38" lean-forward="true" selection-start-line="92" selection-start-column="38" selection-end-line="92" selection-end-column="38" />
-          <folding>
-            <element signature="e#51#84#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/backend-admin/users/edit.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="303">
-          <caret line="299" column="28" selection-start-line="299" selection-start-column="28" selection-end-line="302" selection-end-column="34" />
-          <folding>
-            <element signature="e#566#587#0#HTML" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/backend-admin/users/create.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="459">
@@ -790,24 +757,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/backend-user/users/profile-edit.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="371">
-          <caret line="170" column="26" selection-start-line="170" selection-start-column="26" selection-end-line="170" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Requests/AdminCreateUserRequest.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="388">
           <caret line="52" column="57" lean-forward="true" selection-start-line="52" selection-start-column="10" selection-end-line="52" selection-end-column="57" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Requests/AdminCreateEmpRequest.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="439">
-          <caret line="49" column="57" selection-start-line="49" selection-start-column="57" selection-end-line="49" selection-end-column="57" />
         </state>
       </provider>
     </entry>
@@ -822,33 +775,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="459">
           <caret line="57" column="57" selection-start-line="57" selection-start-column="57" selection-end-line="57" selection-end-column="57" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/BackendEmp/CrudUser/UserController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2057">
-          <caret line="127" column="7" selection-start-line="127" selection-start-column="7" selection-end-line="130" selection-end-column="9" />
-          <folding>
-            <element signature="e#60#105#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/BackendEmp/CrudUser/EmployeeController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2278">
-          <caret line="140" column="40" selection-start-line="140" selection-start-column="40" selection-end-line="140" selection-end-column="40" />
-          <folding>
-            <element signature="e#60#104#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/backend-admin/employees/edit.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-187">
-          <caret line="11" column="136" selection-start-line="11" selection-start-column="136" selection-end-line="11" selection-end-column="136" />
         </state>
       </provider>
     </entry>
@@ -873,50 +799,142 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/backend-admin/employees/profile-edit.blade.php">
+    <entry file="file://$PROJECT_DIR$/app/Http/Requests/AdminCreateEmpRequest.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="90" column="20" selection-start-line="90" selection-start-column="20" selection-end-line="117" selection-end-column="26" />
+        <state relative-caret-position="-170">
+          <caret line="6" column="6" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/backend-admin/employees/create.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="235" column="113" selection-start-line="235" selection-start-column="113" selection-end-line="235" selection-end-column="113" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/employee/register.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="219" column="195" selection-start-line="219" selection-start-column="170" selection-end-line="219" selection-end-column="195" />
-        </state>
-      </provider>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/BackendEmp/Merchant/ProductCategoyController.php">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/routes/admin.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="408">
-          <caret line="24" column="14" lean-forward="true" selection-start-line="24" selection-start-column="14" selection-end-line="24" selection-end-column="14" />
+          <caret line="24" column="14" selection-start-line="24" selection-start-column="14" selection-end-line="24" selection-end-column="14" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/backend-admin/employees/profile.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="103" column="51" selection-start-line="103" selection-start-column="51" selection-end-line="103" selection-end-column="51" />
+        <state relative-caret-position="34">
+          <caret line="65" column="60" selection-start-line="65" selection-start-column="60" selection-end-line="65" selection-end-column="60" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Models/RoleEmployee.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="6" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/seeds/DatabaseSeeder.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="915">
+          <caret line="55" column="31" selection-start-line="55" selection-start-column="31" selection-end-line="55" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/employee/register.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="221" column="83" selection-start-line="221" selection-start-column="83" selection-end-line="221" selection-end-column="83" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/BackendEmp/ProfileEmpController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="564">
+          <caret line="83" column="23" lean-forward="true" selection-start-line="83" selection-start-column="23" selection-end-line="83" selection-end-column="23" />
           <folding>
-            <element signature="e#3999#4024#0#HTML" expanded="true" />
+            <element signature="e#51#84#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/backend-admin/employees/detail.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="107" column="10" selection-start-line="107" selection-start-column="10" selection-end-line="107" selection-end-column="10" />
+        <state relative-caret-position="153">
+          <caret line="9" column="133" selection-start-line="9" selection-start-column="133" selection-end-line="9" selection-end-column="133" />
           <folding>
-            <element signature="e#3996#4021#0#HTML" expanded="true" />
+            <element signature="e#439#528#0#HTML" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/backend-admin/employees/create.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3400">
+          <caret line="7" column="126" selection-start-line="7" selection-start-column="80" selection-end-line="7" selection-end-column="126" />
+          <folding>
+            <element signature="e#318#387#0#HTML" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/backend-admin/employees/profile-edit.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret line="252" column="22" lean-forward="true" selection-start-line="252" selection-start-column="22" selection-end-line="252" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/backend-admin/employees/edit.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3587">
+          <caret line="257" column="48" selection-start-line="257" selection-start-column="48" selection-end-line="257" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/backend-admin/users/detail.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-901">
+          <caret line="8" column="133" selection-start-line="8" selection-start-column="133" selection-end-line="8" selection-end-column="133" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/backend-admin/users/edit.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="439">
+          <caret line="82" column="43" selection-start-line="82" selection-start-column="43" selection-end-line="82" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/backend-user/users/profile-edit.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="82">
+          <caret line="72" column="24" selection-start-line="72" selection-start-column="24" selection-end-line="89" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/BackendEmp/CrudUser/EmployeeController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-34">
+          <caret line="55" column="60" lean-forward="true" selection-start-line="55" selection-start-column="60" selection-end-line="55" selection-end-column="60" />
+          <folding>
+            <element signature="e#60#104#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Employee/RegisterController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-612">
+          <caret column="5" lean-forward="true" selection-start-column="5" selection-end-column="5" />
+          <folding>
+            <element signature="e#49#73#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/BackendEmp/CrudUser/UserController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1567">
+          <caret line="127" column="7" selection-start-line="127" selection-start-column="7" selection-end-line="130" selection-end-column="9" />
+          <folding>
+            <element signature="e#60#105#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>

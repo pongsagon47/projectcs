@@ -19,57 +19,52 @@ class DatabaseSeeder extends Seeder
         ]);
 
         DB::table('role_employees')->insert([
-            'name' => 'Order',
-            'created_at' => now(),
-            'updated_at' => now()
-        ]);
-        DB::table('role_employees')->insert([
-            'name' => 'Production',
+            'name' => 'พนักงานแผนกออเดอร์',
             'created_at' => now(),
             'updated_at' => now()
         ]);
 
         DB::table('role_employees')->insert([
-            'name' => 'Sender',
+            'name' => 'พนักงานแผนกส่งของ',
             'created_at' => now(),
             'updated_at' => now()
         ]);
         DB::table('role_employees')->insert([
-            'name' => 'Thai dessert room',
-            'created_at' => now(),
-            'updated_at' => now()
-        ]);
-
-        DB::table('role_employees')->insert([
-            'name' => 'Rolls room',
-            'created_at' => now(),
-            'updated_at' => now()
-        ]);
-        DB::table('role_employees')->insert([
-            'name' => 'Cake room',
+            'name' => 'หัวหน้าห้องขนมไทย',
             'created_at' => now(),
             'updated_at' => now()
         ]);
 
         DB::table('role_employees')->insert([
-            'name' => 'Cookie dessert room',
+            'name' => 'หัวหน้าห้องขนมโรล',
+            'created_at' => now(),
+            'updated_at' => now()
+        ]);
+        DB::table('role_employees')->insert([
+            'name' => 'หัวหน้าห้องขนมเค้ก',
+            'created_at' => now(),
+            'updated_at' => now()
+        ]);
+
+        DB::table('role_employees')->insert([
+            'name' => 'หัวหน้าห้องขนมคุกกี้',
             'created_at' => now(),
             'updated_at' => now()
         ]);
 
         DB::table('roles')->insert([
-            'name' => 'Branch shop',
+            'name' => 'ร้านสาขา',
             'created_at' => now(),
             'updated_at' => now()
         ]);
         DB::table('roles')->insert([
-            'name' => 'Franchise store',
+            'name' => 'ร้านเฟรนไชน์',
             'created_at' => now(),
             'updated_at' => now()
         ]);
 
         DB::table('roles')->insert([
-            'name' => 'Shop to sell',
+            'name' => 'ร้านที่รับไปขาย',
             'created_at' => now(),
             'updated_at' => now()
         ]);

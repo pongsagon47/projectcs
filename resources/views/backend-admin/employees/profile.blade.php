@@ -9,7 +9,7 @@
 
                 <div class="card" style="margin-top: 20px">
                     <div class="card-header" style="text-align: center; font-size: 19px">
-                        ข้อมูลลูกค้า
+                        ข้อมูลพนักงาน
                     </div>
                     <div class="card-body">
 
@@ -59,17 +59,11 @@
 
                                         <div class="col-md-4">
 
-                                            <label><strong>ประเภทลูกค้า: </strong> asd</label>
-
-                                        </div>
-
-                                        <div class="col-md-4">
-
                                             <label><strong>เพศ: </strong> {{ null == $data->gender ?"ไม่ระบุเพศ": $data->gender }} </label>
 
                                         </div>
 
-                                        <div class="col-md-12">
+                                        <div class="col-md-8">
 
                                             <label><strong>เลขบัตรประจำตัวประชาชน: </strong> {{$data->id_card}}</label>
                                         </div>

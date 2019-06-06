@@ -67,6 +67,25 @@
                                     </div>
                                 </div>
 
+                                @if($data->role_id == 1)
+
+                                    <div class="form-group col-md-4">
+                                        <label for="role_id" class=" col-form-label text-md-right">ประเภทลูกค้า</label>
+                                        <select id="role_id"
+                                                class="form-control{{ $errors->has('role_type_id') ? ' is-invalid' : '' }}"
+                                                name="role_id" required>
+                                            <option selected disabled>เลือก...</option>
+                                            <option {{ ('1' == $data->role_id) ? 'selected' : '' }} value="1">ร้านสาขา</option>
+                                        </select>
+                                        @if ($errors->has('role_id'))
+                                            <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('role_id') }}</strong>
+                                    </span>
+                                        @endif
+                                    </div>
+
+                                @else
+
                                 <div class="form-group col-md-4">
                                     <label for="role_id" class=" col-form-label text-md-right">ประเภทลูกค้า</label>
                                     <select id="role_id"
@@ -82,6 +101,8 @@
                                     </span>
                                     @endif
                                 </div>
+
+                                @endif
 
                                 <div class="form-group col-md-3">
                                     <label for="phone_number" class=" col-form-label text-md-right" style="font-size: 16.8px;">เบอร์โทรศัพท์</label>

@@ -265,12 +265,11 @@
                                         class="form-control{{ $errors->has('role_employee_id') ? ' is-invalid' : '' }}"
                                         name="role_employee_id" style="margin-top: 4px">
                                     <option selected disabled>เลือก...</option>
-                                    <option  {{ ('2' == $data->role_employee_id) ? 'selected' : '' }} value="2">พนักงานแผนกออเดอร์</option>
-                                    <option  {{ ('3' == $data->role_employee_id) ? 'selected' : '' }} value="3">หัวหน้าห้องขนมไทย</option>
-                                    <option  {{ ('4' == $data->role_employee_id) ? 'selected' : '' }} value="4">หัวหน้าห้องขนมโรล</option>
-                                    <option  {{ ('5' == $data->role_employee_id) ? 'selected' : '' }} value="5">หัวหน้าห้องขนมเค้ก</option>
-                                    <option  {{ ('6' == $data->role_employee_id) ? 'selected' : '' }} value="6">หหัวหน้าห้องขนมคุกกี้</option>
-                                    <option  {{ ('7' == $data->role_employee_id) ? 'selected' : '' }} value="7">พนักงานแผนกส่งของ</option>
+                                    @foreach($role_employees as $role_employee)
+                                        <option value="{{ $role_employee->id }}"
+                                            {{ ($data->role_employee_id == $role_employee->id) ? 'selected' : '' }}>
+                                            {{ $role_employee->name }}</option>
+                                    @endforeach
                                 </select>
                             @endif
 
