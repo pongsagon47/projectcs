@@ -4,6 +4,7 @@ namespace App\Http\Controllers\BackendEmp\CrudUser;
 
 use App\Http\Requests\AdminCreateUserRequest;
 use App\Http\Requests\AdminEditUserRequest;
+use App\Models\Role;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -36,7 +37,8 @@ class UserController extends Controller
      */
     public function create()
     {
-        return view('backend-admin.users.create');
+        $roles = Role::where('id','!=',1)->get();
+        return view('backend-admin.users.create',compact('roles'));
     }
 
     /**
@@ -156,6 +158,7 @@ class UserController extends Controller
         $user = User::find($id);
 
         $user->forceDelete();
+        Storage::delete('public/'.$user->image);
 
         return redirect()->route('user.index')->with('deleted','ลบ User เรียบร้อย');
     }

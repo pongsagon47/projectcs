@@ -65,8 +65,12 @@
                                     <label for="role_id"  class=" col-form-label text-md-right">ประเภทลูกค้า</label>
                                     <select id="role_id" class="form-control{{ $errors->has('role_id') ? ' is-invalid' : '' }}" name="role_id" >
                                         <option selected disabled >เลือก...</option >
-                                        <option value="2" >ร้านเฟรนไชน์</option >
-                                        <option value="3" >ร้านที่รับไปขาย</option >
+                                        @foreach( $roles as $role)
+                                            <option value="{{ $role->id }}"
+                                                {{ (old("role_id") == $role->id) ? 'selected' : '' }}>
+                                                {{ $role->name }}
+                                            </option>
+                                        @endforeach
                                     </select>
                                     @if ($errors->has('role_id'))
                                         <span class="invalid-feedback" role="alert">
@@ -114,12 +118,12 @@
 
                                 <div>
                                     <div class="form-check form-check-inline" style="margin-left: 18px">
-                                        <input class="form-check-input" type="radio" name="gender" id="male" value="ชาย" >
+                                        <input class="form-check-input" type="radio" name="gender" id="male" value="ชาย" {{ old('gender') == 'ชาย' ?'checked':'' }}>
                                         <label class="form-check-label" for="male">ชาย</label>
                                     </div>
                                     <div class="form-check form-check-inline" >
-                                        <input class="form-check-input " type="radio" name="gender" id="female" value="หญิง" >
-                                        <label class="form-check-label " for="female">หญิง</label>
+                                        <input class="form-check-input " type="radio" name="gender" id="female" value="หญิง" {{ old('gender') == 'หญิง' ?'checked':'' }}>
+                                        <label class="form-check-label " for="female" >หญิง</label>
                                     </div>
                                 </div>
 

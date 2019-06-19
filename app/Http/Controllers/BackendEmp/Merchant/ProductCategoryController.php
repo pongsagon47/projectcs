@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers\BackendEmp\Merchant;
 
+use App\Models\ProductCategory;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class ProductCategoyController extends Controller
+class ProductCategoryController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +15,8 @@ class ProductCategoyController extends Controller
      */
     public function index()
     {
-        //
+        $product_categories = ProductCategory::all();
+        return view('backend-admin.merchant.product-category.index',compact('product_categories'));
     }
 
     /**
@@ -24,7 +26,7 @@ class ProductCategoyController extends Controller
      */
     public function create()
     {
-        //
+        return view('backend-admin.merchant.product-category.create');
     }
 
     /**
@@ -35,7 +37,17 @@ class ProductCategoyController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $this->validate($request,['title' => 'required|unique:product_categories,title'],[],[ 'title' => ' ประเภทขนม']);
+
+        $product_category = new ProductCategory(
+            [
+                'title' => $request->get('title')
+            ]
+        );
+
+        $product_category->save();
+        return redirect()->route('product_category.index')->with('success','บันทึกข้อมูลเรียบร้อย');
     }
 
     /**
@@ -57,7 +69,9 @@ class ProductCategoyController extends Controller
      */
     public function edit($id)
     {
-        //
+        $data = ProductCategory::find($id);
+        return view('backend-admin.merchant.product-category.edit',compact('data'));
+
     }
 
     /**
@@ -80,6 +94,6 @@ class ProductCategoyController extends Controller
      */
     public function destroy($id)
     {
-        //
+        dd($id);
     }
 }

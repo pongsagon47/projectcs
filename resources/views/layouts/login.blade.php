@@ -10,6 +10,7 @@
     <meta name="author" content="">
 
     <title>@yield('title')</title>
+    <link rel="icon" href="{{ asset('/img/logotitle.png') }}">
 
     <!-- Custom fonts for this template-->
     <link href="{{asset('sb-admin2/vendor/fontawesome-free/css/all.min.css')}}" rel="stylesheet" type="text/css">

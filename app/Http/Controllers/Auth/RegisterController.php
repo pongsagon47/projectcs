@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Models\Role;
 use App\Models\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Storage;
@@ -49,6 +50,13 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \Illuminate\Contracts\Validation\Validator
      */
+
+    public function showRegistrationForm()
+    {
+        $roles = Role::where('id','!=',1)->get();
+        return view('auth.register',compact('roles'));
+    }
+
     protected function validator(array $data)
     {
 

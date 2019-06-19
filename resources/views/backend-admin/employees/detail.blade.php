@@ -4,7 +4,6 @@
     <div class="container-fluid">
         <div class="row justify-content-center">
             <div class="col-md-9">
-                <a class="link-right btn btn-sm btn-info"  href="{{route('emp.edit')}}">Edit Profile</a> <br>
 
                 <div class="card" style="margin-top: 20px">
                     <div class="card-header" style="text-align: center; font-size: 19px;background: rgb(100,223,46);color: aliceblue;">

@@ -62,5 +62,31 @@ Route::group([
         Route::delete('{id}/employee/delete','EmployeeController@destroy')->name('delete');
     });
 
+    Route::group([
+        'prefix' => 'product_category',
+        'as' => 'product_category.',
+        'namespace' => 'Merchant',
+    ],function (){
+        Route::get('/','ProductCategoryController@index')->name('index');
+        Route::get('/create','ProductCategoryController@create')->name('create');
+        Route::post('/store','ProductCategoryController@store')->name('store');
+        Route::get('{id}/edit','ProductCategoryController@edit')->name('edit');
+        Route::delete('{id}/delete','ProductCategoryController@destroy')->name('delete');
+    });
+
+    Route::group([
+        'prefix' => 'product',
+        'as' => 'product.',
+        'namespace' => 'Merchant',
+    ],function(){
+        Route::get('/','ProductController@index')->name('index');
+        Route::get('/create','ProductController@create')->name('create');
+        Route::post('/store','ProductController@store')->name('store');
+        Route::get('{id}/show','ProductController@show')->name('show');
+        Route::get('{id}/edit','ProductController@edit')->name('edit');
+        Route::put('{id}/update','ProductController@update')->name('update');
+        Route::delete('{id}/delete','ProductController@destroy')->name('delete');
+    });
+
 
 });

@@ -64,11 +64,11 @@
 
                                 <div>
                                     <div class="form-check form-check-inline" style="margin-left: 18px">
-                                        <input class="form-check-input" type="radio" name="gender" id="male" value="ชาย">
+                                        <input class="form-check-input" type="radio" name="gender" id="male" value="ชาย" {{ old('gender') == 'ชาย' ?'checked':'' }}>
                                         <label class="form-check-label" for="male">ชาย</label>
                                     </div>
                                     <div class="form-check form-check-inline" >
-                                        <input class="form-check-input" type="radio" name="gender" id="female" value="หญิง">
+                                        <input class="form-check-input" type="radio" name="gender" id="female" value="หญิง" {{ old('gender') == 'หญิง' ?'checked':'' }}>
                                         <label class="form-check-label" for="female">หญิง</label>
                                     </div>
                                 </div>
@@ -221,7 +221,10 @@
                                     <select id="role_employee_id" class="form-control{{ $errors->has('role_employee_id') ? ' is-invalid' : '' }}" name="role_employee_id" style="margin-top: 0.5px">
                                         <option selected disabled>เลือก...</option>
                                         @foreach( $role_employees as $role_employee)
-                                            <option value="{{ $role_employee->id }}">{{ $role_employee->name }}</option>
+                                            <option value="{{ $role_employee->id }}"
+                                                {{ (old("role_employee_id") == $role_employee->id) ? 'selected' : '' }}>
+                                                {{ $role_employee->name }}
+                                            </option>
                                         @endforeach
                                     </select>
 

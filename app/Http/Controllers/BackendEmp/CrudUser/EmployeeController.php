@@ -149,6 +149,8 @@ class EmployeeController extends Controller
 
         $employee->forceDelete();
 
+        Storage::delete('public/'.$employee->image);
+
         return redirect()->route('employee.index')->with('deleted','ลบ Employee เรียบร้อย');
 
     }
