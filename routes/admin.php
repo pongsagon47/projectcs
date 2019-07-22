@@ -39,6 +39,7 @@ Route::group([
         'namespace' => 'CrudUser',
     ],function (){
         Route::get('user','UserController@index')->name('index');
+        Route::any('search','UserController@search')->name('search');
         Route::get('user/create','UserController@create')->name('create');
         Route::post('user/store','UserController@store')->name('store');
         Route::get('{id}/user/detail','UserController@show')->name('detail');
@@ -80,6 +81,7 @@ Route::group([
         'namespace' => 'Merchant',
     ],function(){
         Route::get('/','ProductController@index')->name('index');
+        Route::any('/search','ProductController@search')->name('search');
         Route::get('/create','ProductController@create')->name('create');
         Route::post('/store','ProductController@store')->name('store');
         Route::get('{id}/show','ProductController@show')->name('show');
@@ -87,6 +89,8 @@ Route::group([
         Route::put('{id}/update','ProductController@update')->name('update');
         Route::delete('{id}/delete','ProductController@destroy')->name('delete');
     });
+
+
 
 
 });

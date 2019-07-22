@@ -18,8 +18,9 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products = Product::all();
-        return view('backend-admin.merchant.product.index',compact('products'));
+        $search = "";
+        $products = Product::paginate(5);
+        return view('backend-admin.merchant.product.index',['products' => $products,'search' => $search]);
     }
 
     /**
@@ -31,6 +32,22 @@ class ProductController extends Controller
     {
         $product_categories = ProductCategory::all();
         return view('backend-admin.merchant.product.create',compact('product_categories'));
+    }
+
+    public function search(Request $request)
+    {
+        $search = $request->search;
+        if ($search == ""){
+            $products = Product::paginate(5);
+            return view('backend-admin.merchant.product.index',['products' => $products,'search' => $search]);
+        }
+        else{
+            $products = Product::where('name','LIKE','%'.$request->search.'%')
+                ->paginate(5);
+            $products->appends($request->only('search'));
+            return view('backend-admin.merchant.product.index',compact('products','search'));
+        }
+
     }
 
     /**

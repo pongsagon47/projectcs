@@ -96,7 +96,7 @@
 
                                     <label for="description" class="col-form-label text-md-right" style="font-size: 16.8px;">คำอธิบายขนม</label>
 
-                                    <input id="description"  type="text" class="form-control{{ $errors->has('description') ? ' is-invalid' : '' }}" name="description" value="{{ old('description') }}">
+                                    <input id="description"  type="text" class="form-control{{ $errors->has('description') ? ' is-invalid' : '' }}" name="description"              >
 
                                     @if ($errors->has('description'))
                                         <span class="invalid-feedback" role="alert">

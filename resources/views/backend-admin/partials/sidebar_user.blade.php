@@ -51,20 +51,20 @@
 
     <li class="nav-item {{ Route::currentRouteName() === 'product_category.index'||Route::currentRouteName() === 'product_category.create'
     ||Route::currentRouteName() === 'product.index'||Route::currentRouteName() === 'product_category.edit'||Route::currentRouteName() === 'product.show'
-    ||Route::currentRouteName() === 'product.edit'||Route::currentRouteName() === 'product.create' ? 'active' : null }}">
+    ||Route::currentRouteName() === 'product.edit'||Route::currentRouteName() === 'product.create'||Route::currentRouteName() === 'product.search' ? 'active' : null }}">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseProduct" aria-expanded="true" aria-controls="collapseProduct">
             <i class="fas fa-shopping-cart"></i>
             <span>การจัดการสินค้า</span>
         </a>
         <div id="collapseProduct" class="collapse {{ Route::currentRouteName() === 'product_category.index'||Route::currentRouteName() === 'product_category.create'
         ||Route::currentRouteName() === 'product.index'||Route::currentRouteName() === 'product_category.edit'||Route::currentRouteName() === 'product.show'
-        ||Route::currentRouteName() === 'product.edit'||Route::currentRouteName() === 'product.create' ? 'show' : null }}" aria-labelledby="headingProduct" data-parent="#accordionSidebar">
+        ||Route::currentRouteName() === 'product.edit'||Route::currentRouteName() === 'product.create'||Route::currentRouteName() === 'product.search' ? 'show' : null }}" aria-labelledby="headingProduct" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">จัดการรายการขนม</h6>
                 <a class="collapse-item {{ Route::currentRouteName() === 'product_category.index'||Route::currentRouteName() === 'product_category.create'
                 ||Route::currentRouteName() === 'product_category.edit' ? 'active' : null }}" href="{{route('product_category.index')}}">ข้อมูลประเภทขนม</a>
                 <a class="collapse-item {{ Route::currentRouteName() === 'product.index'||Route::currentRouteName() === 'product.show'||Route::currentRouteName() === 'product.edit'
-                 ? 'active' : null }}" href="{{route('product.index')}}">ข้อมูลรายการขนม</a>
+                 ||Route::currentRouteName() === 'product.search' ? 'active' : null }}" href="{{route('product.index')}}">ข้อมูลรายการขนม</a>
             </div>
         </div>
     </li>

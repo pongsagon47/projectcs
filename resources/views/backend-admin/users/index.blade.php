@@ -6,12 +6,35 @@
         <!-- Page Heading -->
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
             <h1 class="h3 mb-0 text-gray-800">User list</h1>
-            <a href="{{route('user.create')}}" class="btn btn-primary" style="margin-right: 40px">
+
+
+        </div>
+
+        <div class="row">
+            <div class="col-md-2">
+                <a href="{{route('user.create')}}" class="btn btn-primary" style="margin-right: 40px">
                     <span class="icon text-white-50">
                       <i class="fas fa-plus"></i>
                     </span>
-                <span class="text">Create User</span>
-            </a>
+                    <span class="text">Create User</span>
+                </a>
+            </div>
+            <div class="col"></div>
+            <div class="col-md-3">
+
+                <form method="post" action="{{route('user.search')}}" role="search">
+                    @csrf
+                    <div class="input-group" style="margin-right: 80px">
+                        <input type="text" name="search" class="form-control" placeholder="ค้นหา" value="{{$search}}">
+                        <div class="input-group-append">
+                            <button class="btn btn-primary" type="submit">
+                                <i class="fas fa-search fa-sm"></i>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+
+            </div>
         </div>
 
         @if(\Session('success'))
@@ -33,9 +56,9 @@
     @endif
 
         <!-- DataTales Example -->
-        <div class="card shadow mb-4">
+        <div class="card shadow mb-4" style="margin-top: 20px">
             <div class="card-header py-3">
-                <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
+                <h6 class="m-0 font-weight-bold text-primary">ข้อมูลผูลูกค้า</h6>
             </div>
             <div class="card-body">
                 <div class="table-responsive">
@@ -81,6 +104,10 @@
                             </tbody>
                         @endforeach
                     </table>
+
+                    <div class="flex-center">
+                        {{ $data->render() }}
+                    </div>
                 </div>
             </div>
         </div>

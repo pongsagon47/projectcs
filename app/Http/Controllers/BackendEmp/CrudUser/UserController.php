@@ -15,7 +15,7 @@ class UserController extends Controller
 {
     public function __construct()
     {
-//        $this->middleware('auth:employee');
+        $this->middleware('employee:employee');
     }
 
     /**
@@ -24,10 +24,27 @@ class UserController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index(){
+
+        $search = "";
         $data = User::query()
-            ->where('status','=','1')
-            ->get();
-        return view ('backend-admin.users.index',compact('data'));
+            ->where('status','=','1')->paginate(5);
+        return view ('backend-admin.users.index',compact('data','search'));
+    }
+
+    public function search(Request $request){
+
+        $search = $request->search;
+        if ($search == ""){
+            $data = User::paginate(5);
+            return view('backend-admin.users.index',['data' => $data,'search' => $search]);
+        }
+        else{
+            $data = User::where('first_name','LIKE','%'.$search.'%')
+                ->where('last_name','LIKE','%'.$search.'%')
+                ->paginate(5);
+            $data->appends($request->only('search'));
+            return view('backend-admin.users.index',compact('data','search'));
+        }
     }
 
     /**
@@ -37,7 +54,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        $roles = Role::where('id','!=',1)->get();
+        $roles = Role::all();
         return view('backend-admin.users.create',compact('roles'));
     }
 
