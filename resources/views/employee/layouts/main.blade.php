@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="th" class="html">
+<html lang="th">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -21,10 +21,10 @@
 
     <!-- Styles -->
     <link href="{{asset('css/bootstrap.min.css')}}" rel="stylesheet" type="text/css">
-    <link href="{{asset('css/custom.css')}}" rel="stylesheet" type="text/css">
+    <link href="{{asset('css/custom_emp_login.css')}}" rel="stylesheet" type="text/css">
 
 </head>
-<body class="body">
+<body>
 <div id="app">
     <nav class="navbar navbar-expand-md navbar-light " style="background-color: #ccfd99;">
         <div class="container">

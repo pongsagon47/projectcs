@@ -6,8 +6,8 @@
             <div class="col-md-9">
 
                 <div class="card" style="margin-top: 20px">
-                    <div class="card-header" style="text-align: center; font-size: 19px">
-                        ข้อมูลพนักงาน
+                    <div class="card-header" style="text-align: center; font-size: 19px;background-color: #7eff4f">
+                        ข้อมูลขนม
                     </div>
                     <div class="card-body">
 

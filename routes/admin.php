@@ -39,7 +39,7 @@ Route::group([
         'namespace' => 'CrudUser',
     ],function (){
         Route::get('user','UserController@index')->name('index');
-        Route::any('search','UserController@search')->name('search');
+        Route::any('search/user','UserController@search')->name('search');
         Route::get('user/create','UserController@create')->name('create');
         Route::post('user/store','UserController@store')->name('store');
         Route::get('{id}/user/detail','UserController@show')->name('detail');
@@ -55,6 +55,7 @@ Route::group([
         'namespace' => 'CrudUser',
     ],function (){
         Route::get('employee','EmployeeController@index')->name('index');
+        Route::any('search/emp','EmployeeController@search')->name('search');
         Route::get('employee/create','EmployeeController@create')->name('create');
         Route::post('employee/store','EmployeeController@store')->name('store');
         Route::get('{id}/employee/detail','EmployeeController@show')->name('detail');
@@ -72,6 +73,7 @@ Route::group([
         Route::get('/create','ProductCategoryController@create')->name('create');
         Route::post('/store','ProductCategoryController@store')->name('store');
         Route::get('{id}/edit','ProductCategoryController@edit')->name('edit');
+        Route::put('{id}/update','ProductCategoryController@update')->name('update');
         Route::delete('{id}/delete','ProductCategoryController@destroy')->name('delete');
     });
 

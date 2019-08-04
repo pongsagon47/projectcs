@@ -11,13 +11,21 @@
 |
 */
 
-Route::get('/', function () {
-    return view('frontend.index.index');
+Route::group([
+    'as' => 'kidthuang.',
+    'namespace' => 'Frontend'
+],function () {
+
+    Route::get('/', 'FrontEndController@index')->name('index');
+    Route::get('/about-us', 'AboutUsController@index')->name('about-us');
+
+
 });
 
 Route::get('/test', function () {
-    return view('test');
+    return view('frontend.test');
 });
+
 
 
 

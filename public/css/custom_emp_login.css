@@ -1,0 +1,52 @@
+body {
+    background: #fff;
+    color: #666666;
+    font-family: 'Nunito','Mitr', sans-serif;
+    overflow-x: hidden;
+}
+
+.form-control:focus {
+    color: #495057;
+    background-color: #fff;
+    border-color: #d1ffbb;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(152, 255, 140, 0.79);
+}
+
+.nav-link {
+    display: block;
+    padding: 0.5rem 1rem;
+    font-size: 15.5px;
+    font-weight: 600;
+}
+
+.navbar-light .navbar-nav .nav-link:hover, .navbar-light .navbar-nav .nav-link:focus {
+    color: rgba(0, 48, 2, 0.98);
+    font-size: 16px;
+}
+
+.image {
+    height: 42px;
+    width: 42px
+}
+
+.font-home {
+    font-size: 17px;
+    font-weight: 600;
+    color: #075410;
+}
+
+.font-home:hover {
+    font-size: 18px;
+    font-weight: 600;
+    color: #075410;
+}
+
+.m-b-md {
+    border-color: #50ff3d;
+}
+
+.text-status-off {
+    text-align: center;
+    color: rgba(28, 28, 28, 0.69);
+}

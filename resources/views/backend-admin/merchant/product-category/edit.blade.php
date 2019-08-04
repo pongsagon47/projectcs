@@ -8,7 +8,7 @@
                     <div class="card-header" style="background-color: #d9fdb7; font-size: 19.5px; " >แก้ไขประเภทขนม</div>
 
                     <div class="card-body">
-                        <form method="POST" action="{{ route('product_category.store') }}">
+                        <form method="POST" action="{{ route('product_category.update',[$data->id]) }}">
                             @csrf
 
                             <div class="form-group row">
@@ -31,6 +31,7 @@
                                     <input type="submit" value="บันทึก" class="btn btn-success">
                                 </div>
                             </div>
+                            {{method_field('PUT')}}
                         </form>
 
                     </div>

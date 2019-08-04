@@ -27,7 +27,8 @@ class UserController extends Controller
 
         $search = "";
         $data = User::query()
-            ->where('status','=','1')->paginate(5);
+            ->where('status','=','1')
+            ->paginate(5);
         return view ('backend-admin.users.index',compact('data','search'));
     }
 
@@ -35,11 +36,15 @@ class UserController extends Controller
 
         $search = $request->search;
         if ($search == ""){
-            $data = User::paginate(5);
+            $data = User::query()
+                ->where('status','=','1')
+                ->paginate(5);
             return view('backend-admin.users.index',['data' => $data,'search' => $search]);
         }
         else{
-            $data = User::where('first_name','LIKE','%'.$search.'%')
+            $data = User::query()
+                ->where('status','=','1')
+                ->where('first_name','LIKE','%'.$search.'%')
                 ->where('last_name','LIKE','%'.$search.'%')
                 ->paginate(5);
             $data->appends($request->only('search'));

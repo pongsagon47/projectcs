@@ -25,9 +25,33 @@ class EmployeeController extends Controller
      */
     public function index()
     {
-        $data = Employee::where('id', '!=', 1)
-            ->get();
-        return view ('backend-admin.employees.index',compact('data'));
+        $search = "";
+        $data = Employee::query()
+            ->where('id', '!=', 1)
+            ->paginate(5);
+        return view ('backend-admin.employees.index',compact('data','search'));
+    }
+
+    public function search(Request $request)
+    {
+        $search = $request->search;
+
+
+        if ($search == ""){
+            $data = Employee::query()
+                ->where('id', '!=', 1)
+                ->paginate(5);
+            return view('backend-admin.employees.index',['data' => $data,'search' => $search]);
+        }
+        else{
+            $data = Employee::query()
+                ->where('id', '!=', 1)
+                ->where('first_name','LIKE','%'.$search.'%')
+                ->where('last_name','LIKE','%'.$search.'%')
+                ->paginate(5);
+            $data->appends($request->only('search'));
+            return view('backend-admin.employees.index',compact('data','search'));
+        }
     }
 
     /**

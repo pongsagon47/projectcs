@@ -83,7 +83,15 @@ class ProductCategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request,['title' => 'required|unique:product_categories,title,'.$id],[],[ 'title' => ' ประเภทขนม']);
+
+        $product_category = ProductCategory::find($id);
+
+        $product_category->title = $request->get('title');
+
+        $product_category->update();
+
+        return redirect()->route('product_category.index')->with('success','แก้ไขข้อมูลเรียบร้อย');
     }
 
     /**
@@ -94,6 +102,11 @@ class ProductCategoryController extends Controller
      */
     public function destroy($id)
     {
-        dd($id);
+
+        $product_category = ProductCategory::find($id);
+
+        $product_category->forceDelete();
+
+        return redirect()->route('product_category.index')->with('deleted','แก้ไขข้อมูลเรียบร้อย');
     }
 }
