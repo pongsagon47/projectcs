@@ -18,12 +18,12 @@ Route::group([
 
     Route::get('/', 'FrontEndController@index')->name('index');
     Route::get('/about-us', 'AboutUsController@index')->name('about-us');
-
+    Route::get('/contact-us','ContactUsController@index')->name('contact-us');
 
 });
 
-Route::get('/test', function () {
-    return view('frontend.test');
+Route::get('/map', function () {
+    return view('testmap');
 });
 
 

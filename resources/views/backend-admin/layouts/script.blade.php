@@ -23,4 +23,7 @@
 <script src="{{ asset('cleave.js/dist/cleave.min.js') }}"></script>
 <script src="{{ asset('cleave.js/dist/addons/cleave-phone.th.js') }}"></script>
 
+<!-- Ckeditor -->
+<script src="{{ asset('ckeditor/ckeditor.js') }}"></script>
+
 

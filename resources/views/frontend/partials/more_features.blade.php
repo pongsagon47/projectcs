@@ -4,13 +4,13 @@
 <section id="more-features" class="section-bg">
     <div class="container">
 
-        <div class="section-header">
-            <h3 class="section-title">More Features</h3>
+        <div class="section-header more-features-text">
+            <h3 class="section-title">ข่าวสาร</h3>
             <span class="section-divider"></span>
-            <p class="section-description">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque</p>
+            <p class="section-description">ข้อมูลข่าวสารใหม่ๆ เกี่ยวกับบริษัทคิดถึงเบเกอรี่</p>
         </div>
 
-        <div class="row">
+        <div class="row more-features-content">
 
             <div class="col-lg-6">
                 <div class="box" data-aos="fade-right">

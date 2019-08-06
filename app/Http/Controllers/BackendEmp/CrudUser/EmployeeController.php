@@ -8,6 +8,7 @@ use App\Models\Employee;
 use App\Models\RoleEmployee;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
 
@@ -46,8 +47,7 @@ class EmployeeController extends Controller
         else{
             $data = Employee::query()
                 ->where('id', '!=', 1)
-                ->where('first_name','LIKE','%'.$search.'%')
-                ->where('last_name','LIKE','%'.$search.'%')
+                ->where(DB::raw('concat(first_name," ",last_name)'),'LIKE','%'.$search.'%')
                 ->paginate(5);
             $data->appends($request->only('search'));
             return view('backend-admin.employees.index',compact('data','search'));

@@ -47,6 +47,12 @@ body {
     border: 1px solid #1dc8cd;
 }
 
+@media (max-width: 767px) {
+    #footer .contact-about {
+        padding: 10px 0 0 10rem ;
+    }
+}
+
 #footer .social-links a:hover {
     background: #1dc8cd;
     color: #fff;
@@ -384,7 +390,7 @@ body {
 
 #about .about-text p {
     text-align: center;
-    padding-bottom: 40px;
+    padding-bottom: 10px;
     font-size: 19px;
     color: #777;
     font-style: italic;
@@ -423,6 +429,12 @@ body {
     -webkit-text-fill-color: transparent;
 }
 
+#more-features .more-features-text p{
+    font-size: 14px;
+    margin-bottom: 0;
+    line-height: 24px;
+}
+
 #more-features h4 {
     margin-left: 100px;
     font-weight: 700;
@@ -434,8 +446,8 @@ body {
     color: #111;
 }
 
-#more-features p {
-    font-size: 14px;
+#more-features .more-features-content p {
+    font-size: 15px;
     margin-left: 100px;
     margin-bottom: 0;
     line-height: 24px;
@@ -450,7 +462,7 @@ body {
         text-align: center;
         padding-bottom: 15px;
     }
-    #more-features h4, #more-features p {
+    #more-features h4, #more-features .more-features-content p {
         margin-left: 0;
         text-align: center;
     }
@@ -662,6 +674,12 @@ body {
     text-decoration: none;
 }
 
+#nav-menu-container .nav-menu .active {
+    color: #fffdf8;
+    border-bottom: 1px solid #dee2e6 ;
+    text-decoration: none;
+}
+
 .nav-menu > li {
     margin-left: 10px;
 }
@@ -810,37 +828,21 @@ body.mobile-nav-active #mobile-nav-toggle {
     padding-top: 60px;
 }
 
-.btn-block {
-    display: block;
-    width: 100%;
-}
-
-.btn-block + .btn-block {
-    margin-top: 0.5rem;
-}
-
-input[type="submit"].btn-block,
-input[type="reset"].btn-block,
-input[type="button"].btn-block {
-    width: 100%;
-}
-
-.btn-user {
-    font-size: 0.9rem;
-    font-weight: bold;
-    border-radius: 10rem;
-    padding: 0.75rem 1rem;
-}
+/*--------------------------------------------------------------
+# About Us
+--------------------------------------------------------------*/
+/* from About Us */
 
 #about-title {
     width: 100%;
-    height: 28vh;
+    height: 27vh;
     background: linear-gradient(45deg, #ffe42d, #cd7656);
     position: relative;
 }
 
+
 #about-title .about-text {
-     padding-top: 140px;
+     padding-top: 120px;
      text-align: center;
      vertical-align: top;
  }
@@ -861,13 +863,13 @@ input[type="button"].btn-block {
 
 #about-content {
      width: 100%;
-     height: 47vh;
+     height: 16vh;
      background: #ffffff;
      position: relative;
 }
 
 #about-content .about-content-text{
-    padding-top: 60px;
+    padding-top: 40px;
     text-align: center;
     vertical-align: top;
 }
@@ -880,10 +882,48 @@ input[type="button"].btn-block {
 
 #about-footer {
     width: 100%;
-    height: 10vh;
+    height: 8vh;
+    /*background: linear-gradient(45deg, #ffe42d, #cd7656);*/
+
+    position: relative;
+}
+
+/*--------------------------------------------------------------
+# Contact Us
+--------------------------------------------------------------*/
+/* from Contact Us */
+#contact-intro {
+    width: 100%;
+    height: 12vh;
     background: linear-gradient(45deg, #ffe42d, #cd7656);
     position: relative;
 }
+
+#contact {
+    width: 100%;
+    height: 73vh;
+    background: #ffffff;
+    position: relative;
+}
+
+#contact .contact-text {
+
+    padding-top: 40px;
+    text-align: center;
+    vertical-align: top;
+
+}
+
+#contact .contact-text-divider {
+    display: block;
+    width: 60px;
+    height: 3px;
+    background: #cd8b73;
+    background: linear-gradient(0deg, #fff145 0%, #cd8b73 100%);
+    margin: 0 auto;
+    margin-bottom: 20px;
+}
+
 
 
 

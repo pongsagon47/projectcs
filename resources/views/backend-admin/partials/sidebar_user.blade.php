@@ -71,7 +71,30 @@
         </div>
     </li>
 
+        <!-- Divider -->
+        <hr class="sidebar-divider">
 
+        <!-- Heading -->
+        <div class="sidebar-heading">
+            จัดการหน้าเว็บ
+        </div>
+
+        <!-- Nav Item - Pages Collapse Menu -->
+        <li class="nav-item {{ Route::currentRouteName() === 'about-us.create'|| Route::currentRouteName() === 'intro.create'? 'active' : null }}">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
+                <i class="fas fa-fw fa-chalkboard"></i>
+                <span>หน้าเว็บ</span>
+            </a>
+            <div id="collapsePages" class="collapse {{ Route::currentRouteName() === 'about-us.create'|| Route::currentRouteName() === 'intro.create' ? 'show' : null }}" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <h6 class="collapse-header">จัดการหน้าเว็บ:</h6>
+                    <a class="collapse-item {{ Route::currentRouteName() === 'intro.create' ?'active': null }}" href="{{route('intro.create')}}">หน้าหลัก</a>
+                    <a class="collapse-item {{ Route::currentRouteName() === 'about-us.create' ? 'active' : null }}" href="{{route('about-us.create')}}">เกี่ยวกับ</a>
+                    <a class="collapse-item" href="#">ข่าวสาร</a>
+                    <a class="collapse-item" href="#">ติดต่อเรา</a>
+                </div>
+            </div>
+        </li>
 
     <!-- Divider -->
     <hr class="sidebar-divider d-none d-md-block">

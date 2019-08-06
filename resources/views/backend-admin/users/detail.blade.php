@@ -17,7 +17,7 @@
 
                                     <div class="col-md-12 ">
 
-                                        <img class="center rounded-circle" style="width: 160px ; height: 160px;margin-top: 35px" src="{{asset('storage/'.$data->image)}}" alt="">
+                                        <img class="image-size center rounded-circle" src="{{asset('storage/'.$data->image)}}" alt="">
 
                                     </div>
 
@@ -92,7 +92,7 @@
 
                     </div>
                 </div>
-                <div class="link-right" style="margin-top: 23px ">
+                <div class="pull-right" style="margin-top: 23px ">
                     <a href="{{route('user.index')}}" class="btn btn-primary "> back </a>
             </div>
 

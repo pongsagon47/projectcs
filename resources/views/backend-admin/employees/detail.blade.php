@@ -98,7 +98,7 @@
 
                     </div>
                 </div>
-                <div class="link-right" style="margin-top: 22px ">
+                <div class="pull-right" style="margin-top: 22px ">
                     <a href="{{route('employee.index')}}" class="btn btn-primary "> back </a>
                 </div>
 

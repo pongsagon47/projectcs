@@ -37,6 +37,7 @@ Route::group([
         'prefix' => 'show',
         'as' => 'user.',
         'namespace' => 'CrudUser',
+        'middleware' => 'admin.check',
     ],function (){
         Route::get('user','UserController@index')->name('index');
         Route::any('search/user','UserController@search')->name('search');
@@ -53,6 +54,7 @@ Route::group([
         'prefix' => 'show',
         'as' => 'employee.',
         'namespace' => 'CrudUser',
+        'middleware' => 'admin.check',
     ],function (){
         Route::get('employee','EmployeeController@index')->name('index');
         Route::any('search/emp','EmployeeController@search')->name('search');
@@ -68,6 +70,7 @@ Route::group([
         'prefix' => 'product_category',
         'as' => 'product_category.',
         'namespace' => 'Merchant',
+        'middleware' => 'admin.check',
     ],function (){
         Route::get('/','ProductCategoryController@index')->name('index');
         Route::get('/create','ProductCategoryController@create')->name('create');
@@ -81,6 +84,7 @@ Route::group([
         'prefix' => 'product',
         'as' => 'product.',
         'namespace' => 'Merchant',
+        'middleware' => 'admin.check',
     ],function(){
         Route::get('/','ProductController@index')->name('index');
         Route::any('/search','ProductController@search')->name('search');
@@ -92,7 +96,23 @@ Route::group([
         Route::delete('{id}/delete','ProductController@destroy')->name('delete');
     });
 
+    Route::group([
+        'prefix' => 'about-us',
+        'as' => 'about-us.',
+        'middleware' => 'admin.check',
+    ],function () {
+        Route::get('/','AboutUsController@create')->name('create');
+        Route::post('save','AboutUsController@store')->name('store');
+    });
 
-
-
+    Route::group([
+        'prefix' => 'intro',
+        'as' => 'intro.',
+        'middleware' => 'admin.check'
+    ],function (){
+       Route::get('/','IntroController@create')->name('create');
+       Route::post('/save','IntroController@store')->name('store');
+    });
 });
+
+
