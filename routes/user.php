@@ -17,10 +17,27 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::group([
     'prefix' => 'user',
-    'as' => 'users.',
     'namespace' => 'BackendUser'
 ],function () {
-    Route::get('show','ProfileUserController@show')->name('show');
-    Route::get('edit','ProfileUserController@edit')->name('edit');
-    Route::put('update','ProfileUserController@update')->name('update');
+
+    Route::group([
+        'prefix' => 'profile',
+        'as' => 'users.',
+    ],function (){
+        Route::get('show','ProfileUserController@show')->name('show');
+        Route::get('edit','ProfileUserController@edit')->name('edit');
+        Route::put('update','ProfileUserController@update')->name('update');
+    });
+
+    Route::group([
+        'prefix' => 'shop',
+        'as' => 'shop.',
+        'namespace' => 'Merchant'
+    ],function (){
+        Route::get('/','ShopController@index')->name('index');
+        Route::post('/','ShopController@order')->name('order');
+
+    });
+
+
 });

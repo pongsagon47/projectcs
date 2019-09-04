@@ -5,7 +5,7 @@
     <div class="container-fluid">
         <div class="row justify-content-center">
             <div class="col-md-9">
-                <a class="link-right btn btn-sm btn-info"  href="{{route('users.edit')}}">Edit Profile</a> <br>
+                <a class="pull-right btn btn-sm btn-info"  href="{{route('users.edit')}}">Edit Profile</a> <br>
 
                 <div class="card" style="margin-top: 20px">
                     <div class="card-header" style="text-align: center; font-size: 19px">
@@ -27,6 +27,10 @@
 
                                         <label><strong>ชื่อผู้ใช้:</strong> {{$data->username}}</label>
 
+
+                                    </div>
+                                    <div class="col-md-12 text-center" >
+                                        <label><strong>ชื่อร้าน:</strong> {{$data->shop_name}}</label>
                                     </div>
 
                                     <div class="form-group row" style="margin-left: 30px;margin-top: 30px">
@@ -94,8 +98,8 @@
 
                     </div>
                 </div>
-                <div class="link-right" style="margin-top: 30px ">
-                    <a href="{{route('user.index')}}" class="btn btn-primary "> back </a>
+                <div class="pull-right" style="margin-top: 30px ">
+                    <a href="{{route('home')}}" class="btn btn-primary "> back </a>
                 </div>
 
             </div>

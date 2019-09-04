@@ -53,6 +53,11 @@ class Employee extends Authenticatable
         return $this->belongsTo(RoleEmployee::class);
     }
 
+    public function news()
+    {
+        return $this->hasMany(News::class);
+    }
+
     public function sendPasswordResetNotification($token)
     {
         $this->notify(new AdminResetPasswordNotification($token));

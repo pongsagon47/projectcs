@@ -62,13 +62,14 @@
                                                 <span style="color:red">*</span> กรุณาใส่รูปภาพที่ 1
                                             </small>
                                             <div id="divShowImg">
+
                                                 <img  class="rounded" id="previewProduct1" style="width: 160px; height: 130px"
                                                       src="{{ array_get($about,'0.image1') == null? 'https://via.placeholder.com/180x120.png?text=No%20Image' : asset('storage/'.array_get($about,'0.image1'))  }}">
 
-                                                <div class="py-1"><input class="btn btn-warning" type="button" value="Clear" onclick="clearProduct1()"></div>
+                                                <div class="py-1"><input class="btn btn-warning" type="button" value="Clear" onclick="clearProduct1({{ count($about)}})"></div>
                                             </div>
 
-                                            <input type="file" accept="image/jpeg, image/png" value="C:/xampp/htdocs/projectcs/storage/app/public/<?php array_get($about,'0.image1') ?>" onchange="readProduct1(this);" id="fileProduct1" name="image1">
+                                            <input type="file" accept="image/jpeg, image/png"  onchange="readProduct1(this);" id="fileProduct1" name="image1">
                                         </div>
                                         @if ($errors->has('image1'))
                                             <span style="color: rgba(226,20,17,0.77);font-size: 13px">
@@ -85,7 +86,7 @@
                                             <div id="divShowImg">
                                                 <img class="rounded" id="previewProduct2" style="width: 160px; height: 130px" src="{{ array_get($about,'0.image2') == null? 'https://via.placeholder.com/180x120.png?text=No%20Image' : asset('storage/'.array_get($about,'0.image2'))  }}">
 
-                                                <div class="py-1"><input class="btn btn-warning" type="button" value="Clear" onclick="clearProduct2()"></div>
+                                                <div class="py-1"><input class="btn btn-warning" type="button" value="Clear" onclick="clearProduct2({{ count($about)}})"></div>
                                             </div>
 
                                             <input class="" type="file" accept="image/jpeg, image/png"  onchange="readProduct2(this);" id="fileProduct2" name="image2">
@@ -104,7 +105,7 @@
                                             <div id="divShowImg">
                                                 <img class="rounded" id="previewProduct3" style="width: 160px; height: 130px" src="{{ array_get($about,'0.image3') == null? 'https://via.placeholder.com/180x120.png?text=No%20Image' : asset('storage/'.array_get($about,'0.image3'))  }}">
 
-                                                <div class="py-1"><input class="btn btn-warning" type="button" value="Clear" onclick="clearProduct3()"></div>
+                                                <div class="py-1"><input class="btn btn-warning" type="button" value="Clear" onclick="clearProduct3({{ count($about)}})"></div>
                                             </div>
 
                                             <input class="" type="file" accept="image/jpeg, image/png"  onchange="readProduct3(this);" id="fileProduct3" name="image3">
@@ -124,7 +125,7 @@
                                             <div id="divShowImg">
                                                 <img class="rounded" id="previewProduct4" style="width: 160px; height: 130px" src="{{ array_get($about,'0.image4') == null? 'https://via.placeholder.com/180x120.png?text=No%20Image' : asset('storage/'.array_get($about,'0.image4'))  }}">
 
-                                                <div class="py-1"><input class="btn btn-warning" type="button" value="Clear" onclick="clearProduct4()"></div>
+                                                <div class="py-1"><input class="btn btn-warning" type="button" value="Clear" onclick="clearProduct4({{ count($about)}})"></div>
                                             </div>
 
                                             <input class="" type="file" accept="image/jpeg, image/png"  onchange="readProduct4(this);" id="fileProduct4" name="image4">
@@ -146,7 +147,7 @@
                                             <div id="divShowImg">
                                                 <img class="rounded" id="previewProduct5" style="width: 160px; height: 130px" src="{{ array_get($about,'0.image5') == null? 'https://via.placeholder.com/180x120.png?text=No%20Image' : asset('storage/'.array_get($about,'0.image5'))  }}">
 
-                                                <div class="py-1"><input class="btn btn-warning" type="button" value="Clear" onclick="clearProduct5()"></div>
+                                                <div class="py-1"><input class="btn btn-warning" type="button" value="Clear" onclick="clearProduct5({{ count($about)}})"></div>
                                             </div>
 
                                             <input class="" type="file" accept="image/jpeg, image/png"  onchange="readProduct5(this);" id="fileProduct5" name="image5">
@@ -165,7 +166,7 @@
                                             <div id="divShowImg">
                                                 <img class="rounded" id="previewProduct6" style="width: 160px; height: 130px" src="{{ array_get($about,'0.image6') == null? 'https://via.placeholder.com/180x120.png?text=No%20Image' : asset('storage/'.array_get($about,'0.image6'))  }}">
 
-                                                <div class="py-1"><input class="btn btn-warning" type="button" value="Clear" onclick="clearProduct6()"></div>
+                                                <div class="py-1"><input class="btn btn-warning" type="button" value="Clear" onclick="clearProduct6({{ count($about)}})"></div>
                                             </div>
 
                                             <input class="" type="file" accept="image/jpeg, image/png"  onchange="readProduct6(this);" id="fileProduct6" name="image6">
@@ -212,12 +213,14 @@
             }
         }
 
-        function clearProduct1() {
-            var image = '{{ array_get($about,'0.image1') }}';
-            if (image == 'NULL') {
+        function clearProduct1(check1) {
+            var image = check1;
+            if (image == 0)
+            {
                 $('#previewProduct1').attr('src', "https://via.placeholder.com/180x120.png?text=No%20Image");
             }
-            else {
+            else
+            {
                 $('#previewProduct1').attr('src', "{{ asset('storage/'.array_get($about,'0.image1')) }}");
             }
             $('#fileProduct1').val(null);
@@ -233,9 +236,9 @@
             }
         }
 
-        function clearProduct2() {
-            var image = '{{ array_get($about,'0.image2') }}';
-            if (image == 'NULL') {
+        function clearProduct2(check2) {
+            var image = check2;
+            if (image == 0) {
                 $('#previewProduct2').attr('src', "https://via.placeholder.com/180x120.png?text=No%20Image");
             }
             else {
@@ -254,9 +257,9 @@
             }
         }
 
-        function clearProduct3() {
-            var image = '{{ array_get($about,'0.image3') }}';
-            if (image == 'NULL') {
+        function clearProduct3(check3) {
+            var image = check3;
+            if (image == 0) {
                 $('#previewProduct3').attr('src', "https://via.placeholder.com/180x120.png?text=No%20Image");
             }
             else {
@@ -275,9 +278,9 @@
             }
         }
 
-        function clearProduct4() {
-            var image = '{{ array_get($about,'0.image4') }}';
-            if (image == 'NULL') {
+        function clearProduct4(check4) {
+            var image = check1;
+            if (image == 0) {
                 $('#previewProduct4').attr('src', "https://via.placeholder.com/180x120.png?text=No%20Image");
             }
             else {
@@ -296,9 +299,9 @@
             }
         }
 
-        function clearProduct5() {
-            var image = '{{ array_get($about,'0.image2') }}';
-            if (image == 'NULL') {
+        function clearProduct5(check5) {
+            var image = check1;
+            if (image == 0) {
                 $('#previewProduct5').attr('src', "https://via.placeholder.com/180x120.png?text=No%20Image");
             }
             else {
@@ -317,9 +320,9 @@
             }
         }
 
-        function clearProduct6() {
-            var image = '{{ array_get($about,'0.image2') }}';
-            if (image == 'NULL') {
+        function clearProduct6(check1) {
+            var image = check1;
+            if (image == 0) {
                 $('#previewProduct6').attr('src', "https://via.placeholder.com/180x120.png?text=No%20Image");
             }
             else {

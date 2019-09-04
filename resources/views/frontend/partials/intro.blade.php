@@ -7,23 +7,10 @@
         <a href="#about" class="btn-get-started scrollto">Get Started</a>
     </div>
 
-    <div class="cake-one"  data-aos="fade-up">
-        <img src="{{asset('img/cake/test1.png')}}" width="460" height="460" alt="">
+    <div class="cake-screens">
+        <div class="cake-screens-1" data-aos="fade-up">
+            <img src="{{asset('img/cake/test1.png')}}" alt="">
+        </div>
     </div>
-
-
-    {{--<div class="product-screens">--}}
-        {{--<div class="product-screen-1" data-aos="fade-up" data-aos-delay="400">--}}
-            {{--<img src="avilon/img/product-screen-2.png" alt="">--}}
-        {{--</div>--}}
-
-        {{--<div class="product-screen-2" data-aos="fade-up" data-aos-delay="200">--}}
-            {{--<img src="avilon/img/product-screen-2.png" alt="">--}}
-        {{--</div>--}}
-
-        {{--<div class="product-screen-3" data-aos="fade-up">--}}
-            {{--<img src="avilon/img/product-screen-3.png" alt="">--}}
-        {{--</div>--}}
-    {{--</div>--}}
 
 </section>

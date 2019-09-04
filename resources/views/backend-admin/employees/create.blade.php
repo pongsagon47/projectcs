@@ -26,6 +26,7 @@
                                         @endif
                                     </div>
                                 </div>
+
                                 <div class="form-group col-md-6">
                                     <label for="last_name" style="font-size: 16.8px;" >นามสกุล </label>
 

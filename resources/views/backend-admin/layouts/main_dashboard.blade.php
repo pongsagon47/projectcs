@@ -35,9 +35,11 @@
         <!-- Main Content -->
         <div id="content">
             @include('backend-admin.partials.navbar_user')
+            <!-- Main section -->
             <section>
                 @yield('content')
             </section>
+                <!-- section -->
         </div>
         <!-- End of Main Content -->
 

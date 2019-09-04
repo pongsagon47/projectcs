@@ -113,7 +113,7 @@
                             </div>
                             <hr>
                             <div class="text-center">
-                                <a  href="{{route('login.employee')}}" style="font-size: 16px">กลับไปหน้ารายการขนม</a>
+                                <a  href="{{route('product.index')}}" style="font-size: 16px">กลับไปหน้ารายการขนม</a>
                             </div>
 
                         </form>

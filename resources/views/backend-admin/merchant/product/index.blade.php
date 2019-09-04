@@ -1,6 +1,7 @@
 @extends('backend-admin.layouts.main_dashboard')
 @section('title', 'Product Category')
 @section('content')
+
     <div class="container-fluid">
 
         <!-- Page Heading -->
@@ -59,59 +60,54 @@
             </div>
     @endif
 
-    <!-- DataTales Example -->
-        <div class="card shadow mb-4" style="margin-top: 20px">
-            <div class="card-header py-3">
-                <h6 class="m-0 font-weight-bold text-primary">DataTables</h6>
-            </div>
-            <div class="card-body">
-                <div class="table-responsive">
-                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                        <thead style="font-size: 14px; color: #fffdfd; background-color: rgba(0,178,5,0.76)">
-                        <tr>
-                            <th width="120">ID</th>
-                            <th>Dessert Name</th>
-                            <th width="190">price</th>
-                            <th width="240">description</th>
-                            <th>Action</th>
-                        </tr>
-                        </thead>
-                        @foreach( $products as $product)
-                            <tbody style="font-size: 14px">
-                            <tr>
-                                <td> {{ $product->id }}</td>
-                                <td> {{ $product->name }}</td>
-                                <td> {{ $product->price }}</td>
-                                <td width="450"> {{ $product->description }}</td>
-                                <td width="200">
-                                    <form class="delete_form" method="post" action="{{route('product.delete',[$product->id])}}">
-                                        @csrf
-                                        <a href="{{route('product.show',[$product->id])}}" class="btn btn-info btn-circle" title="Detail Record">
-                                            <i class="fas fa-eye"></i>
-                                        </a>
+        <div class="table-responsive">
 
-                                        <a href="{{route('product.edit',[$product->id])}}" class="btn btn-warning btn-circle" title="Edit Record">
-                                            <i class="fas fa-edit"></i>
-                                        </a>
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0" style="margin-top: 20px;background-color: white">
+                <thead style="font-size: 14px; color: #fffdfd; background: linear-gradient(45deg, #219d1c, #bdff33);">
+                <tr>
+                    <th width="120">ID</th>
+                    <th>Dessert Name</th>
+                    <th width="190">price</th>
+                    <th width="240">description</th>
+                    <th>Action</th>
+                </tr>
+                </thead>
+                @foreach( $products as $product)
+                    <tbody style="font-size: 14px ; color: #110100">
+                    <tr>
+                        <td> {{ $product->id }}</td>
+                        <td> {{ $product->name }}</td>
+                        <td> {{ $product->price }}</td>
+                        <td width="450"> {{ $product->description }}</td>
+                        <td width="200">
+                            <form class="delete_form" method="post" action="{{route('product.delete',[$product->id])}}">
+                                @csrf
+                                <a href="{{route('product.show',[$product->id])}}" class="btn btn-info btn-circle" title="Detail Record">
+                                    <i class="fas fa-eye"></i>
+                                </a>
 
-                                        <button type="submit" class="btn btn-danger btn-circle" title="Delete Record">
-                                            <i class="fas fa-trash-alt"></i>
-                                        </button>
-                                        {{method_field('DELETE')}}
-                                    </form>
-                                </td>
-                            </tr>
-                            </tbody>
-                        @endforeach
-                    </table>
-                    <div class="flex-center">
-                        {{ $products->render() }}
-                    </div>
+                                <a href="{{route('product.edit',[$product->id])}}" class="btn btn-warning btn-circle" title="Edit Record">
+                                    <i class="fas fa-edit"></i>
+                                </a>
 
-                </div>
-            </div>
+                                <button type="submit" class="btn btn-danger btn-circle" title="Delete Record">
+                                    <i class="fas fa-trash-alt"></i>
+                                </button>
+                                {{method_field('DELETE')}}
+                            </form>
+                        </td>
+                    </tr>
+                    </tbody>
+                @endforeach
+            </table>
+
         </div>
 
+
+
+        <div class="flex-center">
+            {{ $products->render() }}
+        </div>
     </div>
 
 @endsection

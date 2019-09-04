@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
 
 class DatabaseSeeder extends Seeder
 {
@@ -67,6 +68,22 @@ class DatabaseSeeder extends Seeder
             'name' => 'ร้านที่รับไปขาย',
             'created_at' => now(),
             'updated_at' => now()
+        ]);
+
+        DB::table('users')->insert([
+            'username' => 'admin',
+            'password' => Hash::make('123456'), // <---- check this
+            'email' => 'pongsagon405@gmail.com',
+            'first_name' => 'Site',
+            'last_name' => 'Admin',
+            'nickname' => 'tak',
+            'id_card' => '1 3599 00058 165',
+            'phone_number' => '0616274629',
+            'address' => '130/9 ต.กู่กาสิงห์ อ.เกษตรวิสัย จ.ร้อยเอ็ด 45150',
+            'role_employee_id' => '1',
+            'created_at' => now(),
+            'updated_at' => now()
+
         ]);
 
     }

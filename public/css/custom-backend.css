@@ -1,4 +1,3 @@
-
 .flex-center {
     align-items: center;
     display: flex;
@@ -21,6 +20,10 @@
     float: right;
 }
 
+.pull-left {
+    float: left;
+}
+
 #about-us label{
     font-size: 16px;
 }
@@ -41,4 +44,27 @@
     font-size: 16px;
 }
 
+#thumbnail-image img{
+    width: 280px;
+    height: 220px
+}
+
+@media (max-width: 736px) {
+    #thumbnail-image img{
+        width: 180px;
+        height: 120px
+    }
+}
+
+#cover-image img{
+    width: 380px;
+    height: 320px
+}
+
+@media (max-width: 736px) {
+    #cover-image img{
+        width: 200px;
+        height: 140px
+    }
+}
 

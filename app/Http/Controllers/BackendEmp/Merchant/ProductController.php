@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\BackendEmp\Merchant;
 
+use App\Http\Requests\ProductEditRequest;
 use App\Http\Requests\ProductRequest;
 use App\Models\Product;
 use App\Models\ProductCategory;
@@ -103,7 +104,7 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(ProductEditRequest $request, $id)
     {
         $data = $request->all();
 

@@ -8,21 +8,19 @@
     <link rel="icon" href="{{ asset('/img/logotitle.png') }}">
 
     <!-- Bootstrap CSS File -->
-    <link href="avilon/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{asset('avilon/lib/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
 
     <!-- Libraries CSS Files -->
-    <link href="avilon/lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-    <link href="avilon/lib/ionicons/css/ionicons.min.css" rel="stylesheet">
-    <link href="avilon/lib/aos/aos.css" rel="stylesheet">
-    <link href="avilon/lib/magnific-popup/magnific-popup.css" rel="stylesheet">
+    <link href="{{asset('avilon/lib/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet">
+    <link href="{{asset('avilon/lib/ionicons/css/ionicons.min.css')}}" rel="stylesheet">
+    <link href="{{asset('avilon/lib/aos/aos.css')}}" rel="stylesheet">
+    <link href="{{asset('avilon/lib/magnific-popup/magnific-popup.css')}}" rel="stylesheet">
 
-
+    <link href="{{asset('sb-admin2/vendor/fontawesome-free/css/all.min.css')}}" rel="stylesheet" type="text/css">
 
     <!--script-->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-
-
-    <script src="{{asset('js/bootstrap.min.js')}}"></script>
+    <script src="{{asset('js/bootstrap.min.js')}}" type="javascript"></script>
+    <script src="{{asset('js/jquery-3.3.1.js')}}"></script>
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet" type="text/css">
@@ -33,8 +31,6 @@
     <!-- Styles -->
     <link href="{{asset('css/bootstrap.min.css')}}" rel="stylesheet" type="text/css">
     <link href="{{asset('css/custom.css')}}" rel="stylesheet" type="text/css">
-    {{--<!-- Custom styles for this template-->--}}
-    {{--<link href="{{asset('sb-admin2/css/sb-admin-2.min.css')}}" rel="stylesheet">--}}
 
 
 </head>
@@ -42,6 +38,7 @@
 <body>
 
 @include('frontend.partials.navbar')
+
 @yield('content')
 
 @include('frontend.partials.footer')

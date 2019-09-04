@@ -113,6 +113,35 @@ Route::group([
        Route::get('/','IntroController@create')->name('create');
        Route::post('/save','IntroController@store')->name('store');
     });
+
+    Route::group([
+        'prefix' => 'news-category',
+        'as' => 'news-category.',
+        'middleware' => 'admin.check'
+    ],function (){
+        Route::get('/','NewsCategoryController@index')->name('index');
+        Route::get('/create','NewsCategoryController@create')->name('create');
+        Route::post('/store','NewsCategoryController@store')->name('store');
+        Route::get('{id}/edit','NewsCategoryController@edit')->name('edit');
+        Route::put('{id}/update','NewsCategoryController@update')->name('update');
+        Route::delete('{id}/delete','NewsCategoryController@destroy')->name('delete');
+    });
+
+    Route::group([
+        'prefix' => 'news',
+        'as' => 'news.',
+        'middleware' => 'admin.check'
+    ],function (){
+        Route::get('/','NewsController@index')->name('index');
+        Route::get('/detail','NewsController@show')->name('detail');
+        Route::get('/create','NewsController@create')->name('create');
+        Route::post('/store','NewsController@store')->name('store');
+        Route::get('{id}/edit','NewsController@edit')->name('edit');
+        Route::put('{id}/update','NewsController@update')->name('update');
+        Route::delete('{id}/delete','NewsController@destroy')->name('delete');
+    });
+
+
 });
 
 

@@ -10,40 +10,110 @@
             <p class="section-description">ข้อมูลข่าวสารใหม่ๆ เกี่ยวกับบริษัทคิดถึงเบเกอรี่</p>
         </div>
 
-        <div class="row more-features-content">
+        <div class="row">
 
-            <div class="col-lg-6">
-                <div class="box" data-aos="fade-right">
-                    <div class="icon"><i class="ion-ios-stopwatch-outline"></i></div>
-                    <h4 class="title"><a href="">Lorem Ipsum</a></h4>
-                    <p class="description">Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident etiro rabeta lingo.</p>
+            @if(array_get($articles,'0.thumbnail_image') != null)
+                <div class="col-md-6">
+                    <div class="card" data-aos="fade-right">
+                        <div class="row no-gutters">
+                            <div class="col-md-4">
+                                <img src="{{asset('storage/'.array_get($articles,'0.thumbnail_image'))}}"
+                                     class="card-img" alt="...">
+                            </div>
+                            <div class="col-md-8">
+                                <div class="card-body">
+                                    <h5 class="card-title">{{ array_get($articles,'0.title')}}</h5>
+                                    <p class="card-text">{{array_get($articles,'0.short_description') }}</p>
+                                    <a class="btn btn-primary btn-sm" href="{{ route('kidthuang.news.content',[array_get($articles,'0.id')]) }}">Read More</a>
+                                    <p class="card-text">
+                                        <small class="text-muted">Last
+                                            updated {{ date('วันที่ d/m/Y  เวลา H:iน.',strtotime( array_get($articles,'0.updated_at'))) }}
+                                        </small>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div>
+            @endif
 
-            <div class="col-lg-6">
-                <div class="box" data-aos="fade-left">
-                    <div class="icon"><i class="ion-ios-bookmarks-outline"></i></div>
-                    <h4 class="title"><a href="">Dolor Sitema</a></h4>
-                    <p class="description">Minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat tarad limino ata nodera clas.</p>
+            @if(array_get($articles,'1.thumbnail_image') != null)
+                <div class="col-md-6">
+                    <div class="card" data-aos="fade-left">
+                        <div class="row no-gutters">
+                            <div class="col-md-4">
+                                <img src="{{asset('storage/'.array_get($articles,'1.thumbnail_image'))}}"
+                                     class="card-img"
+                                     alt="...">
+                            </div>
+                            <div class="col-md-8">
+                                <div class="card-body">
+                                    <h5 class="card-title">{{ array_get($articles,'1.title')}}</h5>
+                                    <p class="card-text">{{array_get($articles,'1.short_description') }}</p>
+                                    <a class="btn btn-primary btn-sm" href="{{ route('kidthuang.news.content',[array_get($articles,'1.id')]) }}">Read More</a>
+                                    <p class="card-text">
+                                        <small class="text-muted">Last
+                                            updated {{ date('วันที่ d/m/Y  เวลา H:iน.',strtotime( array_get($articles,'1.updated_at'))) }}</small>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div>
 
-            <div class="col-lg-6">
-                <div class="box" data-aos="fade-right">
-                    <div class="icon"><i class="ion-ios-heart-outline"></i></div>
-                    <h4 class="title"><a href="">Sed ut perspiciatis</a></h4>
-                    <p class="description">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur trinige zareta lobur trade.</p>
-                </div>
-            </div>
+            @endif
 
-            <div class="col-lg-6">
-                <div class="box" data-aos="fade-left">
-                    <div class="icon"><i class="ion-ios-analytics-outline"></i></div>
-                    <h4 class="title"><a href="">Magni Dolores</a></h4>
-                    <p class="description">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum rideta zanox satirente madera</p>
+            @if(array_get($articles,'2.thumbnail_image') != null)
+                <div class="col-md-6" style="padding-top: 3rem">
+                    <div class="card" data-aos="fade-right">
+                        <div class="row no-gutters">
+                            <div class="col-md-4">
+                                <img src="{{asset('storage/'.array_get($articles,'2.thumbnail_image'))}}"
+                                     class="card-img"
+                                     alt="...">
+                            </div>
+                            <div class="col-md-8">
+                                <div class="card-body">
+                                    <h5 class="card-title">{{ array_get($articles,'2.title')}}</h5>
+                                    <p class="card-text">{{array_get($articles,'2.short_description') }}</p>
+                                    <a class="btn btn-primary btn-sm" href="{{ route('kidthuang.news.content',[array_get($articles,'2.id')]) }}">Read More</a>
+                                    <p class="card-text">
+                                        <small class="text-muted">Last
+                                            updated {{ date('วันที่ d/m/Y  เวลา H:iน.',strtotime( array_get($articles,'2.updated_at'))) }}</small>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div>
+            @endif
+
+            @if(array_get($articles,'3.thumbnail_image') != null)
+                <div class="col-md-6" style="padding-top: 3rem">
+                    <div class="card" data-aos="fade-left">
+                        <div class="row no-gutters">
+                            <div class="col-md-4">
+                                <img src="{{asset('storage/'.array_get($articles,'3.thumbnail_image'))}}"
+                                     class="card-img"
+                                     alt="...">
+                            </div>
+                            <div class="col-md-8">
+                                <div class="card-body">
+                                    <h5 class="card-title">{{ array_get($articles,'3.title')}}</h5>
+                                    <p class="card-text">{{array_get($articles,'3.short_description') }}</p>
+                                    <a class="btn btn-primary btn-sm" href="{{ route('kidthuang.news.content',[array_get($articles,'3.id')]) }}">Read More</a>
+                                    <p class="card-text">
+                                        <small class="text-muted">Last
+                                            updated {{ date('วันที่ d/m/Y  เวลา H:iน.',strtotime( array_get($articles,'3.updated_at'))) }}</small>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            @endif
 
         </div>
+
     </div>
 </section><!-- #more-features -->
