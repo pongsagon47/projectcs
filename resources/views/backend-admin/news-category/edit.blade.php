@@ -5,7 +5,7 @@
         <div class="row justify-content-center">
             <div class="col-md-10">
                 <div class="card">
-                    <div class="card-header" style="background-color: #d9fdb7; font-size: 19.5px; " >หมวดหมู่ข่าวสาร</div>
+                    <div class="card-header" style="background: linear-gradient(45deg, #219d1c, #bdff33); font-size: 19.5px; " >หมวดหมู่ข่าวสาร</div>
 
                     <div class="card-body">
                         <form method="POST" action="{{ route('news-category.update',[$data->id]) }}">

@@ -45,20 +45,20 @@
 
                             <div class="form-row">
                                 <div class="form-group col-md-4">
-                                    <label for="product_category_id"  style="font-size: 16.8px;" >ประเภทขนม</label>
+                                    <label for="role_employee_id"  style="font-size: 16.8px;" >ประเภทห้องขนม</label>
 
-                                    <select id="product_category_id" class="form-control{{ $errors->has('product_category_id') ? ' is-invalid' : '' }}" name="product_category_id" >
+                                    <select id="role_employee_id" class="form-control{{ $errors->has('role_employee_id') ? ' is-invalid' : '' }}" name="role_employee_id" >
                                         <option selected disabled>เลือก...</option>
-                                        @foreach( $product_categories as $product_category)
-                                            <option value="{{ $product_category->id }}"
-                                                {{ (old("product_category_id") == $product_category->id) ? 'selected' : '' }}>
-                                                {{ $product_category->title }}</option>
+                                        @foreach( $role_employees as $role_employee)
+                                            <option value="{{ $role_employee->id }}"
+                                                {{ (old("product_category_id") == $role_employee->id) ? 'selected' : '' }}>
+                                                {{ $role_employee->name }}</option>
                                         @endforeach
                                     </select>
 
-                                    @if ($errors->has('product_category_id'))
+                                    @if ($errors->has('role_employee_id'))
                                         <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('product_category_id') }}</strong>
+                                        <strong>{{ $errors->first('role_employee_id') }}</strong>
                                     </span>
                                     @endif
                                 </div>

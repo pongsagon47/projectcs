@@ -76,7 +76,7 @@ return [
         'array' => 'The :attribute must not have more than :value items.',
     ],
     'max' => [
-        'numeric' => 'The :attribute may not be greater than :max.',
+        'numeric' => ':attribute อาจจะไม่เกิน :max.',
         'file' => 'The :attribute may not be greater than :max kilobytes.',
         'string' => 'The :attribute may not be greater than :max characters.',
         'array' => 'The :attribute may not have more than :max items.',

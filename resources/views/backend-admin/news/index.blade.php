@@ -46,6 +46,7 @@
                     <th width="240">Action</th>
                 </tr>
                 </thead>
+                @if(count($articales) != 0)
                 @foreach( $articales as $articale)
                     <tbody style="font-size: 14px ; color: #110100">
                     <tr>
@@ -76,6 +77,13 @@
                     </tr>
                     </tbody>
                 @endforeach
+                @else
+                    <tbody class="text-center">
+                    <tr>
+                        <td colspan="9"><h5>ไม่มีข้อมูลข่าวสาร</h5></td>
+                    </tr>
+                    </tbody>
+                @endif
 
             </table>
         </div>

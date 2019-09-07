@@ -14,4 +14,9 @@ class RoleEmployee extends Model
     {
         return $this->hasMany(Employee::class);
     }
+
+    public function products()
+    {
+        return $this->hasMany(Product::class);
+    }
 }

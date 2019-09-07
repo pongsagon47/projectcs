@@ -1,5 +1,5 @@
 @extends('backend-admin.layouts.main_dashboard')
-@section('title', 'Product Category')
+@section('title', 'Promotion')
 @section('content')
     <div class="container-fluid">
 
@@ -7,12 +7,12 @@
         {{--<h1 class="h3 mb-2 text-gray-800">Employee list</h1>--}}
 
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Product Category List</h1>
-            <a href="{{route('product_category.create')}}" class="btn btn-primary btn-sm" style="margin-right: 40px">
+            <h1 class="h3 mb-0 text-gray-800">Promotion List</h1>
+            <a href="{{route('promotion.create')}}" class="btn btn-primary btn-sm" style="margin-right: 40px">
                     <span class="icon text-white-50">
                       <i class="fas fa-plus"></i>
                     </span>
-                <span class="text">Create Product Category</span>
+                <span class="text">Create Promotion</span>
             </a>
         </div>
 
@@ -32,33 +32,37 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-    @endif
+        @endif
 
         <div class="table-responsive">
             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0" style="background-color: white">
                 <thead style="font-size: 14px; color: #fffdfd; background: linear-gradient(45deg, #219d1c, #bdff33)">
                 <tr>
                     <th width="120">ID</th>
-                    <th>Title</th>
-                    <th width="190">Created at</th>
-                    <th width="190">Updated at</th>
-                    <th width="240">Action</th>
+                    <th>ชื่อโปรโมชั่น</th>
+                    <th>คำอธิบายโปรโมชั่น</th>
+                    <th>ส่วนลด</th>
+                    <th >Created at</th>
+                    <th >Updated at</th>
+                    <th >Action</th>
                 </tr>
                 </thead>
-                @foreach( $product_categories as $product_category)
-                    <tbody style="font-size: 14px ; color: #110100">
+                @foreach( $promotions as $promotion)
+                    <tbody  style="font-size: 14px ; color: #110100">
                     <tr>
-                        <td>{{ $product_category->id }}</td>
-                        <td>{{ $product_category->title }}</td>
-                        <td>{{ $product_category->created_at }}</td>
-                        <td>{{ $product_category->updated_at }}</td>
+                        <td>{{ $promotion->id }}</td>
+                        <td>{{ $promotion->promotion_name }}</td>
+                        <td>{{ $promotion->promotion_description  }}</td>
+                        <td>{{ $promotion->promotion_discount }} %</td>
+                        <td>{{ $promotion->created_at }}</td>
+                        <td>{{ $promotion->updated_at }}</td>
                         <td>
-                            <form class="delete_form" method="post" action="{{route('product_category.delete',[$product_category->id])}}">
+                            <form class="delete_form" method="post" action="{{route('promotion.delete',[$promotion->id])}}">
                                 @csrf
-                                <a href="{{route('product_category.edit',[$product_category->id])}}" class="btn btn-warning btn-circle" title="Edit Record" >
+                                <a href="{{route('promotion.edit',[$promotion->id])}}" class="btn btn-warning btn-circle" title="Edit Record" >
                                     <i class="fas fa-edit"></i>
                                 </a>
-                                <button type="submit" class="btn btn-danger btn-circle " title="Delete Record" {{count($product_category->products) == 0 ? '' : 'disabled'}}>
+                                <button type="submit" class="btn btn-danger btn-circle " title="Delete Record" {{count($promotion->orders) == 0 ? '' : 'disabled'}}>
                                     <i class="fas fa-trash-alt"></i>
                                 </button>
 
@@ -71,6 +75,10 @@
                 @endforeach
 
             </table>
+        </div>
+
+        <div class="flex-center">
+            {{ $promotions->render() }}
         </div>
 
     </div>

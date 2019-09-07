@@ -63,4 +63,9 @@ class Employee extends Authenticatable
         $this->notify(new AdminResetPasswordNotification($token));
     }
 
+    public function orders()
+    {
+        return $this->hasMany(Order::class);
+    }
+
 }

@@ -33,7 +33,7 @@
                         <img id="myImg" src="{{asset('storage/'.$production->image)}}" alt="{{ $production->name }}" style="width:100%;max-width:300px">
 
                         <p style="padding-top: 30px">
-                            ประเภทห้องผลิต : {{$production->product_category->title}} <br>
+                            ประเภทห้องผลิต : {{$production->role_employee->name}} <br>
                             ราคา : {{ $production->price }} <br>
                             คำอธิบาย : {{$production->description}}
                         </p>
@@ -44,7 +44,7 @@
                         <!-- The Modal -->
                         <div id="myModal" class="modal">
                             <span class="close">&times;</span>
-                            <img class="modal-content" id="img01">
+                            <img style="width: 100%;height: 700px" class="modal-content" id="img01">
                             <div id="caption"></div>
                         </div>
                     </div>

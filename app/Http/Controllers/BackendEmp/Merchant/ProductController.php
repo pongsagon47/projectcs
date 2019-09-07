@@ -5,7 +5,7 @@ namespace App\Http\Controllers\BackendEmp\Merchant;
 use App\Http\Requests\ProductEditRequest;
 use App\Http\Requests\ProductRequest;
 use App\Models\Product;
-use App\Models\ProductCategory;
+use App\Models\RoleEmployee;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Storage;
@@ -31,8 +31,12 @@ class ProductController extends Controller
      */
     public function create()
     {
-        $product_categories = ProductCategory::all();
-        return view('backend-admin.merchant.product.create',compact('product_categories'));
+        $role_employees = RoleEmployee::query()
+            ->where('id','!=','1')
+            ->where('id','!=','2')
+            ->where('id','!=','3')
+            ->get();
+        return view('backend-admin.merchant.product.create',compact('role_employees'));
     }
 
     public function search(Request $request)
@@ -63,7 +67,7 @@ class ProductController extends Controller
 
         $product->name = $request->name;
         $product->price = $request->price;
-        $product->product_category_id = $request->product_category_id;
+        $product->role_employee_id = $request->role_employee_id;
         $product->image = $request->image->store('uploads','public');
         $product->description = $request->description;
 
@@ -92,9 +96,13 @@ class ProductController extends Controller
      */
     public function edit($id)
     {
-        $product_categories = ProductCategory::all();
+        $role_employees = RoleEmployee::query()
+            ->where('id','!=','1')
+            ->where('id','!=','2')
+            ->where('id','!=','3')
+            ->get();
         $data = Product::find($id);
-        return view('backend-admin.merchant.product.edit',compact('data','product_categories'));
+        return view('backend-admin.merchant.product.edit',compact('data','role_employees'));
     }
 
     /**
@@ -112,7 +120,7 @@ class ProductController extends Controller
 
         $product->name = $data['name'];
         $product->price = $data['price'];
-        $product->product_category_id = $data['product_category_id'];
+        $product->role_employee_id = $data['role_employee_id'];
         $product->description = $data['description'];
 
         if (isset($data['image'])){
@@ -122,7 +130,7 @@ class ProductController extends Controller
 
         $product->update();
 
-        return redirect()->route('product.index')->withSuccess('แก้ไขสินค้าสำเร็จ');
+        return redirect()->route('product.index')->withSuccess('แก้ไข '.$product->name.' เรียบร้อย');
     }
 
     /**

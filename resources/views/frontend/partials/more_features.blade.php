@@ -1,6 +1,9 @@
 <!--==========================
       More Features Section
     ============================-->
+
+@if( count($articles)  > 0)
+
 <section id="more-features" class="section-bg">
     <div class="container">
 
@@ -117,3 +120,4 @@
 
     </div>
 </section><!-- #more-features -->
+@endif

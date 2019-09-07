@@ -45,7 +45,7 @@
                                     </select>
 
                                     <small id="passwordHelpBlock" class="form-text text-muted">
-                                        <span style="color:red">*</span> กรุณาเลือกหมวกหมู่
+                                        <span style="color:red">*</span> กรุณาเลือกหมวกหมู่ ถ้าไม่มีหมวดหมู่ <a href="{{route('news-category.create')}}">Click</a>
                                     </small>
 
                                     @if ($errors->has('news_category_id'))

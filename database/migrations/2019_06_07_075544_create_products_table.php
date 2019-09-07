@@ -17,7 +17,7 @@ class CreateProductsTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->decimal('price',6,2);
-            $table->integer('product_category_id')->nullable()->index();
+            $table->integer('role_employee_id')->nullable()->index();
             $table->text('description')->nullable();
             $table->string('image')->nullable();
             $table->timestamps();

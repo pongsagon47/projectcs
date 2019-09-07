@@ -177,7 +177,7 @@
                                             </span>
                                         @endif
                                     </div>
-                                    <p class="col-md-6 col-form-label text-md-left  help-block py-2" style="font-size: 14px;">
+                                    <p class="col-md-7 col-form-label text-md-left  help-block py-2" style="font-size: 14px;">
                                         ไฟล์ภาพต้องเป็นนามสกุล jpeg,png เท่านั้น ขนาดไฟล์ไม่เกิน 1 MB ขนาดภาพ 800 x 600
                                     </p>
                                 </div>
@@ -187,7 +187,7 @@
 
                             <div class="form-group row mb-0" style="margin-top: 30px">
                                 <div class="col-md-3 offset-md-5">
-                                    <a class="btn btn-danger" href="{{route('product_category.index')}}" >กลับ</a>
+                                    <a class="btn btn-danger" href="{{route('employee.home')}}" >กลับ</a>
                                     <input type="submit" value="บันทึก" class="btn btn-success">
                                 </div>
                             </div>

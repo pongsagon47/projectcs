@@ -18,9 +18,9 @@ class FrontEndController extends Controller
         $intro = Intro::all();
         $articles = News::query()
             ->where('status', 'published')
-            ->where('updated_at', '<=', Carbon::now())
+            ->where('created_at', '<=', Carbon::now())
             ->with('news_category')
-            ->orderBy('updated_at', 'desc')
+            ->orderBy('created_at', 'desc')
             ->get();
 
         return view('frontend.index.index ',compact('about','intro','articles'));

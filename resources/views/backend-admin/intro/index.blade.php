@@ -55,7 +55,7 @@
 
                             <div class="form-group row mb-0" style="margin-top: 30px">
                                 <div class="col-md-8 offset-md-4">
-                                    <a class="btn btn-danger" href="{{route('product_category.index')}}" style="margin-right: 10px">กลับ</a>
+                                    <a class="btn btn-danger" href="{{route('employee.home')}}" style="margin-right: 10px">กลับ</a>
                                     <input type="submit" value="บันทึก" class="btn btn-success">
                                 </div>
                             </div>

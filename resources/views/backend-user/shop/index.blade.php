@@ -11,8 +11,8 @@
                 </div>
 
                 <div class="form-group">
-                    @foreach($product_categories as $product_category)
-                        <a class="btn btn-primary " href="{{'#'.$product_category->title}}">{{ $product_category->title }}</a>
+                    @foreach($role_employees as $role_employee )
+                        <a class="btn btn-primary " href="{{'#'.$role_employee->name}}">{{ $role_employee->name }}</a>
                     @endforeach
                 </div>
 
@@ -25,13 +25,13 @@
                                 <form method="post" action="{{route('shop.order')}}">
                                     @csrf
 
-                                    @foreach($product_categories as $product_category )
+                                    @foreach($role_employees as $role_employee )
 
-                                        <h4 id="{!!$product_category->title!!}">ขนมประเภท {{ $product_category->title }}</h4>
+                                        <h4 id="{!!$role_employee->name!!}">ประเภท{{ $role_employee->name}}</h4>
 
                                         <?php
                                             $products = \App\Models\Product::query()
-                                                        ->where('product_category_id',$product_category->id)
+                                                        ->where('role_employee_id',$role_employee->id)
                                                         ->get();
                                         ?>
                                         @foreach($products as $product)

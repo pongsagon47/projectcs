@@ -137,7 +137,7 @@
                                         <a id="linkProduct1"
                                            href="{{ ($article->cover_image == 'NULL') ? '' : asset('storage/'.$article->cover_image) }}"
                                            target="blank">
-                                            <img class="rounded" id="previewProduct1""
+                                            <img class="rounded" id="previewProduct1"
                                                  src="{{ ($article->cover_image == 'NULL') ? 'https://via.placeholder.com/180x120.png?text=No%20Image'
                                      : asset('storage/'.$article->cover_image) }}">
                                         </a>
@@ -168,8 +168,8 @@
                                 <div class="form-group col-md-12">
                                     <label for="status"  style="font-size: 16.8px;" >สถานะ</label>
                                     <select id="status" name="status" class="form-control">
-                                        <option value="DRAFT" {{ (old("status") == 'DRAFT') ? 'selected' : '' }}>แบบร่าง</option>
-                                        <option value="PUBLISHED" {{ (old("status") == 'PUBLISHED') ? 'selected' : '' }}>เผยแพร่</option>
+                                        <option value="DRAFT" {{ ($article->status == 'DRAFT') ? 'selected' : '' }}>แบบร่าง</option>
+                                        <option value="PUBLISHED" {{ ($article->status == 'PUBLISHED') ? 'selected' : '' }}>เผยแพร่</option>
                                     </select>
                                 </div>
                             </div>

@@ -86,7 +86,10 @@
                                     <i class="fas fa-edit"></i>
                                 </a>
 
-                                <button type="submit" class="btn btn-danger btn-circle" title="Delete Record">
+                                <button type="submit" class="btn btn-danger btn-circle" title="Delete Record"
+                                        {{count($value->orders) != 0 ? "disabled":""}}
+                                        {{count($value->news) != 0 ? "disabled":""}}
+                                >
                                     <i class="fas fa-trash-alt"></i>
                                 </button>
                                 {{method_field('DELETE')}}

@@ -89,19 +89,19 @@
                     {{--<form method="POST" action="{{ route('login') }}">--}}
                         {{--@csrf--}}
 
-                        {{--<div class="form-group row">--}}
-                            {{--<label for="username" class="col-md-4 col-form-label text-md-right" style="font-size: 17px;">ชื่อผู้ใช้</label>--}}
+{{--                        <div class="form-group row">--}}
+{{--                            <label for="username" class="col-md-4 col-form-label text-md-right" style="font-size: 17px;">ชื่อผู้ใช้</label>--}}
 
-                            {{--<div class="col-md-6">--}}
-                                {{--<input id="username" onkeypress="checkUsername(event)" type="text" class="form-control{{ $errors->has('username') ? ' is-invalid' : '' }}" name="username" value="{{ old('username') }}" placeholder="Username" >--}}
+{{--                            <div class="col-md-6">--}}
+{{--                                <input id="username" onkeypress="checkUsername(event)" type="text" class="form-control{{ $errors->has('username') ? ' is-invalid' : '' }}" name="username" value="{{ old('username') }}" placeholder="Username" >--}}
 
-                                {{--@if ($errors->has('username'))--}}
-                                    {{--<span class="invalid-feedback" role="alert">--}}
-                                        {{--<strong>{{ $errors->first('username') }}</strong>--}}
-                                    {{--</span>--}}
-                                {{--@endif--}}
-                            {{--</div>--}}
-                        {{--</div>--}}
+{{--                                @if ($errors->has('username'))--}}
+{{--                                    <span class="invalid-feedback" role="alert">--}}
+{{--                                        <strong>{{ $errors->first('username') }}</strong>--}}
+{{--                                    </span>--}}
+{{--                                @endif--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
 
                         {{--<div class="form-group row">--}}
                             {{--<label for="password" class="col-md-4 col-form-label text-md-right" style="font-size: 17px;">รหัสผ่าน</label>--}}

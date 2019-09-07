@@ -6,10 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Product extends Model
 {
-    protected $fillable = ['name', 'price', 'product_category_id', 'description', 'image',];
+    protected $fillable = ['name', 'price', 'role_employee_id', 'description', 'image',];
 
-    public function product_category()
+    public function role_employee()
     {
-        return $this->belongsTo(ProductCategory::class);
+        return $this->belongsTo(RoleEmployee::class);
     }
 }

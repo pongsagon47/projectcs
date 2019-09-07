@@ -65,11 +65,11 @@
             <div class="modal-body">
                 เลือก "ออกจากระบบ" ด้านล่างหากคุณพร้อมที่ออกจากระบบ</div>
             <div class="modal-footer">
-                <button class="btn btn-secondary" type="button" data-dismiss="modal">ยกเลิก</button>
                 <a class="btn btn-primary" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                     ออกจากระบบ
                 </a>
+                <button class="btn btn-secondary" type="button" data-dismiss="modal">ยกเลิก</button>
                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                     @csrf
                 </form>

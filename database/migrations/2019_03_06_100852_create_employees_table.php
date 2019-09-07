@@ -18,7 +18,6 @@ class CreateEmployeesTable extends Migration
             $table->string('username')->unique();
             $table->string('password');
             $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
             $table->string('first_name');
             $table->string('last_name');
             $table->string('nickname');
@@ -27,7 +26,7 @@ class CreateEmployeesTable extends Migration
             $table->string('gender')->nullable();
             $table->string('phone_number');
             $table->string('address');
-            $table->integer('role_employee_id');
+            $table->integer('role_employee_id')->index();
             $table->rememberToken();
             $table->timestamps();
             $table->softDeletes();

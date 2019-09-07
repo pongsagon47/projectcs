@@ -114,6 +114,11 @@ class NewsCategoryController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $new_category = NewsCategory::find($id);
+
+        $new_category->delete();
+
+        return redirect()->route('news-category.index')->with('deleted','แก้ไขหมวดหมู่สำเร็จ');
+
     }
 }

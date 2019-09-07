@@ -32,6 +32,8 @@
                     </nav>
                 @endif
             </div>
+
+
         </div>
     </section>
 
@@ -137,6 +139,11 @@
             </div>
         </div>
     </section>
+
+    @if(count($articles) == 0)
+    <h1 style="margin: 60px 0 0 0;text-align: center"> ไม่มีข่าวสาร </h1>
+    <p style="margin: 120px 60px 0 0;"> &nbsp;</p>
+    @endif
 
 
 

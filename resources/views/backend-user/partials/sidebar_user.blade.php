@@ -37,6 +37,22 @@
             </a>
         </li>
 
+        <!-- Divider -->
+        <hr class="sidebar-divider">
+
+        <!-- Heading -->
+        <div class="sidebar-heading">
+            สถานะรายการสั่งซื้อ
+        </div>
+
+        <!-- Nav Item - Charts -->
+        <li class="nav-item {{ Route::currentRouteName() === 'order-status.index'  ? 'active' : null }}">
+            <a class="nav-link" href="{{route('order-status.index')}}" >
+                <i class="fas fa-eye"></i>
+                <span>ดูสถานะการสั่งซื้อ</span>
+            </a>
+        </li>
+
 @endif
 
 <!-- Divider -->

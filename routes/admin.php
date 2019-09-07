@@ -25,6 +25,16 @@ Route::group([
 ],function (){
 
     Route::group([
+        'prefix' => 'user-register',
+        'as' => 'user-register.'
+    ],function (){
+        Route::get('/','UserRegisterController@index')->name('index');
+        Route::any('search/user','UserRegisterController@search')->name('search');
+        Route::get('{id}/detail','UserRegisterController@show')->name('detail');
+        Route::put('{id}/confirm','UserRegisterController@confirm')->name('confirm');
+    });
+
+    Route::group([
         'prefix' => 'emp',
         'as' => 'emp.',
     ],function (){
@@ -67,17 +77,16 @@ Route::group([
     });
 
     Route::group([
-        'prefix' => 'product_category',
-        'as' => 'product_category.',
-        'namespace' => 'Merchant',
-        'middleware' => 'admin.check',
+        'prefix' => 'promotion',
+        'as' => 'promotion.',
+        'namespace' => 'Merchant'
     ],function (){
-        Route::get('/','ProductCategoryController@index')->name('index');
-        Route::get('/create','ProductCategoryController@create')->name('create');
-        Route::post('/store','ProductCategoryController@store')->name('store');
-        Route::get('{id}/edit','ProductCategoryController@edit')->name('edit');
-        Route::put('{id}/update','ProductCategoryController@update')->name('update');
-        Route::delete('{id}/delete','ProductCategoryController@destroy')->name('delete');
+        Route::get('/','PromotionController@index')->name('index');
+        Route::get('/create','PromotionController@create')->name('create');
+        Route::post('/store','PromotionController@store')->name('store');
+        Route::get('{id}/edit','PromotionController@edit')->name('edit');
+        Route::put('{id}/update','PromotionController@update')->name('update');
+        Route::delete('{id}/delete','PromotionController@destroy')->name('delete');
     });
 
     Route::group([
@@ -141,7 +150,25 @@ Route::group([
         Route::delete('{id}/delete','NewsController@destroy')->name('delete');
     });
 
+    Route::group([
+        'prefix' => 'orders-confirm',
+        'as' => 'order-confirm.',
+        'namespace' => 'Merchant'
+    ],function (){
+        Route::get('/','OrderConfirmController@index')->name('index');
+        Route::get('{id}/confirm','OrderConfirmController@confirm')->name('confirm');
+        Route::put('edit','OrderConfirmController@editOrderDetail')->name('edit');
+        Route::delete('{id}/delete','OrderConfirmController@destroy')->name('delete');
+        Route::put('{id}/success/order','OrderConfirmController@orderSuccess')->name('success');
+    });
 
+    Route::group([
+        'prefix' => 'order-today',
+        'as' => 'order-today.',
+        'namespace' => 'Merchant'
+    ],function (){
+        Route::get('/','OrderTodayController@index')->name('index');
+    });
 });
 
 

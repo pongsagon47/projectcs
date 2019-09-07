@@ -26,7 +26,7 @@ class ProductEditRequest extends FormRequest
         return [
             'name' => 'required|string|max:255',
             'price' => 'required|numeric',
-            'product_category_id' => 'required|string|max:255',
+            'role_employee_id' => 'required|string|max:255',
             'image' => 'nullable|file|image|max:5000',
         ];
     }
@@ -37,7 +37,7 @@ class ProductEditRequest extends FormRequest
             'name.required' => 'คุณจำเป็นต้องกรอกข้อมูลชื่อขนม',
             'price.required' => 'คุณจำเป็นต้องกรอกข้อมูลราคาขนม',
             'price.numeric' => 'กรุณากรอกข้อมูลราคาขนมเป็นตัวเลข',
-            'product_category_id.required' => 'คุณจำเป็นต้องกรอกข้อมูลชื่อขนม',
+            'role_employee_id.required' => 'คุณจำเป็นต้องกรอกข้อมูลชื่อขนม',
 
         ];
     }

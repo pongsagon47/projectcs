@@ -6,7 +6,7 @@
             <div class="col-md-9">
 
                 <div class="card" style="margin-top: 20px">
-                    <div class="card-header" style="text-align: center; font-size: 19px;background-color: #7eff4f">
+                    <div class="card-header" style="text-align: center; font-size: 19px; background: linear-gradient(45deg, #219d1c, #bdff33)">
                         ข้อมูลขนม
                     </div>
                     <div class="card-body">
@@ -42,7 +42,7 @@
                                     </div>
                                     <div class="col-md-12 text-center">
 
-                                        <label><strong>ชื่อประเภทสินค้า: </strong> {{$data->product_category->title}}</label>
+                                        <label><strong>ประเภทห้องผลิตสินค้า: </strong> {{$data->role_employee->name}}</label>
 
                                     </div>
 
@@ -69,7 +69,7 @@
 
                     </div>
                 </div>
-                <div class="link-right" style="margin-top: 22px ">
+                <div class="pull-right" style="margin-top: 22px ">
                     <a href="{{route('product.index')}}" class="btn btn-primary "> back </a>
                 </div>
 

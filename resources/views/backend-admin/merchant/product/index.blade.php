@@ -65,10 +65,11 @@
             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0" style="margin-top: 20px;background-color: white">
                 <thead style="font-size: 14px; color: #fffdfd; background: linear-gradient(45deg, #219d1c, #bdff33);">
                 <tr>
-                    <th width="120">ID</th>
+                    <th width="90">ID</th>
                     <th>Dessert Name</th>
-                    <th width="190">price</th>
-                    <th width="240">description</th>
+                    <th width="120">price</th>
+                    <th width="190">type</th>
+                    <th width="350">description</th>
                     <th>Action</th>
                 </tr>
                 </thead>
@@ -78,7 +79,8 @@
                         <td> {{ $product->id }}</td>
                         <td> {{ $product->name }}</td>
                         <td> {{ $product->price }}</td>
-                        <td width="450"> {{ $product->description }}</td>
+                        <td> {{ $product->role_employee->name }}</td>
+                        <td > {{ $product->description }}</td>
                         <td width="200">
                             <form class="delete_form" method="post" action="{{route('product.delete',[$product->id])}}">
                                 @csrf

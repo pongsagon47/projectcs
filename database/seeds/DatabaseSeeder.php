@@ -31,24 +31,31 @@ class DatabaseSeeder extends Seeder
             'updated_at' => now()
         ]);
         DB::table('role_employees')->insert([
-            'name' => 'หัวหน้าห้องขนมไทย',
+            'name' => 'ห้องขนมไทย',
             'created_at' => now(),
             'updated_at' => now()
         ]);
 
         DB::table('role_employees')->insert([
-            'name' => 'หัวหน้าห้องขนมโรล',
-            'created_at' => now(),
-            'updated_at' => now()
-        ]);
-        DB::table('role_employees')->insert([
-            'name' => 'หัวหน้าห้องขนมเค้ก',
+            'name' => 'ห้องขนมโรล',
             'created_at' => now(),
             'updated_at' => now()
         ]);
 
         DB::table('role_employees')->insert([
-            'name' => 'หัวหน้าห้องขนมคุกกี้',
+            'name' => 'ห้องขนมบราวนี่',
+            'created_at' => now(),
+            'updated_at' => now()
+        ]);
+
+        DB::table('role_employees')->insert([
+            'name' => 'ห้องขนมเค้ก',
+            'created_at' => now(),
+            'updated_at' => now()
+        ]);
+
+        DB::table('role_employees')->insert([
+            'name' => 'ห้องขนมคุกกี้',
             'created_at' => now(),
             'updated_at' => now()
         ]);
@@ -70,20 +77,45 @@ class DatabaseSeeder extends Seeder
             'updated_at' => now()
         ]);
 
-        DB::table('users')->insert([
+        DB::table('employees')->insert([
             'username' => 'admin',
             'password' => Hash::make('123456'), // <---- check this
             'email' => 'pongsagon405@gmail.com',
             'first_name' => 'Site',
             'last_name' => 'Admin',
             'nickname' => 'tak',
+            'image' => 'No-picture',
             'id_card' => '1 3599 00058 165',
             'phone_number' => '0616274629',
-            'address' => '130/9 ต.กู่กาสิงห์ อ.เกษตรวิสัย จ.ร้อยเอ็ด 45150',
-            'role_employee_id' => '1',
+            'address' => "Add",
+            'role_employee_id' => 1,
             'created_at' => now(),
             'updated_at' => now()
 
+        ]);
+
+        DB::table('promotions')->insert([
+            'promotion_name' => 'ร้านสาขา',
+            'promotion_description' => 'โปรโมชั่นสำหรับร้านสาขา',
+            'promotion_discount' => 5,
+            'created_at' => now(),
+            'updated_at' => now()
+        ]);
+
+        DB::table('promotions')->insert([
+            'promotion_name' => 'ร้านเฟรนไชน์',
+            'promotion_description' => 'โปรโมชั่นสำหรับร้านเฟรนไชน์',
+            'promotion_discount' => 3,
+            'created_at' => now(),
+            'updated_at' => now()
+        ]);
+
+        DB::table('promotions')->insert([
+            'promotion_name' => 'ร้านที่รับไปขาย',
+            'promotion_description' => 'โปรโมชั่นสำหรับร้านที่รับไปขาย	',
+            'promotion_discount' => 2,
+            'created_at' => now(),
+            'updated_at' => now()
         ]);
 
     }

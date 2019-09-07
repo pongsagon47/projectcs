@@ -125,6 +125,12 @@ class NewsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $news = News::find($id);
+
+        $news->delete();
+        Storage::delete('public/'.$news->cover_image);
+        Storage::delete('public/'.$news->thumbnail_image);
+
+        return redirect()->route('news.index')->with('deleted','ลบข่าวสารเรียบร้อย');
     }
 }
