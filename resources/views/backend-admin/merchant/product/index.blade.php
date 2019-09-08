@@ -73,12 +73,13 @@
                     <th>Action</th>
                 </tr>
                 </thead>
+                @if(count($products) != 0)
                 @foreach( $products as $product)
                     <tbody style="font-size: 14px ; color: #110100">
                     <tr>
                         <td> {{ $product->id }}</td>
                         <td> {{ $product->name }}</td>
-                        <td> {{ $product->price }}</td>
+                        <td> {{ $product->price }} บาท</td>
                         <td> {{ $product->role_employee->name }}</td>
                         <td > {{ $product->description }}</td>
                         <td width="200">
@@ -101,6 +102,13 @@
                     </tr>
                     </tbody>
                 @endforeach
+                @else
+                    <tbody style="font-size: 16px ; color: #110100">
+                    <tr>
+                        <td class="text-center" colspan="6">ไม่มีข้อมูลขนม</td>
+                    </tr>
+                    </tbody>
+                @endif
             </table>
 
         </div>

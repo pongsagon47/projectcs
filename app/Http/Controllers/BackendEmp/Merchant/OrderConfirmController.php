@@ -146,4 +146,23 @@ class OrderConfirmController extends Controller
 
     }
 
+    public function destroyOrder($id)
+    {
+        $order = Order::find($id);
+
+        $order_details = OrderDetail::query()
+            ->where('order_id',$id)
+            ->get();
+
+        foreach ($order_details as $order_detail)
+        {
+            $orderDatail = OrderDetail::find($order_detail->id);
+
+            $orderDatail->delete();
+        }
+        $order->delete();
+
+        return redirect()->route('order-confirm.index')->with('deleted','ลบรายการสั่งซื้อเรียบร้อย');
+    }
+
 }

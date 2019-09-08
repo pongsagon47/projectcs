@@ -38,7 +38,7 @@ Route::group([
         Route::get('/','ShopController@index')->name('index');
         Route::post('/order','ShopController@order')->name('order');
         Route::post('/order/store','ShopController@store')->name('store');
-        Route::get('/status','ShopController@index')->name('index');
+        Route::get('/index','ShopController@index')->name('index');
 
     });
 
@@ -48,9 +48,7 @@ Route::group([
         'namespace' => 'Merchant'
     ],function (){
         Route::get('/','OrderStatusController@index')->name('index');
+        Route::get('{id}/detail','OrderStatusController@show')->name('show');
     });
 
-    Route::get('/status', function () {
-        return view('backend-user.shop.confirm');
-    });
 });

@@ -44,19 +44,20 @@
                     <th>ยืนยันรายการสั่งซื้อ</th>
                 </tr>
                 </thead>
+                @if(count($orders) != 0)
                 @foreach( $orders as $order)
                     <tbody style="font-size: 14px ; color: #110100">
                     <tr>
                         <td>{{ $order->id }}</td>
                         <td>{{ $order->user->shop_name }}</td>
                         <td>{{ $order->user->role->name }}</td>
-                        <td width="120">{{ $order->total_qty }}</td>
-                        <td>{{ $order->total_price }}</td>
-                        <td width="200">{{ $order->total_price_discounted }}</td>
+                        <td width="120">{{ $order->total_qty }} ชิ้น</td>
+                        <td>{{ $order->total_price }} บาท</td>
+                        <td width="200">{{ $order->total_price_discounted }} บาท</td>
                         <td>{{ $order->promotion->promotion_discount }}%</td>
                         <td>{{ $order->created_at }}</td>
                         <td>
-                            <a href="{{route('order-confirm.confirm',[$order->id])}}" class="btn btn-success " title="Confirm Record" >
+                            <a href="{{route('order-today.show',[$order->id])}}" class="btn btn-success " title="Confirm Record" >
                                 <i class="far fa-eye"> รายละเอียด</i>
                             </a>
                         </td>
@@ -64,6 +65,13 @@
                     </tr>
                     </tbody>
                 @endforeach
+                @else
+                    <tbody style="font-size: 17px ; color: #110100">
+                    <tr>
+                        <td class="text-center"  colspan="9"> วันนี้ยังไม่มีรายการสั่งซื้อ </td>
+                    </tr>
+                    </tbody>
+                @endif
 
             </table>
         </div>

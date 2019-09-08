@@ -60,18 +60,21 @@
                 <thead style="font-size: 15px; color: #fffdfd; background: linear-gradient(45deg, #219d1c, #bdff33);">
                 <tr>
                     <th>ID</th>
-                    <th>Name</th>
-                    <th>Gender</th>
+                    <th>ชื่อพนักงาน</th>
+                    <th>ตำแหน่ง</th>
+                    <th>เพศ</th>
                     <th>Email</th>
-                    <th>Phone Number</th>
+                    <th>เบอร์โทรศัพท์</th>
                     <th>Action</th>
                 </tr>
                 </thead>
+                @if(count($data) != 0)
                 @foreach( $data as $value)
                     <tbody style="font-size: 14px; color: #110100">
                     <tr>
                         <td>{{ $value->id }}</td>
                         <td>{{ $value->first_name." ".$value->last_name }}</td>
+                        <td>{{ $value->role_employee->name }}</td>
                         <td width="80">{{ null == $value->gender ?'ไม่มีการระบุเพศ' : $value->gender}} </td>
                         <td>{{ $value->email }}</td>
                         <td width="170">{{ $value->phone_number }}</td>
@@ -88,8 +91,7 @@
 
                                 <button type="submit" class="btn btn-danger btn-circle" title="Delete Record"
                                         {{count($value->orders) != 0 ? "disabled":""}}
-                                        {{count($value->news) != 0 ? "disabled":""}}
-                                >
+                                        {{count($value->news) != 0 ? "disabled":""}}>
                                     <i class="fas fa-trash-alt"></i>
                                 </button>
                                 {{method_field('DELETE')}}
@@ -98,6 +100,13 @@
                     </tr>
                     </tbody>
                 @endforeach
+                @else
+                    <tbody style="font-size: 16px ; color: #110100">
+                    <tr>
+                        <td class="text-center" colspan="7">ไม่มีข้อมูลพนักงาน</td>
+                    </tr>
+                    </tbody>
+                @endif
             </table>
 
             <div class="flex-center">

@@ -51,6 +51,7 @@
 
                                             <input type="hidden" name="product_name_{{$product->id}}" value="{{$product->name}}" >
                                             <input type="hidden" name="product_price_{{$product->id}}" value="{{$product->price}}" >
+                                            <input type="hidden" name="role_employee_{{$product->id}}" value="{{$role_employee->id}}" >
 
                                         @endforeach
                                         <hr>

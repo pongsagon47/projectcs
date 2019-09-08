@@ -30,7 +30,7 @@
         </div>
 
         <!-- Nav Item - Charts -->
-        <li class="nav-item {{ Route::currentRouteName() === 'shop.index'  ? 'active' : null }}">
+        <li class="nav-item {{ Route::currentRouteName() === 'shop.index'||Route::currentRouteName() === 'shop.order'  ? 'active' : null }}">
             <a class="nav-link" href="{{route('shop.index')}}" >
                 <i class="fas fa-shopping-cart"></i>
                 <span>สั่งรายการขนม</span>
@@ -42,14 +42,25 @@
 
         <!-- Heading -->
         <div class="sidebar-heading">
-            สถานะรายการสั่งซื้อ
+            สถานะและใบเสร็จ
         </div>
 
         <!-- Nav Item - Charts -->
-        <li class="nav-item {{ Route::currentRouteName() === 'order-status.index'  ? 'active' : null }}">
+        <li class="nav-item {{ Route::currentRouteName() === 'order-status.index'||Route::currentRouteName() === 'order-status.show'  ? 'active' : null }}">
             <a class="nav-link" href="{{route('order-status.index')}}" >
                 <i class="fas fa-eye"></i>
-                <span>ดูสถานะการสั่งซื้อ</span>
+                <?php
+                $orders = \App\Models\Order::query()
+                    ->where('user_id',Auth::user()->id)
+                    ->get();
+                $noti_order = count($orders);
+                ?>
+                <span>
+                    ดูสถานะและใบเสร็จ
+                    @if( $noti_order != null)
+                        <span class="badge badge-danger">{{ $noti_order }}</span>
+                    @endif
+                </span>
             </a>
         </li>
 

@@ -157,6 +157,7 @@ Route::group([
     ],function (){
         Route::get('/','OrderConfirmController@index')->name('index');
         Route::get('{id}/confirm','OrderConfirmController@confirm')->name('confirm');
+        Route::delete('{id}/delete/order','OrderConfirmController@destroyOrder')->name('destroy');
         Route::put('edit','OrderConfirmController@editOrderDetail')->name('edit');
         Route::delete('{id}/delete','OrderConfirmController@destroy')->name('delete');
         Route::put('{id}/success/order','OrderConfirmController@orderSuccess')->name('success');
@@ -168,6 +169,53 @@ Route::group([
         'namespace' => 'Merchant'
     ],function (){
         Route::get('/','OrderTodayController@index')->name('index');
+        Route::get('{id}/show','OrderTodayController@show')->name('show');
+    });
+
+    Route::group([
+        'prefix' => 'thai-dessert',
+        'as' => 'thai-dessert.',
+        'namespace' => 'Merchant'
+    ],function (){
+        Route::get('/','ThaiDessertController@index')->name('index');
+        Route::get('{id}/show','ThaiDessertController@show')->name('show');
+        Route::put('{id}/confirm','ThaiDessertController@confirm')->name('confirm');
+    });
+
+    Route::group([
+        'prefix' => 'role-dessert',
+        'as' => 'role-dessert.',
+        'namespace' => 'Merchant'
+    ],function (){
+        Route::get('/','RoleDessertController@index')->name('index');
+        Route::get('{id}/show','RoleDessertController@show')->name('show');
+    });
+
+    Route::group([
+        'prefix' => 'brownie-dessert',
+        'as' => 'brownie-dessert.',
+        'namespace' => 'Merchant'
+    ],function (){
+        Route::get('/','BrownieDessertController@index')->name('index');
+        Route::get('{id}/show','BrownieDessertController@show')->name('show');
+    });
+
+    Route::group([
+        'prefix' => 'cake-dessert',
+        'as' => 'cake-dessert.',
+        'namespace' => 'Merchant'
+    ],function (){
+        Route::get('/','CakeDessertController@index')->name('index');
+        Route::get('{id}/show','CakeDessertController@show')->name('show');
+    });
+
+    Route::group([
+        'prefix' => 'cookie-dessert',
+        'as' => 'cookie-dessert.',
+        'namespace' => 'Merchant'
+    ],function (){
+        Route::get('/','CookieDessertController@index')->name('index');
+        Route::get('{id}/show','CookieDessertController@show')->name('show');
     });
 });
 

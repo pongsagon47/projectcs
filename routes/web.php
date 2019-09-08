@@ -41,13 +41,13 @@ Route::group([
 
 });
 
-Route::get('/test', function () {
-    return view('frontend.test');
-});
-
-Route::get('/testfrom', function () {
-    return view('test');
-});
+//Route::get('/test', function () {
+//    return view('frontend.test');
+//});
+//
+//Route::get('/testfrom', function () {
+//    return view('test');
+//});
 
 
 

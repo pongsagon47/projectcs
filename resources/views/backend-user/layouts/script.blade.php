@@ -24,5 +24,8 @@
 <script src="{{ asset('cleave.js/dist/cleave.min.js') }}"></script>
 <script src="{{ asset('cleave.js/dist/addons/cleave-phone.th.js') }}"></script>
 
+<!--font-awesome-->
+<script defer src="{{asset('fontawesome-free-5.10.2-web/js/all.min.js')}}"></script>
+
 
 

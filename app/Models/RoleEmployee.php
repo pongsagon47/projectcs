@@ -19,4 +19,9 @@ class RoleEmployee extends Model
     {
         return $this->hasMany(Product::class);
     }
+
+    public function orderDetails()
+    {
+        return $this->hasMany(OrderDetail::class);
+    }
 }

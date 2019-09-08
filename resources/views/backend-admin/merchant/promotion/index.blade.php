@@ -47,6 +47,7 @@
                     <th >Action</th>
                 </tr>
                 </thead>
+                @if(count($promotions) != 0)
                 @foreach( $promotions as $promotion)
                     <tbody  style="font-size: 14px ; color: #110100">
                     <tr>
@@ -73,6 +74,13 @@
                     </tr>
                     </tbody>
                 @endforeach
+                @else
+                    <tbody style="font-size: 16px ; color: #110100">
+                    <tr>
+                        <td class="text-center" colspan="7">ไม่มีข้อมูลโปรโมชั่น</td>
+                    </tr>
+                    </tbody>
+                @endif
 
             </table>
         </div>

@@ -41,19 +41,22 @@
                 <thead style="font-size: 15px; color: #fffdfd; background: linear-gradient(45deg, #289bff, #a5ffd5)">
                 <tr>
                     <th>ID</th>
-                    <th>Name</th>
-                    <th>Gender</th>
+                    <th>ชื่อลูกค้า</th>
+                    <th>ประเภทลูกค้า</th>
+                    <th>เพศ</th>
                     <th>Email</th>
                     <th>Active</th>
-                    <th>Phone Number</th>
+                    <th>เบอร์โทรศัพท์</th>
                     <th>Action</th>
                 </tr>
                 </thead >
+                @if(count($users) != 0)
                 @foreach( $users as $value)
                     <tbody style="font-size: 14px ; color: #110100">
                     <tr>
                         <td>{{ $value->id }}</td>
                         <td>{{ $value->first_name." ".$value->last_name }}</td>
+                        <td>{{ $value->role->name }}</td>
                         <td width="80">{{ null == $value->gender ?'ไม่มีการระบุเพศ' : $value->gender }}</td>
                         <td>{{ $value->email }}</td>
                         <td>{{ 0 == $value->status?"No":"Yes" }}</td>
@@ -75,6 +78,13 @@
                     </tr>
                     </tbody>
                 @endforeach
+                @else
+                    <tbody style="font-size: 16px ; color: #110100">
+                    <tr>
+                        <td class="text-center" colspan="8">ยังไม่มีสมาชิกสมัครเข้ามา</td>
+                    </tr>
+                    </tbody>
+                @endif
             </table>
 
             <div class="flex-center">

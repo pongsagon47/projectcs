@@ -18,21 +18,13 @@
 
                                 <h3 class="text-center"><i class="fas fa-shopping-cart"></i> รายการสั่งซื้อ</h3>
                                 <p style="padding-top: 15px">
-                                    <strong> ชื่อผู้สั่งซื้อ : </strong> {{ Auth::user()->shop_name}}
+                                    <strong> ชื่อผู้สั่งซื้อ : </strong> {{ Auth::user()->first_name." ".Auth::user()->last_name}}
+                                    <strong> ชื่อร้าน : </strong> {{ Auth::user()->shop_name}}
                                 </p>
 
                                 @if(\Session('error'))
                                     <div class="alert alert-danger alert-dismissible fade show" role="alert">
                                         {{\Session::get('error')}}
-                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                            <span aria-hidden="true">&times;</span>
-                                        </button>
-                                    </div>
-                                @endif
-
-                                @if(\Session('success'))
-                                    <div class="alert alert-success alert-dismissible fade show" role="alert">
-                                        {{\Session::get('success')}}
                                         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                             <span aria-hidden="true">&times;</span>
                                         </button>
@@ -52,6 +44,7 @@
                                         </tr>
                                         </thead>
 
+                                        @if(count($order_Details) != 0 )
                                         <?php $id = 1 ?>
                                         @foreach( $order_Details as $orderDetail)
                                             <tbody>
@@ -61,10 +54,14 @@
                                                 <td >{{ $orderDetail['product_price'] }} </td>
                                                 <td >{{ $orderDetail['product_qty'] }}</td>
                                                 <td >{{ $orderDetail['product_total_price'] }}</td>
-
-                                                <?php $id++ ?>
-                                                @endforeach
                                             </tr>
+                                            <?php $id++ ?>
+                                            @endforeach
+                                            @else
+                                                <tr>
+                                                    <td colspan="5">ไม่มีการสั่งรายการขนม</td>
+                                                </tr>
+                                            @endif
                                             <tr>
                                                 <th scope="row">สินค้าทั้งหมด</th>
                                                 <td></td>
@@ -91,8 +88,9 @@
                                         @endforeach
                                         <?php $i++ ?>
                                     @endforeach
-                                    <div style="padding-top: 14px">
-                                        <input type="submit" title="ยืนยันรายการสั่งซื้อ" class="btn btn-primary btn-block" value="ยืนยันรายการสั่งซื้อ">
+                                    <div class="text-center" style="padding-top: 14px">
+                                        <a class="btn btn-danger" href="#" onclick="history.go(-1)">&laquo; กลับ</a>
+                                        <button type="submit" title="ยืนยันรายการสั่งซื้อ" class="btn btn-success" {{count($order_Details) == 0 ?"disabled":""}} >ยืนยันรายการสั่งซื้อ  &raquo;</button>
                                     </div>
                                 </form>
                             </div>
@@ -104,4 +102,5 @@
         </div>
     </div>
 @endsection
+
 

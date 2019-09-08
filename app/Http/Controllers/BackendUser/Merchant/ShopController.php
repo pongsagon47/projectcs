@@ -46,7 +46,6 @@ class ShopController extends Controller
             {
                 if ($orders['product_qty_'.$product->id] != null)
                 {
-
                     $qty = $orders['product_qty_'.$product->id];
                     $price = $orders['product_price_'.$product->id];
 
@@ -59,6 +58,7 @@ class ShopController extends Controller
                             'product_name' => $orders['product_name_'.$product->id],
                             'product_qty' => $orders['product_qty_'.$product->id],
                             'product_price' => $orders['product_price_'.$product->id] ,
+                            'role_employee_id' => $orders['role_employee_'.$product->id] ,
                             'product_total_price' => $total_price ,
                         )
                     );
@@ -79,6 +79,7 @@ class ShopController extends Controller
 
     public function store(Request $request)
     {
+
         $orders = ($request->all());
 
         array_shift($orders);
@@ -105,12 +106,12 @@ class ShopController extends Controller
             $orderDetail = new OrderDetail;
 
             $orderDetail->order_id = $order->id;
+            $orderDetail->role_employee_id = $order_detail['role_employee_id'];
             $orderDetail->product_id = $order_detail['product_id'];
             $orderDetail->product_qty = $order_detail['product_qty'];
             $orderDetail->product_total_price = $order_detail['product_total_price'];
 
             $order->orderDetails()->save($orderDetail);
-
         }
 
         return view('backend-user.shop.success');

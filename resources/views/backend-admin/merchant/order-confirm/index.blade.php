@@ -42,29 +42,58 @@
                     <th>ยืนยันรายการสั่งซื้อ</th>
                 </tr>
                 </thead>
+                @if(count($orders) != 0)
                 @foreach( $orders as $order)
                     <tbody style="font-size: 14px ; color: #110100">
                     <tr>
                         <td>{{ $order->id }}</td>
                         <td>{{ $order->user->shop_name }}</td>
                         <td>{{ $order->user->role->name }}</td>
-                        <td>{{ $order->total_qty }}</td>
-                        <td>{{ $order->total_price }}</td>
+                        <td>{{ $order->total_qty }} ชิ้น</td>
+                        <td>{{ $order->total_price }} บาท</td>
                         <td>{{ $order->created_at }}</td>
                         <td>
-                            <a href="{{route('order-confirm.confirm',[$order->id])}}" class="btn btn-success " title="Confirm Record" >
-                                <i class="fas fa-edit"> ตรวจสอบ และ ยืนบัน</i>
-                            </a>
+                            <form class="delete_form" method="post" action="{{route('order-confirm.destroy',[$order->id])}}">
+                                @csrf
+
+                                <a href="{{route('order-confirm.confirm',[$order->id])}}" class="btn btn-success " title="Confirm Record" >
+                                    <i class="fas fa-edit"> ตรวจสอบ และ ยืนบัน</i>
+                                </a>
+                                <button type="submit" class="btn btn-danger" title="Delete Order"><i class="fas fa-trash-alt"></i> ลบรายการสั่งซื้อ</button>
+                                {{method_field('DELETE')}}
+                            </form>
+
                         </td>
 
                     </tr>
                     </tbody>
                 @endforeach
+                @else
+                    <tbody style="font-size: 17px ; color: #110100">
+                    <tr>
+                        <td class="text-center"  colspan="7"> วันนี้ไม่มีรายการสั่งซื้อ </td>
+                    </tr>
+                    </tbody>
+                @endif
 
             </table>
         </div>
 
     </div>
 @endsection
+@push('script')
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('.delete_form').on('submit',function () {
+                if(confirm("Are you sure?")){
+                    return true;
+                }
+                else {
+                    return false;
+                }
+            })
+        })
+    </script>
+@endpush
 
 
