@@ -156,7 +156,12 @@
             <a class="nav-link" href="{{route('order-confirm.index')}}">
                 <i class="fas fa-shopping-cart"></i>
                 <?php
-                $orders = \App\Models\Order::query()->where('order_status',0)->get();
+                $now = Carbon\Carbon::now()->format('Y-m-d');
+                $orders = \App\Models\Order::query()
+                    ->where('order_status',0)
+                    ->where('created_at', '>=', $now.' 00:00:00')
+                    ->where('created_at', '<=', $now.' 23:59:59')
+                    ->get();
                 $noti_order = count($orders);
                 ?>
                 <span> รายการที่รอยืนยัน
@@ -176,29 +181,32 @@
         </div>
 
         <!-- Nav Item - Pages Collapse Menu -->
-        <li class="nav-item {{ Route::currentRouteName() === 'order-today.index'||Route::currentRouteName() === 'order-today.show'? 'active' : null }}">
+        <li class="nav-item {{ Route::currentRouteName() === 'order-today.index'||Route::currentRouteName() === 'order-today.show'||Route::currentRouteName() === 'order-today.production'? 'active' : null }}">
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseOrderToday"
                aria-expanded="true" aria-controls="collapseOrderToday">
                 <i class="fas fa-shopping-cart"></i>
                 <?php
+                $now = Carbon\Carbon::now()->format('Y-m-d');
                 $orders_today = \App\Models\Order::query()
                     ->where('order_status','>=','1')
-                    ->where('order_status','<=','4')
+                    ->where('order_status','<=','3')
+                    ->where('created_at', '>=', $now.' 00:00:00')
+                    ->where('created_at', '<=', $now.' 23:59:59')
                     ->get();
                 $today_order = count($orders_today);
                 ?>
                 <span>
-                    รายการสั่งซื้อวันนี้
+                    รายการสั่งซื้อ
                      @if( $today_order != null)
                         <span class="badge badge-danger">{{ $today_order }}</span>
                     @endif
                 </span>
             </a>
             <div id="collapseOrderToday"
-                 class="collapse {{ Route::currentRouteName() === 'order-today.index'||Route::currentRouteName() === 'order-today.show'? 'show' : null }}"
+                 class="collapse {{ Route::currentRouteName() === 'order-today.index'||Route::currentRouteName() === 'order-today.show'||Route::currentRouteName() === 'order-today.production'? 'show' : null }}"
                  aria-labelledby="headingOrderToday" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
-                    <h6 class="collapse-header">รายการสั่งซื้อวันนี้ :</h6>
+                    <h6 class="collapse-header">รายการสั่งซื้อ :</h6>
                     <a class="collapse-item {{ Route::currentRouteName() === 'order-today.index'||Route::currentRouteName() === 'order-today.show'? 'active' : null }}"
                        href="{{ route('order-today.index') }}">
                         รายการสั่งซื้อ
@@ -206,9 +214,42 @@
                             <span class="badge badge-danger">{{ $today_order }}</span>
                         @endif
                     </a>
+                    <h6 class="collapse-header">สถานะห้องผลิต :</h6>
+                    <a class="collapse-item {{ Route::currentRouteName() === 'order-today.production'? 'active' : null }}"
+                       href="{{ route('order-today.production') }}">ดูสถานะห้องผลิต</a>
                 </div>
             </div>
         </li>
+@endif
+
+@if(auth()->user()->role_employee_id == 1||auth()->user()->role_employee_id == 3)
+
+    <!-- Divider -->
+        <hr class="sidebar-divider">
+
+        <!-- Heading -->
+        <div class="sidebar-heading">
+            รายการสั่งสินค้าวันนี้
+        </div>
+
+        <!-- Nav Item - Charts -->
+        <li class="nav-item {{Route::currentRouteName() === 'delivery.index'||Route::currentRouteName() === 'delivery.bill'||Route::currentRouteName() === 'delivery.user' ? 'active' : null }}">
+            <a class="nav-link" href="{{ route('delivery.index') }}">
+                <i class="fas fa-truck"></i>
+                <?php
+                $orders_delivery = \App\Models\Order::query()
+                    ->where('order_status',3)
+                    ->get();
+                $today_delivery  = count($orders_delivery);
+                ?>
+                <span> รายการที่ต้องส่งสินค้า
+                     @if( $today_delivery != null)
+                        <span class="badge badge-danger">{{ $today_delivery  }}</span>
+                    @endif
+                </span>
+            </a>
+        </li>
+
 @endif
 @if(auth()->user()->role_employee_id == 1||auth()->user()->role_employee_id == 4)
     <!-- Divider -->
@@ -220,44 +261,22 @@
         </div>
 
         <!-- Nav Item - Pages Collapse Menu -->
-        <li class="nav-item {{ Route::currentRouteName() === 'thai-dessert.index'? 'active' : null }}">
+        <li class="nav-item {{ Route::currentRouteName() === 'thai-dessert.index'||Route::currentRouteName() === 'thai-dessert.show'
+                 ||Route::currentRouteName() === 'thai-dessert.maker'? 'active' : null }}">
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseThaiDassert"
                aria-expanded="true" aria-controls="collapseThaiDassert">
                 <i class="fas fa-stroopwafel"></i>
                 <?php
 
-                $orders = \App\Models\Order::query()
-                    ->where('order_status','>=','1')
-                    ->where('order_status','<=','2')
+                $now = Carbon\Carbon::now()->format('Y-m-d');
+                $productions = \App\Models\ProductionStatus::query()
+                    ->where('thai_dessert','>=',0)
+                    ->where('thai_dessert','<=',1)
+                    ->where('created_at', '>=', $now.' 00:00:00')
+                    ->where('created_at', '<=', $now.' 23:59:59')
                     ->get();
 
-                $arr_thai_orders = [];
-                foreach ($orders as $order)
-                {
-                    $orderDetails = \App\Models\OrderDetail::query()
-                        ->where('role_employee_id',4)
-                        ->where('order_id',$order->id)
-                        ->get();
-
-                    $total_qty = 0;
-                    foreach ($orderDetails as $orderDetail )
-                    {
-                        $total_qty += $orderDetail->product_qty;
-                    }
-
-                    if ( $total_qty != 0)
-                    {
-                        array_push($arr_thai_orders,array(
-                            'order_id' => $order->id,
-                            'shop_name' => $order->user->shop_name,
-                            'user_type' => $order->user->role->name,
-                            'total_qty' => $total_qty,
-                            'created_at' =>$order->created_at
-                        ));
-                    }
-                }
-
-                $thai_order = count($arr_thai_orders);
+                $thai_order = count($productions);
                 ?>
                 <span>
                     รายการสั่งขนมไทย
@@ -267,16 +286,20 @@
                 </span>
             </a>
             <div id="collapseThaiDassert"
-                 class="collapse {{ Route::currentRouteName() === 'thai-dessert.index'? 'show' : null }}"
+                 class="collapse {{ Route::currentRouteName() === 'thai-dessert.index'||Route::currentRouteName() === 'thai-dessert.show'
+                 ||Route::currentRouteName() === 'thai-dessert.maker'? 'show' : null }}"
                  aria-labelledby="headingThaiDassert" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">รายการสั่งซื้อวันนี้ :</h6>
-                    <a class="collapse-item {{ Route::currentRouteName() === 'thai-dessert.index'? 'active' : null }}"
+                    <a class="collapse-item {{ Route::currentRouteName() === 'thai-dessert.index'||Route::currentRouteName() === 'thai-dessert.show'? 'active' : null }}"
                        href="{{ route('thai-dessert.index') }}">รายการสั่งซื้อ
                         @if( $thai_order != null)
                             <span class="badge badge-danger">{{ $thai_order }}</span>
                         @endif
                     </a>
+                    <h6 class="collapse-header">ขนมที่ต้องผลิต:</h6>
+                    <a class="collapse-item {{ Route::currentRouteName() === 'thai-dessert.maker'? 'active' : null }}"
+                       href="{{ route('thai-dessert.maker') }}">รายการขนมที่ต้องผลิต</a>
                 </div>
             </div>
         </li>
@@ -291,44 +314,22 @@
         </div>
 
         <!-- Nav Item - Pages Collapse Menu -->
-        <li class="nav-item {{ Route::currentRouteName() === 'role-dessert.index'? 'active' : null }}">
+        <li class="nav-item {{ Route::currentRouteName() === 'role-dessert.index'||Route::currentRouteName() === 'role-dessert.maker'
+                 ||Route::currentRouteName() === 'role-dessert.show'? 'active' : null }}">
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseRoleDessert"
                aria-expanded="true" aria-controls="collapseRoleDessert">
                 <i class="fas fa-stroopwafel"></i>
                 <?php
 
-                $orders = \App\Models\Order::query()
-                    ->where('order_status','>=','1')
-                    ->where('order_status','<=','2')
+                $now = Carbon\Carbon::now()->format('Y-m-d');
+                $productions = \App\Models\ProductionStatus::query()
+                    ->where('role_dessert','>=',0)
+                    ->where('role_dessert','<=',1)
+                    ->where('created_at', '>=', $now.' 00:00:00')
+                    ->where('created_at', '<=', $now.' 23:59:59')
                     ->get();
 
-                $arr_thai_orders = [];
-                foreach ($orders as $order)
-                {
-                    $orderDetails = \App\Models\OrderDetail::query()
-                        ->where('role_employee_id',5)
-                        ->where('order_id',$order->id)
-                        ->get();
-
-                    $total_qty = 0;
-                    foreach ($orderDetails as $orderDetail )
-                    {
-                        $total_qty += $orderDetail->product_qty;
-                    }
-
-                    if ( $total_qty != 0)
-                    {
-                        array_push($arr_thai_orders,array(
-                            'order_id' => $order->id,
-                            'shop_name' => $order->user->shop_name,
-                            'user_type' => $order->user->role->name,
-                            'total_qty' => $total_qty,
-                            'created_at' =>$order->created_at
-                        ));
-                    }
-                }
-
-                $role_order = count($arr_thai_orders);
+                $role_order = count($productions);
                 ?>
                 <span>
                     รายการสั่งซื้อขนมโรล
@@ -338,17 +339,21 @@
                 </span>
             </a>
             <div id="collapseRoleDessert"
-                 class="collapse {{ Route::currentRouteName() === 'role-dessert.index'? 'show' : null }}"
+                 class="collapse {{ Route::currentRouteName() === 'role-dessert.index'||Route::currentRouteName() === 'role-dessert.maker'
+                 ||Route::currentRouteName() === 'role-dessert.show'? 'show' : null }}"
                  aria-labelledby="headingRoleDessert" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">รายการสั่งซื้อวันนี้ :</h6>
-                    <a class="collapse-item {{ Route::currentRouteName() === 'role-dessert.index'? 'active' : null }}"
+                    <a class="collapse-item {{ Route::currentRouteName() === 'role-dessert.index'||Route::currentRouteName() === 'role-dessert.show'? 'active' : null }}"
                        href="{{ route('role-dessert.index') }}">
                         รายการสั่งซื้อ
                         @if( $role_order != null)
                             <span class="badge badge-danger">{{ $role_order }}</span>
                         @endif
                     </a>
+                    <h6 class="collapse-header">ขนมที่ต้องผลิต:</h6>
+                    <a class="collapse-item {{ Route::currentRouteName() === 'role-dessert.maker'? 'active' : null }}"
+                       href="{{ route('role-dessert.maker') }}">รายการขนมที่ต้องผลิต</a>
                 </div>
             </div>
         </li>
@@ -369,58 +374,39 @@
                 <i class="fas fa-stroopwafel"></i>
                 <?php
 
-                $orders = \App\Models\Order::query()
-                    ->where('order_status','>=','1')
-                    ->where('order_status','<=','2')
+                $now = Carbon\Carbon::now()->format('Y-m-d');
+                $productions = \App\Models\ProductionStatus::query()
+                    ->where('brownie_dessert','>=',0)
+                    ->where('brownie_dessert','<=',1)
+                    ->where('created_at', '>=', $now.' 00:00:00')
+                    ->where('created_at', '<=', $now.' 23:59:59')
                     ->get();
 
-                $arr_thai_orders = [];
-                foreach ($orders as $order)
-                {
-                    $orderDetails = \App\Models\OrderDetail::query()
-                        ->where('role_employee_id',6)
-                        ->where('order_id',$order->id)
-                        ->get();
-
-                    $total_qty = 0;
-                    foreach ($orderDetails as $orderDetail )
-                    {
-                        $total_qty += $orderDetail->product_qty;
-                    }
-
-                    if ( $total_qty != 0)
-                    {
-                        array_push($arr_thai_orders,array(
-                            'order_id' => $order->id,
-                            'shop_name' => $order->user->shop_name,
-                            'user_type' => $order->user->role->name,
-                            'total_qty' => $total_qty,
-                            'created_at' =>$order->created_at
-                        ));
-                    }
-                }
-
-                $brownie_order = count($arr_thai_orders);
+                $brownie_order = count($productions);
                 ?>
                 <span>
                     รายการสั่งซื้อขนมบราวนี่
-                     @if( $role_order != null)
+                    @if( $brownie_order != null)
                         <span class="badge badge-danger">{{ $brownie_order }}</span>
                     @endif
                 </span>
             </a>
             <div id="collapseBrownies"
-                 class="collapse {{ Route::currentRouteName() === 'brownie-dessert.index'? 'show' : null }}"
+                 class="collapse {{ Route::currentRouteName() === 'brownie-dessert.index'||Route::currentRouteName() === 'brownie-dessert.maker'
+                 ||Route::currentRouteName() === 'brownie-dessert.show'? 'show' : null }}"
                  aria-labelledby="headingBrownies" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">รายการสั่งซื้อวันนี้ :</h6>
-                    <a class="collapse-item {{ Route::currentRouteName() === 'brownie-dessert.index'? 'active' : null }}"
+                    <a class="collapse-item {{ Route::currentRouteName() === 'brownie-dessert.index'||Route::currentRouteName() === 'brownie-dessert.show'? 'active' : null }}"
                        href="{{ route('brownie-dessert.index') }}">
                         รายการสั่งซื้อ
                         @if( $brownie_order != null)
                             <span class="badge badge-danger">{{ $brownie_order }}</span>
                         @endif
                     </a>
+                    <h6 class="collapse-header">ขนมที่ต้องผลิต:</h6>
+                    <a class="collapse-item {{ Route::currentRouteName() === 'brownie-dessert.maker'? 'active' : null }}"
+                       href="{{ route('brownie-dessert.maker') }}">รายการขนมที่ต้องผลิต</a>
                 </div>
             </div>
         </li>
@@ -435,43 +421,21 @@
         </div>
 
         <!-- Nav Item - Pages Collapse Menu -->
-        <li class="nav-item {{ Route::currentRouteName() === 'cake-dessert.index'? 'active' : null }}">
+        <li class="nav-item {{ Route::currentRouteName() === 'cake-dessert.index'||Route::currentRouteName() === 'cake-dessert.maker'
+                 ||Route::currentRouteName() === 'cake-dessert.show'? 'active' : null }}">
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseCake"
                aria-expanded="true" aria-controls="collapseCake">
                 <i class="fas fa-stroopwafel"></i>
                 <?php
-                $orders = \App\Models\Order::query()
-                    ->where('order_status','>=','1')
-                    ->where('order_status','<=','2')
-                    ->get();
-
-                $arr_thai_orders = [];
-                foreach ($orders as $order)
-                {
-                    $orderDetails = \App\Models\OrderDetail::query()
-                        ->where('role_employee_id',7)
-                        ->where('order_id',$order->id)
+                $now = Carbon\Carbon::now()->format('Y-m-d');
+                    $productions = \App\Models\ProductionStatus::query()
+                        ->where('cake_dessert','>=',0)
+                        ->where('cake_dessert','<=',1)
+                        ->where('created_at', '>=', $now.' 00:00:00')
+                        ->where('created_at', '<=', $now.' 23:59:59')
                         ->get();
 
-                    $total_qty = 0;
-                    foreach ($orderDetails as $orderDetail )
-                    {
-                        $total_qty += $orderDetail->product_qty;
-                    }
-
-                    if ( $total_qty != 0)
-                    {
-                        array_push($arr_thai_orders,array(
-                            'order_id' => $order->id,
-                            'shop_name' => $order->user->shop_name,
-                            'user_type' => $order->user->role->name,
-                            'total_qty' => $total_qty,
-                            'created_at' =>$order->created_at
-                        ));
-                    }
-                }
-
-                $cake_order = count($arr_thai_orders);
+                $cake_order = count($productions);
                 ?>
                 <span>
                     รายการสั่งซื้อขนมเค้ก
@@ -481,17 +445,21 @@
                 </span>
             </a>
             <div id="collapseCake"
-                 class="collapse {{ Route::currentRouteName() === 'cake-dessert.index'? 'show' : null }}"
+                 class="collapse {{ Route::currentRouteName() === 'cake-dessert.index'||Route::currentRouteName() === 'cake-dessert.maker'
+                 ||Route::currentRouteName() === 'cake-dessert.show'? 'show' : null }}"
                  aria-labelledby="headingCake" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">รายการสั่งซื้อวันนี้ :</h6>
-                    <a class="collapse-item {{ Route::currentRouteName() === 'cake-dessert.index'? 'active' : null }}"
+                    <a class="collapse-item {{ Route::currentRouteName() === 'cake-dessert.index'||Route::currentRouteName() === 'cake-dessert.show'? 'active' : null }}"
                        href="{{ route('cake-dessert.index') }}">
                         รายการสั่งซื้อ
                         @if( $cake_order != null)
                             <span class="badge badge-danger">{{ $cake_order }}</span>
                         @endif
                     </a>
+                    <h6 class="collapse-header">ขนมที่ต้องผลิต:</h6>
+                    <a class="collapse-item {{ Route::currentRouteName() === 'cake-dessert.maker'? 'active' : null }}"
+                       href="{{ route('cake-dessert.maker') }}">รายการขนมที่ต้องผลิต</a>
                 </div>
             </div>
         </li>
@@ -506,43 +474,22 @@
         </div>
 
         <!-- Nav Item - Pages Collapse Menu -->
-        <li class="nav-item {{ Route::currentRouteName() === 'cookie-dessert.index'? 'active' : null }}">
+        <li class="nav-item {{ Route::currentRouteName() === 'cookie-dessert.index'||Route::currentRouteName() === 'cookie-dessert.maker'
+                 ||Route::currentRouteName() === 'cookie-dessert.show'? 'active' : null }}">
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseCookie"
                aria-expanded="true" aria-controls="collapseCookie">
                 <i class="fas fa-stroopwafel"></i>
                 <?php
-                $orders = \App\Models\Order::query()
-                    ->where('order_status','>=','1')
-                    ->where('order_status','<=','2')
+
+                $now = Carbon\Carbon::now()->format('Y-m-d');
+                $productions = \App\Models\ProductionStatus::query()
+                    ->where('cookie_dessert','>=',0)
+                    ->where('cookie_dessert','<=',1)
+                    ->where('created_at', '>=', $now.' 00:00:00')
+                    ->where('created_at', '<=', $now.' 23:59:59')
                     ->get();
 
-                $arr_thai_orders = [];
-                foreach ($orders as $order)
-                {
-                    $orderDetails = \App\Models\OrderDetail::query()
-                        ->where('role_employee_id',8)
-                        ->where('order_id',$order->id)
-                        ->get();
-
-                    $total_qty = 0;
-                    foreach ($orderDetails as $orderDetail )
-                    {
-                        $total_qty += $orderDetail->product_qty;
-                    }
-
-                    if ( $total_qty != 0)
-                    {
-                        array_push($arr_thai_orders,array(
-                            'order_id' => $order->id,
-                            'shop_name' => $order->user->shop_name,
-                            'user_type' => $order->user->role->name,
-                            'total_qty' => $total_qty,
-                            'created_at' =>$order->created_at
-                        ));
-                    }
-                }
-
-                $cookie_order = count($arr_thai_orders);
+                $cookie_order = count($productions);
                 ?>
                 <span>
                     รายการสั่งซื้อขนมคุกกี้
@@ -552,17 +499,21 @@
                 </span>
             </a>
             <div id="collapseCookie"
-                 class="collapse {{ Route::currentRouteName() === 'cookie-dessert.index'? 'show' : null }}"
+                 class="collapse {{ Route::currentRouteName() === 'cookie-dessert.index'||Route::currentRouteName() === 'cookie-dessert.maker'
+                 ||Route::currentRouteName() === 'cookie-dessert.show'? 'show' : null }}"
                  aria-labelledby="headingCookie" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">รายการสั่งซื้อวันนี้ :</h6>
-                    <a class="collapse-item {{ Route::currentRouteName() === 'cookie-dessert.index'? 'active' : null }}"
+                    <a class="collapse-item {{ Route::currentRouteName() === 'cookie-dessert.index'||Route::currentRouteName() === 'cookie-dessert.show'? 'active' : null }}"
                        href="{{ route('cookie-dessert.index') }}">
                         รายการสั่งซื้อ
                         @if( $cookie_order != null)
                             <span class="badge badge-danger">{{ $cookie_order }}</span>
                         @endif
                     </a>
+                    <h6 class="collapse-header">ขนมที่ต้องผลิต:</h6>
+                    <a class="collapse-item {{ Route::currentRouteName() === 'cookie-dessert.maker'? 'active' : null }}"
+                       href="{{ route('cookie-dessert.maker') }}">รายการขนมที่ต้องผลิต</a>
                 </div>
             </div>
         </li>

@@ -26,7 +26,8 @@ Route::group([
 
     Route::group([
         'prefix' => 'user-register',
-        'as' => 'user-register.'
+        'as' => 'user-register.',
+        'middleware' => ['admin.check'],
     ],function (){
         Route::get('/','UserRegisterController@index')->name('index');
         Route::any('search/user','UserRegisterController@search')->name('search');
@@ -47,7 +48,7 @@ Route::group([
         'prefix' => 'show',
         'as' => 'user.',
         'namespace' => 'CrudUser',
-        'middleware' => 'admin.check',
+        'middleware' => ['admin.check'],
     ],function (){
         Route::get('user','UserController@index')->name('index');
         Route::any('search/user','UserController@search')->name('search');
@@ -64,7 +65,7 @@ Route::group([
         'prefix' => 'show',
         'as' => 'employee.',
         'namespace' => 'CrudUser',
-        'middleware' => 'admin.check',
+        'middleware' => ['admin.check'],
     ],function (){
         Route::get('employee','EmployeeController@index')->name('index');
         Route::any('search/emp','EmployeeController@search')->name('search');
@@ -79,7 +80,8 @@ Route::group([
     Route::group([
         'prefix' => 'promotion',
         'as' => 'promotion.',
-        'namespace' => 'Merchant'
+        'namespace' => 'Merchant',
+        'middleware' => 'admin.check',
     ],function (){
         Route::get('/','PromotionController@index')->name('index');
         Route::get('/create','PromotionController@create')->name('create');
@@ -93,7 +95,7 @@ Route::group([
         'prefix' => 'product',
         'as' => 'product.',
         'namespace' => 'Merchant',
-        'middleware' => 'admin.check',
+        'middleware' => ['admin.check'],
     ],function(){
         Route::get('/','ProductController@index')->name('index');
         Route::any('/search','ProductController@search')->name('search');
@@ -108,7 +110,7 @@ Route::group([
     Route::group([
         'prefix' => 'about-us',
         'as' => 'about-us.',
-        'middleware' => 'admin.check',
+        'middleware' => ['admin.check'],
     ],function () {
         Route::get('/','AboutUsController@create')->name('create');
         Route::post('save','AboutUsController@store')->name('store');
@@ -117,7 +119,7 @@ Route::group([
     Route::group([
         'prefix' => 'intro',
         'as' => 'intro.',
-        'middleware' => 'admin.check'
+        'middleware' => ['admin.check']
     ],function (){
        Route::get('/','IntroController@create')->name('create');
        Route::post('/save','IntroController@store')->name('store');
@@ -126,7 +128,7 @@ Route::group([
     Route::group([
         'prefix' => 'news-category',
         'as' => 'news-category.',
-        'middleware' => 'admin.check'
+        'middleware' => ['admin.check']
     ],function (){
         Route::get('/','NewsCategoryController@index')->name('index');
         Route::get('/create','NewsCategoryController@create')->name('create');
@@ -139,7 +141,7 @@ Route::group([
     Route::group([
         'prefix' => 'news',
         'as' => 'news.',
-        'middleware' => 'admin.check'
+        'middleware' => ['admin.check']
     ],function (){
         Route::get('/','NewsController@index')->name('index');
         Route::get('/detail','NewsController@show')->name('detail');
@@ -153,7 +155,8 @@ Route::group([
     Route::group([
         'prefix' => 'orders-confirm',
         'as' => 'order-confirm.',
-        'namespace' => 'Merchant'
+        'namespace' => 'Merchant',
+        'middleware' => ['order']
     ],function (){
         Route::get('/','OrderConfirmController@index')->name('index');
         Route::get('{id}/confirm','OrderConfirmController@confirm')->name('confirm');
@@ -166,56 +169,89 @@ Route::group([
     Route::group([
         'prefix' => 'order-today',
         'as' => 'order-today.',
-        'namespace' => 'Merchant'
+        'namespace' => 'Merchant',
+        'middleware' => ['order']
     ],function (){
         Route::get('/','OrderTodayController@index')->name('index');
         Route::get('{id}/show','OrderTodayController@show')->name('show');
+        Route::get('/production/status','OrderTodayController@productionStatus')->name('production');
     });
 
     Route::group([
         'prefix' => 'thai-dessert',
         'as' => 'thai-dessert.',
-        'namespace' => 'Merchant'
+        'namespace' => 'Merchant',
+        'middleware' => ['thai.dessert']
     ],function (){
         Route::get('/','ThaiDessertController@index')->name('index');
         Route::get('{id}/show','ThaiDessertController@show')->name('show');
         Route::put('{id}/confirm','ThaiDessertController@confirm')->name('confirm');
+        Route::get('maker','ThaiDessertController@dessertMaker')->name('maker');
+        Route::put('{id}/order/success','ThaiDessertController@orderSuccess')->name('success');
     });
 
     Route::group([
         'prefix' => 'role-dessert',
         'as' => 'role-dessert.',
-        'namespace' => 'Merchant'
+        'namespace' => 'Merchant',
+        'middleware' => ['role.dessert']
     ],function (){
         Route::get('/','RoleDessertController@index')->name('index');
         Route::get('{id}/show','RoleDessertController@show')->name('show');
+        Route::put('{id}/confirm','RoleDessertController@confirm')->name('confirm');
+        Route::get('maker','RoleDessertController@dessertMaker')->name('maker');
+        Route::put('{id}/order/success','RoleDessertController@orderSuccess')->name('success');
     });
 
     Route::group([
         'prefix' => 'brownie-dessert',
         'as' => 'brownie-dessert.',
-        'namespace' => 'Merchant'
+        'namespace' => 'Merchant',
+        'middleware' => ['brownie.dessert']
     ],function (){
         Route::get('/','BrownieDessertController@index')->name('index');
         Route::get('{id}/show','BrownieDessertController@show')->name('show');
+        Route::put('{id}/confirm','BrownieDessertController@confirm')->name('confirm');
+        Route::get('/maker','BrownieDessertController@dessertMaker')->name('maker');
+        Route::put('{id}/order/success','BrownieDessertController@orderSuccess')->name('success');
     });
 
     Route::group([
         'prefix' => 'cake-dessert',
         'as' => 'cake-dessert.',
-        'namespace' => 'Merchant'
+        'namespace' => 'Merchant',
+        'middleware' => ['cake.dessert']
     ],function (){
         Route::get('/','CakeDessertController@index')->name('index');
         Route::get('{id}/show','CakeDessertController@show')->name('show');
+        Route::put('{id}/confirm','CakeDessertController@confirm')->name('confirm');
+        Route::get('maker','CakeDessertController@dessertMaker')->name('maker');
+        Route::put('{id}/order/success','CakeDessertController@orderSuccess')->name('success');
     });
 
     Route::group([
         'prefix' => 'cookie-dessert',
         'as' => 'cookie-dessert.',
-        'namespace' => 'Merchant'
+        'namespace' => 'Merchant',
+        'middleware' => ['cookie.dessert']
     ],function (){
         Route::get('/','CookieDessertController@index')->name('index');
         Route::get('{id}/show','CookieDessertController@show')->name('show');
+        Route::put('{id}/confirm','CookieDessertController@confirm')->name('confirm');
+        Route::get('maker','CookieDessertController@dessertMaker')->name('maker');
+        Route::put('{id}/order/success','CookieDessertController@orderSuccess')->name('success');
+    });
+
+    Route::group([
+        'prefix' => 'delivery',
+        'as' => 'delivery.',
+        'namespace' => 'Merchant',
+        'middleware' => ['delivery']
+    ],function (){
+        Route::get('/','DeliveryController@index')->name('index');
+        Route::get('{id}/bill','DeliveryController@bill')->name('bill');
+        Route::get('{id}/about/user','DeliveryController@aboutUser')->name('user');
+        Route::put('{id}/success','DeliveryController@success')->name('success');
     });
 });
 

@@ -37,32 +37,49 @@
                     <th>ชื่อร้าน</th>
                     <th>ประเภทลูกค้า</th>
                     <th>จำนวนรวม</th>
+                    <th>สถานะรายการผลิต</th>
                     <th>เวลาที่สั่งซื้อ</th>
-                    <th>รายละเอียด</th>
+                    <th>รายละเอียดและยืนยัน</th>
                 </tr>
                 </thead>
-                @if(count($arr_orders) != 0)
-                    @foreach( $arr_orders as $order)
-                        <tbody style="font-size: 14px ; color: #110100">
-                        <tr>
-                            <td>{{ $order['order_id'] }}</td>
-                            <td>{{ $order['shop_name'] }}</td>
-                            <td>{{ $order['user_type'] }}</td>
-                            <td width="120">{{ $order['total_qty']}} ชิ้น</td>
-                            <td width="300"> {{ date('เวลา H:i น. วันที่ d/m/Y',strtotime($order['created_at'])) }}</td>
-                            <td>
-                                <a href="{{route('role-dessert.show',[$order['order_id']])}}" class="btn btn-success " title="Confirm Record" >
-                                    <i class="far fa-eye"> รายละเอียด</i>
-                                </a>
-                            </td>
+                @if(count($orders) != 0)
+                    @foreach( $orders as $order)
+                        @if($order->total_qty != 0)
+                            <tbody style="font-size: 14px ; color: #110100">
+                            <tr>
+                                <td>{{ $order->id}}</td>
+                                <td>{{ $order->user->shop_name }}</td>
+                                <td>{{ $order->user->role->name }}</td>
+                                <td width="120">{{ $order->total_qty}} ชิ้น</td>
+                                @if($order->productionStatus->role_dessert == 0 )
+                                    <td><span class="badge badge-pill  badge-warning" style="color: white;font-size: 13px" >ยังไม่รับรายการผลิต</span></td>
+                                @elseif($order->productionStatus->role_dessert == 1 )
+                                    <td><span class="badge badge-pill  badge-info" style="color: white;font-size: 13px" >กำลังดำเนินการผลิต</span></td>
+                                @elseif($order->productionStatus->role_dessert == 2 )
+                                    <td><span class="badge badge-pill  badge-success" style="color: white;font-size: 13px" >การผลิตเสร็จสิ้น</span></td>
+                                @endif
+                                <td width="300"> {{ date('เวลา H:i น. วันที่ d/m/Y',strtotime($order->created_at)) }}</td>
+                                <td>
+                                    <form method="post" action="{{route('role-dessert.confirm',[$order->id])}}">
+                                        @csrf
 
-                        </tr>
-                        </tbody>
+                                        <a href="{{route('role-dessert.show',[$order->id])}}" class="btn btn-info " title="Confirm Record" >
+                                            <i class="far fa-eye"> รายละเอียด@if($order->productionStatus->role_dessert == 1) และ ยืนยันรายการผลิตเสร็จสิ้น @endif</i>
+                                        </a>
+                                        @if($order->productionStatus->role_dessert == 0)
+                                            <button class="btn btn-success" type="submit"><i class="fas fa-cart-arrow-down"></i> รับรายการผลิต</button>
+                                        @endif
+                                        {{method_field('PUT')}}
+                                    </form>
+                                </td>
+                            </tr>
+                            </tbody>
+                        @endif
                     @endforeach
                 @else
                     <tbody style="font-size: 17px ; color: #110100">
                     <tr>
-                        <td class="text-center"  colspan="6"> วันนี้ยังไม่มีรายการสั่งซื้อ </td>
+                        <td class="text-center"  colspan="7"> วันนี้ยังไม่มีรายการสั่งซื้อ </td>
                     </tr>
                     </tbody>
                 @endif

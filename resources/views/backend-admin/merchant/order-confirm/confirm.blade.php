@@ -123,7 +123,7 @@
 
                                 </div>
 
-                                <form method="post" action="{{ route('order-confirm.success',[$order->id]) }}">
+                                <form class="success_form" method="post" action="{{ route('order-confirm.success',[$order->id]) }}">
                                     @csrf
 
                                     <div class="form-group row" style="padding-top: 23px">
@@ -196,6 +196,20 @@
                 }
             })
         })
+
+
+        $(document).ready(function () {
+            $('.success_form').on('submit',function () {
+                if(confirm("Are you sure?")){
+                        return true;
+                }
+                else {
+                    return false;
+                }
+            })
+        })
+
+
 
     </script>
 @endpush

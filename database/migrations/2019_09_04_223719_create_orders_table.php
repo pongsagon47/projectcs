@@ -22,7 +22,6 @@ class CreateOrdersTable extends Migration
             $table->decimal('total_price_discounted')->nullable();
             $table->integer('total_qty');
             $table->integer('order_status');
-            $table->boolean('production_status')->nullable();
             $table->timestamps();
         });
     }

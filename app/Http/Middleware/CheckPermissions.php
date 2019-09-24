@@ -16,7 +16,7 @@ class CheckPermissions
     public function handle($request, Closure $next)
     {
         if (auth()->check() && $request->user()->role_employee_id != 1) {
-            return response()->view('error.404');
+            return response()->view('error.employee.404');
         }
         return $next($request);
     }

@@ -2,8 +2,16 @@
 
 namespace App\Http;
 
+use App\Http\Middleware\BrownieDessertPermission;
+use App\Http\Middleware\CakeDessertPermission;
+use App\Http\Middleware\CookieDessertPermission;
+use App\Http\Middleware\DeliveryPermission;
 use App\Http\Middleware\EmployeeAuthhenticate;
 use App\Http\Middleware\CheckPermissions;
+use App\Http\Middleware\OrderPermission;
+use App\Http\Middleware\RoleDessertPermission;
+use App\Http\Middleware\ThaiDessertPermission;
+use App\Http\Middleware\UserActivePermission;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
 class Kernel extends HttpKernel
@@ -64,6 +72,14 @@ class Kernel extends HttpKernel
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
         'admin.check' =>CheckPermissions::class,
         'employee' => EmployeeAuthhenticate::class,
+        'order' => OrderPermission::class,
+        'thai.dessert' => ThaiDessertPermission::class,
+        'role.dessert' => RoleDessertPermission::class,
+        'brownie.dessert' => BrownieDessertPermission::class,
+        'cake.dessert' => CakeDessertPermission::class,
+        'cookie.dessert' => CookieDessertPermission::class,
+        'delivery' => DeliveryPermission::class,
+        'user.active' => UserActivePermission::class,
     ];
 
     /**

@@ -37,11 +37,9 @@
                     <th>ชื่อร้าน</th>
                     <th>ประเภทลูกค้า</th>
                     <th>จำนวนรวม</th>
-                    <th>ราคารวม</th>
-                    <th>ราคารวมหักส่วนลด</th>
-                    <th>ส่วนลด</th>
+                    <th>สถานะรายการสั่งซื้อ</th>
                     <th>เวลาที่สั่งซื้อ</th>
-                    <th>ยืนยันรายการสั่งซื้อ</th>
+                    <th>รายละเอียดและยืนยัน</th>
                 </tr>
                 </thead>
                 @if(count($orders) != 0)
@@ -52,13 +50,21 @@
                         <td>{{ $order->user->shop_name }}</td>
                         <td>{{ $order->user->role->name }}</td>
                         <td width="120">{{ $order->total_qty }} ชิ้น</td>
-                        <td>{{ $order->total_price }} บาท</td>
-                        <td width="200">{{ $order->total_price_discounted }} บาท</td>
-                        <td>{{ $order->promotion->promotion_discount }}%</td>
+                        @if($order->order_status == 0)
+                            <td width="180"><span class="badge badge-pill  badge-warning" style="color: white;font-size: 13px" >ยังไม่อนุมัติ</span></td>
+                        @elseif($order->order_status == 1)
+                            <td width="180"><span class="badge badge-pill  badge-success" style="color: white;font-size: 13px" >รับรายการสั่งซื้อ</span></td>
+                        @elseif($order->order_status == 2)
+                            <td width="180"><span class="badge badge-pill  badge-info" style="color: white;font-size: 13px" >กำลังดำเนินการผลิต</span></td>
+                        @elseif($order->order_status == 3)
+                            <td width="180"><span class="badge badge-pill  badge-primary" style="color: white;font-size: 13px" >กำลังดำเนินการจัดส่ง</span></td>
+                        @elseif($order->order_status == 4)
+                            <td width="180"><span class="badge badge-pill  badge-success" style="color: white;font-size: 13px" >เสร็จสิ้นรายการ</span></td>
+                        @endif
                         <td>{{ $order->created_at }}</td>
                         <td>
                             <a href="{{route('order-today.show',[$order->id])}}" class="btn btn-success " title="Confirm Record" >
-                                <i class="far fa-eye"> รายละเอียด</i>
+                                <i class="far fa-eye"> รายละเอียด </i>
                             </a>
                         </td>
 
@@ -68,7 +74,7 @@
                 @else
                     <tbody style="font-size: 17px ; color: #110100">
                     <tr>
-                        <td class="text-center"  colspan="9"> วันนี้ยังไม่มีรายการสั่งซื้อ </td>
+                        <td class="text-center"  colspan="7"> วันนี้ยังไม่มีรายการสั่งซื้อ </td>
                     </tr>
                     </tbody>
                 @endif

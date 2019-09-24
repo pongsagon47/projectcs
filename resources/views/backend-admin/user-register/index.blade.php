@@ -61,12 +61,12 @@
                         <td>{{ $value->email }}</td>
                         <td>{{ 0 == $value->status?"No":"Yes" }}</td>
                         <td width="170">{{ $value->phone_number }}</td>
-                        <td width="280">
+                        <td width="300">
                             <form class="delete_form" method="post" action="{{route('user-register.confirm',[$value->id])}}">
                                 @csrf
 
-                                <a href="{{route('user-register.detail',[$value->id])}}" class="btn btn-info btn-circle" title="Detail Record">
-                                    <i class="fas fa-eye"></i>
+                                <a href="{{route('user-register.detail',[$value->id])}}" class="btn btn-info " title="Detail Record">
+                                    <i class="fas fa-eye"></i> รายละเอียด
                                 </a>
 
                                 <button type="submit" class="btn btn-success " title="Delete Record">

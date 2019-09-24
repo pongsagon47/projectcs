@@ -12,14 +12,14 @@
 
                 <div class="table-responsive">
                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0" style="background-color: white">
-                        <thead style="font-size: 14px; color: #fffdfd; background: linear-gradient(45deg, #219d1c, #bdff33)">
+                        <thead style="font-size: 14px; color: #fffdfd; background: linear-gradient(45deg, #933900, #ff9913)">
                         <tr>
                             <th>ID</th>
                             <th>ชื่อร้าน</th>
                             <th>ประเภทลูกค้า</th>
                             <th>สถานะรายการขนม</th>
                             <th>เวลาที่สั่งซื้อ</th>
-                            <th>ใบเสร็จรายการสั่งซื้อ</th>
+                            <th>รายละเอียดและใบเสร็จ</th>
                         </tr>
                         </thead>
                         @if( count($orders) != 0)
@@ -42,13 +42,18 @@
                                 @endif
                                 <td>{{ $order->created_at }}</td>
                                 <td width="270">
-                                    @if( $order->promotion_id != null)
-                                    <a href="{{route('order-status.show',[$order->id])}}" class="btn btn-info" title="Order Detail" >
-                                        <i class="fas fa-wallet"></i> ใบเสร็จ
-                                    </a>
-                                    @else
-                                        ยังไม่ออกใบเสร็จกรุณารอยืนยันรายการ
-                                    @endif
+
+
+                                        <a href="{{route('order-status.bill',[$order->id])}}" class="btn btn-info" title="Order Detail" >
+                                            @if( $order->order_status == 0)
+                                                <i class="fas fa-eye"></i>
+                                                รายละเอียด
+                                            @else
+                                                <i class="fas fa-wallet"></i>
+                                                ใบเสร็จ
+                                            @endif
+                                        </a>
+
                                 </td>
 
                             </tr>

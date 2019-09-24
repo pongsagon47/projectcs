@@ -5,10 +5,10 @@
     <div class="container-fluid">
         <div class="row justify-content-center">
             <div class="col-md-9">
-                <a class="pull-right btn btn-sm btn-info"  href="{{route('users.edit')}}">Edit Profile</a> <br>
+                <a class="pull-right btn btn-sm btn-info"  href="{{route('users.edit')}}">แก้ไขโปรไฟล์</a> <br>
 
                 <div class="card" style="margin-top: 20px">
-                    <div class="card-header" style="text-align: center; font-size: 19px">
+                    <div class="card-header" style="text-align: center; font-size: 19px;color: #110100; background: linear-gradient(45deg, #dd7703, #ffe764)">
                         ข้อมูลลูกค้า
                     </div>
                     <div class="card-body">
@@ -99,7 +99,7 @@
                     </div>
                 </div>
                 <div class="pull-right" style="margin-top: 30px ">
-                    <a href="{{route('home')}}" class="btn btn-primary "> back </a>
+                    <a href="{{route('home')}}" class="btn btn-primary "> กลับหน้าหลัก</a>
                 </div>
 
             </div>

@@ -286,7 +286,7 @@
                     </div>
                     <hr>
                     <div class="text-center">
-                        <a  href="{{route('emp.show')}}" style="font-size: 15px">Back to Profile</a>
+                        <a  href="{{route('emp.show')}}" style="font-size: 15px">กลับหน้าโปรไฟล์</a>
                     </div>
 
                     {{method_field('PUT')}}

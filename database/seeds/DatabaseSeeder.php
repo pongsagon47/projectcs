@@ -80,14 +80,14 @@ class DatabaseSeeder extends Seeder
         DB::table('employees')->insert([
             'username' => 'admin',
             'password' => Hash::make('123456'), // <---- check this
-            'email' => 'pongsagon405@gmail.com',
+            'email' => 'example@gmail.com',
             'first_name' => 'Site',
             'last_name' => 'Admin',
             'nickname' => 'tak',
             'image' => 'No-picture',
             'id_card' => '1 3599 00058 165',
             'phone_number' => '0616274629',
-            'address' => "Add",
+            'address' => "Address",
             'role_employee_id' => 1,
             'created_at' => now(),
             'updated_at' => now()

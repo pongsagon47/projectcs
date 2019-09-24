@@ -75,7 +75,7 @@
 
                                 </div>
 
-                                <form method="post" action="{{route('shop.store')}}">
+                                <form class="success_form" method="post" action="{{route('shop.store')}}">
                                     @csrf
 
                                     <?php $i = 0 ?>
@@ -90,7 +90,7 @@
                                     @endforeach
                                     <div class="text-center" style="padding-top: 14px">
                                         <a class="btn btn-danger" href="#" onclick="history.go(-1)">&laquo; กลับ</a>
-                                        <button type="submit" title="ยืนยันรายการสั่งซื้อ" class="btn btn-success" {{count($order_Details) == 0 ?"disabled":""}} >ยืนยันรายการสั่งซื้อ  &raquo;</button>
+                                        <button id="submit" type="submit" title="ยืนยันรายการสั่งซื้อ" class="btn btn-success" {{count($order_Details) == 0 ?"disabled":""}} >ยืนยันรายการสั่งซื้อ  &raquo;</button>
                                     </div>
                                 </form>
                             </div>
@@ -102,5 +102,19 @@
         </div>
     </div>
 @endsection
+@push('script')
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('.success_form').on('submit',function () {
+                if(confirm("Are you sure?")){
+                    return true;
+                }
+                else {
+                    return false;
+                }
+            })
+        })
+    </script>
+@endpush
 
 

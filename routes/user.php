@@ -33,7 +33,8 @@ Route::group([
     Route::group([
         'prefix' => 'shop',
         'as' => 'shop.',
-        'namespace' => 'Merchant'
+        'namespace' => 'Merchant',
+        'middleware' => 'user.active'
     ],function (){
         Route::get('/','ShopController@index')->name('index');
         Route::post('/order','ShopController@order')->name('order');
@@ -45,10 +46,21 @@ Route::group([
     Route::group([
         'prefix' => 'order-status',
         'as' => 'order-status.',
-        'namespace' => 'Merchant'
+        'namespace' => 'Merchant',
+        'middleware' => 'user.active'
     ],function (){
         Route::get('/','OrderStatusController@index')->name('index');
-        Route::get('{id}/detail','OrderStatusController@show')->name('show');
+        Route::get('{id}/bill','OrderStatusController@bill')->name('bill');
+    });
+
+    Route::group([
+        'prefix' => 'report-order',
+        'as' => 'report-order.',
+        'namespace' => 'Report',
+        'middleware' => 'user.active'
+    ],function (){
+        Route::get('/','ReportOrderController@index')->name('index');
+        Route::get('{id}/bill','ReportOrderController@bill')->name('bill');
     });
 
 });

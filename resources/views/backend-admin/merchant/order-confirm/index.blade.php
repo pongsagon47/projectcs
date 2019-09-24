@@ -71,7 +71,7 @@
                 @else
                     <tbody style="font-size: 17px ; color: #110100">
                     <tr>
-                        <td class="text-center"  colspan="7"> วันนี้ไม่มีรายการสั่งซื้อ </td>
+                        <td class="text-center"  colspan="7"> ไม่มีรายการสั่งซื้อที่ยังไม่อนุมัติ </td>
                     </tr>
                     </tbody>
                 @endif

@@ -15,7 +15,6 @@ class Order extends Model
         'total_price_discounted',
         'total_qty',
         'order_status',
-        'production_status'
     ];
 
     public function user()
@@ -36,6 +35,11 @@ class Order extends Model
     public function orderDetails()
     {
         return $this->hasMany(OrderDetail::class);
+    }
+
+    public function productionStatus()
+    {
+        return $this->hasOne(ProductionStatus::class);
     }
 
 

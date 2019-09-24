@@ -5,7 +5,7 @@
     <div class="container-fluid">
         <div class="row justify-content-center">
             <div class="col-md-9">
-                <a class="pull-right btn btn-sm btn-info"  href="{{route('emp.edit')}}">Edit Profile</a> <br>
+                <a class="pull-right btn btn-sm btn-info"  href="{{route('emp.edit')}}">แก้ไขโปรไฟล์</a> <br>
 
                 <div class="card" style="margin-top: 20px">
                     <div class="card-header" style="text-align: center; font-size: 19px; background: linear-gradient(45deg, #219d1c, #bdff33);">
@@ -95,7 +95,7 @@
                     </div>
                 </div>
                 <div class="pull-right" style="margin-top: 22px ">
-                    <a href="{{route('employee.home')}}" class="btn btn-primary "> back </a>
+                    <a href="{{route('employee.home')}}" class="btn btn-primary "> กลับหน้าหลัก </a>
                 </div>
 
             </div>

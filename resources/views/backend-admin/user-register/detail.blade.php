@@ -6,7 +6,7 @@
             <div class="col-md-9">
 
                 <div class="card">
-                    <div class="card-header" style="text-align: center; font-size: 19px;background: rgb(100,223,46);color: aliceblue;">
+                    <div class="card-header" style="text-align: center; font-size: 19px;background: linear-gradient(45deg, #219d1c, #bdff33)">
                         ข้อมูลลูกค้า
                     </div>
                     <div class="card-body">
@@ -93,7 +93,7 @@
                     </div>
                 </div>
                 <div class="pull-right" style="margin-top: 23px ">
-                    <a href="{{route('user-register.index')}}" class="btn btn-primary "> back </a>
+                    <a href="{{route('user-register.index')}}" class="btn btn-primary ">&laquo; กลับหน้าข้อมูลการสมัคร </a>
             </div>
 
             </div>

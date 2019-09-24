@@ -300,7 +300,7 @@
 
                             <hr>
                             <div class="text-center">
-                                <a style="font-size: 15px" href="{{route('user.index')}}">Back to User list</a>
+                                <a style="font-size: 15px" href="{{route('user.index')}}">กลับหน้าข้อมูลลูกค้า</a>
                             </div>
 
 

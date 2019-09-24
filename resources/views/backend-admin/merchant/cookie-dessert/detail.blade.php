@@ -17,7 +17,7 @@
                         <div class="form-row ">
                             <div class="col-md-12">
 
-                                <h3 class="text-center"><i class="fas fa-shopping-cart"></i> รายการสั่งซื้อวันนี้</h3>
+                                <h3 class="text-center"><i class="fas fa-shopping-cart"></i> รายการสั่งซื้อของห้องขนมคุกกี้</h3>
                                 <p style="padding-top: 40px;font-size: 16px">
                                     <strong> ชื่อผู้สั่งซื้อ : </strong> {{ $order->user->first_name." ".$order->user->last_name}} &nbsp;
                                     <strong><i class="fas fa-store"></i></strong> {{ $order->user->shop_name}} &nbsp;
@@ -51,15 +51,22 @@
                                                 @endforeach
                                             </tr>
                                             <tr >
+                                                <th width="300" scope="row"><br>จำนวนสินค้าทั้งหมด</th>
                                                 <td></td>
-                                                <th scope="row"><br>จำนวนสินค้าทั้งหมด</th>
                                                 <td> <br> {{$total_qty}} &nbsp; ชิ้น</td>
                                             </tr>
                                             </tbody>
                                     </table>
                                     <hr>
-                                    <div class="text-center">
-                                        <a href="{{route('cookie.index')}}">กลับไปหน้ารายการสั่งซื้อวันนี้</a>
+                                    <div class="text-center" style="padding-top: 9px">
+                                        <form class="success_form" method="post" action="{{route('cookie-dessert.success',[$order->id])}}">
+                                            @csrf
+                                            <a class="btn btn-danger" href="{{route('cookie-dessert.index')}}" >&laquo; กลับไปหน้ารายการสั่งซื้อวันนี้</a>
+                                            @if($order->productionStatus->cookie_dessert == 1)
+                                                <button type="submit" title="ยืนยันรายการสั่งซื้อ" class="btn btn-success" >รายการผลิตเสร็จสิ้น &raquo;</button>
+                                            @endif
+                                            {{method_field('PUT')}}
+                                        </form>
                                     </div>
 
                                 </div>
@@ -72,4 +79,18 @@
         </div>
     </div>
 @endsection
+@push('script')
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('.success_form').on('submit',function () {
+                if(confirm("Are you sure?")){
+                    return true;
+                }
+                else {
+                    return false;
+                }
+            })
+        })
+    </script>
+@endpush
 

@@ -25,14 +25,12 @@
                                 </p>
 
                                 <div class="table-responsive" style="margin-top: 30px">
-                                    <table class="table" style="color: #000;text-align: center;">
+                                    <table class="table" style="color: #000;">
                                         <thead>
                                         <tr>
                                             <th scope="col">#</th>
                                             <th scope="col">ชื่อสินค้า</th>
-                                            <th scope="col">ราคา</th>
                                             <th scope="col">จำนวน</th>
-                                            <th scope="col">รวมเป็นเงิน</th>
 
                                         </tr>
                                         </thead>
@@ -41,37 +39,16 @@
                                         @foreach( $orderDetails as $orderDetail)
                                             <tbody>
                                             <tr>
-                                                <th width="120" scope="row">{{ $id }}</th>
+                                                <th width="300" scope="row">{{ $id }}</th>
                                                 <td >{{ $orderDetail->products->name }}</td>
-                                                <td >{{ $orderDetail->products->price }} </td>
                                                 <td >{{ $orderDetail->product_qty }}</td>
-                                                <td >{{ $orderDetail->product_total_price}}</td>
-
                                                 <?php $id++ ?>
                                                 @endforeach
                                             </tr>
                                             <tr>
                                                 <th scope="row">สินค้าทั้งหมด</th>
                                                 <td></td>
-                                                <td></td>
-                                                <td>
-                                                    {{ $order->total_qty}} ชิ้น
-                                                    @if($order->promotion_id != null)
-                                                        <br><br>
-                                                        ส่วนลด {{$order->promotion->promotion_discount}} %
-                                                    @endif
-                                                </td>
-                                                <td>
-                                                    ราคารวม &nbsp; {{ $order->total_price }} บาท
-                                                    @if($order->promotion_id != null)
-                                                        <br><br>
-                                                        ลด {{ $order->total_price - $order->total_price_discounted}} บาท
-                                                    @endif
-                                                    @if($order->total_price_discounted != null)
-                                                        <br><br>
-                                                        เหลือ {{ $order->total_price_discounted }} บาท
-                                                    @endif
-                                                </td>
+                                                <td>{{ $order->total_qty}} ชิ้น</td>
                                             </tr>
                                             </tbody>
                                     </table>

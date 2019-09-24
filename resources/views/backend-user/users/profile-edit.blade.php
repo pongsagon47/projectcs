@@ -310,7 +310,7 @@
 
                     <hr>
                     <div class="text-center">
-                        <a style="font-size: 15px" href="{{route('users.show')}}">Back to Profile</a>
+                        <a style="font-size: 15px" href="{{route('users.show')}}">กลับหน้าโปรไฟล์</a>
                     </div>
 
 

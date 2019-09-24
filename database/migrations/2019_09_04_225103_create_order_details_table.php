@@ -19,7 +19,6 @@ class CreateOrderDetailsTable extends Migration
             $table->integer('product_id')->index();
             $table->integer('product_qty');
             $table->integer('role_employee_id')->index();
-            $table->string('status')->nullable();
             $table->decimal('product_total_price',6,2);
             $table->timestamps();
         });

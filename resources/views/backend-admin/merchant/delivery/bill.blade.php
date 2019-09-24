@@ -1,5 +1,5 @@
-@extends('backend-user.layouts.main_dashboard')
-@section('title', 'Bill Order')
+@extends('backend-admin.layouts.main_dashboard')
+@section('title', 'Bill Order Today')
 @section('content')
     <!-- Begin Page Content -->
     <div class="container-fluid">
@@ -77,19 +77,19 @@
                                                 <td>
                                                     {{ $order->total_qty}} ชิ้น
                                                     @if($order->promotion_id != null)
-                                                    <br><br>
-                                                    ส่วนลด {{$order->promotion->promotion_discount}} %
+                                                        <br><br>
+                                                        ส่วนลด {{$order->promotion->promotion_discount}} %
                                                     @endif
                                                 </td>
                                                 <td>
-                                                   ราคารวม &nbsp; {{ $order->total_price }} บาท
+                                                    ราคารวม &nbsp; {{ $order->total_price }} บาท
                                                     @if($order->promotion_id != null)
                                                         <br><br>
                                                         ลด {{ $order->total_price - $order->total_price_discounted}} บาท
                                                     @endif
                                                     @if($order->total_price_discounted != null)
-                                                    <br><br>
-                                                    เหลือ {{ $order->total_price_discounted }} บาท
+                                                        <br><br>
+                                                        เหลือ {{ $order->total_price_discounted }} บาท
                                                     @endif
                                                 </td>
                                             </tr>
@@ -97,7 +97,13 @@
                                     </table>
                                     <hr>
                                     <div class="text-center">
-                                        <a href="{{route('order-status.index')}}">กลับไปหน้าดูสถานะ</a>
+                                        <form class="success_form" method="post" action="{{route('delivery.success',[$order->id])}}">
+                                            @csrf
+                                            <a class="btn btn-danger" href="{{route('delivery.index')}}" >&laquo; กลับไปหน้ารายการส่งสินค้า</a>
+
+                                            <button type="submit" title="ยืนยันรายการสั่งซื้อ" class="btn btn-success" >ส่งรายการสินค้าเสร็จสิ้น &raquo;</button>
+                                            {{method_field('PUT')}}
+                                        </form>
                                     </div>
 
                                 </div>
@@ -110,4 +116,19 @@
         </div>
     </div>
 @endsection
+@push('script')
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('.success_form').on('submit',function () {
+                if(confirm("Are you sure?")){
+                    return true;
+                }
+                else {
+                    return false;
+                }
+            })
+        })
+    </script>
+@endpush
+
 

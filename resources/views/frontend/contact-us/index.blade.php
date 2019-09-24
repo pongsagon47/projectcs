@@ -42,7 +42,7 @@
                                     </div>
                                     <div class="col-md-6">
                                         <h3>ข้อมูลทั่วไป/สมัครสมาชิก</h3>
-                                        <h4><a href="{{route('kidthuang.index')}}"> kidthuang_bekery.loc</a></h4>
+                                        <h4><a href="{{route('kidthuang.index')}}"> kidthuang-bekery.com</a></h4>
                                     </div>
                                 </div>
                             </div>
