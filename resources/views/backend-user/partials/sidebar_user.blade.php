@@ -19,7 +19,26 @@
             <span>หน้าหลัก</span></a>
     </li>
 
+
+
 @if(auth()->user()->status == 1)
+    <!-- Divider -->
+        <hr class="sidebar-divider">
+
+        <!-- Heading -->
+        <div class="sidebar-heading">
+            ข้อมูลขนมทั้งหมด
+        </div>
+
+        <!-- Nav Item - Charts -->
+        <li class="nav-item {{ Route::currentRouteName() === 'product-list.index'  ? 'active' : null }}">
+            <a class="nav-link" href="{{route('product-list.index')}}" >
+                <i class="fas fa-birthday-cake"></i>
+                <span>
+                    ข้อมูลขนม
+                </span>
+            </a>
+        </li>
 
     <!-- Divider -->
         <hr class="sidebar-divider">
@@ -86,6 +105,7 @@
                 </span>
             </a>
         </li>
+
 
 @endif
 

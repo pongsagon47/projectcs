@@ -40,7 +40,7 @@
                                 @elseif($order->order_status == 4)
                                     <td width="180"><span class="badge badge-pill  badge-success" style="color: white;font-size: 13px" >เสร็จสิ้นรายการ</span></td>
                                 @endif
-                                <td>{{ $order->created_at }}</td>
+                                <td>{{ date('วันที่ d/m/Y  เวลา H:i น.',strtotime($order->created_at)) }}</td>
                                 <td width="270">
 
 

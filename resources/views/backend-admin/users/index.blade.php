@@ -62,7 +62,6 @@
                     <th>ประเภทลูกค้า</th>
                     <th>เพศ</th>
                     <th>Email</th>
-                    <th>Active</th>
                     <th>เบอร์โทรศัพท์</th>
                     <th>Action</th>
                 </tr>
@@ -76,7 +75,6 @@
                         <td>{{ $value->role->name }}</td>
                         <td width="80">{{ null == $value->gender ?'ไม่มีการระบุเพศ' : $value->gender }}</td>
                         <td>{{ $value->email }}</td>
-                        <td>{{ 0 == $value->status?"No":"Yes" }}</td>
                         <td width="170">{{ $value->phone_number }}</td>
                         <td width="190">
                             <form class="delete_form" method="post" action="{{route('user.delete',[$value->id])}}">
@@ -101,7 +99,7 @@
                 @else
                     <tbody style="font-size: 16px ; color: #110100">
                     <tr>
-                        <td class="text-center" colspan="8">ไม่มีข้อมูลลูกค้า</td>
+                        <td class="text-center" colspan="7">ไม่มีข้อมูลลูกค้า</td>
                     </tr>
                     </tbody>
                 @endif

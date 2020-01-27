@@ -99,7 +99,7 @@
                     </div>
                 </div>
                 <div class="pull-right" style="margin-top: 22px ">
-                    <a href="{{route('employee.index')}}" class="btn btn-primary "> back </a>
+                    <a href="#" onclick="history.go(-1)" class="btn btn-primary "> back </a>
                 </div>
 
             </div>

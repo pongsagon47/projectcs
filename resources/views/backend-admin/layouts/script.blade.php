@@ -25,5 +25,8 @@
 
 <!-- Ckeditor -->
 <script src="{{ asset('ckeditor/ckeditor.js') }}"></script>
-
-
+{{--datepicker--}}
+<script type="text/javascript" src="{{asset('datepicker/jquery-1.10.2.min.js')}}"></script>
+<script type="text/javascript" src="{{asset('datepicker/jquery-ui.min.js')}}"></script>
+<script type="text/javascript" src="{{asset('datepicker/jquery-ui-timepicker-addon.js')}}"></script>
+<script type="text/javascript" src="{{asset('datepicker/jquery-ui-sliderAccess.js')}}"></script>

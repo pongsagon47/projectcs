@@ -23,6 +23,7 @@
                                     <strong> ประเภทลูกค้า : </strong> {{ $order->user->role->name}} <br>
                                     <strong> พนักงานที่รับรายการสั่งซื้อ : </strong> {{ $order->employee->first_name." ".$order->employee->last_name}} &nbsp;
                                     <strong><i class="fas fa-phone-square-alt"></i></strong>  {{ $order->employee->phone_number}} <br>
+                                    <strong> ตำแหน่ง : </strong> {{ $order->employee->role_employee->name}} &nbsp;&nbsp;
                                     <strong><i class="fas fa-envelope"></i></strong> {{ $order->employee->email}} <br>
                                 </p>
 

@@ -6,6 +6,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 
 class UserRegisterController extends Controller
 {
@@ -49,6 +50,16 @@ class UserRegisterController extends Controller
 
         $user->update();
         return redirect()->route('user-register.index')->withSuccess('ยอมรับสมาชิกเรียบร้อย');
+    }
+
+    public function destroy($id)
+    {
+        $user = User::find($id);
+
+        $user->forceDelete();
+        Storage::delete('public/'.$user->image);
+
+        return redirect()->route('user-register.index')->with('deleted','ลบ User เรียบร้อย');
     }
 
 }

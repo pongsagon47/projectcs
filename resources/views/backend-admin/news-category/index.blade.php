@@ -36,7 +36,7 @@
                 <thead style="font-size: 14px; color: #fffdfd; background: linear-gradient(45deg, #219d1c, #bdff33)">
                 <tr>
                     <th width="120">ID</th>
-                    <th>Name</th>
+                    <th>ชื่อหมวดหมู่</th>
                     <th>URL</th>
                     <th width="190">Created at</th>
                     <th width="190">Updated at</th>
@@ -50,8 +50,8 @@
                             <td>{{ $news_category->id }}</td>
                             <td>{{ $news_category->name }}</td>
                             <td>{{ $news_category->slug }}</td>
-                            <td>{{ $news_category->created_at }}</td>
-                            <td>{{ $news_category->updated_at }}</td>
+                            <td>{{ date('d/m/Y  เวลา H:i น.',strtotime($news_category->created_at )) }}</td>
+                            <td>{{ date('d/m/Y  เวลา H:i น.',strtotime($news_category->updated_at  )) }}</td>
                             <td>
                                 <form class="delete_form" method="post" action="{{route('news-category.delete',[$news_category->id])}}">
                                     @csrf

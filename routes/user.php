@@ -63,4 +63,15 @@ Route::group([
         Route::get('{id}/bill','ReportOrderController@bill')->name('bill');
     });
 
+    Route::group([
+        'prefix' => 'product-list',
+        'as' => 'product-list.',
+        'namespace' => 'Merchant',
+        'middleware' => 'user.active'
+    ],function (){
+        Route::get('/','ProductController@index')->name('index');
+        Route::any('/search','ProductController@search')->name('search');
+        Route::get('{id}/detail','ProductController@show')->name('show');
+    });
+
 });

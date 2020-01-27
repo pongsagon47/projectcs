@@ -22,6 +22,9 @@
     <link href="{{asset('css/app.css')}}" rel="stylesheet" type="text/css">
     <link href="{{asset('css/bootstrap.min.css')}}" rel="stylesheet" type="text/css">
     <link href="{{asset('css/custom-backend.css')}}" type="text/css" rel="stylesheet">
+{{--    datepicker--}}
+    <link rel="stylesheet" media="all" type="text/css" href="{{asset('datepicker/jquery-ui.css')}}" />
+    <link rel="stylesheet" media="all" type="text/css" href="{{asset('datepicker/jquery-ui-timepicker-addon.css')}}">
 
 </head>
 <body id="page-top">

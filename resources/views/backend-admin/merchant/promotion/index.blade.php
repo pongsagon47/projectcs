@@ -55,8 +55,8 @@
                         <td>{{ $promotion->promotion_name }}</td>
                         <td>{{ $promotion->promotion_description  }}</td>
                         <td>{{ $promotion->promotion_discount }} %</td>
-                        <td>{{ $promotion->created_at }}</td>
-                        <td>{{ $promotion->updated_at }}</td>
+                        <td>{{ date('d/m/Y  เวลา H:i น.',strtotime($promotion->created_at)) }}</td>
+                        <td>{{ date('d/m/Y  เวลา H:i น.',strtotime($promotion->updated_at)) }}</td>
                         <td>
                             <form class="delete_form" method="post" action="{{route('promotion.delete',[$promotion->id])}}">
                                 @csrf

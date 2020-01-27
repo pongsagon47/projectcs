@@ -22,7 +22,7 @@
                     <th>ห้องขนมบราวนี่</th>
                     <th>ห้องขนมเค้ก</th>
                     <th>ห้องขนมคุกกี้</th>
-                    <th>Create At</th>
+                    <th>เวลาที่สั่งซื้อ</th>
                 </tr>
                 </thead>
                 @if(count($productions) != 0)
@@ -76,7 +76,7 @@
                             @elseif($production->cookie_dessert == 4 )
                                 <td><span class="badge badge-pill  badge-danger" style="color: white;font-size: 13px" >ไม่มีรายการผลิต</span></td>
                             @endif
-                            <td>{{$production->created_at}}</td>
+                            <td>{{ date('d/m/Y  เวลา H:i น.',strtotime($production->created_at)) }}</td>
                         </tr>
                         </tbody>
                     @endforeach

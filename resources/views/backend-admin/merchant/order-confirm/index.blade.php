@@ -51,7 +51,7 @@
                         <td>{{ $order->user->role->name }}</td>
                         <td>{{ $order->total_qty }} ชิ้น</td>
                         <td>{{ $order->total_price }} บาท</td>
-                        <td>{{ $order->created_at }}</td>
+                        <td>{{ date('d/m/Y  เวลา H:i น.',strtotime($order->created_at)) }}</td>
                         <td>
                             <form class="delete_form" method="post" action="{{route('order-confirm.destroy',[$order->id])}}">
                                 @csrf

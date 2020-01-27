@@ -60,7 +60,7 @@
                                     <div class="text-center" style="margin-top: 30px;">
                                         <a style="font-size: 15px;"  href="/">กลับหน้าหลัก</a>
                                         &nbsp; &nbsp;
-                                        <a style="font-size: 15px;" href="{{route('register')}}">สมัครสมาชิก</a>
+                                        <a style="font-size: 15px;" href="{{route('register')}}">สมัครเป็นเฟรนไชน์หรือรับไปขาย</a>
                                     </div>
                                     <hr>
                                     <div class="text-center">

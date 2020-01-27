@@ -89,7 +89,7 @@
                                         <?php $i++ ?>
                                     @endforeach
                                     <div class="text-center" style="padding-top: 14px">
-                                        <a class="btn btn-danger" href="#" onclick="history.go(-1)">&laquo; กลับ</a>
+                                        <a class="btn btn-danger" href="#" onclick="history.go(-1)">&laquo; กลับไปแก้ไขรายการ</a>
                                         <button id="submit" type="submit" title="ยืนยันรายการสั่งซื้อ" class="btn btn-success" {{count($order_Details) == 0 ?"disabled":""}} >ยืนยันรายการสั่งซื้อ  &raquo;</button>
                                     </div>
                                 </form>

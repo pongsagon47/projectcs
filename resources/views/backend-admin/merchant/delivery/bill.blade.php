@@ -20,9 +20,11 @@
                                 <p style="padding-top: 40px;font-size: 16px">
                                     <strong> ชื่อผู้สั่งซื้อ : </strong> {{ $order->user->first_name." ".$order->user->last_name}} &nbsp;
                                     <strong><i class="fas fa-store"></i></strong> {{ $order->user->shop_name}} <br>
-                                    <strong> ประเภทลูกค้า : </strong> {{ $order->user->role->name}} <br>
+                                    <strong> ประเภทลูกค้า : </strong> {{ $order->user->role->name}} &nbsp;
+                                    <strong><i class="fas fa-phone"></i></strong>  {{ $order->user->phone_number}} <br>
                                     <strong> พนักงานที่รับรายการสั่งซื้อ : </strong> {{ $order->employee->first_name." ".$order->employee->last_name}} &nbsp;
-                                    <strong><i class="fas fa-phone-square-alt"></i></strong>  {{ $order->employee->phone_number}} <br>
+                                    <strong><i class="fas fa-phone"></i></strong>  {{ $order->employee->phone_number}} <br>
+                                    <strong> ตำแหน่ง : </strong> {{ $order->employee->role_employee->name}} &nbsp;&nbsp;
                                     <strong><i class="fas fa-envelope"></i></strong> {{ $order->employee->email}} <br>
                                 </p>
 

@@ -93,7 +93,7 @@
                     </div>
                 </div>
                 <div class="pull-right" style="margin-top: 23px ">
-                    <a href="{{route('user.index')}}" class="btn btn-primary ">&laquo; กลับหน้าข้อมูลลูกค้า</a>
+                    <a href="#" onclick="history.go(-1)" class="btn btn-primary ">&laquo; กลับหน้าข้อมูลลูกค้า</a>
             </div>
 
             </div>

@@ -35,15 +35,15 @@
             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0" style="background-color: white">
                 <thead style="font-size: 14px; color: #fffdfd; background: linear-gradient(45deg, #219d1c, #bdff33)">
                 <tr>
-                    <th width="120">ID</th>
-                    <th>Title</th>
-                    <th>Thumbnail Image</th>
-                    <th>short_description</th>
-                    <th>status</th>
-                    <th>Category</th>
-                    <th width="190">Created at</th>
-                    <th width="190">Updated at</th>
-                    <th width="240">Action</th>
+                    <th width="60">ID</th>
+                    <th width="120">หัวข้อ</th>
+                    <th>รูปย่อ</th>
+                    <th>คำอธิบายแบบย่อ</th>
+                    <th>สถานะ</th>
+                    <th width="120">หมวดหมู่</th>
+                    <th width="180">Created at</th>
+                    <th width="180">Updated at</th>
+                    <th width="190">Action</th>
                 </tr>
                 </thead>
                 @if(count($articales) != 0)
@@ -56,8 +56,8 @@
                         <td>{{ $articale->short_description }}</td>
                         <td> {!! $articale->status == 'DRAFT' ? '<span class="badge badge-pill  badge-warning" style="color: white;font-size: 12px" >แบบร่าง</span>':'<span class="badge badge-pill  badge-success" style="color: white; font-size: 12px" >เผยแพร่</span>' !!}   </td>
                         <td>{{ $articale->news_category->name}}</td>
-                        <td>{{ $articale->created_at }}</td>
-                        <td>{{ $articale->updated_at }}</td>
+                        <td>{{ date('d/m/Y  เวลา H:i น.',strtotime($articale->created_at )) }}</td>
+                        <td>{{ date('d/m/Y  เวลา H:i น.',strtotime($articale->updated_at )) }}</td>
                         <td>
                             <form class="delete_form" method="post" action="{{route('news.delete',[$articale->id])}}">
                                 @csrf

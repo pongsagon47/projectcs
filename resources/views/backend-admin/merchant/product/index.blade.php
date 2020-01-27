@@ -66,10 +66,10 @@
                 <thead style="font-size: 14px; color: #fffdfd; background: linear-gradient(45deg, #219d1c, #bdff33);">
                 <tr>
                     <th width="90">ID</th>
-                    <th>Dessert Name</th>
-                    <th width="120">price</th>
-                    <th width="190">type</th>
-                    <th width="350">description</th>
+                    <th>ชื่อขนม</th>
+                    <th width="120">ราคา</th>
+                    <th width="190">ประเภทห้องขนม</th>
+                    <th width="350">คำอธิบาย</th>
                     <th>Action</th>
                 </tr>
                 </thead>

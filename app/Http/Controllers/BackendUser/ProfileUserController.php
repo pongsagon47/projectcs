@@ -99,7 +99,6 @@ class ProfileUserController extends Controller
         $user->phone_number = $data['phone_number'];
         $user->address = $data['address'];
         $user->role_id = $data['role_id'];
-        $user->status = '0';
 
         if (isset($data['image'])){
             Storage::delete('public/'.$user->image);

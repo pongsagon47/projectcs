@@ -94,7 +94,7 @@ class ShopController extends Controller
             ->get();
 
 
-        if ($now < $time_limit.' 12:00:00' )
+        if ($now < $time_limit.' 16:00:00' )
         {
             if ( count($order) > 0)
             {
@@ -145,7 +145,7 @@ class ShopController extends Controller
                 define('LINE_API',"https://notify-api.line.me/api/notify");
 
                 $token = "zM9e3pulAskAEpVKwiGc5QGb6lY8xEXeeTFi0KIQ1vn"; //ใส่Token ที่copy เอาไว้
-                $str = "มีรายการสั่งซื้อจากสาขา ".Auth::user()->shop_name." คลิกเพื่อตรวจสอบ http://kidthuang_bekery.com/employee/orders-confirm"; //ข้อความที่ต้องการส่ง สูงสุด 1000 ตัวอักษร
+                $str = "มีรายการสั่งซื้อจากสาขา *".Auth::user()->shop_name."* คลิกเพื่อตรวจสอบ http://kidthuang-bekery.com/employee/orders-confirm"; //ข้อความที่ต้องการส่ง สูงสุด 1000 ตัวอักษร
 
                 $res = $this->notify_message($str,$token);
 

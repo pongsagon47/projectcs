@@ -116,7 +116,7 @@
                             </div>
                             <hr>
                             <div class="text-center">
-                                <a  href="{{route('product.index')}}" style="font-size: 16px">กลับไปหน้ารายการขนม</a>
+                                <a  href="#" onclick="history.go(-1)" style="font-size: 16px">กลับไปหน้ารายการขนม</a>
                             </div>
 
                             {{method_field('PUT')}}

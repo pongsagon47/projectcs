@@ -6,7 +6,7 @@
         <div class="sidebar-brand-icon rotate-n-15">
             <i class="fas fa-laugh-wink"></i>
         </div>
-        <div class="sidebar-brand-text mx-3">Admin <sup>2</sup></div>
+        <div class="sidebar-brand-text mx-3">{{ Auth::user()->role_employee->name }}</div>
     </a>
 
     <!-- Divider -->
@@ -16,14 +16,17 @@
     <li class="nav-item {{ Route::currentRouteName() === 'employee.home'  ? 'active' : null }}">
         <a class="nav-link" href="{{route('employee.home')}}">
             <i class="fas fa-fw fa-tachometer-alt"></i>
-            <span>Dashboard</span></a>
+            <span>หน้าหลัก</span></a>
     </li>
 @if(auth()->user()->role_employee_id == 1)
     <!-- Divider -->
         <hr class="sidebar-divider">
-        <!-- Heading -->
+{{--        <!-- Heading -->--}}
+{{--        <div class="sidebar-heading">--}}
+{{--            คำร้องขอสมัครสมาชิก--}}
+{{--        </div>--}}
         <div class="sidebar-heading">
-            คำร้องขอสมัครสมาชิก
+            การจัดการข้อมูล
         </div>
 
         <!-- Nav Item - Charts -->
@@ -45,27 +48,31 @@
 
 
         <!-- Divider -->
-        <hr class="sidebar-divider">
-        <!-- Heading -->
-        <div class="sidebar-heading">
-            การจัดการข้อมูล
-        </div>
+{{--        <hr class="sidebar-divider">--}}
+{{--        <!-- Heading -->--}}
+{{--        <div class="sidebar-heading">--}}
+{{--            การจัดการข้อมูล--}}
+{{--        </div>--}}
 
 
         <!-- Nav Item - Utilities Collapse Menu -->
         <li class="nav-item {{ Route::currentRouteName() === 'user.index'|| Route::currentRouteName() === 'employee.index'|| Route::currentRouteName() === 'employee.detail'
     || Route::currentRouteName() === 'user.detail'|| Route::currentRouteName() === 'employee.edit'|| Route::currentRouteName() === 'user.edit'
     || Route::currentRouteName() === 'user.create'|| Route::currentRouteName() === 'employee.create'|| Route::currentRouteName() === 'employee.search'
-    || Route::currentRouteName() === 'user.search' ? 'active' : null }}">
+    || Route::currentRouteName() === 'user.search'||Route::currentRouteName() === 'product.index'||Route::currentRouteName() === 'product.show'||Route::currentRouteName() === 'product.edit'
+        ||Route::currentRouteName() === 'product.create'||Route::currentRouteName() === 'product.search'|| Route::currentRouteName() === 'promotion.index'||Route::currentRouteName() === 'promotion.edit'
+        ||Route::currentRouteName() === 'promotion.create' ? 'active' : null }}">
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
                aria-expanded="true" aria-controls="collapseUtilities">
                 <i class="fas fa-fw fa-wrench"></i>
-                <span>ข้อมูลผู้ใช้</span>
+                <span>การจัดการข้อมูล</span>
             </a>
             <div id="collapseUtilities" class="collapse {{ Route::currentRouteName() === 'user.index'|| Route::currentRouteName() === 'employee.index'
         || Route::currentRouteName() === 'employee.detail'|| Route::currentRouteName() === 'user.detail'|| Route::currentRouteName() === 'employee.edit'|| Route::currentRouteName() === 'user.edit'
         || Route::currentRouteName() === 'user.create'|| Route::currentRouteName() === 'employee.create'|| Route::currentRouteName() === 'employee.search'
-        || Route::currentRouteName() === 'user.search' ? 'show' : null }}" aria-labelledby="headingUtilities"
+        || Route::currentRouteName() === 'user.search'|| Route::currentRouteName() === 'product.index'||Route::currentRouteName() === 'product.show'||Route::currentRouteName() === 'product.edit'
+        ||Route::currentRouteName() === 'product.create'||Route::currentRouteName() === 'product.search'|| Route::currentRouteName() === 'promotion.index'||Route::currentRouteName() === 'promotion.edit'
+        ||Route::currentRouteName() === 'promotion.create' ? 'show' : null }}" aria-labelledby="headingUtilities"
                  data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">ข้อมูลผู้ใช้</h6>
@@ -75,43 +82,22 @@
                     <a class="collapse-item {{ Route::currentRouteName() === 'employee.index'|| Route::currentRouteName() === 'employee.detail'|| Route::currentRouteName() === 'employee.edit'
                 || Route::currentRouteName() === 'employee.create'|| Route::currentRouteName() === 'employee.search'  ? 'active' : null }}"
                        href="{{route('employee.index')}}">ข้อมูลพนักงาน</a>
+                    <a class="collapse-item {{ Route::currentRouteName() === 'product.index'||Route::currentRouteName() === 'product.show'||Route::currentRouteName() === 'product.edit'
+        ||Route::currentRouteName() === 'product.create'||Route::currentRouteName() === 'product.search'? 'active' : null }}"
+                       href="{{route('product.index')}}">จัดการสินค้า</a>
+                    <a class="collapse-item {{ Route::currentRouteName() === 'promotion.index'||Route::currentRouteName() === 'promotion.edit'||Route::currentRouteName() === 'promotion.create'? 'active' : null }}"
+                       href="{{route('promotion.index')}}">จัดการโปรโมชั่น</a>
                 </div>
             </div>
         </li>
 
-        <!-- Heading -->
-        <div class="sidebar-heading">
-            การจัดการข้อมูลขนม
-        </div>
-
-        <!-- Nav Item - Charts -->
-        <li class="nav-item {{ Route::currentRouteName() === 'product.index'||Route::currentRouteName() === 'product.show'||Route::currentRouteName() === 'product.edit'
-        ||Route::currentRouteName() === 'product.create'||Route::currentRouteName() === 'product.search' ? 'active' : null }}">
-            <a class="nav-link" href="{{route('product.index')}}">
-                <i class="fab fa-product-hunt"></i>
-
-                <span>การจัดการสินค้า</span>
-            </a>
-        </li>
-
-        <!-- Nav Item - Charts -->
-        <li class="nav-item {{ Route::currentRouteName() === 'promotion.index'||Route::currentRouteName() === 'promotion.edit'||Route::currentRouteName() === 'promotion.create' ? 'active' : null }}">
-            <a class="nav-link" href="{{route('promotion.index')}}">
-                <i class="fas fa-book-reader"></i>
-
-                <span> โปรโมชั่น</span>
-            </a>
-        </li>
-
-
-
         <!-- Divider -->
-        <hr class="sidebar-divider">
+{{--        <hr class="sidebar-divider">--}}
 
         <!-- Heading -->
-        <div class="sidebar-heading">
-            จัดการหน้าเว็บ
-        </div>
+{{--        <div class="sidebar-heading">--}}
+{{--            จัดการหน้าเว็บ--}}
+{{--        </div>--}}
 
         <!-- Nav Item - Pages Collapse Menu -->
         <li class="nav-item {{ Route::currentRouteName() === 'about-us.create'|| Route::currentRouteName() === 'intro.create'
@@ -120,7 +106,7 @@
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
                aria-expanded="true" aria-controls="collapsePages">
                 <i class="fas fa-fw fa-chalkboard"></i>
-                <span>หน้าเว็บ</span>
+                <span>จัดการหน้าเว็บ</span>
             </a>
             <div id="collapsePages" class="collapse {{ Route::currentRouteName() === 'about-us.create'|| Route::currentRouteName() === 'intro.create'
             ||Route::currentRouteName() === 'news.index'|| Route::currentRouteName() === 'news-category.index'||Route::currentRouteName() === 'news-category.create'
@@ -142,13 +128,13 @@
             </div>
         </li>
 @endif
-@if(auth()->user()->role_employee_id == 1||auth()->user()->role_employee_id == 2)
+@if(auth()->user()->role_employee_id == 2)
         <!-- Divider -->
         <hr class="sidebar-divider">
 
         <!-- Heading -->
         <div class="sidebar-heading">
-            รายการสั่งซื้อวันนี้ที่ยังไม่อนุมัติ
+            รายการสั่งซื้อวันนี้
         </div>
 
         <!-- Nav Item - Charts -->
@@ -173,12 +159,12 @@
         </li>
 
         <!-- Divider -->
-        <hr class="sidebar-divider">
+{{--        <hr class="sidebar-divider">--}}
 
         <!-- Heading -->
-        <div class="sidebar-heading">
-            ดูรายการสั่งซื้อวันนี้
-        </div>
+{{--        <div class="sidebar-heading">--}}
+{{--            ดูรายการสั่งซื้อวันนี้--}}
+{{--        </div>--}}
 
         <!-- Nav Item - Pages Collapse Menu -->
         <li class="nav-item {{ Route::currentRouteName() === 'order-today.index'||Route::currentRouteName() === 'order-today.show'||Route::currentRouteName() === 'order-today.production'? 'active' : null }}">
@@ -222,14 +208,14 @@
         </li>
 @endif
 
-@if(auth()->user()->role_employee_id == 1||auth()->user()->role_employee_id == 3)
+@if(auth()->user()->role_employee_id == 3)
 
     <!-- Divider -->
         <hr class="sidebar-divider">
 
         <!-- Heading -->
         <div class="sidebar-heading">
-            รายการสั่งสินค้าวันนี้
+            รายการส่งสินค้าวันนี้
         </div>
 
         <!-- Nav Item - Charts -->
@@ -251,7 +237,7 @@
         </li>
 
 @endif
-@if(auth()->user()->role_employee_id == 1||auth()->user()->role_employee_id == 4)
+@if(auth()->user()->role_employee_id == 4)
     <!-- Divider -->
         <hr class="sidebar-divider">
 
@@ -304,7 +290,7 @@
             </div>
         </li>
 @endif
-@if(auth()->user()->role_employee_id == 1||auth()->user()->role_employee_id == 5)
+@if(auth()->user()->role_employee_id == 5)
     <!-- Divider -->
         <hr class="sidebar-divider">
 
@@ -358,7 +344,7 @@
             </div>
         </li>
 @endif
-@if(auth()->user()->role_employee_id == 1||auth()->user()->role_employee_id == 6)
+@if(auth()->user()->role_employee_id == 6)
     <!-- Divider -->
         <hr class="sidebar-divider">
 
@@ -411,7 +397,7 @@
             </div>
         </li>
 @endif
-@if(auth()->user()->role_employee_id == 1||auth()->user()->role_employee_id == 7)
+@if(auth()->user()->role_employee_id == 7)
     <!-- Divider -->
         <hr class="sidebar-divider">
 
@@ -464,7 +450,7 @@
             </div>
         </li>
 @endif
-@if(auth()->user()->role_employee_id == 1||auth()->user()->role_employee_id == 8)
+@if(auth()->user()->role_employee_id == 8)
     <!-- Divider -->
         <hr class="sidebar-divider">
 
@@ -517,6 +503,39 @@
                 </div>
             </div>
         </li>
+@endif
+@if(auth()->user()->role_employee_id == 1)
+<!-- Divider -->
+    <hr class="sidebar-divider">
+
+    <!-- Heading -->
+    <div class="sidebar-heading">
+        ออกรายงาน
+    </div>
+
+    <!-- Nav Item - Pages Collapse Menu -->
+    <li class="nav-item {{ Route::currentRouteName() === 'report-revenue.index'||Route::currentRouteName() === 'report-revenue.search'||Route::currentRouteName() === 'production-list.index'
+    ||Route::currentRouteName() === 'branch-store.index'||Route::currentRouteName() === 'dessert-sales.index'||Route::currentRouteName() === 'production-list.search'? 'active' : null }}">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseReport" aria-expanded="true" aria-controls="collapseReport">
+            <i class="fas fa-fw fa-cog"></i>
+            <span>รายงานรายการขนม</span>
+        </a>
+        <div id="collapseReport" class="collapse {{ Route::currentRouteName() === 'report-revenue.index'||Route::currentRouteName() === 'report-revenue.search'||Route::currentRouteName() === 'production-list.index'
+        ||Route::currentRouteName() === 'branch-store.index'||Route::currentRouteName() === 'dessert-sales.index'||Route::currentRouteName() === 'production-list.search'? 'show' : null }}"
+             aria-labelledby="headingReport" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <h6 class="collapse-header">รายงาน :</h6>
+                <a class="collapse-item {{ Route::currentRouteName() === 'production-list.index'||Route::currentRouteName() === 'production-list.search'? 'active' : null }}"
+                   href="{{ route('production-list.index') }}">รายงานการผลิตขนมใน<br>แต่ละวัน</a>
+                <a class="collapse-item {{ Route::currentRouteName() === 'report-revenue.index'||Route::currentRouteName() === 'report-revenue.search'? 'active' : null }}"
+                   href="{{ route('report-revenue.index') }}">รายงานรายได้จากการขาย<br>ในแต่ละวัน</a>
+                <a class="collapse-item {{ Route::currentRouteName() === 'dessert-sales.index'? 'active' : null }}"
+                   href="{{ route('dessert-sales.index') }}">รายงานขนมที่มียอดขาย<br>มากที่สุดและน้อยที่สุด</a>
+                <a class="collapse-item {{ Route::currentRouteName() === 'branch-store.index'? 'active' : null }}"
+                   href="{{ route('branch-store.index') }}">รายงานสาขาที่มียอดสั่ง<br>ขนมมากที่สุดน้อยที่สุด</a>
+            </div>
+        </div>
+    </li>
 @endif
 
         <!-- Divider -->

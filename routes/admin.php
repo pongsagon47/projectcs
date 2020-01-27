@@ -33,6 +33,7 @@ Route::group([
         Route::any('search/user','UserRegisterController@search')->name('search');
         Route::get('{id}/detail','UserRegisterController@show')->name('detail');
         Route::put('{id}/confirm','UserRegisterController@confirm')->name('confirm');
+        Route::delete('{id}/delete','UserRegisterController@destroy')->name('delete');
     });
 
     Route::group([
@@ -252,6 +253,50 @@ Route::group([
         Route::get('{id}/bill','DeliveryController@bill')->name('bill');
         Route::get('{id}/about/user','DeliveryController@aboutUser')->name('user');
         Route::put('{id}/success','DeliveryController@success')->name('success');
+    });
+
+    Route::group([
+        'prefix' => 'report-revenue',
+        'as' => 'report-revenue.',
+        'namespace' => 'Report',
+        'middleware' => ['admin.check'],
+    ],function (){
+        Route::get('/','ReportSalesRevenueController@index')->name('index');
+        Route::get('{id}/detail','ReportSalesRevenueController@show')->name('detail');
+        Route::any('search/report-revenue','ReportSalesRevenueController@search')->name('search');
+
+    });
+
+    Route::group([
+        'prefix' => 'branch-store',
+        'as' => 'branch-store.',
+        'namespace' => 'Report',
+        'middleware' => ['admin.check'],
+    ],function (){
+        Route::get('/','ReportBrachStoreController@index')->name('index');
+
+    });
+
+    Route::group([
+        'prefix' => 'production-list',
+        'as' => 'production-list.',
+        'namespace' => 'Report',
+        'middleware' => ['admin.check'],
+    ],function (){
+        Route::get('/','ReportProductionListController@index')->name('index');
+        Route::get('{date}/detail','ReportProductionListController@show')->name('detail');
+        Route::any('search/production-list','ReportProductionListController@search')->name('search');
+
+    });
+
+    Route::group([
+        'prefix' => 'dessert-sales',
+        'as' => 'dessert-sales.',
+        'namespace' => 'Report',
+        'middleware' => ['admin.check'],
+    ],function (){
+        Route::get('/','ReportDessertSalesController@index')->name('index');
+
     });
 });
 

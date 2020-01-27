@@ -21,6 +21,7 @@
                                     <strong> ชื่อผู้สั่งซื้อ : </strong> {{ $order->user->first_name." ".$order->user->last_name}} &nbsp;&nbsp;
                                     <strong> ชื่อร้าน : </strong> {{ $order->user->shop_name}} &nbsp;
                                     <strong> ประเภทลูกค้า : </strong> {{ $order->user->role->name}}
+                                    <strong style="padding-left: 30px"> เบอร์โทรศัพท์ : </strong> {{ $order->user->phone_number}}
                                 </p>
 
                                 @if(\Session('error'))

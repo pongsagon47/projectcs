@@ -95,7 +95,7 @@
                     </div>
                 </div>
                 <div class="pull-right" style="margin-top: 22px ">
-                    <a href="{{route('employee.home')}}" class="btn btn-primary "> กลับหน้าหลัก </a>
+                    <a href="#" onclick="history.go(-1)" class="btn btn-primary "> กลับหน้าข้อมูลพนักงาน </a>
                 </div>
 
             </div>

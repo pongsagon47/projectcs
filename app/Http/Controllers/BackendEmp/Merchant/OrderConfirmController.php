@@ -10,6 +10,7 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class OrderConfirmController extends Controller
 {
@@ -83,7 +84,7 @@ class OrderConfirmController extends Controller
             define('LINE_API',"https://notify-api.line.me/api/notify");
 
             $token = "4YITeVVeWcL8pYKOogbrvA6uJCNCBey2niIjeAw1p8b"; //ใส่Token ที่copy เอาไว้
-            $str = "มีการแก้ไขรายการสั่งซื้อของสาขา ".$order->user->shop_name." รายการที่แก้ไขคือ ".$orderDetail->products->name." จากจำนวน ".$previous_qty." ชิ้นเป็นจำนวน ".$current_qty." ชิ้น เนื่องจากไม่สามารถผลิตได้ตวามจำนวนที่สั่งมา ขออภัยในความไม่สะดวกค่ะ"; //ข้อความที่ต้องการส่ง สูงสุด 1000 ตัวอักษร
+            $str = "มีการแก้ไขรายการสั่งซื้อของสาขา *".$order->user->shop_name."* รายการที่แก้ไขคือ *".$orderDetail->products->name."* จากจำนวน *".$previous_qty."* ชิ้น เป็นจำนวน *".$current_qty."* ชิ้น _เนื่องจากไม่สามารถผลิตได้ตวามจำนวนที่สั่งมา ขออภัยในความไม่สะดวกค่ะ_"; //ข้อความที่ต้องการส่ง สูงสุด 1000 ตัวอักษร
 
             $res = $this->notify_message($str,$token);
 //                print_r($res);
@@ -125,7 +126,7 @@ class OrderConfirmController extends Controller
         define('LINE_API',"https://notify-api.line.me/api/notify");
 
         $token = "4YITeVVeWcL8pYKOogbrvA6uJCNCBey2niIjeAw1p8b"; //ใส่Token ที่copy เอาไว้
-        $str = "มีการลบบางรายการสั่งซื้อของสาขา ".$order->user->shop_name." รายการที่ลบคือ ".$orderDetail->products->name." เนื่องจากวัตถุดิบที่นำมาผลิตรายการนี้หมด ขออภัยในความไม่สะดวกค่ะ"; //ข้อความที่ต้องการส่ง สูงสุด 1000 ตัวอักษร
+        $str = "มีการลบบางรายการสั่งซื้อของสาขา *".$order->user->shop_name."* รายการที่ลบคือ *".$orderDetail->products->name."* _เนื่องจากวัตถุดิบที่นำมาผลิตรายการนี้หมด ขออภัยในความไม่สะดวกค่ะ_"; //ข้อความที่ต้องการส่ง สูงสุด 1000 ตัวอักษร
 
         $res = $this->notify_message($str,$token);
 //                print_r($res);
@@ -221,14 +222,126 @@ class OrderConfirmController extends Controller
 
         $order->update();
 
-        //Code notify Line send to employee order
+//        //Code notify Line send to user
         define('LINE_API',"https://notify-api.line.me/api/notify");
 
-        $token = "4YITeVVeWcL8pYKOogbrvA6uJCNCBey2niIjeAw1p8b"; //ใส่Token ที่copy เอาไว้
-        $str = "อนุมัติรายการสั่งซื้อของสาขา ".$order->user->shop_name." เรียบร้อย"; //ข้อความที่ต้องการส่ง สูงสุด 1000 ตัวอักษร
+        $token_user = "4YITeVVeWcL8pYKOogbrvA6uJCNCBey2niIjeAw1p8b"; //ใส่Token ที่copy เอาไว้
+        $str_user = "อนุมัติรายการสั่งซื้อของสาขา *".$order->user->shop_name."* เรียบร้อย"; //ข้อความที่ต้องการส่ง สูงสุด 1000 ตัวอักษร
 
-        $res = $this->notify_message($str,$token);
+//        $res =
+        $this->notify_message($str_user,$token_user);
 //                print_r($res);
+//        //end code
+
+        //Code notify Line send to thai dessert
+
+        $order_thaiDesserts = OrderDetail::query()
+            ->select(DB::raw('sum(product_qty) as total'))
+            ->where('role_employee_id',4)
+            ->where('order_id',$order->id)
+            ->get();
+
+        foreach ($order_thaiDesserts as $order_thaiDessert)
+        {
+            $total_qty_thai = $order_thaiDessert->total;
+        }
+
+        if ($total_qty_thai != null)
+        {
+            $token_thai = "QYRIVlvQPtlcakhGKVzOaxQbO3VqbI98ABoc8MVhwfC"; //ใส่Token ที่copy เอาไว้
+            $str_thai = "มีรายการสั่งซื้อจากสาขา *".$order->user->shop_name."* จำนวนผลิตทั้งหมด *".$total_qty_thai."*"; //ข้อความที่ต้องการส่ง สูงสุด 1000 ตัวอักษร
+            $this->notify_message($str_thai,$token_thai);
+        }
+
+        //end code thai dessert
+
+        //Code notify Line send to role dessert
+        $order_roleDesserts = OrderDetail::query()
+            ->select(DB::raw('sum(product_qty) as total'))
+            ->where('role_employee_id',5)
+            ->where('order_id',$order->id)
+            ->get();
+
+        foreach ($order_roleDesserts as $order_roleDessert)
+        {
+            $total_qty_role = $order_roleDessert->total;
+        }
+
+        if ($total_qty_role != null)
+        {
+            $token_role = "XRx5B6DoBmrNQIIPJuRkrjLA1CMb66GjomgtK3i0GZD"; //ใส่Token ที่copy เอาไว้
+            $str_role = "มีรายการสั่งซื้อจากสาขา *".$order->user->shop_name."* จำนวนผลิตทั้งหมด *".$total_qty_role."*"; //ข้อความที่ต้องการส่ง สูงสุด 1000 ตัวอักษร
+
+            $this->notify_message($str_role,$token_role);
+        }
+
+        //end code role dessert
+
+        //Code notify Line send to brownie dessert
+        $order_brownieDesserts = OrderDetail::query()
+            ->select(DB::raw('sum(product_qty) as total'))
+            ->where('role_employee_id',6)
+            ->where('order_id',$order->id)
+            ->get();
+
+        foreach ($order_brownieDesserts as $order_brownieDessert)
+        {
+            $total_qty_brownie = $order_brownieDessert->total;
+        }
+
+        if ($total_qty_brownie != null)
+        {
+            $token_brownie = "sUrv5zVkIW9VkQE3Oa72SjAB5xYQAvdnghgyEBFkcQ6"; //ใส่Token ที่copy เอาไว้
+            $str_brownie = "มีรายการสั่งซื้อจากสาขา *".$order->user->shop_name."* จำนวนผลิตทั้งหมด *".$total_qty_brownie."*"; //ข้อความที่ต้องการส่ง สูงสุด 1000 ตัวอักษร
+
+            $this->notify_message($str_brownie,$token_brownie);
+        }
+
+        //end code brownie dessert
+
+        //Code notify Line send to cake dessert
+        $order_cakeDesserts = OrderDetail::query()
+            ->select(DB::raw('sum(product_qty) as total'))
+            ->where('role_employee_id',7)
+            ->where('order_id',$order->id)
+            ->get();
+
+        foreach ($order_cakeDesserts as $order_cakeDessert)
+        {
+            $total_qty_cake = $order_cakeDessert->total;
+        }
+
+        if ($total_qty_cake != null)
+        {
+            $token_cake = "JHswU9yxdqmSJXskBDEu0PSL2IeOmXzGMWr82qaqxTF"; //ใส่Token ที่copy เอาไว้
+            $str_cake = "มีรายการสั่งซื้อจากสาขา *".$order->user->shop_name."* จำนวนผลิตทั้งหมด *".$total_qty_cake."*"; //ข้อความที่ต้องการส่ง สูงสุด 1000 ตัวอักษร
+            $this->notify_message($str_cake,$token_cake);
+        }
+
+        //end code cake dessert
+
+        //Code notify Line send to cookie dessert
+        $order_cookieDesserts = OrderDetail::query()
+            ->select(DB::raw('sum(product_qty) as total'))
+            ->where('role_employee_id',8)
+            ->where('order_id',$order->id)
+            ->get();
+
+        foreach ($order_cookieDesserts as $order_cookieDessert)
+        {
+            $total_qty_cookie = $order_cookieDessert->total;
+
+        }
+        if ($total_qty_cookie != null)
+        {
+            $token_cookie = "NqiciJ7BclqOg8fOBCiNMwwI8Yki7NU3gPWlW4fRkqU"; //ใส่Token ที่copy เอาไว้
+            $str_cookie = "มีรายการสั่งซื้อจากสาขา *".$order->user->shop_name."* จำนวนผลิตทั้งหมด *".$total_qty_cookie."*"; //ข้อความที่ต้องการส่ง สูงสุด 1000 ตัวอักษร
+
+            $this->notify_message($str_cookie,$token_cookie);
+        }
+
+        //end code cookie dessert
+
         //end code
 
         return redirect()->route('order-confirm.index')->withSuccess('อนุมัติรายการสั่งซื้อของ '.$order->user->shop_name.' เรียบร้อย');
@@ -258,7 +371,7 @@ class OrderConfirmController extends Controller
         define('LINE_API',"https://notify-api.line.me/api/notify");
 
         $token = "4YITeVVeWcL8pYKOogbrvA6uJCNCBey2niIjeAw1p8b"; //ใส่Token ที่copy เอาไว้
-        $str = "พนักงานออเดอร์ลบรายการสั่งซื้อของสาขา ".$order->user->shop_name." เรียบร้อย"; //ข้อความที่ต้องการส่ง สูงสุด 1000 ตัวอักษร
+        $str = "พนักงานออเดอร์ลบรายการสั่งซื้อของสาขา *".$order->user->shop_name."* เรียบร้อย"; //ข้อความที่ต้องการส่ง สูงสุด 1000 ตัวอักษร
 
         $res = $this->notify_message($str,$token);
 //                print_r($res);

@@ -273,7 +273,7 @@ jm
                             </div>
                             <hr>
                             <div class="text-center">
-                                <a  href="{{route('employee.index')}}" style="font-size: 15px">Back to Employee list</a>
+                                <a  href="#" onclick="history.go(-1)" style="font-size: 15px">Back to Employee list</a>
                             </div>
 
                             {{method_field('PUT')}}

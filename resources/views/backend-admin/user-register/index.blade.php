@@ -45,9 +45,9 @@
                     <th>ประเภทลูกค้า</th>
                     <th>เพศ</th>
                     <th>Email</th>
-                    <th>Active</th>
+                    <th>สถานะ</th>
                     <th>เบอร์โทรศัพท์</th>
-                    <th>Action</th>
+                    <th colspan="2">Action</th>
                 </tr>
                 </thead >
                 @if(count($users) != 0)
@@ -59,10 +59,10 @@
                         <td>{{ $value->role->name }}</td>
                         <td width="80">{{ null == $value->gender ?'ไม่มีการระบุเพศ' : $value->gender }}</td>
                         <td>{{ $value->email }}</td>
-                        <td>{{ 0 == $value->status?"No":"Yes" }}</td>
+                        <td>{{ 0 == $value->status?"ยังไม่อนุมัติ":"Yes" }}</td>
                         <td width="170">{{ $value->phone_number }}</td>
-                        <td width="300">
-                            <form class="delete_form" method="post" action="{{route('user-register.confirm',[$value->id])}}">
+                        <td width="295">
+                            <form class="sucess_form" method="post" action="{{route('user-register.confirm',[$value->id])}}">
                                 @csrf
 
                                 <a href="{{route('user-register.detail',[$value->id])}}" class="btn btn-info " title="Detail Record">
@@ -72,7 +72,19 @@
                                 <button type="submit" class="btn btn-success " title="Delete Record">
                                     <i class="fas fa-check-circle"></i> ยอมรับสมาชิก
                                 </button>
+
+
                                 {{method_field('PUT')}}
+                            </form>
+
+                        </td>
+                        <td>
+                            <form class="delete_form" method="post" action="{{route('user-register.delete',[$value->id])}}">
+                                @csrf
+                                <button type="submit" class="btn btn-danger" title="Detail Record">
+                                    <i class="fas fa-trash-alt"></i> ไม่อนุมัติ
+                                </button>
+                                {{method_field('DELETE')}}
                             </form>
                         </td>
                     </tr>
@@ -96,6 +108,18 @@
     <!-- /.container-fluid -->
 @endsection
 @push('script')
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('.success_form').on('submit',function () {
+                if(confirm("Are you sure?")){
+                    return true;
+                }
+                else {
+                    return false;
+                }
+            })
+        })
+    </script>
     <script type="text/javascript">
         $(document).ready(function () {
             $('.delete_form').on('submit',function () {
