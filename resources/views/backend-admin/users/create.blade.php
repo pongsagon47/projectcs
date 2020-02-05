@@ -7,7 +7,7 @@
             <div class="col-md-12">
 
                 <div class="card">
-                    <div class="card-header text-center"  style="font-size: 18px;background: rgb(78,175,223);color: aliceblue;">เพิ่มข้อมูลพนักงาน</div>
+                    <div class="card-header text-center"  style="font-size: 18px;background: linear-gradient(45deg, #289bff, #a5ffd5)">เพิ่มข้อมูลลูกค้า</div>
 
                     <div class="card-body">
 

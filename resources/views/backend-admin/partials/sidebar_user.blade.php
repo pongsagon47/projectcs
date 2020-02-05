@@ -30,7 +30,8 @@
         </div>
 
         <!-- Nav Item - Charts -->
-        <li class="nav-item {{ Route::currentRouteName() === 'user-register.index'||Route::currentRouteName() === 'user-register.search'  ? 'active' : null }}">
+        <li class="nav-item {{ Route::currentRouteName() === 'user-register.index'||Route::currentRouteName() === 'user-register.search'
+        ||Route::currentRouteName() === 'user-register.detail'  ? 'active' : null }}">
             <a class="nav-link" href="{{route('user-register.index')}}">
                 <?php
                 $users = \App\Models\User::query()->where('status',0)->get();
@@ -38,7 +39,7 @@
                 ?>
                 <i class="fas fa-users"></i>
 
-                <span> ข้อมูลการสมัครลูกค้า
+                <span> ข้อมูลการสมัครสมาชิก
                     @if( $noti_user != null)
                         <span class="badge badge-danger">{{ $noti_user }}</span>
                     @endif
@@ -515,19 +516,23 @@
 
     <!-- Nav Item - Pages Collapse Menu -->
     <li class="nav-item {{ Route::currentRouteName() === 'report-revenue.index'||Route::currentRouteName() === 'report-revenue.search'||Route::currentRouteName() === 'production-list.index'
-    ||Route::currentRouteName() === 'branch-store.index'||Route::currentRouteName() === 'dessert-sales.index'||Route::currentRouteName() === 'production-list.search'? 'active' : null }}">
+    ||Route::currentRouteName() === 'branch-store.index'||Route::currentRouteName() === 'dessert-sales.index'||Route::currentRouteName() === 'production-list.search'
+    ||Route::currentRouteName() === 'production-list.detail'||Route::currentRouteName() === 'report-revenue.detail'? 'active' : null }}">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseReport" aria-expanded="true" aria-controls="collapseReport">
             <i class="fas fa-fw fa-cog"></i>
             <span>รายงานรายการขนม</span>
         </a>
         <div id="collapseReport" class="collapse {{ Route::currentRouteName() === 'report-revenue.index'||Route::currentRouteName() === 'report-revenue.search'||Route::currentRouteName() === 'production-list.index'
-        ||Route::currentRouteName() === 'branch-store.index'||Route::currentRouteName() === 'dessert-sales.index'||Route::currentRouteName() === 'production-list.search'? 'show' : null }}"
+        ||Route::currentRouteName() === 'branch-store.index'||Route::currentRouteName() === 'dessert-sales.index'||Route::currentRouteName() === 'production-list.search'
+        ||Route::currentRouteName() === 'production-list.detail'||Route::currentRouteName() === 'report-revenue.detail'? 'show' : null }}"
              aria-labelledby="headingReport" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">รายงาน :</h6>
-                <a class="collapse-item {{ Route::currentRouteName() === 'production-list.index'||Route::currentRouteName() === 'production-list.search'? 'active' : null }}"
+                <a class="collapse-item {{ Route::currentRouteName() === 'production-list.index'||Route::currentRouteName() === 'production-list.search'
+                ||Route::currentRouteName() === 'production-list.detail'? 'active' : null }}"
                    href="{{ route('production-list.index') }}">รายงานการผลิตขนมใน<br>แต่ละวัน</a>
-                <a class="collapse-item {{ Route::currentRouteName() === 'report-revenue.index'||Route::currentRouteName() === 'report-revenue.search'? 'active' : null }}"
+                <a class="collapse-item {{ Route::currentRouteName() === 'report-revenue.index'||Route::currentRouteName() === 'report-revenue.search'
+                ||Route::currentRouteName() === 'report-revenue.detail'? 'active' : null }}"
                    href="{{ route('report-revenue.index') }}">รายงานรายได้จากการขาย<br>ในแต่ละวัน</a>
                 <a class="collapse-item {{ Route::currentRouteName() === 'dessert-sales.index'? 'active' : null }}"
                    href="{{ route('dessert-sales.index') }}">รายงานขนมที่มียอดขาย<br>มากที่สุดและน้อยที่สุด</a>

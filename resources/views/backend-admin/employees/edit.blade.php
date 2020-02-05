@@ -12,7 +12,7 @@
                         <form method="POST" action="{{ route('employee.update',[array_get($data,'id')]) }}" enctype="multipart/form-data" style="padding: 1.3rem">
                             @csrf
 
-jm
+
                             <div class="form-row">
                                 <div class="form-group col-md-6">
                                     <label for="first_name" style="font-size: 16.8px;">ชื่อ</label>

@@ -7,7 +7,7 @@
 
                 <div class="card" style="margin-top: 20px">
                     <div class="card-header" style="text-align: center; font-size: 19px;background: rgb(100,223,46);color: aliceblue;">
-                        ข้อมูลลูกค้า
+                        ข้อมูลพนักงาน
                     </div>
                     <div class="card-body">
 
@@ -99,7 +99,7 @@
                     </div>
                 </div>
                 <div class="pull-right" style="margin-top: 22px ">
-                    <a href="#" onclick="history.go(-1)" class="btn btn-primary "> back </a>
+                    <a href="#" onclick="history.go(-1)" class="btn btn-primary ">&laquo; กลับหน้าข้อมูลพนักงาน</a>
                 </div>
 
             </div>

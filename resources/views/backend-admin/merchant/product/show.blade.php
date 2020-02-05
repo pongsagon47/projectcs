@@ -6,7 +6,7 @@
             <div class="col-md-9">
 
                 <div class="card" style="margin-top: 20px">
-                    <div class="card-header" style="text-align: center; font-size: 19px; background: linear-gradient(45deg, #219d1c, #bdff33)">
+                    <div class="card-header" style="text-align: center; font-size: 19px;background: linear-gradient(45deg, #ffbb40, #fff49e);">
                         ข้อมูลขนม
                     </div>
                     <div class="card-body">
@@ -78,7 +78,7 @@
                     </div>
                 </div>
                 <div class="pull-right" style="margin-top: 22px ">
-                    <a href="๒" onclick="history.go(-1)" class="btn btn-primary "> back </a>
+                    <a href="#" onclick="history.go(-1)" class="btn btn-primary ">&laquo; กลับหน้าข้อมูลสินค้า</a>
                 </div>
 
             </div>

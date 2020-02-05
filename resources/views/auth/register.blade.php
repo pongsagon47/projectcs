@@ -12,7 +12,8 @@
                     <div class="col-lg-12">
                         <div class="p-5">
                             <div class="text-center">
-                                <h1 class="h4 text-gray-900 mb-4">Create an Account!</h1>
+                                <img class="center" width="100" height="100"  src="{{asset('img/logokidthuang.png')}}" alt="">
+                                <h1 class="h4 text-gray-900 mb-4" style="font-size: 24px">สมัครสมาชิก</h1>
                             </div>
 
                             <form class="user"  method="POST" action="{{route('register')}}" enctype="multipart/form-data">

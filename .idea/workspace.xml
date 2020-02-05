@@ -3,48 +3,26 @@
   <component name="ChangeListManager">
     <list default="true" id="5c6a2d6e-3646-4e35-8ae8-587ec4080105" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/BackendEmp/Merchant/OrderConfirmController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/BackendEmp/Merchant/OrderConfirmController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/BackendEmp/UserRegisterController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/BackendEmp/UserRegisterController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/BackendEmp/Report/ReportProductionListController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/BackendEmp/Report/ReportProductionListController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/BackendUser/Merchant/ShopController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/BackendUser/Merchant/ShopController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/BackendUser/ProfileUserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/BackendUser/ProfileUserController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/EmployeeCotroller.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/EmployeeCotroller.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2019_06_07_075544_create_products_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_06_07_075544_create_products_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2019_09_06_160039_create_promotions_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_09_06_160039_create_promotions_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/custom-backend.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/custom-backend.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/custom-user-backend.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/custom-user-backend.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/auth/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/login.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/backend-admin/employee.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend-admin/employee.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/backend-admin/employees/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend-admin/employees/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/auth/register.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/register.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/backend-admin/employees/detail.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend-admin/employees/detail.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/backend-admin/employees/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend-admin/employees/edit.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/backend-admin/employees/profile.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend-admin/employees/profile.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/backend-admin/layouts/main_dashboard.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend-admin/layouts/main_dashboard.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/backend-admin/layouts/script.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend-admin/layouts/script.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/backend-admin/merchant/delivery/bill.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend-admin/merchant/delivery/bill.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/backend-admin/merchant/order-confirm/confirm.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend-admin/merchant/order-confirm/confirm.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/backend-admin/merchant/order-confirm/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend-admin/merchant/order-confirm/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/backend-admin/merchant/order-today/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend-admin/merchant/order-today/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/backend-admin/merchant/order-today/production_status.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend-admin/merchant/order-today/production_status.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/backend-admin/merchant/product/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend-admin/merchant/product/create.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/backend-admin/merchant/product/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend-admin/merchant/product/edit.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/backend-admin/merchant/product/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend-admin/merchant/product/index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/backend-admin/merchant/product/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend-admin/merchant/product/show.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/backend-admin/merchant/promotion/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend-admin/merchant/promotion/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/backend-admin/news-category/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend-admin/news-category/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/backend-admin/news/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend-admin/news/index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/backend-admin/partials/sidebar_user.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend-admin/partials/sidebar_user.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/backend-admin/report/dessert-production-list/detail.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend-admin/report/dessert-production-list/detail.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/backend-admin/report/sales-revenue/detail.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend-admin/report/sales-revenue/detail.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/backend-admin/user-register/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend-admin/user-register/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/backend-admin/users/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend-admin/users/create.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/backend-admin/users/detail.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend-admin/users/detail.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/backend-admin/users/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend-admin/users/edit.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/backend-admin/users/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend-admin/users/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/backend-user/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend-user/home.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/backend-user/partials/sidebar_user.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend-user/partials/sidebar_user.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/backend-user/report/report-order/bill.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend-user/report/report-order/bill.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/backend-user/report/report-order/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend-user/report/report-order/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/backend-user/shop/confirm.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend-user/shop/confirm.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/backend-user/shop/status-order/bill.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend-user/shop/status-order/bill.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/backend-user/shop/status-order/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend-user/shop/status-order/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/admin.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/user.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/user.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/backend-user/users/profile.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend-user/users/profile.blade.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -77,20 +55,72 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/resources/views/backend-user/shop/status-order/index.blade.php">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/views/backend-admin/merchant/product/index.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="40" column="151" selection-start-line="40" selection-start-column="136" selection-end-line="40" selection-end-column="151" />
+            <state relative-caret-position="442">
+              <caret line="65" column="116" selection-start-line="65" selection-start-column="116" selection-end-line="65" selection-end-column="116" />
+              <folding>
+                <element signature="e#2544#2638#0#HTML" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/BackendEmp/Merchant/PromotionController.php">
+        <entry file="file://$PROJECT_DIR$/resources/views/backend-admin/merchant/product/edit.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-357">
-              <caret line="8" column="6" selection-start-line="8" selection-start-column="6" selection-end-line="8" selection-end-column="6" />
+            <state relative-caret-position="119">
+              <caret line="7" column="105" selection-start-line="7" selection-start-column="105" selection-end-line="7" selection-end-column="105" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/views/backend-admin/merchant/product/show.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="136">
+              <caret line="8" column="141" selection-start-line="8" selection-start-column="141" selection-end-line="8" selection-end-column="141" />
+              <folding>
+                <element signature="e#327#424#0#HTML" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/views/backend-admin/users/edit.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="153">
+              <caret line="9" column="133" selection-start-line="9" selection-start-column="81" selection-end-line="9" selection-end-column="133" />
+              <folding>
+                <element signature="e#323#399#0#HTML" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/resources/views/backend-admin/users/create.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="153">
+              <caret line="9" column="152" selection-start-line="9" selection-start-column="152" selection-end-line="9" selection-end-column="152" />
+              <folding>
+                <element signature="e#325#394#0#HTML" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/views/backend-admin/merchant/product/create.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="119">
+              <caret line="7" column="105" selection-start-line="7" selection-start-column="52" selection-end-line="7" selection-end-column="105" />
+              <folding>
+                <element signature="e#521#544#0#HTML" expanded="true" />
+                <element signature="e#2582#2608#0#HTML" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -140,20 +170,12 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/resources/views/auth/login.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/backend-user/partials/sidebar_user.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/backend-user/product/index.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/backend-user/shop/status-order/index.blade.php" />
         <option value="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" />
-        <option value="$PROJECT_DIR$/resources/views/backend-admin/merchant/promotion/index.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/backend-admin/merchant/order-confirm/index.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/backend-admin/merchant/order-today/index.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/backend-admin/merchant/order-today/production_status.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/backend-admin/news/index.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/backend-admin/news-category/index.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/backend-admin/merchant/product/index.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/backend-admin/users/index.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/backend-admin/user-register/index.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/BackendEmp/UserRegisterController.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/BackendUser/Report/ReportOrderController.php" />
         <option value="$PROJECT_DIR$/resources/views/backend-admin/layouts/main_dashboard.blade.php" />
@@ -161,29 +183,17 @@
         <option value="$PROJECT_DIR$/app/Http/Controllers/BackendEmp/CrudUser/EmployeeController.php" />
         <option value="$PROJECT_DIR$/resources/views/backend-admin/report/sales-revenue/index.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/BackendEmp/Report/ReportSalesRevenueController.php" />
-        <option value="$PROJECT_DIR$/resources/views/backend-admin/report/sales-revenue/detail.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/backend-admin/employees/create.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/backend-admin/employees/detail.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/backend-admin/employees/edit.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/backend-admin/employees/profile.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/backend-admin/merchant/product/show.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/backend-admin/merchant/product/edit.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/backend-admin/users/edit.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/backend-admin/users/detail.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/backend-user/report/report-order/index.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/backend-admin/report/dessert-production-list/detail.blade.php" />
         <option value="$PROJECT_DIR$/routes/admin.php" />
         <option value="$PROJECT_DIR$/resources/views/backend-admin/report/dessert-production-list/index.blade.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/BackendEmp/Report/ReportProductionListController.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/BackendEmp/Report/ReportBrachStoreController.php" />
         <option value="$PROJECT_DIR$/resources/views/backend-admin/report/branch-store-sales/index.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/BackendEmp/Report/ReportDessertSalesController.php" />
         <option value="$PROJECT_DIR$/resources/views/backend-admin/report/dessert-sales/index.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/backend-user/home.blade.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/EmployeeCotroller.php" />
         <option value="$PROJECT_DIR$/resources/views/backend-admin/employee.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/backend-admin/partials/sidebar_user.blade.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/BackendUser/Merchant/ShopController.php" />
         <option value="$PROJECT_DIR$/resources/views/backend-admin/merchant/order-confirm/confirm.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/BackendUser/ProfileUserController.php" />
         <option value="$PROJECT_DIR$/resources/views/backend-admin/merchant/delivery/bill.blade.php" />
@@ -191,6 +201,26 @@
         <option value="$PROJECT_DIR$/resources/views/backend-user/shop/status-order/bill.blade.php" />
         <option value="$PROJECT_DIR$/database/migrations/2019_06_07_075544_create_products_table.php" />
         <option value="$PROJECT_DIR$/database/migrations/2019_09_06_160039_create_promotions_table.php" />
+        <option value="$PROJECT_DIR$/resources/views/auth/register.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/backend-user/users/profile.blade.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/BackendUser/Merchant/ShopController.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/EmployeeCotroller.php" />
+        <option value="$PROJECT_DIR$/resources/views/backend-admin/user-register/index.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/backend-admin/merchant/promotion/index.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/backend-admin/report/dessert-production-list/detail.blade.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/BackendEmp/Report/ReportProductionListController.php" />
+        <option value="$PROJECT_DIR$/resources/views/backend-admin/report/sales-revenue/detail.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/backend-admin/partials/sidebar_user.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/backend-admin/users/detail.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/backend-admin/employees/detail.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/backend-admin/employees/edit.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/backend-admin/merchant/product/create.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/backend-admin/merchant/product/index.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/backend-admin/merchant/product/edit.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/backend-admin/merchant/product/show.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/backend-admin/users/index.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/backend-admin/users/edit.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/backend-admin/users/create.blade.php" />
       </list>
     </option>
   </component>
@@ -361,47 +391,6 @@
             <path>
               <item name="projectcs" type="b2602c69:ProjectViewProjectNode" />
               <item name="projectcs" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="Http" type="462c0819:PsiDirectoryNode" />
-              <item name="Controllers" type="462c0819:PsiDirectoryNode" />
-              <item name="BackendEmp" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="projectcs" type="b2602c69:ProjectViewProjectNode" />
-              <item name="projectcs" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="Http" type="462c0819:PsiDirectoryNode" />
-              <item name="Controllers" type="462c0819:PsiDirectoryNode" />
-              <item name="BackendEmp" type="462c0819:PsiDirectoryNode" />
-              <item name="Merchant" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="projectcs" type="b2602c69:ProjectViewProjectNode" />
-              <item name="projectcs" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="Http" type="462c0819:PsiDirectoryNode" />
-              <item name="Requests" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="projectcs" type="b2602c69:ProjectViewProjectNode" />
-              <item name="projectcs" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="Models" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="projectcs" type="b2602c69:ProjectViewProjectNode" />
-              <item name="projectcs" type="462c0819:PsiDirectoryNode" />
-              <item name="database" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="projectcs" type="b2602c69:ProjectViewProjectNode" />
-              <item name="projectcs" type="462c0819:PsiDirectoryNode" />
-              <item name="database" type="462c0819:PsiDirectoryNode" />
-              <item name="migrations" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="projectcs" type="b2602c69:ProjectViewProjectNode" />
-              <item name="projectcs" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -415,24 +404,48 @@
               <item name="projectcs" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="backend-user" type="462c0819:PsiDirectoryNode" />
+              <item name="backend-admin" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="projectcs" type="b2602c69:ProjectViewProjectNode" />
               <item name="projectcs" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="backend-user" type="462c0819:PsiDirectoryNode" />
-              <item name="shop" type="462c0819:PsiDirectoryNode" />
+              <item name="backend-admin" type="462c0819:PsiDirectoryNode" />
+              <item name="merchant" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="projectcs" type="b2602c69:ProjectViewProjectNode" />
               <item name="projectcs" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="backend-user" type="462c0819:PsiDirectoryNode" />
-              <item name="shop" type="462c0819:PsiDirectoryNode" />
-              <item name="status-order" type="462c0819:PsiDirectoryNode" />
+              <item name="backend-admin" type="462c0819:PsiDirectoryNode" />
+              <item name="merchant" type="462c0819:PsiDirectoryNode" />
+              <item name="product" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="projectcs" type="b2602c69:ProjectViewProjectNode" />
+              <item name="projectcs" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="backend-admin" type="462c0819:PsiDirectoryNode" />
+              <item name="partials" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="projectcs" type="b2602c69:ProjectViewProjectNode" />
+              <item name="projectcs" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="backend-admin" type="462c0819:PsiDirectoryNode" />
+              <item name="user-register" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="projectcs" type="b2602c69:ProjectViewProjectNode" />
+              <item name="projectcs" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="backend-admin" type="462c0819:PsiDirectoryNode" />
+              <item name="users" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="projectcs" type="b2602c69:ProjectViewProjectNode" />
@@ -642,12 +655,16 @@
       <workItem from="1580060616662" duration="1816000" />
       <workItem from="1580112444775" duration="4356000" />
       <workItem from="1580165058344" duration="101000" />
-      <workItem from="1580165944066" duration="1489000" />
+      <workItem from="1580165944066" duration="1603000" />
+      <workItem from="1580194358860" duration="3133000" />
+      <workItem from="1580219243431" duration="3181000" />
+      <workItem from="1580497042228" duration="626000" />
+      <workItem from="1580666943784" duration="6013000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1011271000" />
+    <option name="totallyTimeSpent" value="1024338000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -661,7 +678,7 @@
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1552" height="840" extended-state="0" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.26072386" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2761394" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -673,7 +690,7 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.3286119" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="8" sideWeight="0.49932885" visible="true" weight="0.32485875" />
+      <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.49932885" weight="0.32485875" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.50067115" side_tool="true" weight="0.32577905" />
       <window_info anchor="bottom" id="Docker" order="10" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="11" show_stripe_button="false" />
@@ -737,212 +754,10 @@
     </option>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/resources/views/backend-admin/merchant/product/show.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="80" column="30" selection-start-line="80" selection-start-column="30" selection-end-line="80" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/backend-admin/merchant/product/edit.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="126" column="14" lean-forward="true" selection-start-line="126" selection-start-column="14" selection-end-line="126" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/backend-admin/users/edit.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="302" column="66" selection-start-line="302" selection-start-column="66" selection-end-line="302" selection-end-column="66" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/backend-admin/users/detail.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="558">
-          <caret line="102" lean-forward="true" selection-start-line="102" selection-end-line="102" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/backend-admin/merchant/cookie-dessert/index.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-408" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/backend-admin/merchant/cookie-dessert/dessert_maker.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="201">
-          <caret line="36" column="48" lean-forward="true" selection-start-line="36" selection-start-column="48" selection-end-line="36" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/backend-user/report/report-order/index.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="53" column="28" lean-forward="true" selection-start-line="53" selection-start-column="28" selection-end-line="53" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/backend-admin/merchant/cookie-dessert/detail.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret selection-end-line="96" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/backend-admin/merchant/thai-dessert/dessert_maker.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1139">
-          <caret line="67" column="11" lean-forward="true" selection-end-line="69" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/BackendEmp/Merchant/ThaiDessertController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="167" column="5" lean-forward="true" selection-start-line="167" selection-start-column="5" selection-end-line="167" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/BackendEmp/Report/ReportSalesRevenueController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="55" column="12" selection-start-line="55" selection-start-column="12" selection-end-line="58" selection-end-column="70" />
-          <folding>
-            <element signature="e#58#79#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/backend-admin/report/sales-revenue/index.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="125" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/backend-admin/report/sales-revenue/detail.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="431">
-          <caret line="70" column="44" lean-forward="true" selection-start-line="70" selection-start-column="44" selection-end-line="70" selection-end-column="62" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/backend-admin/report/dessert-production-list/detail.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="649">
-          <caret line="54" column="40" selection-start-line="54" selection-start-column="40" selection-end-line="54" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/BackendEmp/Report/ReportProductionListController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="23" column="94" selection-start-line="23" selection-start-column="58" selection-end-line="23" selection-end-column="94" />
-          <folding>
-            <element signature="e#58#85#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Models/OrderDetail.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="20" column="33" lean-forward="true" selection-start-line="20" selection-start-column="20" selection-end-line="20" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/backend-admin/report/branch-store-sales/index.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="218">
-          <caret line="18" column="21" lean-forward="true" selection-start-line="18" selection-start-column="21" selection-end-line="18" selection-end-column="21" />
-          <folding>
-            <element signature="e#398#422#0#HTML" expanded="true" />
-            <element signature="e#540#634#0#HTML" expanded="true" />
-            <element signature="e#1055#1095#0#HTML" expanded="true" />
-            <element signature="e#1647#1687#0#HTML" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/BackendEmp/Report/ReportBrachStoreController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="22" column="83" selection-start-line="22" selection-start-column="83" selection-end-line="22" selection-end-column="83" />
-          <folding>
-            <element signature="e#58#79#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/backend-admin/report/dessert-production-list/index.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="41" column="71" selection-start-line="41" selection-start-column="31" selection-end-line="41" selection-end-column="71" />
-          <folding>
-            <element signature="e#1452#1546#0#HTML" expanded="true" />
-            <element signature="e#2050#2090#0#HTML" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/img/logoapp.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/img/logotitle.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/img/no-photo.jpeg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/img/twitter-icon.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/img/cake/test1.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/img/cake/shop.jpg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/img/register.jpg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/img/logokidthuang.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/backend-admin/report/dessert-sales/index.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="22" column="63" selection-start-line="22" selection-start-column="63" selection-end-line="22" selection-end-column="63" />
-          <folding>
-            <element signature="e#538#632#0#HTML" expanded="true" />
-            <element signature="e#1020#1060#0#HTML" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/BackendEmp/Report/ReportDessertSalesController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="527">
-          <caret line="31" column="28" selection-start-line="31" selection-start-column="28" selection-end-line="31" selection-end-column="28" />
-          <folding>
-            <element signature="e#58#85#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/backend-user/home.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
           <caret line="43" selection-start-line="43" selection-start-column="4" selection-end-line="61" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/backend-admin/employee.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="48" selection-start-line="9" selection-start-column="48" selection-end-line="9" selection-end-column="48" />
         </state>
       </provider>
     </entry>
@@ -953,16 +768,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/EmployeeCotroller.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="32" column="20" selection-start-line="32" selection-start-column="20" selection-end-line="32" selection-end-column="20" />
-          <folding>
-            <element signature="e#40#61#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/BackendEmp/Merchant/OrderTodayController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
@@ -970,24 +775,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/backend-admin/partials/sidebar_user.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2312">
-          <caret line="136" column="32" selection-start-line="136" selection-start-column="32" selection-end-line="136" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/backend-admin/merchant/delivery/index.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
           <caret line="46" column="74" selection-start-line="46" selection-start-column="74" selection-end-line="46" selection-end-column="104" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/BackendUser/Merchant/ShopController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="354">
-          <caret line="106" lean-forward="true" selection-start-line="106" selection-end-line="106" />
         </state>
       </provider>
     </entry>
@@ -1070,17 +861,275 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/BackendEmp/Merchant/PromotionController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-357">
-          <caret line="8" column="6" selection-start-line="8" selection-start-column="6" selection-end-line="8" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/backend-user/shop/status-order/index.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="374">
           <caret line="40" column="151" selection-start-line="40" selection-start-column="136" selection-end-line="40" selection-end-column="151" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/BackendEmp/Merchant/PromotionController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="8" column="6" selection-start-line="8" selection-start-column="6" selection-end-line="8" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Models/RoleEmployee.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="6" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Models/ProductionStatus.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="6" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Models/User.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-343">
+          <caret line="9" column="6" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Models/OrderDetail.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="17" column="34" selection-start-line="17" selection-start-column="34" selection-end-line="17" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Models/Order.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="6" column="6" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Models/Product.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="3" selection-start-column="3" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/auth/register.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
+          <folding>
+            <element signature="e#700#723#0#HTML" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/backend-admin/merchant/order-today/production_status.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="36" column="117" lean-forward="true" selection-start-line="36" selection-start-column="117" selection-end-line="36" selection-end-column="135" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/backend-admin/employee.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="106" lean-forward="true" selection-start-line="6" selection-start-column="12" selection-end-line="6" selection-end-column="106" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/backend-user/users/profile.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="33" selection-start-line="6" selection-start-column="33" selection-end-line="6" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/BackendUser/Merchant/ShopController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1785">
+          <caret line="113" column="17" selection-start-line="113" selection-start-column="17" selection-end-line="113" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/EmployeeCotroller.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="524">
+          <caret line="34" column="5" selection-start-line="34" selection-start-column="5" selection-end-line="34" selection-end-column="5" />
+          <folding>
+            <element signature="e#40#61#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/backend-admin/merchant/promotion/index.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-204">
+          <caret line="9" column="62" selection-start-line="9" selection-start-column="62" selection-end-line="9" selection-end-column="62" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/backend-admin/report/dessert-production-list/index.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="47" column="51" lean-forward="true" selection-start-line="47" selection-start-column="51" selection-end-line="47" selection-end-column="73" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/backend-admin/report/dessert-production-list/detail.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="320">
+          <caret line="56" column="102" selection-start-line="56" selection-start-column="102" selection-end-line="56" selection-end-column="102" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/BackendEmp/Report/ReportProductionListController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="53" column="29" selection-start-line="53" selection-start-column="29" selection-end-line="53" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/backend-admin/report/sales-revenue/index.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="53" column="50" lean-forward="true" selection-start-line="53" selection-start-column="50" selection-end-line="53" selection-end-column="71" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/BackendEmp/CrudUser/UserController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1224">
+          <caret line="14" column="6" selection-start-line="14" selection-start-column="6" selection-end-line="14" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/BackendEmp/UserRegisterController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-255">
+          <caret line="10" column="6" selection-start-line="10" selection-start-column="6" selection-end-line="10" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/backend-admin/partials/sidebar_user.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="33" column="61" selection-start-line="33" selection-start-column="61" selection-end-line="33" selection-end-column="61" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/backend-admin/users/detail.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="140" selection-start-line="8" selection-start-column="140" selection-end-line="8" selection-end-column="140" />
+          <folding>
+            <element signature="e#300#389#0#HTML" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/backend-admin/employees/detail.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="37" selection-start-line="9" selection-start-column="37" selection-end-line="9" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/backend-admin/employees/index.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-357" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/backend-admin/employees/edit.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/backend-admin/user-register/index.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="70" column="50" lean-forward="true" selection-start-line="70" selection-start-column="50" selection-end-line="70" selection-end-column="70" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/backend-admin/report/sales-revenue/detail.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="85" selection-start-line="10" selection-start-column="85" selection-end-line="10" selection-end-column="85" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/backend-admin/merchant/product/create.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="105" selection-start-line="7" selection-start-column="52" selection-end-line="7" selection-end-column="105" />
+          <folding>
+            <element signature="e#521#544#0#HTML" expanded="true" />
+            <element signature="e#2582#2608#0#HTML" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/backend-admin/merchant/product/index.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="65" column="116" selection-start-line="65" selection-start-column="116" selection-end-line="65" selection-end-column="116" />
+          <folding>
+            <element signature="e#2544#2638#0#HTML" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/backend-admin/merchant/product/edit.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="105" selection-start-line="7" selection-start-column="105" selection-end-line="7" selection-end-column="105" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/backend-admin/users/index.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="57" column="116" lean-forward="true" selection-start-line="57" selection-start-column="63" selection-end-line="57" selection-end-column="116" />
+          <folding>
+            <element signature="e#468#494#0#HTML" expanded="true" />
+            <element signature="e#2466#2559#0#HTML" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/backend-admin/merchant/product/show.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="141" selection-start-line="8" selection-start-column="141" selection-end-line="8" selection-end-column="141" />
+          <folding>
+            <element signature="e#327#424#0#HTML" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/backend-admin/users/edit.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="133" selection-start-line="9" selection-start-column="81" selection-end-line="9" selection-end-column="133" />
+          <folding>
+            <element signature="e#323#399#0#HTML" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/backend-admin/users/create.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="152" selection-start-line="9" selection-start-column="152" selection-end-line="9" selection-end-column="152" />
+          <folding>
+            <element signature="e#325#394#0#HTML" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

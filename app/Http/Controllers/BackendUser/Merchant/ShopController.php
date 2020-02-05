@@ -94,7 +94,7 @@ class ShopController extends Controller
             ->get();
 
 
-        if ($now < $time_limit.' 16:00:00' )
+        if ($now < $time_limit.' 23:59:00' )
         {
             if ( count($order) > 0)
             {

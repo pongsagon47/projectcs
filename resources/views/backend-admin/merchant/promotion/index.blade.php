@@ -7,12 +7,12 @@
         {{--<h1 class="h3 mb-2 text-gray-800">Employee list</h1>--}}
 
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Promotion List</h1>
+            <h1 class="h3 mb-0 text-gray-800">โปรโมชั่นทั้งหมด</h1>
             <a href="{{route('promotion.create')}}" class="btn btn-primary btn-sm" style="margin-right: 40px">
                     <span class="icon text-white-50">
                       <i class="fas fa-plus"></i>
                     </span>
-                <span class="text">Create Promotion</span>
+                <span class="text">เพิ่มโปรโมชั่น</span>
             </a>
         </div>
 

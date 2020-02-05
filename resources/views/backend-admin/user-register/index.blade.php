@@ -5,10 +5,13 @@
 
         <!-- Page Heading -->
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">ข้อมูลลูกค้าที่สมัครสมาชิก</h1>
+
         </div>
 
         <div class="row">
+            <div class="col-md-4">
+                <h1 class="h3 mb-0 text-gray-800">ข้อมูลลูกค้าที่สมัครสมาชิก</h1>
+            </div>
             <div class="col"></div>
             <div class="col-md-3">
 
@@ -69,7 +72,7 @@
                                     <i class="fas fa-eye"></i> รายละเอียด
                                 </a>
 
-                                <button type="submit" class="btn btn-success " title="Delete Record">
+                                <button type="submit" class="btn btn-success " title="accept user">
                                     <i class="fas fa-check-circle"></i> ยอมรับสมาชิก
                                 </button>
 
@@ -81,7 +84,7 @@
                         <td>
                             <form class="delete_form" method="post" action="{{route('user-register.delete',[$value->id])}}">
                                 @csrf
-                                <button type="submit" class="btn btn-danger" title="Detail Record">
+                                <button type="submit" class="btn btn-danger" title="no accept">
                                     <i class="fas fa-trash-alt"></i> ไม่อนุมัติ
                                 </button>
                                 {{method_field('DELETE')}}

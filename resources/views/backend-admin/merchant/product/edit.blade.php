@@ -5,7 +5,7 @@
         <div class="row justify-content-center">
             <div class="col-md-12">
                 <div class="card">
-                    <div class="card-header" style="background: linear-gradient(45deg, #219d1c, #bdff33); font-size: 19.5px;">เพิ่มขนม</div>
+                    <div class="card-header" style="background: linear-gradient(45deg, #ffbb40, #fff49e); font-size: 19.5px;">เพิ่มขนม</div>
 
                     <div class="card-body">
                         <form method="POST" action="{{ route('product.update',[$data->id]) }}" style="padding: 1.3rem" enctype="multipart/form-data">

@@ -8,7 +8,7 @@
             <div class="col-md-12">
                 <!-- Page Heading -->
                 <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                    <h1 class="h3 mb-0 text-gray-800">รายการผลิตขนมทั้งหมด</h1>
+                    <h1 class="h3 mb-0 text-gray-800">รายละเอียดรายงานการผลิตขนม</h1>
                 </div>
 
                 <div class="card">
@@ -17,7 +17,7 @@
                         <div class="form-row ">
                             <div class="col-md-12">
 
-                                <h3 class="text-center"><i class="fas fa-shopping-cart"></i> รายการผลิตห้องขนมไทย</h3>
+                                <h3 class="text-center"><i class="fas fa-shopping-cart"></i> รายการผลิตขนมทั้งหมด</h3>
                                 <div class="table-responsive" style="margin-top: 30px">
                                     <table class="table" style="color: #000;text-align: center;">
                                         <thead>
@@ -54,7 +54,7 @@
                                     </table>
                                     <hr>
                                     <div class="text-center" style="padding-top: 9px">
-                                        <a  href="#"  onclick="history.go(-1)" >&laquo; กลับหน้ารายการผลิต</a>
+                                        <a  href="#"  onclick="history.go(-1)" >&laquo; กลับหน้ารายงานการผลิต</a>
                                     </div>
 
                                 </div>

@@ -23,7 +23,7 @@ class ReportProductionListController extends Controller
         $orderDetails = OrderDetail::query()
             ->select(DB::raw('DATE(created_at) as date'), DB::raw('sum(product_qty) as total'))
             ->groupBy(DB::raw('DATE(created_at)'))
-            ->paginate(3);
+            ->paginate(10);
 
         return view('backend-admin.report.dessert-production-list.index',compact('orderDetails','dateStart','dateEnd'));
     }
@@ -39,7 +39,7 @@ class ReportProductionListController extends Controller
             $orderDetails = OrderDetail::query()
                 ->select(DB::raw('DATE(created_at) as date'), DB::raw('sum(product_qty) as total'))
                 ->groupBy(DB::raw('DATE(created_at)'))
-                ->paginate(3);
+                ->paginate(10);
 
             return view('backend-admin.report.dessert-production-list.index',compact('orderDetails','dateStart','dateEnd'));
         }else
@@ -51,7 +51,7 @@ class ReportProductionListController extends Controller
                 ->select(DB::raw('DATE(created_at) as date'), DB::raw('sum(product_qty) as total'))
                 ->groupBy(DB::raw('DATE(created_at)'))
                 ->whereBetween('created_at',[$dateStartQ,$dateEndQ])
-                ->paginate(3);
+                ->paginate(10);
 
             $orderDetails->appends(Input::except('page'));
 

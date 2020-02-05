@@ -26,7 +26,7 @@ class EmployeeCotroller extends Controller
         $productQty = Product::all();
         $now = Carbon::now()->format('Y-m-d');
         $orderQty = Order::query()
-            ->where('order_status','>=','1')
+            ->where('order_status','>=','0')
             ->where('order_status','<=','3')
             ->where('created_at', '>=', $now.' 00:00:00')
             ->where('created_at', '<=', $now.' 23:59:59')

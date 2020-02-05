@@ -63,7 +63,7 @@
         <div class="table-responsive">
 
             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0" style="margin-top: 20px;background-color: white">
-                <thead style="font-size: 14px; color: #fffdfd; background: linear-gradient(45deg, #219d1c, #bdff33);">
+                <thead style="font-size: 14px; color: #fffdfd; background: linear-gradient(45deg, #ffbb40, #fff49e);">
                 <tr>
                     <th width="90">ID</th>
                     <th>ชื่อขนม</th>
