@@ -1,6 +1,6 @@
 @extends('employee.layouts.main')
 
-@section('title','USER LOGIN')
+@section('title','EMPLOYEE LOGIN')
 
 @section('content')
     <div class="container ">
@@ -46,7 +46,7 @@
                                     <input type="submit" value="ล็อกอิน" class="btn btn-success">
 
                                     <a class="btn btn-link" href="{{ route('emp.password.request') }}">
-                                        ลืมรหัสผ่าน
+                                        ลืมรหัสผ่าน ?
                                     </a>
 
                                 </div>

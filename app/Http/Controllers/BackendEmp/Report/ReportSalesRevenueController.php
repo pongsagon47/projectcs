@@ -21,7 +21,7 @@ class ReportSalesRevenueController extends Controller
         $dateStart ="";
         $dateEnd = "";
         $orders = Order::query()
-            ->where('order_status','4')
+            ->where('order_status','5')
             ->paginate('10');
         return view('backend-admin.report.sales-revenue.index',compact('orders','dateStart','dateEnd'));
     }
@@ -40,7 +40,7 @@ class ReportSalesRevenueController extends Controller
         if ($dateStart == null && $dateEnd == null)
         {
             $orders = Order::query()
-                ->where('order_status','4')
+                ->where('order_status','5')
                 ->paginate('10');
             return view('backend-admin.report.sales-revenue.index',compact('orders','dateStart','dateEnd'));
         }else
@@ -50,13 +50,13 @@ class ReportSalesRevenueController extends Controller
 
             $orders = Order::query()
                 ->whereBetween('created_at',[$dateStartQ,$dateEndQ])
-                ->where('order_status','4')
+                ->where('order_status','5')
                 ->paginate('10');
 
             $orders->appends(Input::except('page'));
 
-            $dateStart = date('d/m/Y',strtotime($dateStartQ)) ;
-            $dateEnd = date('d/m/Y',strtotime($dateEndQ.'- 1 days')) ;
+            $dateStart = date('Y/m/d',strtotime($dateStartQ)) ;
+            $dateEnd = date('Y/m/d',strtotime($dateEndQ.'- 1 days')) ;
 
             return view('backend-admin.report.sales-revenue.index',compact('orders','dateEnd','dateStart'));
         }

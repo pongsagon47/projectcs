@@ -82,7 +82,7 @@
 
                                     <label for="description" class="col-form-label text-md-right" style="font-size: 16.8px;">เนื้อหา</label>
 
-                                    <textarea rows="3" id="description"  placeholder="คำอธิบายเกี่ยวกับเรา" type="text" class="form-control ckeditor {{ $errors->has('description') ? ' is-invalid' : '' }}" name="description" ></textarea>
+                                    <textarea rows="3" id="description"  placeholder="คำอธิบายเกี่ยวกับเรา" type="text" class="form-control ckeditor {{ $errors->has('description') ? ' is-invalid' : '' }}" name="description" >{{old('description')}}</textarea>
 
                                     <small id="passwordHelpBlock" class="form-text text-muted">
                                         <span style="color:red">*</span> กรุณากรอกเนื้อหา

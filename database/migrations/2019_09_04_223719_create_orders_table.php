@@ -22,6 +22,10 @@ class CreateOrdersTable extends Migration
             $table->decimal('total_price_discounted')->nullable();
             $table->integer('total_qty');
             $table->integer('order_status');
+            $table->string('proof_of_deposit')->nullable();
+            $table->string('proof_of_payment')->nullable();
+            $table->integer('deposit')->nullable();
+            $table->integer('payment_status');
             $table->timestamps();
         });
     }

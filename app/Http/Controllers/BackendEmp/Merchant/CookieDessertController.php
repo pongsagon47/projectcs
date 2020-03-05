@@ -17,8 +17,8 @@ class CookieDessertController extends Controller
         //Time show just today Order
         $now = Carbon::now()->format('Y-m-d');
         $orders = Order::query()
-            ->where('order_status','>=','1')
-            ->where('order_status','<=','3')
+            ->where('order_status','>=','2')
+            ->where('order_status','<=','4')
             ->where('created_at', '>=', $now.' 00:00:00')
             ->where('created_at', '<=', $now.' 23:59:59')
             ->get();
@@ -133,7 +133,7 @@ class CookieDessertController extends Controller
                         if ( $cookie_dessert == $cookieDessert)
                         {
                             $order = Order::find($id);
-                            $order->order_status = 2;
+                            $order->order_status = 3;
                             $order->update();
 
                         }
@@ -239,7 +239,7 @@ class CookieDessertController extends Controller
                         if ( $cookie_dessert == $cookieDessert)
                         {
                             $order = Order::find($id);
-                            $order->order_status = 3;
+                            $order->order_status = 4;
                             $order->update();
 
                         }

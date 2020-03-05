@@ -13,7 +13,7 @@ class DeliveryController extends Controller
     public function index()
     {
         $orders = Order::query()
-            ->where('order_status','3')
+            ->where('order_status','4')
             ->paginate('5');
         return view('backend-admin.merchant.delivery.index',compact('orders'));
     }
@@ -38,7 +38,7 @@ class DeliveryController extends Controller
     public function success($id)
     {
         $order = Order::find($id);
-        $order->order_status = 4;
+        $order->order_status = 5;
         $order->update();
         return redirect()->route('delivery.index')->with('success','ส่งสินค้าสาขา '.$order->user->shop_name." เรียบร้อย");
     }

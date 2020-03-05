@@ -76,12 +76,12 @@
 
                         <div>
                             <div class="form-check form-check-inline" style="margin-left: 18px">
-                                <input class="form-check-input{{ $errors->has('last_name') ? ' is-invalid' : '' }}"
+                                <input class="form-check-input{{ $errors->has('gender') ? ' is-invalid' : '' }}"
                                        type="radio" name="gender" id="male" {{ ('ชาย' == $data->gender) ? 'checked' : '' }} value="ชาย">
                                 <label class="form-check-label" for="male">ชาย</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input{{ $errors->has('last_name') ? ' is-invalid' : '' }}"
+                                <input class="form-check-input{{ $errors->has('gender') ? ' is-invalid' : '' }}"
                                        type="radio" name="gender" id="female" {{ ('หญิง' == $data->gender) ? 'checked' : '' }} value="หญิง">
                                 <label class="form-check-label" for="female">หญิง</label>
                             </div>

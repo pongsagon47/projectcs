@@ -30,9 +30,9 @@
                                     <td>{{ $order->id }}</td>
                                     <td>{{ date('d/m/Y  เวลา H:i น.',strtotime($order->created_at)) }}</td>
                                     <td>{{ $order->total_qty }}</td>
-                                    <td>{{ $order->total_price }}</td>
+                                    <td>{{ number_format($order->total_price ,2) }}</td>
                                     <td>{{ $order->promotion->promotion_discount }} %</td>
-                                    <td>{{ $order->total_price_discounted }}</td>
+                                    <td>{{ number_format($order->total_price_discounted ,2) }}</td>
                                     <td width="270">
                                         <a href="{{route('report-order.bill',[$order->id])}}" class="btn btn-info" title="Order Detail" >
                                             <i class="fas fa-wallet"></i> ใบเสร็จ และ รายระเอียด
@@ -46,7 +46,7 @@
                         @else
                             <tbody style="font-size: 17px ; color: #110100">
                             <tr>
-                                <td class="text-center"  colspan="6"> ไม่มีรายงานการสั่งซื้อ </td>
+                                <td class="text-center"  colspan="7"> ไม่มีรายงานการสั่งซื้อ </td>
                             </tr>
                             </tbody>
                         @endif

@@ -19,7 +19,9 @@
                                 <h3 class="text-center"><i class="fas fa-shopping-cart"></i> ใบเสร็จรายการขนม</h3>
                                 <p style="padding-top: 40px;font-size: 16px">
                                     <strong> ชื่อผู้สั่งซื้อ : </strong> {{ $order->user->first_name." ".$order->user->last_name}} &nbsp;
-                                    <strong><i class="fas fa-store"></i></strong> {{ $order->user->shop_name}} <br>
+                                    <strong><i class="fas fa-store"></i></strong> {{ $order->user->shop_name}} <a href="{{route('delivery.user',[$order->user_id])}}" class="btn btn-sm btn-success" title="Order Detail" >
+                                        <i class="fas fa-user-alt"></i> ข้อมูลลูกค้า
+                                    </a> <br>
                                     <strong> ประเภทลูกค้า : </strong> {{ $order->user->role->name}} &nbsp;
                                     <strong><i class="fas fa-phone"></i></strong>  {{ $order->user->phone_number}} <br>
                                     <strong> พนักงานที่รับรายการสั่งซื้อ : </strong> {{ $order->employee->first_name." ".$order->employee->last_name}} &nbsp;
@@ -67,7 +69,7 @@
                                                 <td >{{ $orderDetail->products->name }}</td>
                                                 <td >{{ $orderDetail->products->price }} </td>
                                                 <td >{{ $orderDetail['product_qty'] }}</td>
-                                                <td >{{ $orderDetail['product_total_price'] }}</td>
+                                                <td >{{ number_format( $orderDetail['product_total_price'],2)  }}</td>
 
                                                 <?php $id++ ?>
                                                 @endforeach
@@ -84,14 +86,14 @@
                                                     @endif
                                                 </td>
                                                 <td>
-                                                    ราคารวม &nbsp; {{ $order->total_price }} บาท
+                                                    ราคารวม &nbsp; {{number_format( $order->total_price,2)  }} บาท
                                                     @if($order->promotion_id != null)
                                                         <br><br>
-                                                        ลด {{ $order->total_price - $order->total_price_discounted}} บาท
+                                                        ลด {{ number_format( $order->total_price - $order->total_price_discounted,2) }} บาท
                                                     @endif
                                                     @if($order->total_price_discounted != null)
                                                         <br><br>
-                                                        เหลือ {{ $order->total_price_discounted }} บาท
+                                                        เหลือ {{ number_format( $order->total_price_discounted,2)}} บาท
                                                     @endif
                                                 </td>
                                             </tr>

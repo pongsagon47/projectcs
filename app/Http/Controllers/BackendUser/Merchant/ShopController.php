@@ -93,7 +93,6 @@ class ShopController extends Controller
             ->where('user_id',Auth::user()->id)
             ->get();
 
-
         if ($now < $time_limit.' 23:59:00' )
         {
             if ( count($order) > 0)
@@ -118,6 +117,7 @@ class ShopController extends Controller
                 $order->total_price = $sum_price;
                 $order->total_qty = $sum_qty;
                 $order->order_status = 0;
+                $order->payment_status = 0;
                 $order->save();
 
                 for ($i = 0; $i < count($orders); $i++)

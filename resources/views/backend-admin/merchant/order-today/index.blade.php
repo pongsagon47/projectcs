@@ -38,6 +38,7 @@
                     <th>ประเภทลูกค้า</th>
                     <th>จำนวนรวม</th>
                     <th>สถานะรายการสั่งซื้อ</th>
+                    <th>สถานะการชำระเงิน</th>
                     <th>เวลาที่สั่งซื้อ</th>
                     <th>รายละเอียดและยืนยัน</th>
                 </tr>
@@ -51,19 +52,33 @@
                         <td>{{ $order->user->role->name }}</td>
                         <td width="120">{{ $order->total_qty }} ชิ้น</td>
                         @if($order->order_status == 0)
-                            <td width="180"><span class="badge badge-pill  badge-warning" style="color: white;font-size: 13px" >ยังไม่อนุมัติ</span></td>
+                            <td width="160"><span class="badge badge-pill  badge-warning" style="color: white;font-size: 13px" >ยังไม่อนุมัติ</span></td>
                         @elseif($order->order_status == 1)
-                            <td width="180"><span class="badge badge-pill  badge-success" style="color: white;font-size: 13px" >รับรายการสั่งซื้อ</span></td>
+                            <td width="160"><span class="badge badge-pill  badge-success" style="color: white;font-size: 13px" >รอชำระค่ามัดจำ</span></td>
                         @elseif($order->order_status == 2)
-                            <td width="180"><span class="badge badge-pill  badge-info" style="color: white;font-size: 13px" >กำลังดำเนินการผลิต</span></td>
+                            <td width="160"><span class="badge badge-pill  badge-info" style="color: white;font-size: 13px" >รับรายการสั่งซื้อ</span></td>
                         @elseif($order->order_status == 3)
-                            <td width="180"><span class="badge badge-pill  badge-primary" style="color: white;font-size: 13px" >กำลังดำเนินการจัดส่ง</span></td>
+                            <td width="160"><span class="badge badge-pill  badge-success" style="color: white;font-size: 13px" >กำลังดำเนินการผลิต</span></td>
                         @elseif($order->order_status == 4)
-                            <td width="180"><span class="badge badge-pill  badge-success" style="color: white;font-size: 13px" >เสร็จสิ้นรายการ</span></td>
+                            <td width="160"><span class="badge badge-pill  badge-primary" style="color: white;font-size: 13px" >กำลังดำเนินการจัดส่ง</span></td>
                         @endif
-                        <td>{{ date('d/m/Y  เวลา H:i น.',strtotime($order->created_at)) }}</td>
+                        @if($order->payment_status == 0)
+                            <td width="180"><span class="badge badge-pill  badge-warning" style="color: white;font-size: 13px" >ยังไม่ชำระเงิน</span></td>
+                        @elseif($order->payment_status == 1)
+                            <td width="180"><span class="badge badge-pill  badge-info" style="color: white;font-size: 13px" >ตรวจสอบการชำระเงินค่ามัดจำ</span></td>
+                        @elseif($order->payment_status == 2)
+                            <td width="180"><span class="badge badge-pill  badge-success" style="color: white;font-size: 13px" >ชำระค่ามัดจำเรียบร้อย</span></td>
+                        @elseif($order->payment_status == 3)
+                            <td width="180"><span class="badge badge-pill  badge-info" style="color: white;font-size: 13px" >ตรวจสอบการชำระเงินรายกาาสั้งซื้อ</span></td>
+                        @elseif($order->payment_status == 4)
+                            <td width="180"><span class="badge badge-pill  badge-success" style="color: white;font-size: 13px" >ชำระรายการสั่งซื้อเรียบร้อย</span></td>
+                        @endif
+                        <td>{{ date('เวลา H:i น.',strtotime($order->created_at)) }}</td>
                         <td>
-                            <a href="{{route('order-today.show',[$order->id])}}" class="btn btn-success " title="Confirm Record" >
+                            @if($order->payment_status == 3)
+                            <a href="{{route('order-today.proof',[$order->id])}}" class="btn-sm btn btn-info "><i class="fas fa-edit"> หลักฐานการชำระรายการสั่งซื้อ</i></a>
+                            @endif
+                            <a href="{{route('order-today.show',[$order->id])}}" class="btn btn-sm btn-success " title="Confirm Record" >
                                 <i class="far fa-eye"> รายละเอียด </i>
                             </a>
                         </td>

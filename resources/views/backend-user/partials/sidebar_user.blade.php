@@ -65,7 +65,7 @@
         </div>
 
         <!-- Nav Item - Charts -->
-        <li class="nav-item {{ Route::currentRouteName() === 'order-status.index'||Route::currentRouteName() === 'order-status.show'  ? 'active' : null }}">
+        <li class="nav-item {{ Route::currentRouteName() === 'order-status.index'||Route::currentRouteName() === 'order-status.show'||Route::currentRouteName() === 'order-status.payDeposit'  ? 'active' : null }}">
             <a class="nav-link" href="{{route('order-status.index')}}" >
                 <i class="fas fa-eye"></i>
                 <?php
@@ -80,7 +80,7 @@
                 $noti_order = count($orders);
                 ?>
                 <span>
-                    ดูสถานะและใบเสร็จ
+                    ดูสถานะและชำระเงิน
                     @if( $noti_order != null)
                         <span class="badge badge-danger">{{ $noti_order }}</span>
                     @endif

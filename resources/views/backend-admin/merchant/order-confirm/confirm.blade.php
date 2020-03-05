@@ -68,9 +68,9 @@
                                                     <td width="120">
 
                                                         @csrf
-                                                        <input width="120" id="productQty" class="form-control"
+                                                        <input width="120"  class="form-control"
                                                                type="number" name="product_qty"
-                                                               value="{{ $orderDetail->product_qty }}">
+                                                               value="{{ $orderDetail->product_qty }}" min="1" max="999">
                                                         <input type="hidden" name="product_price"
                                                                value="{{ $orderDetail->products->price }}">
                                                         <input type="hidden" name="product_total_price"
@@ -91,8 +91,8 @@
                                                             <i class="fas fa-edit"></i> แก้ไข
                                                         </button>
                                                     {{method_field('PUT')}}
+                                                    </td>
                                                 </form>
-                                                </td>
                                                 <td width="30">
                                                     <form class="delete_form" method="post"
                                                           action="{{route('order-confirm.delete',[$orderDetail->id])}}">
@@ -124,9 +124,20 @@
 
                                 </div>
 
-                                <form class="success_form" method="post" action="{{ route('order-confirm.success',[$order->id]) }}">
+                                <form class="success_form" method="post" action="{{ route('order-confirm.success',[$order->id]) }}" style="padding-top: 20px">
                                     @csrf
 
+                                    <div class="form-group row" style="padding-top: 23px">
+                                        <label class="col-md-5 col-form-label text-md-right" for="deposit"
+                                               style="font-size: 16.8px;">ค่ามัดจำ</label>
+
+                                        <div class="col-md-2">
+                                            <input id="deposit" min="0" max="100" class="form-control" type="number" name="deposit" value="{{ old('deposit') }}" >
+                                            <small class="form-text text-muted">
+                                                สามารถกรอกค่ามัดจำได้ที่นี้
+                                            </small>
+                                        </div>
+                                    </div>
                                     <div class="form-group row" style="padding-top: 23px">
                                         <label class="col-md-5 col-form-label text-md-right" for="promotion_id"
                                                style="font-size: 16.8px;">ส่วนลด</label>
@@ -144,7 +155,6 @@
                                             <small id="promotion_discount" class="form-text text-muted">
                                                 สามารถเลือกโปรโมชั่นได้ตรงนี้
                                             </small>
-
                                         </div>
                                     </div>
                                     <div style="padding-top: 23px">
@@ -172,21 +182,12 @@
 @endsection
 @push('script')
     <script>
-
-        $("#productQty").on("keypress", function (evt) {
-            var keycode = evt.charCode || evt.keyCode;
-            if (keycode == 46 || this.value.length == 4) {
-                return false;
-            }
-        });
-
-        $("#discount").on("keypress", function (evt) {
+        $("#deposit").on("keypress", function (evt) {
             var keycode = evt.charCode || evt.keyCode;
             if (keycode == 46 || this.value.length == 2) {
                 return false;
             }
         });
-
 
         $(document).ready(function () {
             $('.delete_form').on('submit', function () {
@@ -198,11 +199,21 @@
             })
         })
 
-
         $(document).ready(function () {
             $('.success_form').on('submit',function () {
                 if(confirm("Are you sure?")){
                         return true;
+                }
+                else {
+                    return false;
+                }
+            })
+        })
+
+        $(document).ready(function () {
+            $('.deposit_form').on('submit',function () {
+                if(confirm("คุณแน่ใจหรือไม่?")){
+                    return true;
                 }
                 else {
                     return false;

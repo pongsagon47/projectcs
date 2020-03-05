@@ -29,7 +29,7 @@ class EmployeeController extends Controller
         $search = "";
         $data = Employee::query()
             ->where('id', '!=', 1)
-            ->paginate(5);
+            ->paginate(10);
         return view ('backend-admin.employees.index',compact('data','search'));
     }
 
@@ -41,14 +41,14 @@ class EmployeeController extends Controller
         if ($search == ""){
             $data = Employee::query()
                 ->where('id', '!=', 1)
-                ->paginate(5);
+                ->paginate(10);
             return view('backend-admin.employees.index',['data' => $data,'search' => $search]);
         }
         else{
             $data = Employee::query()
                 ->where('id', '!=', 1)
                 ->where(DB::raw('concat(first_name," ",last_name)'),'LIKE','%'.$search.'%')
-                ->paginate(5);
+                ->paginate(10);
             $data->appends($request->only('search'));
             return view('backend-admin.employees.index',compact('data','search'));
         }

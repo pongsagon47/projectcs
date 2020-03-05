@@ -11,13 +11,19 @@
             @csrf
             <div class="form-group mb-2">
                 <label style="padding-right: 5px" >จากวันที่</label>
-{{--                <input type="date" value="" class="form-control"  name="from">--}}
-                <input class="form-control" type="text" name="dateStart" id="dateStart" value="{{$dateStart}}" />
+                @if($dateStart == null)
+                    <input class="form-control" type="text" name="dateStart" id="dateStart" value="{{ $dateStart }}" />
+                @else
+                    <input class="form-control" type="text" name="dateStart" id="dateStart" value="{{ date('d-M-Y',strtotime($dateStart))}}" />
+                @endif
             </div>
             <div class="form-group mx-sm-3 mb-2">
                 <label style="padding-right: 5px"> ถึง </label>
-{{--                <input type="date" value=""  class="form-control" >--}}
-                <input class="form-control" type="text" name="dateEnd" id="dateEnd" value="{{$dateEnd}}" />
+                @if($dateStart == null)
+                    <input class="form-control" type="text" name="dateEnd" id="dateEnd" value="{{ $dateEnd}}" />
+                @else
+                    <input class="form-control" type="text" name="dateEnd" id="dateEnd" value="{{ date('d-M-Y',strtotime($dateEnd))}}" />
+                @endif
             </div>
             <button class="btn btn-info mb-2"  type="submit"><i class="fa fa-search"></i></button>
         </form>
@@ -46,10 +52,10 @@
                             <td>{{ $order->user->shop_name }}</td>
                             <td>{{ $order->user->role->name }}</td>
                             <td width="120">{{ $order->total_qty }} ชิ้น</td>
-                            <td>{{ $order->total_price }} บาท</td>
+                            <td>{{ number_format($order->total_price,2)  }} บาท</td>
                             <td>{{ $order->promotion->promotion_discount }} %</td>
-                            <td>{{ $order->total_price_discounted }} บาท</td>
-                            <td>{{ date('d/m/Y  เวลา H:i น.',strtotime($order->created_at)) }}</td>
+                            <td>{{ number_format($order->total_price_discounted,2) }} บาท</td>
+                            <td>{{ date('d-M-Y  เวลา H:i น.',strtotime($order->created_at)) }}</td>
                             <td>
                                 <a href="{{route('report-revenue.detail',[$order->id])}}" class="btn btn-success "
                                    title="Confirm Record">
@@ -63,7 +69,7 @@
                 @else
                     <tbody style="font-size: 17px ; color: #110100">
                     <tr>
-                        <td class="text-center" colspan="7"> วันนี้ยังไม่มีรายการสั่งซื้อ</td>
+                        <td class="text-center" colspan="9"> วันนี้ยังไม่มีรายการสั่งซื้อ</td>
                     </tr>
                     </tbody>
                 @endif

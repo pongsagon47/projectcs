@@ -27,8 +27,9 @@
                             <th width="180">ชื่อร้าน</th>
                             <th width="180">ประเภทลูกค้า</th>
                             <th>สถานะรายการขนม</th>
+                            <th>สถานะการชำระเงิน</th>
                             <th width="180">เวลาที่สั่งซื้อ</th>
-                            <th width="400">ใบเสร็จ และ ยืนยัน</th>
+                            <th width="260">ใบเสร็จ และ ยืนยัน</th>
                         </tr>
                         </thead>
                         @if( count($orders) != 0)
@@ -38,16 +39,24 @@
                                     <td>{{ $order->id }}</td>
                                     <td>{{ $order->user->shop_name }}</td>
                                     <td>{{ $order->user->role->name }}</td>
-                                    @if($order->order_status == 3)
+                                    @if($order->order_status == 4)
                                         <td width="180"><span class="badge badge-pill  badge-primary" style="color: white;font-size: 13px" >กำลังดำเนินการจัดส่ง</span></td>
                                     @endif
-                                    <td>{{ $order->created_at }}</td>
-                                    <td width="270">
-                                        <a href="{{route('delivery.bill',[$order->id])}}" class="btn btn-info" title="Order Detail" >
+                                    @if($order->payment_status == 0)
+                                        <td width="180"><span class="badge badge-pill  badge-warning" style="color: white;font-size: 13px" >ยังไม่ชำระเงิน</span></td>
+                                    @elseif($order->payment_status == 1)
+                                        <td width="180"><span class="badge badge-pill  badge-info" style="color: white;font-size: 13px" >ตรวจสอบการชำระเงินค่ามัดจำ</span></td>
+                                    @elseif($order->payment_status == 2)
+                                        <td width="180"><span class="badge badge-pill  badge-success" style="color: white;font-size: 13px" >ชำระค่ามัดจำเรียบร้อย</span></td>
+                                    @elseif($order->payment_status == 3)
+                                        <td width="180"><span class="badge badge-pill  badge-info" style="color: white;font-size: 13px" >ตรวจสอบการชำระเงินรายกาาสั้งซื้อ</span></td>
+                                    @elseif($order->payment_status == 4)
+                                        <td width="180"><span class="badge badge-pill  badge-success" style="color: white;font-size: 13px" >ชำระรายการสั่งซื้อเรียบร้อย</span></td>
+                                    @endif
+                                    <td>{{ date('เวลา H:i น.',strtotime($order->created_at)) }}</td>
+                                    <td >
+                                        <a href="{{route('delivery.bill',[$order->id])}}" class="btn btn-sm btn-info" title="Order Detail" >
                                             <i class="fas fa-wallet"></i> ใบเสร็จ และ ยืนยันการส่งสินค้า
-                                        </a>
-                                        <a href="{{route('delivery.user',[$order->user_id])}}" class="btn btn-success" title="Order Detail" >
-                                            <i class="fas fa-user-alt"></i> ข้อมูลลูกค้า
                                         </a>
                                     </td>
 
@@ -57,7 +66,7 @@
                         @else
                             <tbody style="font-size: 17px ; color: #110100">
                             <tr>
-                                <td class="text-center"  colspan="6"> ยังไม่มีรายการส่ง </td>
+                                <td class="text-center"  colspan="7"> ยังไม่มีรายการส่ง </td>
                             </tr>
                             </tbody>
                         @endif

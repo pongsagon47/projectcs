@@ -68,7 +68,7 @@
                                                 <td >{{ $orderDetail->products->name }}</td>
                                                 <td >{{ $orderDetail->products->price }} </td>
                                                 <td >{{ $orderDetail['product_qty'] }}</td>
-                                                <td >{{ $orderDetail['product_total_price'] }}</td>
+                                                <td >{{ number_format($orderDetail['product_total_price'] ,2) }}</td>
 
                                                 <?php $id++ ?>
                                                 @endforeach
@@ -85,24 +85,24 @@
                                                     @endif
                                                 </td>
                                                 <td>
-                                                   ราคารวม &nbsp; {{ $order->total_price }} บาท
+                                                   ราคารวม &nbsp; {{ number_format($order->total_price,2)  }} บาท
                                                     @if($order->promotion_id != null)
                                                         <br><br>
-                                                        ลด {{ $order->total_price - $order->total_price_discounted}} บาท
+                                                        ลด {{number_format( $order->total_price - $order->total_price_discounted,2) }} บาท
                                                     @endif
                                                     @if($order->total_price_discounted != null)
                                                     <br><br>
-                                                    เหลือ {{ $order->total_price_discounted }} บาท
+                                                    เหลือ {{ number_format( $order->total_price_discounted,2)}} บาท
                                                     @endif
                                                 </td>
                                             </tr>
                                             </tbody>
                                     </table>
+
                                     <hr>
                                     <div class="text-center">
                                         <a href="{{route('order-status.index')}}">กลับไปหน้าดูสถานะ</a>
                                     </div>
-
                                 </div>
                             </div>
                         </div>
@@ -113,4 +113,6 @@
         </div>
     </div>
 @endsection
+
+
 

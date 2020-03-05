@@ -20,7 +20,7 @@ class ProductController extends Controller
     public function index()
     {
         $search = "";
-        $products = Product::paginate(5);
+        $products = Product::paginate(10);
         return view('backend-admin.merchant.product.index',['products' => $products,'search' => $search]);
     }
 
@@ -43,12 +43,12 @@ class ProductController extends Controller
     {
         $search = $request->search;
         if ($search == ""){
-            $products = Product::paginate(5);
+            $products = Product::paginate(10);
             return view('backend-admin.merchant.product.index',['products' => $products,'search' => $search]);
         }
         else{
             $products = Product::where('name','LIKE','%'.$request->search.'%')
-                ->paginate(5);
+                ->paginate(10);
             $products->appends($request->only('search'));
             return view('backend-admin.merchant.product.index',compact('products','search'));
         }

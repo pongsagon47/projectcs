@@ -55,8 +55,8 @@ class ReportProductionListController extends Controller
 
             $orderDetails->appends(Input::except('page'));
 
-            $dateStart = date('d/m/Y',strtotime($dateStartQ)) ;
-            $dateEnd = date('d/m/Y',strtotime($dateEndQ.'- 1 days')) ;
+            $dateStart = date('Y/m/d',strtotime($dateStartQ)) ;
+            $dateEnd = date('Y/m/d',strtotime($dateEndQ.'- 1 days')) ;
 
             return view('backend-admin.report.dessert-production-list.index',compact('orderDetails','dateStart','dateEnd'));
         }

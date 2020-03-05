@@ -21,10 +21,10 @@
 @if(auth()->user()->role_employee_id == 1)
     <!-- Divider -->
         <hr class="sidebar-divider">
-{{--        <!-- Heading -->--}}
-{{--        <div class="sidebar-heading">--}}
-{{--            คำร้องขอสมัครสมาชิก--}}
-{{--        </div>--}}
+        {{--        <!-- Heading -->--}}
+        {{--        <div class="sidebar-heading">--}}
+        {{--            คำร้องขอสมัครสมาชิก--}}
+        {{--        </div>--}}
         <div class="sidebar-heading">
             การจัดการข้อมูล
         </div>
@@ -34,7 +34,7 @@
         ||Route::currentRouteName() === 'user-register.detail'  ? 'active' : null }}">
             <a class="nav-link" href="{{route('user-register.index')}}">
                 <?php
-                $users = \App\Models\User::query()->where('status',0)->get();
+                $users = \App\Models\User::query()->where('status', 0)->get();
                 $noti_user = count($users);
                 ?>
                 <i class="fas fa-users"></i>
@@ -49,14 +49,14 @@
 
 
         <!-- Divider -->
-{{--        <hr class="sidebar-divider">--}}
-{{--        <!-- Heading -->--}}
-{{--        <div class="sidebar-heading">--}}
-{{--            การจัดการข้อมูล--}}
-{{--        </div>--}}
+    {{--        <hr class="sidebar-divider">--}}
+    {{--        <!-- Heading -->--}}
+    {{--        <div class="sidebar-heading">--}}
+    {{--            การจัดการข้อมูล--}}
+    {{--        </div>--}}
 
 
-        <!-- Nav Item - Utilities Collapse Menu -->
+    <!-- Nav Item - Utilities Collapse Menu -->
         <li class="nav-item {{ Route::currentRouteName() === 'user.index'|| Route::currentRouteName() === 'employee.index'|| Route::currentRouteName() === 'employee.detail'
     || Route::currentRouteName() === 'user.detail'|| Route::currentRouteName() === 'employee.edit'|| Route::currentRouteName() === 'user.edit'
     || Route::currentRouteName() === 'user.create'|| Route::currentRouteName() === 'employee.create'|| Route::currentRouteName() === 'employee.search'
@@ -93,14 +93,14 @@
         </li>
 
         <!-- Divider -->
-{{--        <hr class="sidebar-divider">--}}
+    {{--        <hr class="sidebar-divider">--}}
 
-        <!-- Heading -->
-{{--        <div class="sidebar-heading">--}}
-{{--            จัดการหน้าเว็บ--}}
-{{--        </div>--}}
+    <!-- Heading -->
+    {{--        <div class="sidebar-heading">--}}
+    {{--            จัดการหน้าเว็บ--}}
+    {{--        </div>--}}
 
-        <!-- Nav Item - Pages Collapse Menu -->
+    <!-- Nav Item - Pages Collapse Menu -->
         <li class="nav-item {{ Route::currentRouteName() === 'about-us.create'|| Route::currentRouteName() === 'intro.create'
         ||Route::currentRouteName() === 'news.index'||Route::currentRouteName() === 'news-category.index'||Route::currentRouteName() === 'news-category.create'
         ||Route::currentRouteName() === 'news.index'||Route::currentRouteName() === 'news.create'? 'active' : null }}">
@@ -130,7 +130,7 @@
         </li>
 @endif
 @if(auth()->user()->role_employee_id == 2)
-        <!-- Divider -->
+    <!-- Divider -->
         <hr class="sidebar-divider">
 
         <!-- Heading -->
@@ -139,15 +139,16 @@
         </div>
 
         <!-- Nav Item - Charts -->
-        <li class="nav-item {{ Route::currentRouteName() === 'order-confirm.index'||Route::currentRouteName() === 'order-confirm.confirm'  ? 'active' : null }}">
+        <li class="nav-item {{ Route::currentRouteName() === 'order-confirm.index'||Route::currentRouteName() === 'order-confirm.confirm'||Route::currentRouteName() === 'order-confirm.proof'  ? 'active' : null }}">
             <a class="nav-link" href="{{route('order-confirm.index')}}">
                 <i class="fas fa-shopping-cart"></i>
                 <?php
                 $now = Carbon\Carbon::now()->format('Y-m-d');
                 $orders = \App\Models\Order::query()
-                    ->where('order_status',0)
-                    ->where('created_at', '>=', $now.' 00:00:00')
-                    ->where('created_at', '<=', $now.' 23:59:59')
+                    ->where('order_status', '>=', '0')
+                    ->where('order_status', '<=', '1')
+                    ->where('created_at', '>=', $now . ' 00:00:00')
+                    ->where('created_at', '<=', $now . ' 23:59:59')
                     ->get();
                 $noti_order = count($orders);
                 ?>
@@ -160,25 +161,25 @@
         </li>
 
         <!-- Divider -->
-{{--        <hr class="sidebar-divider">--}}
+    {{--        <hr class="sidebar-divider">--}}
 
-        <!-- Heading -->
-{{--        <div class="sidebar-heading">--}}
-{{--            ดูรายการสั่งซื้อวันนี้--}}
-{{--        </div>--}}
+    <!-- Heading -->
+    {{--        <div class="sidebar-heading">--}}
+    {{--            ดูรายการสั่งซื้อวันนี้--}}
+    {{--        </div>--}}
 
-        <!-- Nav Item - Pages Collapse Menu -->
-        <li class="nav-item {{ Route::currentRouteName() === 'order-today.index'||Route::currentRouteName() === 'order-today.show'||Route::currentRouteName() === 'order-today.production'? 'active' : null }}">
+    <!-- Nav Item - Pages Collapse Menu -->
+        <li class="nav-item {{ Route::currentRouteName() === 'order-today.index'||Route::currentRouteName() === 'order-today.show'||Route::currentRouteName() === 'order-today.production'||Route::currentRouteName() === 'order-today.proof'? 'active' : null }}">
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseOrderToday"
                aria-expanded="true" aria-controls="collapseOrderToday">
                 <i class="fas fa-shopping-cart"></i>
                 <?php
                 $now = Carbon\Carbon::now()->format('Y-m-d');
                 $orders_today = \App\Models\Order::query()
-                    ->where('order_status','>=','1')
-                    ->where('order_status','<=','3')
-                    ->where('created_at', '>=', $now.' 00:00:00')
-                    ->where('created_at', '<=', $now.' 23:59:59')
+                    ->where('order_status', '>=', '2')
+                    ->where('order_status', '<=', '4')
+                    ->where('created_at', '>=', $now . ' 00:00:00')
+                    ->where('created_at', '<=', $now . ' 23:59:59')
                     ->get();
                 $today_order = count($orders_today);
                 ?>
@@ -190,11 +191,11 @@
                 </span>
             </a>
             <div id="collapseOrderToday"
-                 class="collapse {{ Route::currentRouteName() === 'order-today.index'||Route::currentRouteName() === 'order-today.show'||Route::currentRouteName() === 'order-today.production'? 'show' : null }}"
-                 aria-labelledby="headingOrderToday" data-parent="#accordionSidebar">
+                 class="collapse {{ Route::currentRouteName() === 'order-today.index'||Route::currentRouteName() === 'order-today.show'||Route::currentRouteName() === 'order-today.production'||
+                 Route::currentRouteName() === 'order-today.proof'? 'show' : null }}" aria-labelledby="headingOrderToday" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">รายการสั่งซื้อ :</h6>
-                    <a class="collapse-item {{ Route::currentRouteName() === 'order-today.index'||Route::currentRouteName() === 'order-today.show'? 'active' : null }}"
+                    <a class="collapse-item {{ Route::currentRouteName() === 'order-today.index'||Route::currentRouteName() === 'order-today.show'||Route::currentRouteName() === 'order-today.proof'? 'active' : null }}"
                        href="{{ route('order-today.index') }}">
                         รายการสั่งซื้อ
                         @if( $today_order != null)
@@ -225,9 +226,9 @@
                 <i class="fas fa-truck"></i>
                 <?php
                 $orders_delivery = \App\Models\Order::query()
-                    ->where('order_status',3)
+                    ->where('order_status', 4)
                     ->get();
-                $today_delivery  = count($orders_delivery);
+                $today_delivery = count($orders_delivery);
                 ?>
                 <span> รายการที่ต้องส่งสินค้า
                      @if( $today_delivery != null)
@@ -257,10 +258,10 @@
 
                 $now = Carbon\Carbon::now()->format('Y-m-d');
                 $productions = \App\Models\ProductionStatus::query()
-                    ->where('thai_dessert','>=',0)
-                    ->where('thai_dessert','<=',1)
-                    ->where('created_at', '>=', $now.' 00:00:00')
-                    ->where('created_at', '<=', $now.' 23:59:59')
+                    ->where('thai_dessert', '>=', 0)
+                    ->where('thai_dessert', '<=', 1)
+                    ->where('created_at', '>=', $now . ' 00:00:00')
+                    ->where('created_at', '<=', $now . ' 23:59:59')
                     ->get();
 
                 $thai_order = count($productions);
@@ -310,10 +311,10 @@
 
                 $now = Carbon\Carbon::now()->format('Y-m-d');
                 $productions = \App\Models\ProductionStatus::query()
-                    ->where('role_dessert','>=',0)
-                    ->where('role_dessert','<=',1)
-                    ->where('created_at', '>=', $now.' 00:00:00')
-                    ->where('created_at', '<=', $now.' 23:59:59')
+                    ->where('role_dessert', '>=', 0)
+                    ->where('role_dessert', '<=', 1)
+                    ->where('created_at', '>=', $now . ' 00:00:00')
+                    ->where('created_at', '<=', $now . ' 23:59:59')
                     ->get();
 
                 $role_order = count($productions);
@@ -363,10 +364,10 @@
 
                 $now = Carbon\Carbon::now()->format('Y-m-d');
                 $productions = \App\Models\ProductionStatus::query()
-                    ->where('brownie_dessert','>=',0)
-                    ->where('brownie_dessert','<=',1)
-                    ->where('created_at', '>=', $now.' 00:00:00')
-                    ->where('created_at', '<=', $now.' 23:59:59')
+                    ->where('brownie_dessert', '>=', 0)
+                    ->where('brownie_dessert', '<=', 1)
+                    ->where('created_at', '>=', $now . ' 00:00:00')
+                    ->where('created_at', '<=', $now . ' 23:59:59')
                     ->get();
 
                 $brownie_order = count($productions);
@@ -415,12 +416,12 @@
                 <i class="fas fa-stroopwafel"></i>
                 <?php
                 $now = Carbon\Carbon::now()->format('Y-m-d');
-                    $productions = \App\Models\ProductionStatus::query()
-                        ->where('cake_dessert','>=',0)
-                        ->where('cake_dessert','<=',1)
-                        ->where('created_at', '>=', $now.' 00:00:00')
-                        ->where('created_at', '<=', $now.' 23:59:59')
-                        ->get();
+                $productions = \App\Models\ProductionStatus::query()
+                    ->where('cake_dessert', '>=', 0)
+                    ->where('cake_dessert', '<=', 1)
+                    ->where('created_at', '>=', $now . ' 00:00:00')
+                    ->where('created_at', '<=', $now . ' 23:59:59')
+                    ->get();
 
                 $cake_order = count($productions);
                 ?>
@@ -470,10 +471,10 @@
 
                 $now = Carbon\Carbon::now()->format('Y-m-d');
                 $productions = \App\Models\ProductionStatus::query()
-                    ->where('cookie_dessert','>=',0)
-                    ->where('cookie_dessert','<=',1)
-                    ->where('created_at', '>=', $now.' 00:00:00')
-                    ->where('created_at', '<=', $now.' 23:59:59')
+                    ->where('cookie_dessert', '>=', 0)
+                    ->where('cookie_dessert', '<=', 1)
+                    ->where('created_at', '>=', $now . ' 00:00:00')
+                    ->where('created_at', '<=', $now . ' 23:59:59')
                     ->get();
 
                 $cookie_order = count($productions);
@@ -506,48 +507,51 @@
         </li>
 @endif
 @if(auth()->user()->role_employee_id == 1)
-<!-- Divider -->
-    <hr class="sidebar-divider">
+    <!-- Divider -->
+        <hr class="sidebar-divider">
 
-    <!-- Heading -->
-    <div class="sidebar-heading">
-        ออกรายงาน
-    </div>
-
-    <!-- Nav Item - Pages Collapse Menu -->
-    <li class="nav-item {{ Route::currentRouteName() === 'report-revenue.index'||Route::currentRouteName() === 'report-revenue.search'||Route::currentRouteName() === 'production-list.index'
-    ||Route::currentRouteName() === 'branch-store.index'||Route::currentRouteName() === 'dessert-sales.index'||Route::currentRouteName() === 'production-list.search'
-    ||Route::currentRouteName() === 'production-list.detail'||Route::currentRouteName() === 'report-revenue.detail'? 'active' : null }}">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseReport" aria-expanded="true" aria-controls="collapseReport">
-            <i class="fas fa-fw fa-cog"></i>
-            <span>รายงานรายการขนม</span>
-        </a>
-        <div id="collapseReport" class="collapse {{ Route::currentRouteName() === 'report-revenue.index'||Route::currentRouteName() === 'report-revenue.search'||Route::currentRouteName() === 'production-list.index'
-        ||Route::currentRouteName() === 'branch-store.index'||Route::currentRouteName() === 'dessert-sales.index'||Route::currentRouteName() === 'production-list.search'
-        ||Route::currentRouteName() === 'production-list.detail'||Route::currentRouteName() === 'report-revenue.detail'? 'show' : null }}"
-             aria-labelledby="headingReport" data-parent="#accordionSidebar">
-            <div class="bg-white py-2 collapse-inner rounded">
-                <h6 class="collapse-header">รายงาน :</h6>
-                <a class="collapse-item {{ Route::currentRouteName() === 'production-list.index'||Route::currentRouteName() === 'production-list.search'
-                ||Route::currentRouteName() === 'production-list.detail'? 'active' : null }}"
-                   href="{{ route('production-list.index') }}">รายงานการผลิตขนมใน<br>แต่ละวัน</a>
-                <a class="collapse-item {{ Route::currentRouteName() === 'report-revenue.index'||Route::currentRouteName() === 'report-revenue.search'
-                ||Route::currentRouteName() === 'report-revenue.detail'? 'active' : null }}"
-                   href="{{ route('report-revenue.index') }}">รายงานรายได้จากการขาย<br>ในแต่ละวัน</a>
-                <a class="collapse-item {{ Route::currentRouteName() === 'dessert-sales.index'? 'active' : null }}"
-                   href="{{ route('dessert-sales.index') }}">รายงานขนมที่มียอดขาย<br>มากที่สุดและน้อยที่สุด</a>
-                <a class="collapse-item {{ Route::currentRouteName() === 'branch-store.index'? 'active' : null }}"
-                   href="{{ route('branch-store.index') }}">รายงานสาขาที่มียอดสั่ง<br>ขนมมากที่สุดน้อยที่สุด</a>
-            </div>
+        <!-- Heading -->
+        <div class="sidebar-heading">
+            ออกรายงาน
         </div>
-    </li>
+
+        <!-- Nav Item - Pages Collapse Menu -->
+        <li class="nav-item {{ Route::currentRouteName() === 'report-revenue.index'||Route::currentRouteName() === 'report-revenue.search'||Route::currentRouteName() === 'production-list.index'
+    ||Route::currentRouteName() === 'branch-store.index'||Route::currentRouteName() === 'dessert-sales.index'||Route::currentRouteName() === 'production-list.search'
+    ||Route::currentRouteName() === 'production-list.detail'||Route::currentRouteName() === 'report-revenue.detail'||Route::currentRouteName() === 'dessert-sales.search'
+    ||Route::currentRouteName() === 'branch-store.search'? 'active' : null }}">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseReport"
+               aria-expanded="true" aria-controls="collapseReport">
+                <i class="fas fa-fw fa-cog"></i>
+                <span>รายงานรายการขนม</span>
+            </a>
+            <div id="collapseReport" class="collapse {{ Route::currentRouteName() === 'report-revenue.index'||Route::currentRouteName() === 'report-revenue.search'||Route::currentRouteName() === 'production-list.index'
+        ||Route::currentRouteName() === 'branch-store.index'||Route::currentRouteName() === 'dessert-sales.index'||Route::currentRouteName() === 'production-list.search'
+        ||Route::currentRouteName() === 'production-list.detail'||Route::currentRouteName() === 'report-revenue.detail'||Route::currentRouteName() === 'dessert-sales.search'
+        ||Route::currentRouteName() === 'branch-store.search'? 'show' : null }}"
+                 aria-labelledby="headingReport" data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <h6 class="collapse-header">รายงาน :</h6>
+                    <a class="collapse-item {{ Route::currentRouteName() === 'production-list.index'||Route::currentRouteName() === 'production-list.search'
+                ||Route::currentRouteName() === 'production-list.detail'? 'active' : null }}"
+                       href="{{ route('production-list.index') }}">รายงานการผลิตขนมใน<br>แต่ละวัน</a>
+                    <a class="collapse-item {{ Route::currentRouteName() === 'report-revenue.index'||Route::currentRouteName() === 'report-revenue.search'
+                ||Route::currentRouteName() === 'report-revenue.detail'? 'active' : null }}"
+                       href="{{ route('report-revenue.index') }}">รายงานรายได้จากการขาย<br>ในแต่ละวัน</a>
+                    <a class="collapse-item {{ Route::currentRouteName() === 'dessert-sales.index'||Route::currentRouteName() === 'dessert-sales.search'? 'active' : null }}"
+                       href="{{ route('dessert-sales.index') }}">รายงานขนมที่มียอดขาย<br>มากที่สุดและน้อยที่สุด</a>
+                    <a class="collapse-item {{ Route::currentRouteName() === 'branch-store.index'||Route::currentRouteName() === 'branch-store.search'? 'active' : null }}"
+                       href="{{ route('branch-store.index') }}">รายงานสาขาที่มียอดสั่ง<br>ขนมมากที่สุดน้อยที่สุด</a>
+                </div>
+            </div>
+        </li>
 @endif
 
-        <!-- Divider -->
-        <hr class="sidebar-divider d-none d-md-block">
+<!-- Divider -->
+    <hr class="sidebar-divider d-none d-md-block">
 
 
-<!-- Sidebar Toggler (Sidebar) -->
+    <!-- Sidebar Toggler (Sidebar) -->
     <div class="text-center d-none d-md-inline">
         <button class="rounded-circle border-0" id="sidebarToggle"></button>
     </div>

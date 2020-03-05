@@ -97,7 +97,7 @@ class DatabaseSeeder extends Seeder
         DB::table('promotions')->insert([
             'promotion_name' => 'ร้านสาขา',
             'promotion_description' => 'โปรโมชั่นสำหรับร้านสาขา',
-            'promotion_discount' => 5,
+            'promotion_discount' => 8,
             'created_at' => now(),
             'updated_at' => now()
         ]);
@@ -105,7 +105,7 @@ class DatabaseSeeder extends Seeder
         DB::table('promotions')->insert([
             'promotion_name' => 'ร้านเฟรนไชน์',
             'promotion_description' => 'โปรโมชั่นสำหรับร้านเฟรนไชน์',
-            'promotion_discount' => 3,
+            'promotion_discount' => 6,
             'created_at' => now(),
             'updated_at' => now()
         ]);
@@ -113,7 +113,7 @@ class DatabaseSeeder extends Seeder
         DB::table('promotions')->insert([
             'promotion_name' => 'ร้านที่รับไปขาย',
             'promotion_description' => 'โปรโมชั่นสำหรับร้านที่รับไปขาย	',
-            'promotion_discount' => 2,
+            'promotion_discount' => 4,
             'created_at' => now(),
             'updated_at' => now()
         ]);

@@ -100,7 +100,7 @@
 
             </div>
             <div class="py-3 text-center">
-                <a class="btn btn-primary" href="{{route('delivery.index')}}" >&laquo; กลับหน้ารายการส่งสินค้า</a>
+                <a class="btn btn-primary" href="{{route('delivery.bill',[$data->id])}}" >&laquo; กลับหน้ายืนยันการส่งสินค้า</a>
             </div>
         </div>
     </div>

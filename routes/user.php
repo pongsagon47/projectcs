@@ -51,6 +51,8 @@ Route::group([
     ],function (){
         Route::get('/','OrderStatusController@index')->name('index');
         Route::get('{id}/bill','OrderStatusController@bill')->name('bill');
+        Route::get('{id}/paypal','OrderStatusController@payDeposit')->name('payDeposit');
+        Route::put('{id}/deposit','OrderStatusController@deposit')->name('deposit');
     });
 
     Route::group([

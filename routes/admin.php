@@ -165,6 +165,9 @@ Route::group([
         Route::put('edit','OrderConfirmController@editOrderDetail')->name('edit');
         Route::delete('{id}/delete','OrderConfirmController@destroy')->name('delete');
         Route::put('{id}/success/order','OrderConfirmController@orderSuccess')->name('success');
+        Route::get('{id}/proof/order','OrderConfirmController@proof')->name('proof');
+        Route::put('{id}/proof/success','OrderConfirmController@proofSuccess')->name('proofSuccess');
+        Route::put('{id}/proof/delete','OrderConfirmController@destroyProof')->name('destroyProof');
     });
 
     Route::group([
@@ -176,6 +179,9 @@ Route::group([
         Route::get('/','OrderTodayController@index')->name('index');
         Route::get('{id}/show','OrderTodayController@show')->name('show');
         Route::get('/production/status','OrderTodayController@productionStatus')->name('production');
+        Route::get('{id}/proof/order','OrderTodayController@proof')->name('proof');
+        Route::put('{id}/proof/success','OrderTodayController@proofSuccess')->name('proofSuccess');
+        Route::put('{id}/proof/delete','OrderTodayController@destroyProof')->name('destroyProof');
     });
 
     Route::group([
@@ -274,6 +280,7 @@ Route::group([
         'middleware' => ['admin.check'],
     ],function (){
         Route::get('/','ReportBrachStoreController@index')->name('index');
+        Route::any('search/branch-store','ReportBrachStoreController@search')->name('search');
 
     });
 
@@ -296,6 +303,7 @@ Route::group([
         'middleware' => ['admin.check'],
     ],function (){
         Route::get('/','ReportDessertSalesController@index')->name('index');
+        Route::any('search/dessert-sales','ReportDessertSalesController@search')->name('search');
 
     });
 });

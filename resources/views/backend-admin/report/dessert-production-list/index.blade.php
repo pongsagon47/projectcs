@@ -13,13 +13,19 @@
             @csrf
             <div class="form-group mb-2">
                 <label style="padding-right: 5px" >จากวันที่</label>
-                {{--                <input type="date" value="" class="form-control"  name="from">--}}
-                <input class="form-control" type="text" name="dateStart" id="dateStart" value="{{$dateStart}}" />
+                @if($dateStart == null)
+                    <input class="form-control" type="text" name="dateStart" id="dateStart" value="{{ $dateStart }}" />
+                @else
+                    <input class="form-control" type="text" name="dateStart" id="dateStart" value="{{ date('d-M-Y',strtotime($dateStart))}}" />
+                @endif
             </div>
             <div class="form-group mx-sm-3 mb-2">
                 <label style="padding-right: 5px"> ถึง </label>
-                {{--                <input type="date" value=""  class="form-control" >--}}
-                <input class="form-control" type="text" name="dateEnd" id="dateEnd" value="{{$dateEnd}}" />
+                @if($dateStart == null)
+                    <input class="form-control" type="text" name="dateEnd" id="dateEnd" value="{{ $dateEnd}}" />
+                @else
+                    <input class="form-control" type="text" name="dateEnd" id="dateEnd" value="{{ date('d-M-Y',strtotime($dateEnd))}}" />
+                @endif
             </div>
             <button class="btn btn-info mb-2"  type="submit"><i class="fa fa-search"></i></button>
         </form>
@@ -42,7 +48,7 @@
                         <tbody style="font-size: 14px ; color: #110100">
                         <tr>
 {{--                            <th scope="row">{{ $id }}</th>--}}
-                            <td>{{ date('วันที่ d/m/Y ',strtotime($orderDetail->date)) }}</td>
+                            <td>{{ date('วันที่ d-M-Y ',strtotime($orderDetail->date)) }}</td>
                             <td>{{$orderDetail->total}} ชิ้น</td>
                             <td>
                                 <a href="{{ route('production-list.detail',[$orderDetail->date]) }}" class="btn btn-success "

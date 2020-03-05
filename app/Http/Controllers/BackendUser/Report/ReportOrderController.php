@@ -14,7 +14,7 @@ class ReportOrderController extends Controller
     {
         $orders = Order::query()
             ->where('user_id',Auth::user()->id)
-            ->where('order_status','4')
+            ->where('order_status','5')
             ->get();
 
         return view('backend-user.report.report-order.index',compact('orders'));
