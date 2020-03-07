@@ -30,14 +30,18 @@
                     <td>{{ $order->user->shop_name }}</td>
                     <td>{{ $order->user->role->name }}</td>
                     <td>{{ $order->total_price_discounted }}</td>
-                    <td>{{ $order->deposit }} %</td>
+                    <td>{{ $order->deposit==null?"ไม่มีค่ามัดจำ":$order->deposit." %" }}</td>
                     <td>
                         <?php
                         $resultDivide = $order->total_price_discounted / 100;
 
                         $payDeposit = $resultDivide * $order->deposit;
                         ?>
-                        {{ number_format( $payDeposit,2)  }}
+                        @if($payDeposit == 0)
+                                {{ number_format( $order->total_price_discounted ,2)  }}
+                        @else
+                                {{ number_format( $payDeposit,2)  }}
+                        @endif
                     </td>
                     <td>{{ date('เวลา H:i น.',strtotime($order->created_at)) }}</td>
                 </tr>

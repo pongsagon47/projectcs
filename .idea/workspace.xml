@@ -3,50 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="5c6a2d6e-3646-4e35-8ae8-587ec4080105" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/BackendEmp/CrudUser/EmployeeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/BackendEmp/CrudUser/EmployeeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/BackendEmp/CrudUser/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/BackendEmp/CrudUser/UserController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/BackendEmp/Merchant/BrownieDessertController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/BackendEmp/Merchant/BrownieDessertController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/BackendEmp/Merchant/CakeDessertController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/BackendEmp/Merchant/CakeDessertController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/BackendEmp/Merchant/CookieDessertController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/BackendEmp/Merchant/CookieDessertController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/BackendEmp/Merchant/DeliveryController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/BackendEmp/Merchant/DeliveryController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/BackendEmp/Merchant/OrderConfirmController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/BackendEmp/Merchant/OrderConfirmController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/BackendEmp/Merchant/OrderTodayController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/BackendEmp/Merchant/OrderTodayController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/BackendEmp/Merchant/ProductController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/BackendEmp/Merchant/ProductController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/BackendEmp/Merchant/RoleDessertController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/BackendEmp/Merchant/RoleDessertController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/BackendEmp/Merchant/ThaiDessertController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/BackendEmp/Merchant/ThaiDessertController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/BackendEmp/Report/ReportBrachStoreController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/BackendEmp/Report/ReportBrachStoreController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/BackendEmp/Report/ReportDessertSalesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/BackendEmp/Report/ReportDessertSalesController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/BackendEmp/Report/ReportProductionListController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/BackendEmp/Report/ReportProductionListController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/BackendEmp/Report/ReportSalesRevenueController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/BackendEmp/Report/ReportSalesRevenueController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/BackendUser/Merchant/OrderStatusController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/BackendUser/Merchant/OrderStatusController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/BackendUser/Merchant/ShopController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/BackendUser/Merchant/ShopController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/BackendUser/Report/ReportOrderController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/BackendUser/Report/ReportOrderController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2019_09_04_223719_create_orders_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_09_04_223719_create_orders_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/app.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/backend-admin/employees/profile-edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend-admin/employees/profile-edit.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/backend-admin/merchant/delivery/about_user.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend-admin/merchant/delivery/about_user.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/backend-admin/merchant/delivery/bill.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend-admin/merchant/delivery/bill.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/backend-admin/merchant/delivery/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend-admin/merchant/delivery/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/backend-admin/merchant/order-confirm/confirm.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend-admin/merchant/order-confirm/confirm.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/backend-admin/merchant/order-confirm/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend-admin/merchant/order-confirm/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/backend-admin/merchant/order-today/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend-admin/merchant/order-today/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/backend-admin/news/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend-admin/news/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/backend-admin/partials/sidebar_user.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend-admin/partials/sidebar_user.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/backend-admin/report/branch-store-sales/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend-admin/report/branch-store-sales/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/backend-admin/report/dessert-production-list/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend-admin/report/dessert-production-list/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/backend-admin/report/dessert-sales/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend-admin/report/dessert-sales/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/backend-admin/report/sales-revenue/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend-admin/report/sales-revenue/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/backend-user/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend-user/home.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/backend-user/partials/sidebar_user.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend-user/partials/sidebar_user.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/backend-user/report/report-order/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend-user/report/report-order/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/backend-user/shop/status-order/bill.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend-user/shop/status-order/bill.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/backend-user/shop/status-order/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend-user/shop/status-order/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/employee/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/employee/login.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/frontend/test.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/welcome.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/admin.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/user.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/user.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/backend-admin/merchant/order-today/proof.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend-admin/merchant/order-today/proof.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/backend-user/shop/paypal/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/backend-user/shop/paypal/index.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -433,7 +391,9 @@
       <workItem from="1583132782940" duration="917000" />
       <workItem from="1583314669005" duration="321000" />
       <workItem from="1583390892872" duration="174000" />
-      <workItem from="1583399394126" duration="327000" />
+      <workItem from="1583399394126" duration="1071000" />
+      <workItem from="1583479745519" duration="686000" />
+      <workItem from="1583481499817" duration="860000" />
     </task>
     <servers />
   </component>
@@ -495,9 +455,9 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="279" y="58" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1582035879379" />
-    <state x="477" y="240" key="com.intellij.ide.util.TipDialog" timestamp="1583399394555">
+    <state x="477" y="240" key="com.intellij.ide.util.TipDialog" timestamp="1583481499838">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="477" y="240" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1583399394555" />
+    <state x="477" y="240" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1583481499838" />
   </component>
 </project>

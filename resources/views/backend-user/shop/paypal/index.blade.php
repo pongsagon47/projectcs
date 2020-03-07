@@ -60,7 +60,7 @@
                                 <th scope="row">{{ $order->id }}</th>
                                 <td>{{ $order->user->shop_name }}</td>
                                 <td>{{ number_format( $order->total_price_discounted,2) }}</td>
-                                <td>{{ $order->deposit }} %</td>
+                                <td>{{ $order->deposit==null?"ไม่มีค่ามัดจำ":$order->deposit." %" }}</td>
                                 <td>
                                     <?php
                                     $resultDivide = $order->total_price_discounted / 100;
@@ -69,7 +69,15 @@
                                     ?>
                                     {{ number_format( $payDeposit,2)  }}
                                 </td>
-                                @if($order->payment_status == 2)
+                                @if($order->payment_status == 0)
+                                    <td width="180"><span class="badge badge-pill  badge-warning" style="color: white;font-size: 13px" >ยังไม่ชำระเงิน</span></td>
+                                @elseif($order->payment_status == 1)
+                                    <td width="180"><span class="badge badge-pill  badge-info" style="color: white;font-size: 13px" >ตรวจสอบการชำระเงินค่ามัดจำ</span></td>
+                                @elseif($order->payment_status == 2)
+                                    <td width="180"><span class="badge badge-pill  badge-success" style="color: white;font-size: 13px" >ชำระค่ามัดจำเรียบร้อย</span></td>
+                                @elseif($order->payment_status == 3)
+                                    <td width="180"><span class="badge badge-pill  badge-info" style="color: white;font-size: 13px" >ตรวจสอบการชำระเงินรายกาาสั้งซื้อ</span></td>
+                                @elseif($order->payment_status == 4)
                                     <td width="180"><span class="badge badge-pill  badge-success" style="color: white;font-size: 13px" >ชำระรายการสั่งซื้อเรียบร้อย</span></td>
                                 @endif
                                 <td>
@@ -100,7 +108,7 @@
                         </div>
                         @endif
                         <div class="form-check form-check-inline" >
-                            <input class="form-check-input" type="radio" name="payment_status" id="inlineRadio2" value="3" {{ $order->payment_status == 2?"checked":"" }} >
+                            <input class="form-check-input" type="radio" name="payment_status" id="inlineRadio2" value="3" {{$order->order_status == 2||$order->payment_status == 0?"checked":""}} {{ $order->payment_status == 2?"checked":"" }} >
                             <label class="form-check-label" for="inlineRadio2">ชำระเงินทั้งหมด</label>
                         </div>
 
@@ -130,7 +138,7 @@
 
                     </div>
                     <div style="margin-top: 40px";>
-                        <input type="submit" value="ชำระเงินค่ามัดจำ" class="btn btn-primary  btn-block">
+                        <input type="submit" value="ยืนยันการชำระเงิน" class="btn btn-primary  btn-block">
                     </div>
                     {{method_field('PUT')}}
                 </form>
